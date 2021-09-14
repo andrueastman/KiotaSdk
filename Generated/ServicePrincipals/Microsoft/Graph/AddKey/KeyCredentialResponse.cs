@@ -1,0 +1,40 @@
+using Microsoft.Kiota.Abstractions.Serialization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace GraphServiceClient.ServicePrincipals.Microsoft.Graph.AddKey {
+    public class KeyCredentialResponse : IParsable {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        public KeyCredential KeyCredential { get; set; }
+        public PasswordCredential PasswordCredential { get; set; }
+        public string Proof { get; set; }
+        /// <summary>
+        /// Instantiates a new KeyCredentialResponse and sets the default values.
+        /// </summary>
+        public KeyCredentialResponse() {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
+        /// The deserialization information for the current model
+        /// </summary>
+        public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
+            return new Dictionary<string, Action<T, IParseNode>> {
+                {"keyCredential", (o,n) => { (o as KeyCredentialResponse).KeyCredential = n.GetObjectValue<KeyCredential>(); } },
+                {"passwordCredential", (o,n) => { (o as KeyCredentialResponse).PasswordCredential = n.GetObjectValue<PasswordCredential>(); } },
+                {"proof", (o,n) => { (o as KeyCredentialResponse).Proof = n.GetStringValue(); } },
+            };
+        }
+        /// <summary>
+        /// Serializes information the current object
+        /// <param name="writer">Serialization writer to use to serialize this model</param>
+        /// </summary>
+        public void Serialize(ISerializationWriter writer) {
+            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<KeyCredential>("keyCredential", KeyCredential);
+            writer.WriteObjectValue<PasswordCredential>("passwordCredential", PasswordCredential);
+            writer.WriteStringValue("proof", Proof);
+            writer.WriteAdditionalData(AdditionalData);
+        }
+    }
+}
