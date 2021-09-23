@@ -1,8 +1,7 @@
 using GraphServiceClient.Agreements.File;
-using GraphServiceClient.Drive;
-using GraphServiceClient.Drive.Root;
-using GraphServiceClient.Sites.Analytics;
-using GraphServiceClient.Users.ContactFolders.Contacts.Photo;
+using GraphServiceClient.Drive.List.Items.Analytics;
+using GraphServiceClient.Drives.Root;
+using GraphServiceClient.Groups.Photo;
 using GraphServiceClient.Workbooks.Workbook;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

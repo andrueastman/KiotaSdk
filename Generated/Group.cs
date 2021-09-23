@@ -1,5 +1,4 @@
 using GraphServiceClient.Drive;
-using GraphServiceClient.Groups.Calendar;
 using GraphServiceClient.Groups.Planner;
 using GraphServiceClient.Sites.Onenote;
 using Microsoft.Kiota.Abstractions.Serialization;

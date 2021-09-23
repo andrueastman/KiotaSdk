@@ -1,3 +1,4 @@
+using GraphServiceClient.Reports.DailyPrintUsageByPrinter;
 using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

@@ -1,5 +1,5 @@
 using GraphServiceClient.Identity;
-using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter;
+using GraphServiceClient.Reports.DailyPrintUsageByPrinter;
 using GraphServiceClient.Reports.MonthlyPrintUsageByUser;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

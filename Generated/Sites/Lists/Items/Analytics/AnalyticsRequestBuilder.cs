@@ -1,4 +1,4 @@
-using GraphServiceClient.Sites.Analytics;
+using GraphServiceClient.Drive.List.Items.Analytics;
 using GraphServiceClient.Sites.Lists.Items.Analytics.$ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

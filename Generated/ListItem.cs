@@ -1,6 +1,5 @@
-using GraphServiceClient.Drive;
+using GraphServiceClient.Drive.List.Items.Analytics;
 using GraphServiceClient.Drive.List.Items.Fields;
-using GraphServiceClient.Sites.Analytics;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-using GraphServiceClient.Users.ContactFolders.Contacts.Photo;
+using GraphServiceClient.Groups.Photo;
 using GraphServiceClient.Users.Photo.Content;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

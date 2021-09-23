@@ -1,3 +1,4 @@
+using GraphServiceClient.Me.InferenceClassification;
 using GraphServiceClient.Users.InferenceClassification.Overrides;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

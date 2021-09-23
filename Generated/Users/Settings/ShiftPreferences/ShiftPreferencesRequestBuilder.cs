@@ -1,3 +1,4 @@
+using GraphServiceClient.Me.Settings.ShiftPreferences;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

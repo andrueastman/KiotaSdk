@@ -1,4 +1,3 @@
-using GraphServiceClient.Groups.Calendar;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

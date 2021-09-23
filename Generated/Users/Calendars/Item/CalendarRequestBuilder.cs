@@ -1,4 +1,3 @@
-using GraphServiceClient.Groups.Calendar;
 using GraphServiceClient.Users.Calendars.CalendarPermissions;
 using GraphServiceClient.Users.Calendars.CalendarView;
 using GraphServiceClient.Users.Calendars.Events;

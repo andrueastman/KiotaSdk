@@ -1,6 +1,6 @@
 using GraphServiceClient.Drive;
-using GraphServiceClient.Drive.Root;
-using GraphServiceClient.Sites.Analytics;
+using GraphServiceClient.Drive.List.Items.Analytics;
+using GraphServiceClient.Drives.Root;
 using GraphServiceClient.Sites.Onenote;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

@@ -1,6 +1,3 @@
-using GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.ParentSectionGroup.ParentNotebook;
-using GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.ParentSectionGroup.SectionGroups;
-using GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.ParentSectionGroup.Sections;
 using GraphServiceClient.Sites.Onenote.Notebooks.SectionGroups.ParentSectionGroup;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -9,8 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.ParentSectionGroup {
-    /// <summary>Builds and executes requests for operations under \groups\{group-id}\onenote\pages\{onenotePage-id}\parentNotebook\sections\{onenoteSection-id}\parentSectionGroup</summary>
+namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.ParentSectionGroup.ParentSectionGroup {
+    /// <summary>Builds and executes requests for operations under \groups\{group-id}\onenote\pages\{onenotePage-id}\parentNotebook\sections\{onenoteSection-id}\parentSectionGroup\parentSectionGroup</summary>
     public class ParentSectionGroupRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
@@ -18,20 +15,8 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public ParentNotebookRequestBuilder ParentNotebook { get =>
-            new ParentNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public ParentSectionGroupRequestBuilder ParentSectionGroup { get =>
-            new ParentSectionGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        public SectionGroupsRequestBuilder SectionGroups { get =>
-            new SectionGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public SectionsRequestBuilder Sections { get =>
-            new SectionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>
         /// Instantiates a new ParentSectionGroupRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -47,7 +32,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
@@ -61,7 +46,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             return requestInfo;
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
@@ -81,7 +66,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             return requestInfo;
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
@@ -98,7 +83,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             return requestInfo;
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -108,7 +93,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
@@ -119,7 +104,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             return await HttpCore.SendAsync<SectionGroup>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The section group that contains the section.  Read-only.
+        /// The section group that contains the section group. Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
@@ -130,7 +115,7 @@ namespace GraphServiceClient.Groups.Onenote.Pages.ParentNotebook.Sections.Parent
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>The section group that contains the section.  Read-only.</summary>
+        /// <summary>The section group that contains the section group. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

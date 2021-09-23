@@ -1,7 +1,6 @@
 using GraphServiceClient.Me.Insights.Shared;
 using GraphServiceClient.Me.Insights.Trending;
 using GraphServiceClient.Me.Insights.Used;
-using GraphServiceClient.Users.Insights;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

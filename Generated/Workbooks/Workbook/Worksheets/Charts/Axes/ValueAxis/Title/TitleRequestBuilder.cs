@@ -1,6 +1,6 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.CategoryAxis.Title;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Title;
+using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.SeriesAxis.Title;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.ValueAxis.Title.Format;
+using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Title;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

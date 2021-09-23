@@ -1,4 +1,3 @@
-using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis.MajorGridlines.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis.MinorGridlines.Format.Line;
 using Microsoft.Kiota.Abstractions;

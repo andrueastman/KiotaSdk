@@ -1,5 +1,5 @@
 using GraphServiceClient.Identity;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Series.Points.Format;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Series.Points.Format;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

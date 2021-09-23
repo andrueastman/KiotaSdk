@@ -1,5 +1,4 @@
 using GraphServiceClient.Me.Todo.Lists;
-using GraphServiceClient.Users.Todo;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

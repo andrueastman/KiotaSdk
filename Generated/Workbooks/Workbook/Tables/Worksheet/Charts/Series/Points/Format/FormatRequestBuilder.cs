@@ -1,3 +1,4 @@
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Series.Points.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Series.Points.Format.Fill;
 using Microsoft.Kiota.Abstractions;

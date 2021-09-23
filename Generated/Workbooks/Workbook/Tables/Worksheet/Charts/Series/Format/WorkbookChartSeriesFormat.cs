@@ -1,6 +1,6 @@
 using GraphServiceClient.Identity;
-using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis.Format.Line;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format.Fill;
+using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis.Format.Line;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

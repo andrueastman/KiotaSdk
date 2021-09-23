@@ -1,5 +1,4 @@
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Series.Format;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Series.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Series.Format.Line;
 using Microsoft.Kiota.Abstractions;

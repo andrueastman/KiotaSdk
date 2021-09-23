@@ -1,4 +1,3 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format.Font;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis.Format.Font;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

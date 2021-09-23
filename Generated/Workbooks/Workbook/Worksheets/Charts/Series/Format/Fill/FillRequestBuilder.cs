@@ -1,3 +1,4 @@
+using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Series.Format.Fill.Microsoft.Graph.Clear;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Series.Format.Fill.Microsoft.Graph.SetSolidColor;

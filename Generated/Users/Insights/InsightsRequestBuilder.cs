@@ -1,3 +1,4 @@
+using GraphServiceClient.Me.Insights;
 using GraphServiceClient.Users.Insights.Shared;
 using GraphServiceClient.Users.Insights.Trending;
 using GraphServiceClient.Users.Insights.Used;

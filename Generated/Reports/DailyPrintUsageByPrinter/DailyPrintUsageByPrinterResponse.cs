@@ -1,4 +1,3 @@
-using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

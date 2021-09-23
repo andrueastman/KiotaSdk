@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 namespace GraphServiceClient {
     public class ColumnDefinition : Entity, IParsable {
-        /// <summary>Specifies whether the column values can be modified.</summary>
-        public bool? @ReadOnly { get; set; }
         /// <summary>This column stores boolean values.</summary>
         public BooleanColumn Boolean { get; set; }
         /// <summary>This column's data is calculated based on other columns.</summary>
@@ -41,6 +39,8 @@ namespace GraphServiceClient {
         public NumberColumn Number { get; set; }
         /// <summary>This column stores Person or Group values.</summary>
         public PersonOrGroupColumn PersonOrGroup { get; set; }
+        /// <summary>Specifies whether the column values can be modified.</summary>
+        public bool? ReadOnly { get; set; }
         /// <summary>Specifies whether the column value is not optional.</summary>
         public bool? Required { get; set; }
         /// <summary>This column stores text values.</summary>
@@ -50,7 +50,6 @@ namespace GraphServiceClient {
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"@ReadOnly", (o,n) => { (o as ColumnDefinition).@ReadOnly = n.GetBoolValue(); } },
                 {"boolean", (o,n) => { (o as ColumnDefinition).Boolean = n.GetObjectValue<BooleanColumn>(); } },
                 {"calculated", (o,n) => { (o as ColumnDefinition).Calculated = n.GetObjectValue<CalculatedColumn>(); } },
                 {"choice", (o,n) => { (o as ColumnDefinition).Choice = n.GetObjectValue<ChoiceColumn>(); } },
@@ -68,6 +67,7 @@ namespace GraphServiceClient {
                 {"name", (o,n) => { (o as ColumnDefinition).Name = n.GetStringValue(); } },
                 {"number", (o,n) => { (o as ColumnDefinition).Number = n.GetObjectValue<NumberColumn>(); } },
                 {"personOrGroup", (o,n) => { (o as ColumnDefinition).PersonOrGroup = n.GetObjectValue<PersonOrGroupColumn>(); } },
+                {"readOnly", (o,n) => { (o as ColumnDefinition).ReadOnly = n.GetBoolValue(); } },
                 {"required", (o,n) => { (o as ColumnDefinition).Required = n.GetBoolValue(); } },
                 {"text", (o,n) => { (o as ColumnDefinition).Text = n.GetObjectValue<TextColumn>(); } },
             };
@@ -79,7 +79,6 @@ namespace GraphServiceClient {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteBoolValue("@ReadOnly", @ReadOnly);
             writer.WriteObjectValue<BooleanColumn>("boolean", Boolean);
             writer.WriteObjectValue<CalculatedColumn>("calculated", Calculated);
             writer.WriteObjectValue<ChoiceColumn>("choice", Choice);
@@ -97,6 +96,7 @@ namespace GraphServiceClient {
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<NumberColumn>("number", Number);
             writer.WriteObjectValue<PersonOrGroupColumn>("personOrGroup", PersonOrGroup);
+            writer.WriteBoolValue("readOnly", ReadOnly);
             writer.WriteBoolValue("required", Required);
             writer.WriteObjectValue<TextColumn>("text", Text);
         }

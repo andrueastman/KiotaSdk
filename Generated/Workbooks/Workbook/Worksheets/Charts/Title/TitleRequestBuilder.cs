@@ -1,4 +1,3 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Title;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Title.Format;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
