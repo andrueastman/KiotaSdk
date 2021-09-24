@@ -1,4 +1,3 @@
-using GraphServiceClient.Me;
 using GraphServiceClient.Users.Activities;
 using GraphServiceClient.Users.AgreementAcceptances;
 using GraphServiceClient.Users.AppRoleAssignments;

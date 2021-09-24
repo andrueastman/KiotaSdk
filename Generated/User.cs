@@ -1,13 +1,14 @@
 using GraphServiceClient.Drive;
+using GraphServiceClient.Groups.Calendar;
+using GraphServiceClient.Groups.Onenote;
 using GraphServiceClient.Me.Authentication;
 using GraphServiceClient.Me.InferenceClassification;
 using GraphServiceClient.Me.Insights;
+using GraphServiceClient.Me.Outlook;
 using GraphServiceClient.Me.Planner;
 using GraphServiceClient.Me.Settings;
 using GraphServiceClient.Me.Teamwork;
 using GraphServiceClient.Me.Todo;
-using GraphServiceClient.Sites.Onenote;
-using GraphServiceClient.Users.Outlook;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

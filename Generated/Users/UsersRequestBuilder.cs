@@ -1,4 +1,3 @@
-using GraphServiceClient.Me;
 using GraphServiceClient.Users.Item;
 using GraphServiceClient.Users.Microsoft.Graph.GetAvailableExtensionProperties;
 using GraphServiceClient.Users.Microsoft.Graph.GetByIds;

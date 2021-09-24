@@ -1,8 +1,9 @@
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.ValueAxis;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.ValueAxis.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.ValueAxis.MajorGridlines;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.ValueAxis.MinorGridlines;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.ValueAxis.Title;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

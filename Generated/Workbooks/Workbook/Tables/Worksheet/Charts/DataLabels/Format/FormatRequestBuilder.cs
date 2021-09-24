@@ -1,6 +1,7 @@
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis.Format;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.DataLabels.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels.Format.Font;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

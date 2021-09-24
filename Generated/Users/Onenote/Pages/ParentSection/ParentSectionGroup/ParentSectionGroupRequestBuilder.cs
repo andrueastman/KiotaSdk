@@ -1,4 +1,4 @@
-using GraphServiceClient.Sites.Onenote.Notebooks.SectionGroups.ParentSectionGroup;
+using GraphServiceClient.Groups.Onenote.Notebooks.SectionGroups.ParentSectionGroup;
 using GraphServiceClient.Users.Onenote.Pages.ParentSection.ParentSectionGroup.ParentNotebook;
 using GraphServiceClient.Users.Onenote.Pages.ParentSection.ParentSectionGroup.SectionGroups;
 using GraphServiceClient.Users.Onenote.Pages.ParentSection.ParentSectionGroup.Sections;

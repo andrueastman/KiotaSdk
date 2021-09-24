@@ -1,5 +1,4 @@
 using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.DataLabels.Format;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

@@ -1,3 +1,4 @@
+using GraphServiceClient.Me.Outlook;
 using GraphServiceClient.Users.Outlook.MasterCategories;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

@@ -1,5 +1,4 @@
 using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis.Format.Line.Microsoft.Graph.Clear;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis.Format.Line;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

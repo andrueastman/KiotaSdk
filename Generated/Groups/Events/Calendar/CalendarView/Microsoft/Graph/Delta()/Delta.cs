@@ -1,4 +1,5 @@
 using GraphServiceClient.Chats;
+using GraphServiceClient.Groups.Calendar;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

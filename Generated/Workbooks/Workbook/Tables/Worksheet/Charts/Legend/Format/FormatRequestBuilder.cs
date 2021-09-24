@@ -1,4 +1,5 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis.Format;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Legend.Format;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Legend.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Legend.Format.Font;
 using Microsoft.Kiota.Abstractions;

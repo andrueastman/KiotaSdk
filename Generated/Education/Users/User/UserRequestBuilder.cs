@@ -1,5 +1,4 @@
 using GraphServiceClient.Education.Users.User.$ref;
-using GraphServiceClient.Me;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

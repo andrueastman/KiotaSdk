@@ -3,7 +3,6 @@ using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Names;
 using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.PivotTables;
 using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Protection;
 using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Tables;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

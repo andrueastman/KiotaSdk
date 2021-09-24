@@ -4,7 +4,6 @@ using GraphServiceClient.Groups.Onenote.Pages;
 using GraphServiceClient.Groups.Onenote.Resources;
 using GraphServiceClient.Groups.Onenote.SectionGroups;
 using GraphServiceClient.Groups.Onenote.Sections;
-using GraphServiceClient.Sites.Onenote;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

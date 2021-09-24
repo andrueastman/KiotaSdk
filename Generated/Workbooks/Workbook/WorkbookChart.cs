@@ -1,10 +1,10 @@
 using GraphServiceClient.Identity;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Legend;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.DataLabels;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Format;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Legend;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Title;
 using GraphServiceClient.Workbooks.Workbook.Worksheets;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Title;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

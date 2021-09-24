@@ -1,5 +1,4 @@
 using GraphServiceClient.Identity;
-using GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests.UserConsentRequests.Approval;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

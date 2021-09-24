@@ -1,7 +1,7 @@
+using GraphServiceClient.Groups.Onenote.Notebooks.SectionGroups.ParentNotebook;
 using GraphServiceClient.Groups.Onenote.Sections.ParentNotebook.Microsoft.Graph.CopyNotebook;
 using GraphServiceClient.Groups.Onenote.Sections.ParentNotebook.SectionGroups;
 using GraphServiceClient.Groups.Onenote.Sections.ParentNotebook.Sections;
-using GraphServiceClient.Sites.Onenote.Notebooks.SectionGroups.ParentNotebook;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

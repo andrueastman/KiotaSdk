@@ -1,5 +1,4 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.DataLabels.Format.Fill;
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Format.Fill;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Format.Fill;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Title.Format.Fill.Microsoft.Graph.Clear;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Title.Format.Fill.Microsoft.Graph.SetSolidColor;
 using Microsoft.Kiota.Abstractions;

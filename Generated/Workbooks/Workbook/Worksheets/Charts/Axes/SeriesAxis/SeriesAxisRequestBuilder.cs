@@ -1,5 +1,5 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.SeriesAxis;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.CategoryAxis;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes.SeriesAxis;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.SeriesAxis.Format;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.SeriesAxis.MajorGridlines;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.SeriesAxis.MinorGridlines;

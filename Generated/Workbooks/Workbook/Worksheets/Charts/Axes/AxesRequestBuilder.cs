@@ -1,3 +1,4 @@
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.CategoryAxis;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.SeriesAxis;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes.ValueAxis;

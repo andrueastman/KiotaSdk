@@ -1,3 +1,4 @@
+using GraphServiceClient.Groups.Onenote;
 using GraphServiceClient.Sites.Onenote.Notebooks;
 using GraphServiceClient.Sites.Onenote.Operations;
 using GraphServiceClient.Sites.Onenote.Pages;

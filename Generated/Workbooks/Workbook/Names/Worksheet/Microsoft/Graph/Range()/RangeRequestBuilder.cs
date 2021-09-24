@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Microsoft.Graph.Range() {
-    /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.range()</summary>
+namespace GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Names.Microsoft.Graph.Range() {
+    /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\names\{workbookNamedItem-id1}\microsoft.graph.range()</summary>
     public class Microsoft.graph.rangeRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }

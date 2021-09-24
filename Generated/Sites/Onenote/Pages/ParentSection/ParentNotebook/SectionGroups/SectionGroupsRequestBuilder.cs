@@ -1,4 +1,4 @@
-using GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.SectionGroups.SectionGroups.Item;
+using GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.SectionGroups.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.SectionGroups.SectionGroups {
-    /// <summary>Builds and executes requests for operations under \sites\{site-id}\onenote\pages\{onenotePage-id}\parentSection\parentNotebook\sectionGroups\{sectionGroup-id}\sectionGroups</summary>
+namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.SectionGroups {
+    /// <summary>Builds and executes requests for operations under \sites\{site-id}\onenote\pages\{onenotePage-id}\parentSection\parentNotebook\sectionGroups</summary>
     public class SectionGroupsRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
@@ -17,7 +17,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.sites.onenote.pages.parentSection.parentNotebook.sectionGroups.sectionGroups collection</summary>
+        /// <summary>Gets an item from the GraphServiceClient.sites.onenote.pages.parentSection.parentNotebook.sectionGroups collection</summary>
         public SectionGroupRequestBuilder this[string position] { get {
             return new SectionGroupRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -36,7 +36,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
             IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// The section groups in the section. Read-only. Nullable.
+        /// The section groups in the notebook. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
@@ -56,7 +56,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
             return requestInfo;
         }
         /// <summary>
-        /// The section groups in the section. Read-only. Nullable.
+        /// The section groups in the notebook. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
@@ -73,7 +73,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
             return requestInfo;
         }
         /// <summary>
-        /// The section groups in the section. Read-only. Nullable.
+        /// The section groups in the notebook. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
             return await HttpCore.SendAsync<SectionGroupsResponse>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The section groups in the section. Read-only. Nullable.
+        /// The section groups in the notebook. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
@@ -95,7 +95,7 @@ namespace GraphServiceClient.Sites.Onenote.Pages.ParentSection.ParentNotebook.Se
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await HttpCore.SendAsync<SectionGroup>(requestInfo, responseHandler);
         }
-        /// <summary>The section groups in the section. Read-only. Nullable.</summary>
+        /// <summary>The section groups in the notebook. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -1,4 +1,3 @@
-using GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests.UserConsentRequests.Approval;
 using GraphServiceClient.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.Stages;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

@@ -1,7 +1,7 @@
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Axes;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.CategoryAxis;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.SeriesAxis;
 using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Axes.ValueAxis;
-using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Axes;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

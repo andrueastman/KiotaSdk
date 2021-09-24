@@ -1,4 +1,4 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

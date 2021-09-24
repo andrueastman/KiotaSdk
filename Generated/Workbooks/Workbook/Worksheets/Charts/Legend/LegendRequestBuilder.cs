@@ -1,4 +1,4 @@
-using GraphServiceClient.Workbooks.Workbook.Tables.Worksheet.Charts.Legend;
+using GraphServiceClient.Workbooks.Workbook.Names.Worksheet.Charts.Legend;
 using GraphServiceClient.Workbooks.Workbook.Worksheets.Charts.Legend.Format;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

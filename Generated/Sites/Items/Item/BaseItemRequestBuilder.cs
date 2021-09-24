@@ -1,3 +1,4 @@
+using GraphServiceClient.Drive;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

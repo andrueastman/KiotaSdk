@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 namespace GraphServiceClient {
     public class ContentType : Entity, IParsable {
+        /// <summary>If true, the content type cannot be modified unless this value is first set to false.</summary>
+        public bool? @ReadOnly { get; set; }
         /// <summary>If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.</summary>
         public bool? @Sealed { get; set; }
         /// <summary>The collection of columns that are required by this content type</summary>
@@ -24,13 +26,12 @@ namespace GraphServiceClient {
         public ContentTypeOrder Order { get; set; }
         /// <summary>The unique identifier of the content type.</summary>
         public string ParentId { get; set; }
-        /// <summary>If true, the content type cannot be modified unless this value is first set to false.</summary>
-        public bool? ReadOnly { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
+                {"@ReadOnly", (o,n) => { (o as ContentType).@ReadOnly = n.GetBoolValue(); } },
                 {"@Sealed", (o,n) => { (o as ContentType).@Sealed = n.GetBoolValue(); } },
                 {"columnLinks", (o,n) => { (o as ContentType).ColumnLinks = n.GetCollectionOfObjectValues<ColumnLink>().ToList(); } },
                 {"description", (o,n) => { (o as ContentType).Description = n.GetStringValue(); } },
@@ -40,7 +41,6 @@ namespace GraphServiceClient {
                 {"name", (o,n) => { (o as ContentType).Name = n.GetStringValue(); } },
                 {"order", (o,n) => { (o as ContentType).Order = n.GetObjectValue<ContentTypeOrder>(); } },
                 {"parentId", (o,n) => { (o as ContentType).ParentId = n.GetStringValue(); } },
-                {"readOnly", (o,n) => { (o as ContentType).ReadOnly = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -50,6 +50,7 @@ namespace GraphServiceClient {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteBoolValue("@ReadOnly", @ReadOnly);
             writer.WriteBoolValue("@Sealed", @Sealed);
             writer.WriteCollectionOfObjectValues<ColumnLink>("columnLinks", ColumnLinks);
             writer.WriteStringValue("description", Description);
@@ -59,7 +60,6 @@ namespace GraphServiceClient {
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<ContentTypeOrder>("order", Order);
             writer.WriteStringValue("parentId", ParentId);
-            writer.WriteBoolValue("readOnly", ReadOnly);
         }
     }
 }

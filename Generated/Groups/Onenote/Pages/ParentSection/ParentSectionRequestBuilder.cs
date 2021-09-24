@@ -3,7 +3,6 @@ using GraphServiceClient.Groups.Onenote.Pages.ParentSection.Microsoft.Graph.Copy
 using GraphServiceClient.Groups.Onenote.Pages.ParentSection.Pages;
 using GraphServiceClient.Groups.Onenote.Pages.ParentSection.ParentNotebook;
 using GraphServiceClient.Groups.Onenote.Pages.ParentSection.ParentSectionGroup;
-using GraphServiceClient.Sites.Onenote.Notebooks.SectionGroups.Sections.Pages.ParentSection;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
