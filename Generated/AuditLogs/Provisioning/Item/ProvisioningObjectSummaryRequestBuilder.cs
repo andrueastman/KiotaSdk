@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuditLogs.Provisioning.Item {
+namespace ApiSdk.AuditLogs.Provisioning.Item {
     /// <summary>Builds and executes requests for operations under \auditLogs\provisioning\{provisioningObjectSummary-id}</summary>
     public class ProvisioningObjectSummaryRequestBuilder {
         /// <summary>Current path for the request</summary>

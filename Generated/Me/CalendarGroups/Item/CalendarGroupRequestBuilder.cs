@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.CalendarGroups.Calendars;
+using ApiSdk.Me.CalendarGroups.Item.Calendars;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.CalendarGroups.Item {
+namespace ApiSdk.Me.CalendarGroups.Item {
     /// <summary>Builds and executes requests for operations under \me\calendarGroups\{calendarGroup-id}</summary>
     public class CalendarGroupRequestBuilder {
         public CalendarsRequestBuilder Calendars { get =>

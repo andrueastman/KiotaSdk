@@ -1,9 +1,9 @@
-using GraphServiceClient.Education.Me.Classes;
-using GraphServiceClient.Education.Me.Rubrics;
-using GraphServiceClient.Education.Me.Schools;
-using GraphServiceClient.Education.Me.TaughtClasses;
-using GraphServiceClient.Education.Me.User;
-using GraphServiceClient.Me;
+using ApiSdk.Education.Me.Classes;
+using ApiSdk.Education.Me.Rubrics;
+using ApiSdk.Education.Me.Schools;
+using ApiSdk.Education.Me.TaughtClasses;
+using ApiSdk.Education.Me.User;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Me {
+namespace ApiSdk.Education.Me {
     /// <summary>Builds and executes requests for operations under \education\me</summary>
     public class MeRequestBuilder {
         public ClassesRequestBuilder Classes { get =>
@@ -91,7 +91,7 @@ namespace GraphServiceClient.Education.Me {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Me body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(EducationUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -130,7 +130,7 @@ namespace GraphServiceClient.Education.Me {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Me body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(EducationUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

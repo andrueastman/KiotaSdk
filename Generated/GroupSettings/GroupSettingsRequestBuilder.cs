@@ -1,4 +1,5 @@
-using GraphServiceClient.GroupSettings.Item;
+using ApiSdk.GroupSettings.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.GroupSettings {
+namespace ApiSdk.GroupSettings {
     /// <summary>Builds and executes requests for operations under \groupSettings</summary>
     public class GroupSettingsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.GroupSettings {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.groupSettings collection</summary>
+        /// <summary>Gets an item from the ApiSdk.groupSettings.item collection</summary>
         public GroupSettingRequestBuilder this[string position] { get {
             return new GroupSettingRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

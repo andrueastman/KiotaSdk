@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Me.Activities {
+namespace ApiSdk.Me.Activities {
     public class ActivitiesResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<UserActivity> Value { get; set; }
         /// <summary>
-        /// Instantiates a new ActivitiesResponse and sets the default values.
+        /// Instantiates a new activitiesResponse and sets the default values.
         /// </summary>
         public ActivitiesResponse() {
             AdditionalData = new Dictionary<string, object>();

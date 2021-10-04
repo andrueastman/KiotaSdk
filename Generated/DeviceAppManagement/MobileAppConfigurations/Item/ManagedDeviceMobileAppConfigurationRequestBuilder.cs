@@ -1,9 +1,10 @@
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.Assignments;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.DeviceStatuses;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.DeviceStatusSummary;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.UserStatuses;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.UserStatusSummary;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.Assign;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.Assignments;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.DeviceStatuses;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.DeviceStatusSummary;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.UserStatuses;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item.UserStatusSummary;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -11,9 +12,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.Item {
+namespace ApiSdk.DeviceAppManagement.MobileAppConfigurations.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\mobileAppConfigurations\{managedDeviceMobileAppConfiguration-id}</summary>
     public class ManagedDeviceMobileAppConfigurationRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -29,9 +33,6 @@ namespace GraphServiceClient.DeviceAppManagement.MobileAppConfigurations.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public UserStatusesRequestBuilder UserStatuses { get =>

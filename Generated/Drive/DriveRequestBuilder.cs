@@ -1,8 +1,12 @@
-using GraphServiceClient.Drive.Following;
-using GraphServiceClient.Drive.Items;
-using GraphServiceClient.Drive.List;
-using GraphServiceClient.Drive.Root;
-using GraphServiceClient.Drive.Special;
+using ApiSdk.Drive.Following;
+using ApiSdk.Drive.Items;
+using ApiSdk.Drive.List;
+using ApiSdk.Drive.Recent;
+using ApiSdk.Drive.Root;
+using ApiSdk.Drive.SearchWithQ;
+using ApiSdk.Drive.SharedWithMe;
+using ApiSdk.Drive.Special;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive {
+namespace ApiSdk.Drive {
     /// <summary>Builds and executes requests for operations under \drive</summary>
     public class DriveRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -76,7 +80,7 @@ namespace GraphServiceClient.Drive {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -94,9 +98,9 @@ namespace GraphServiceClient.Drive {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Drive> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Drive> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Drive>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Drive>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update drive
@@ -105,10 +109,30 @@ namespace GraphServiceClient.Drive {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \drive\microsoft.graph.recent()
+        /// </summary>
+        public RecentRequestBuilder recent() {
+            return new RecentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \drive\microsoft.graph.search(q='{q}')
+        /// <param name="q">Usage: q={q}</param>
+        /// </summary>
+        public SearchWithQRequestBuilder searchWithQ(string q) {
+            if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
+            return new SearchWithQRequestBuilder(CurrentPath + PathSegment , HttpCore, q, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \drive\microsoft.graph.sharedWithMe()
+        /// </summary>
+        public SharedWithMeRequestBuilder sharedWithMe() {
+            return new SharedWithMeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Get drive</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,4 +1,5 @@
-using GraphServiceClient.AuditLogs.SignIns.Item;
+using ApiSdk.AuditLogs.SignIns.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuditLogs.SignIns {
+namespace ApiSdk.AuditLogs.SignIns {
     /// <summary>Builds and executes requests for operations under \auditLogs\signIns</summary>
     public class SignInsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.AuditLogs.SignIns {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.auditLogs.signIns collection</summary>
+        /// <summary>Gets an item from the ApiSdk.auditLogs.signIns.item collection</summary>
         public SignInRequestBuilder this[string position] { get {
             return new SignInRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

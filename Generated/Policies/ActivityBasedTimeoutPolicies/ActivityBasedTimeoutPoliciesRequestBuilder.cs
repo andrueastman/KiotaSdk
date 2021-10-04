@@ -1,4 +1,5 @@
-using GraphServiceClient.Policies.ActivityBasedTimeoutPolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.ActivityBasedTimeoutPolicies.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.ActivityBasedTimeoutPolicies {
+namespace ApiSdk.Policies.ActivityBasedTimeoutPolicies {
     /// <summary>Builds and executes requests for operations under \policies\activityBasedTimeoutPolicies</summary>
     public class ActivityBasedTimeoutPoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Policies.ActivityBasedTimeoutPolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.policies.activityBasedTimeoutPolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.policies.activityBasedTimeoutPolicies.item collection</summary>
         public ActivityBasedTimeoutPolicyRequestBuilder this[string position] { get {
             return new ActivityBasedTimeoutPolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

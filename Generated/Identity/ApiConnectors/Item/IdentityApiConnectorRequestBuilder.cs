@@ -1,4 +1,5 @@
-using GraphServiceClient.Identity.ApiConnectors.Microsoft.Graph.UploadClientCertificate;
+using ApiSdk.Identity.ApiConnectors.Item.UploadClientCertificate;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.ApiConnectors.Item {
+namespace ApiSdk.Identity.ApiConnectors.Item {
     /// <summary>Builds and executes requests for operations under \identity\apiConnectors\{identityApiConnector-id}</summary>
     public class IdentityApiConnectorRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -15,11 +16,11 @@ namespace GraphServiceClient.Identity.ApiConnectors.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.uploadClientCertificateRequestBuilder Microsoft.graph.uploadClientCertificate { get =>
-            new Microsoft.graph.uploadClientCertificateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public UploadClientCertificateRequestBuilder UploadClientCertificate { get =>
+            new UploadClientCertificateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new IdentityApiConnectorRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

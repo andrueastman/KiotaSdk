@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.External.Connections {
+namespace ApiSdk.External.Connections {
     public class ConnectionsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<ExternalConnection> Value { get; set; }
         /// <summary>
-        /// Instantiates a new ConnectionsResponse and sets the default values.
+        /// Instantiates a new connectionsResponse and sets the default values.
         /// </summary>
         public ConnectionsResponse() {
             AdditionalData = new Dictionary<string, object>();

@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.Activities.Item;
+using ApiSdk.Me.Activities.Item;
+using ApiSdk.Me.Activities.Recent;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Activities {
+namespace ApiSdk.Me.Activities {
     /// <summary>Builds and executes requests for operations under \me\activities</summary>
     public class ActivitiesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.Activities {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.activities collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.activities.item collection</summary>
         public UserActivityRequestBuilder this[string position] { get {
             return new UserActivityRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -94,6 +96,12 @@ namespace GraphServiceClient.Me.Activities {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await HttpCore.SendAsync<UserActivity>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\activities\microsoft.graph.recent()
+        /// </summary>
+        public RecentRequestBuilder recent() {
+            return new RecentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>The user's activities across devices. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

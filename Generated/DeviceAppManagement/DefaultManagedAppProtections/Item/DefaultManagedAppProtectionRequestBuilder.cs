@@ -1,5 +1,6 @@
-using GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections.Apps;
-using GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections.DeploymentSummary;
+using ApiSdk.DeviceAppManagement.DefaultManagedAppProtections.Item.Apps;
+using ApiSdk.DeviceAppManagement.DefaultManagedAppProtections.Item.DeploymentSummary;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections.Item {
+namespace ApiSdk.DeviceAppManagement.DefaultManagedAppProtections.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\defaultManagedAppProtections\{defaultManagedAppProtection-id}</summary>
     public class DefaultManagedAppProtectionRequestBuilder {
         public AppsRequestBuilder Apps { get =>

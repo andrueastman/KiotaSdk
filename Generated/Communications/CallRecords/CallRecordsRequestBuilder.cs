@@ -1,4 +1,5 @@
-using GraphServiceClient.Communications.CallRecords.Item;
+using ApiSdk.Communications.CallRecords.Item;
+using ApiSdk.Models.Microsoft.Graph.CallRecords;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Communications.CallRecords {
+namespace ApiSdk.Communications.CallRecords {
     /// <summary>Builds and executes requests for operations under \communications\callRecords</summary>
     public class CallRecordsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Communications.CallRecords {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.communications.callRecords collection</summary>
+        /// <summary>Gets an item from the ApiSdk.communications.callRecords.item collection</summary>
         public CallRecordRequestBuilder this[string position] { get {
             return new CallRecordRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

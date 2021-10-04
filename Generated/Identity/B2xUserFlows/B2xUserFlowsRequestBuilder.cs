@@ -1,4 +1,5 @@
-using GraphServiceClient.Identity.B2xUserFlows.Item;
+using ApiSdk.Identity.B2xUserFlows.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.B2xUserFlows {
+namespace ApiSdk.Identity.B2xUserFlows {
     /// <summary>Builds and executes requests for operations under \identity\b2xUserFlows</summary>
     public class B2xUserFlowsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Identity.B2xUserFlows {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identity.b2xUserFlows collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identity.b2xUserFlows.item collection</summary>
         public B2xIdentityUserFlowRequestBuilder this[string position] { get {
             return new B2xIdentityUserFlowRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

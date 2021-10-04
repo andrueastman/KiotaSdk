@@ -1,8 +1,9 @@
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.Restore;
+using ApiSdk.DirectoryObjects.Item.CheckMemberGroups;
+using ApiSdk.DirectoryObjects.Item.CheckMemberObjects;
+using ApiSdk.DirectoryObjects.Item.GetMemberGroups;
+using ApiSdk.DirectoryObjects.Item.GetMemberObjects;
+using ApiSdk.DirectoryObjects.Item.Restore;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,32 +11,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DirectoryObjects.Item {
+namespace ApiSdk.DirectoryObjects.Item {
     /// <summary>Builds and executes requests for operations under \directoryObjects\{directoryObject-id}</summary>
     public class DirectoryObjectRequestBuilder {
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new DirectoryObjectRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

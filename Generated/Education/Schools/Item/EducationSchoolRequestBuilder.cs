@@ -1,6 +1,7 @@
-using GraphServiceClient.Education.Schools.AdministrativeUnit;
-using GraphServiceClient.Education.Schools.Classes;
-using GraphServiceClient.Education.Schools.Users;
+using ApiSdk.Education.Schools.Item.AdministrativeUnit;
+using ApiSdk.Education.Schools.Item.Classes;
+using ApiSdk.Education.Schools.Item.Users;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Schools.Item {
+namespace ApiSdk.Education.Schools.Item {
     /// <summary>Builds and executes requests for operations under \education\schools\{educationSchool-id}</summary>
     public class EducationSchoolRequestBuilder {
         public AdministrativeUnitRequestBuilder AdministrativeUnit { get =>

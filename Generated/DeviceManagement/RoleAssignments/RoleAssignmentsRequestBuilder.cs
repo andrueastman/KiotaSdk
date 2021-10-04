@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.RoleAssignments.Item;
+using ApiSdk.DeviceManagement.RoleAssignments.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.RoleAssignments {
+namespace ApiSdk.DeviceManagement.RoleAssignments {
     /// <summary>Builds and executes requests for operations under \deviceManagement\roleAssignments</summary>
     public class RoleAssignmentsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.RoleAssignments {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.roleAssignments collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.roleAssignments.item collection</summary>
         public DeviceAndAppManagementRoleAssignmentRequestBuilder this[string position] { get {
             return new DeviceAndAppManagementRoleAssignmentRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

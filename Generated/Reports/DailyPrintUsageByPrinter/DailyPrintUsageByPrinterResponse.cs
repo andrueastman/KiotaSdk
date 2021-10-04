@@ -1,16 +1,17 @@
-using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Reports.DailyPrintUsageByPrinter {
+namespace ApiSdk.Reports.DailyPrintUsageByPrinter {
     public class DailyPrintUsageByPrinterResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<PrintUsageByPrinter> Value { get; set; }
         /// <summary>
-        /// Instantiates a new DailyPrintUsageByPrinterResponse and sets the default values.
+        /// Instantiates a new dailyPrintUsageByPrinterResponse and sets the default values.
         /// </summary>
         public DailyPrintUsageByPrinterResponse() {
             AdditionalData = new Dictionary<string, object>();

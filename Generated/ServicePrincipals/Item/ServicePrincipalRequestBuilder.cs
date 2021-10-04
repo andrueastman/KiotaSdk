@@ -1,26 +1,27 @@
-using GraphServiceClient.ServicePrincipals.AppRoleAssignedTo;
-using GraphServiceClient.ServicePrincipals.AppRoleAssignments;
-using GraphServiceClient.ServicePrincipals.ClaimsMappingPolicies;
-using GraphServiceClient.ServicePrincipals.CreatedObjects;
-using GraphServiceClient.ServicePrincipals.DelegatedPermissionClassifications;
-using GraphServiceClient.ServicePrincipals.Endpoints;
-using GraphServiceClient.ServicePrincipals.HomeRealmDiscoveryPolicies;
-using GraphServiceClient.ServicePrincipals.MemberOf;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.AddKey;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.AddPassword;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.RemoveKey;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.RemovePassword;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.Restore;
-using GraphServiceClient.ServicePrincipals.Oauth2PermissionGrants;
-using GraphServiceClient.ServicePrincipals.OwnedObjects;
-using GraphServiceClient.ServicePrincipals.Owners;
-using GraphServiceClient.ServicePrincipals.TokenIssuancePolicies;
-using GraphServiceClient.ServicePrincipals.TokenLifetimePolicies;
-using GraphServiceClient.ServicePrincipals.TransitiveMemberOf;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.ServicePrincipals.Item.AddKey;
+using ApiSdk.ServicePrincipals.Item.AddPassword;
+using ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo;
+using ApiSdk.ServicePrincipals.Item.AppRoleAssignments;
+using ApiSdk.ServicePrincipals.Item.CheckMemberGroups;
+using ApiSdk.ServicePrincipals.Item.CheckMemberObjects;
+using ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies;
+using ApiSdk.ServicePrincipals.Item.CreatedObjects;
+using ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications;
+using ApiSdk.ServicePrincipals.Item.Endpoints;
+using ApiSdk.ServicePrincipals.Item.GetMemberGroups;
+using ApiSdk.ServicePrincipals.Item.GetMemberObjects;
+using ApiSdk.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
+using ApiSdk.ServicePrincipals.Item.MemberOf;
+using ApiSdk.ServicePrincipals.Item.Oauth2PermissionGrants;
+using ApiSdk.ServicePrincipals.Item.OwnedObjects;
+using ApiSdk.ServicePrincipals.Item.Owners;
+using ApiSdk.ServicePrincipals.Item.RemoveKey;
+using ApiSdk.ServicePrincipals.Item.RemovePassword;
+using ApiSdk.ServicePrincipals.Item.Restore;
+using ApiSdk.ServicePrincipals.Item.TokenIssuancePolicies;
+using ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies;
+using ApiSdk.ServicePrincipals.Item.TransitiveMemberOf;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -28,14 +29,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.ServicePrincipals.Item {
+namespace ApiSdk.ServicePrincipals.Item {
     /// <summary>Builds and executes requests for operations under \servicePrincipals\{servicePrincipal-id}</summary>
     public class ServicePrincipalRequestBuilder {
+        public AddKeyRequestBuilder AddKey { get =>
+            new AddKeyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public AddPasswordRequestBuilder AddPassword { get =>
+            new AddPasswordRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AppRoleAssignedToRequestBuilder AppRoleAssignedTo { get =>
             new AppRoleAssignedToRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
             new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public ClaimsMappingPoliciesRequestBuilder ClaimsMappingPolicies { get =>
             new ClaimsMappingPoliciesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -51,6 +64,12 @@ namespace GraphServiceClient.ServicePrincipals.Item {
         public EndpointsRequestBuilder Endpoints { get =>
             new EndpointsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public HomeRealmDiscoveryPoliciesRequestBuilder HomeRealmDiscoveryPolicies { get =>
             new HomeRealmDiscoveryPoliciesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -60,33 +79,6 @@ namespace GraphServiceClient.ServicePrincipals.Item {
         private bool IsRawUrl { get; set; }
         public MemberOfRequestBuilder MemberOf { get =>
             new MemberOfRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.addKeyRequestBuilder Microsoft.graph.addKey { get =>
-            new Microsoft.graph.addKeyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.addPasswordRequestBuilder Microsoft.graph.addPassword { get =>
-            new Microsoft.graph.addPasswordRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.removeKeyRequestBuilder Microsoft.graph.removeKey { get =>
-            new Microsoft.graph.removeKeyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.removePasswordRequestBuilder Microsoft.graph.removePassword { get =>
-            new Microsoft.graph.removePasswordRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
             new Oauth2PermissionGrantsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -99,6 +91,15 @@ namespace GraphServiceClient.ServicePrincipals.Item {
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RemoveKeyRequestBuilder RemoveKey { get =>
+            new RemoveKeyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RemovePasswordRequestBuilder RemovePassword { get =>
+            new RemovePasswordRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
             new TokenIssuancePoliciesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }

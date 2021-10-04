@@ -1,6 +1,7 @@
-using GraphServiceClient.Connections.Items;
-using GraphServiceClient.Connections.Operations;
-using GraphServiceClient.Connections.Schema;
+using ApiSdk.Connections.Item.Items;
+using ApiSdk.Connections.Item.Operations;
+using ApiSdk.Connections.Item.Schema;
+using ApiSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Connections.Item {
+namespace ApiSdk.Connections.Item {
     /// <summary>Builds and executes requests for operations under \connections\{externalConnection-id}</summary>
     public class ExternalConnectionRequestBuilder {
         /// <summary>Current path for the request</summary>

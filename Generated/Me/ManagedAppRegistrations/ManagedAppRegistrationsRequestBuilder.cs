@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.ManagedAppRegistrations.$ref;
+using ApiSdk.Me.ManagedAppRegistrations.GetUserIdsWithFlaggedAppRegistration;
+using ApiSdk.Me.ManagedAppRegistrations.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,12 +7,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.ManagedAppRegistrations {
+namespace ApiSdk.Me.ManagedAppRegistrations {
     /// <summary>Builds and executes requests for operations under \me\managedAppRegistrations</summary>
     public class ManagedAppRegistrationsRequestBuilder {
-        public $refRequestBuilder $ref { get =>
-            new $refRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
@@ -20,6 +18,9 @@ namespace GraphServiceClient.Me.ManagedAppRegistrations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ManagedAppRegistrationsRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -64,6 +65,12 @@ namespace GraphServiceClient.Me.ManagedAppRegistrations {
         public async Task<ManagedAppRegistrationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await HttpCore.SendAsync<ManagedAppRegistrationsResponse>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\managedAppRegistrations\microsoft.graph.getUserIdsWithFlaggedAppRegistration()
+        /// </summary>
+        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder getUserIdsWithFlaggedAppRegistration() {
+            return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Zero or more managed app registrations that belong to the user.</summary>
         public class GetQueryParameters : QueryParametersBase {

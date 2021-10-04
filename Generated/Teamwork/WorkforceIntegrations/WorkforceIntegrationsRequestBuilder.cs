@@ -1,4 +1,5 @@
-using GraphServiceClient.Teamwork.WorkforceIntegrations.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Teamwork.WorkforceIntegrations.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Teamwork.WorkforceIntegrations {
+namespace ApiSdk.Teamwork.WorkforceIntegrations {
     /// <summary>Builds and executes requests for operations under \teamwork\workforceIntegrations</summary>
     public class WorkforceIntegrationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Teamwork.WorkforceIntegrations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.teamwork.workforceIntegrations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.teamwork.workforceIntegrations.item collection</summary>
         public WorkforceIntegrationRequestBuilder this[string position] { get {
             return new WorkforceIntegrationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

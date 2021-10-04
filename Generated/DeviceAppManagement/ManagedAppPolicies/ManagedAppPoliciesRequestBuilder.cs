@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Item;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppPolicies {
+namespace ApiSdk.DeviceAppManagement.ManagedAppPolicies {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedAppPolicies</summary>
     public class ManagedAppPoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedAppPolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.managedAppPolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.managedAppPolicies.item collection</summary>
         public ManagedAppPolicyRequestBuilder this[string position] { get {
             return new ManagedAppPolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

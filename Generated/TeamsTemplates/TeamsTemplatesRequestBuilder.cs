@@ -1,4 +1,5 @@
-using GraphServiceClient.TeamsTemplates.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.TeamsTemplates.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.TeamsTemplates {
+namespace ApiSdk.TeamsTemplates {
     /// <summary>Builds and executes requests for operations under \teamsTemplates</summary>
     public class TeamsTemplatesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.TeamsTemplates {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.teamsTemplates collection</summary>
+        /// <summary>Gets an item from the ApiSdk.teamsTemplates.item collection</summary>
         public TeamsTemplateRequestBuilder this[string position] { get {
             return new TeamsTemplateRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

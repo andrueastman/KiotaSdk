@@ -1,4 +1,5 @@
-using GraphServiceClient.Policies.TokenIssuancePolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.TokenIssuancePolicies.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.TokenIssuancePolicies {
+namespace ApiSdk.Policies.TokenIssuancePolicies {
     /// <summary>Builds and executes requests for operations under \policies\tokenIssuancePolicies</summary>
     public class TokenIssuancePoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Policies.TokenIssuancePolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.policies.tokenIssuancePolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.policies.tokenIssuancePolicies.item collection</summary>
         public TokenIssuancePolicyRequestBuilder this[string position] { get {
             return new TokenIssuancePolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections.Item;
+using ApiSdk.DeviceAppManagement.DefaultManagedAppProtections.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections {
+namespace ApiSdk.DeviceAppManagement.DefaultManagedAppProtections {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\defaultManagedAppProtections</summary>
     public class DefaultManagedAppProtectionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.defaultManagedAppProtections collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.defaultManagedAppProtections.item collection</summary>
         public DefaultManagedAppProtectionRequestBuilder this[string position] { get {
             return new DefaultManagedAppProtectionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

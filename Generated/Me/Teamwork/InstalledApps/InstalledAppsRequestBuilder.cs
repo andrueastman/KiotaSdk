@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Teamwork.InstalledApps.Item;
+using ApiSdk.Me.Teamwork.InstalledApps.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Teamwork.InstalledApps {
+namespace ApiSdk.Me.Teamwork.InstalledApps {
     /// <summary>Builds and executes requests for operations under \me\teamwork\installedApps</summary>
     public class InstalledAppsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Teamwork.InstalledApps {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.teamwork.installedApps collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.teamwork.installedApps.item collection</summary>
         public UserScopeTeamsAppInstallationRequestBuilder this[string position] { get {
             return new UserScopeTeamsAppInstallationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

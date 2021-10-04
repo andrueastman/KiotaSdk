@@ -1,6 +1,7 @@
-using GraphServiceClient.Planner.Buckets;
-using GraphServiceClient.Planner.Plans;
-using GraphServiceClient.Planner.Tasks;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Planner.Buckets;
+using ApiSdk.Planner.Plans;
+using ApiSdk.Planner.Tasks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Planner {
+namespace ApiSdk.Planner {
     /// <summary>Builds and executes requests for operations under \planner</summary>
     public class PlannerRequestBuilder {
         public BucketsRequestBuilder Buckets { get =>
@@ -68,7 +69,7 @@ namespace GraphServiceClient.Planner {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Planner body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Planner body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -86,9 +87,9 @@ namespace GraphServiceClient.Planner {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Planner> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Planner> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Planner>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Planner>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update planner
@@ -97,7 +98,7 @@ namespace GraphServiceClient.Planner {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Planner body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Planner body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

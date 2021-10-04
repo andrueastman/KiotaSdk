@@ -1,8 +1,9 @@
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Apps;
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Assignments;
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.DeploymentSummary;
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Microsoft.Graph.TargetApps;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Apps;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Assign;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Assignments;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.DeploymentSummary;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.TargetApps;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,11 +11,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Item {
+namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\targetedManagedAppConfigurations\{targetedManagedAppConfiguration-id}</summary>
     public class TargetedManagedAppConfigurationRequestBuilder {
         public AppsRequestBuilder Apps { get =>
             new AppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -28,14 +32,11 @@ namespace GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfiguration
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.targetAppsRequestBuilder Microsoft.graph.targetApps { get =>
-            new Microsoft.graph.targetAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public TargetAppsRequestBuilder TargetApps { get =>
+            new TargetAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new TargetedManagedAppConfigurationRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

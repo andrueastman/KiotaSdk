@@ -1,9 +1,10 @@
-using GraphServiceClient.Print.Connectors;
-using GraphServiceClient.Print.Operations;
-using GraphServiceClient.Print.Printers;
-using GraphServiceClient.Print.Services;
-using GraphServiceClient.Print.Shares;
-using GraphServiceClient.Print.TaskDefinitions;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Connectors;
+using ApiSdk.Print.Operations;
+using ApiSdk.Print.Printers;
+using ApiSdk.Print.Services;
+using ApiSdk.Print.Shares;
+using ApiSdk.Print.TaskDefinitions;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -11,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print {
+namespace ApiSdk.Print {
     /// <summary>Builds and executes requests for operations under \print</summary>
     public class PrintRequestBuilder {
         public ConnectorsRequestBuilder Connectors { get =>
@@ -80,7 +81,7 @@ namespace GraphServiceClient.Print {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Print body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Print body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -98,9 +99,9 @@ namespace GraphServiceClient.Print {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Print> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Print> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Print>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Print>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update print
@@ -109,7 +110,7 @@ namespace GraphServiceClient.Print {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Print body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Print body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

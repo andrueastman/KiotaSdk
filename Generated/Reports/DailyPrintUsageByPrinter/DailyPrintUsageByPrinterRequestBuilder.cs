@@ -1,5 +1,5 @@
-using GraphServiceClient.Reports.DailyPrintUsageByPrinter.Item;
-using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Reports.DailyPrintUsageByPrinter.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Reports.DailyPrintUsageByPrinter {
+namespace ApiSdk.Reports.DailyPrintUsageByPrinter {
     /// <summary>Builds and executes requests for operations under \reports\dailyPrintUsageByPrinter</summary>
     public class DailyPrintUsageByPrinterRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -18,7 +18,7 @@ namespace GraphServiceClient.Reports.DailyPrintUsageByPrinter {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.reports.dailyPrintUsageByPrinter collection</summary>
+        /// <summary>Gets an item from the ApiSdk.reports.dailyPrintUsageByPrinter.item collection</summary>
         public PrintUsageByPrinterRequestBuilder this[string position] { get {
             return new PrintUsageByPrinterRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

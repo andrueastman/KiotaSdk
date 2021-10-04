@@ -1,4 +1,5 @@
-using GraphServiceClient.Identity.UserFlowAttributes.Item;
+using ApiSdk.Identity.UserFlowAttributes.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.UserFlowAttributes {
+namespace ApiSdk.Identity.UserFlowAttributes {
     /// <summary>Builds and executes requests for operations under \identity\userFlowAttributes</summary>
     public class UserFlowAttributesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Identity.UserFlowAttributes {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identity.userFlowAttributes collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identity.userFlowAttributes.item collection</summary>
         public IdentityUserFlowAttributeRequestBuilder this[string position] { get {
             return new IdentityUserFlowAttributeRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

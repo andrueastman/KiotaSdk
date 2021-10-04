@@ -1,16 +1,17 @@
-using GraphServiceClient.Me.Calendar.Events.Attachments;
-using GraphServiceClient.Me.Calendar.Events.Calendar;
-using GraphServiceClient.Me.Calendar.Events.Extensions;
-using GraphServiceClient.Me.Calendar.Events.Instances;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.Accept;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.Cancel;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.Decline;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.DismissReminder;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.Forward;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.SnoozeReminder;
-using GraphServiceClient.Me.Calendar.Events.Microsoft.Graph.TentativelyAccept;
-using GraphServiceClient.Me.Calendar.Events.MultiValueExtendedProperties;
-using GraphServiceClient.Me.Calendar.Events.SingleValueExtendedProperties;
+using ApiSdk.Me.Calendar.Events.Item.Accept;
+using ApiSdk.Me.Calendar.Events.Item.Attachments;
+using ApiSdk.Me.Calendar.Events.Item.Calendar;
+using ApiSdk.Me.Calendar.Events.Item.Cancel;
+using ApiSdk.Me.Calendar.Events.Item.Decline;
+using ApiSdk.Me.Calendar.Events.Item.DismissReminder;
+using ApiSdk.Me.Calendar.Events.Item.Extensions;
+using ApiSdk.Me.Calendar.Events.Item.Forward;
+using ApiSdk.Me.Calendar.Events.Item.Instances;
+using ApiSdk.Me.Calendar.Events.Item.MultiValueExtendedProperties;
+using ApiSdk.Me.Calendar.Events.Item.SingleValueExtendedProperties;
+using ApiSdk.Me.Calendar.Events.Item.SnoozeReminder;
+using ApiSdk.Me.Calendar.Events.Item.TentativelyAccept;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,19 +19,34 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Calendar.Events.Item {
+namespace ApiSdk.Me.Calendar.Events.Item {
     /// <summary>Builds and executes requests for operations under \me\calendar\events\{event-id}</summary>
     public class EventRequestBuilder {
+        public AcceptRequestBuilder Accept { get =>
+            new AcceptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public CalendarRequestBuilder Calendar { get =>
             new CalendarRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public CancelRequestBuilder Cancel { get =>
+            new CancelRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public DeclineRequestBuilder Decline { get =>
+            new DeclineRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public DismissReminderRequestBuilder DismissReminder { get =>
+            new DismissReminderRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ForwardRequestBuilder Forward { get =>
+            new ForwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
@@ -39,27 +55,6 @@ namespace GraphServiceClient.Me.Calendar.Events.Item {
         }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.acceptRequestBuilder Microsoft.graph.accept { get =>
-            new Microsoft.graph.acceptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.cancelRequestBuilder Microsoft.graph.cancel { get =>
-            new Microsoft.graph.cancelRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.declineRequestBuilder Microsoft.graph.decline { get =>
-            new Microsoft.graph.declineRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.dismissReminderRequestBuilder Microsoft.graph.dismissReminder { get =>
-            new Microsoft.graph.dismissReminderRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.forwardRequestBuilder Microsoft.graph.forward { get =>
-            new Microsoft.graph.forwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.snoozeReminderRequestBuilder Microsoft.graph.snoozeReminder { get =>
-            new Microsoft.graph.snoozeReminderRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.tentativelyAcceptRequestBuilder Microsoft.graph.tentativelyAccept { get =>
-            new Microsoft.graph.tentativelyAcceptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
             new MultiValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -67,6 +62,12 @@ namespace GraphServiceClient.Me.Calendar.Events.Item {
         private string PathSegment { get; set; }
         public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
             new SingleValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SnoozeReminderRequestBuilder SnoozeReminder { get =>
+            new SnoozeReminderRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public TentativelyAcceptRequestBuilder TentativelyAccept { get =>
+            new TentativelyAcceptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Instantiates a new EventRequestBuilder and sets the default values.
@@ -122,7 +123,7 @@ namespace GraphServiceClient.Me.Calendar.Events.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -150,9 +151,9 @@ namespace GraphServiceClient.Me.Calendar.Events.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<@Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Event>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<@Event>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The events in the calendar. Navigation property. Read-only.
@@ -161,7 +162,7 @@ namespace GraphServiceClient.Me.Calendar.Events.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.JoinedTeams.Item;
+using ApiSdk.Me.JoinedTeams.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.JoinedTeams {
+namespace ApiSdk.Me.JoinedTeams {
     /// <summary>Builds and executes requests for operations under \me\joinedTeams</summary>
     public class JoinedTeamsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.JoinedTeams {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.joinedTeams collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.joinedTeams.item collection</summary>
         public TeamRequestBuilder this[string position] { get {
             return new TeamRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -61,7 +62,7 @@ namespace GraphServiceClient.Me.JoinedTeams {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -90,10 +91,10 @@ namespace GraphServiceClient.Me.JoinedTeams {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Team> PostAsync(Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Team> PostAsync(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Team>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler);
         }
         /// <summary>The Microsoft Teams teams that the user is a member of. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

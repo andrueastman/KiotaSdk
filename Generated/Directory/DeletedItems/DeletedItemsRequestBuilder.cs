@@ -1,4 +1,5 @@
-using GraphServiceClient.Directory.DeletedItems.Item;
+using ApiSdk.Directory.DeletedItems.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Directory.DeletedItems {
+namespace ApiSdk.Directory.DeletedItems {
     /// <summary>Builds and executes requests for operations under \directory\deletedItems</summary>
     public class DeletedItemsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Directory.DeletedItems {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.directory.deletedItems collection</summary>
+        /// <summary>Gets an item from the ApiSdk.directory.deletedItems.item collection</summary>
         public DirectoryObjectRequestBuilder this[string position] { get {
             return new DirectoryObjectRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

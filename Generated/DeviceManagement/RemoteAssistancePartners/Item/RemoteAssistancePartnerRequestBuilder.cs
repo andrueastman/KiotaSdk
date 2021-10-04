@@ -1,5 +1,6 @@
-using GraphServiceClient.DeviceManagement.RemoteAssistancePartners.Microsoft.Graph.BeginOnboarding;
-using GraphServiceClient.DeviceManagement.RemoteAssistancePartners.Microsoft.Graph.Disconnect;
+using ApiSdk.DeviceManagement.RemoteAssistancePartners.Item.BeginOnboarding;
+using ApiSdk.DeviceManagement.RemoteAssistancePartners.Item.Disconnect;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,21 +8,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.RemoteAssistancePartners.Item {
+namespace ApiSdk.DeviceManagement.RemoteAssistancePartners.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\remoteAssistancePartners\{remoteAssistancePartner-id}</summary>
     public class RemoteAssistancePartnerRequestBuilder {
+        public BeginOnboardingRequestBuilder BeginOnboarding { get =>
+            new BeginOnboardingRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public DisconnectRequestBuilder Disconnect { get =>
+            new DisconnectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.beginOnboardingRequestBuilder Microsoft.graph.beginOnboarding { get =>
-            new Microsoft.graph.beginOnboardingRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.disconnectRequestBuilder Microsoft.graph.disconnect { get =>
-            new Microsoft.graph.disconnectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         /// <summary>

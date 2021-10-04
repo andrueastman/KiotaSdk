@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.External.Connections.Item {
+namespace ApiSdk.External.Connections.Item {
     /// <summary>Builds and executes requests for operations under \external\connections\{externalConnection-id}</summary>
     public class ExternalConnectionRequestBuilder {
         /// <summary>Current path for the request</summary>

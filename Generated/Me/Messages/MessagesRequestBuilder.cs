@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.Messages.Item;
+using ApiSdk.Me.Messages.Delta;
+using ApiSdk.Me.Messages.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Messages {
+namespace ApiSdk.Me.Messages {
     /// <summary>Builds and executes requests for operations under \me\messages</summary>
     public class MessagesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.Messages {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.messages collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.messages.item collection</summary>
         public MessageRequestBuilder this[string position] { get {
             return new MessageRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.Messages {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\messages\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.

@@ -1,8 +1,9 @@
-using GraphServiceClient.Domains.DomainNameReferences;
-using GraphServiceClient.Domains.Microsoft.Graph.ForceDelete;
-using GraphServiceClient.Domains.Microsoft.Graph.Verify;
-using GraphServiceClient.Domains.ServiceConfigurationRecords;
-using GraphServiceClient.Domains.VerificationDnsRecords;
+using ApiSdk.Domains.Item.DomainNameReferences;
+using ApiSdk.Domains.Item.ForceDelete;
+using ApiSdk.Domains.Item.ServiceConfigurationRecords;
+using ApiSdk.Domains.Item.VerificationDnsRecords;
+using ApiSdk.Domains.Item.Verify;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Domains.Item {
+namespace ApiSdk.Domains.Item {
     /// <summary>Builds and executes requests for operations under \domains\{domain-id}</summary>
     public class DomainRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -18,16 +19,13 @@ namespace GraphServiceClient.Domains.Item {
         public DomainNameReferencesRequestBuilder DomainNameReferences { get =>
             new DomainNameReferencesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public ForceDeleteRequestBuilder ForceDelete { get =>
+            new ForceDeleteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.forceDeleteRequestBuilder Microsoft.graph.forceDelete { get =>
-            new Microsoft.graph.forceDeleteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.verifyRequestBuilder Microsoft.graph.verify { get =>
-            new Microsoft.graph.verifyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public ServiceConfigurationRecordsRequestBuilder ServiceConfigurationRecords { get =>
@@ -35,6 +33,9 @@ namespace GraphServiceClient.Domains.Item {
         }
         public VerificationDnsRecordsRequestBuilder VerificationDnsRecords { get =>
             new VerificationDnsRecordsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public VerifyRequestBuilder Verify { get =>
+            new VerifyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Instantiates a new DomainRequestBuilder and sets the default values.

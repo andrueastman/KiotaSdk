@@ -1,4 +1,6 @@
-using GraphServiceClient.Oauth2PermissionGrants.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Oauth2PermissionGrants.Delta;
+using ApiSdk.Oauth2PermissionGrants.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Oauth2PermissionGrants {
+namespace ApiSdk.Oauth2PermissionGrants {
     /// <summary>Builds and executes requests for operations under \oauth2PermissionGrants</summary>
     public class Oauth2PermissionGrantsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Oauth2PermissionGrants {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.oauth2PermissionGrants collection</summary>
+        /// <summary>Gets an item from the ApiSdk.oauth2PermissionGrants.item collection</summary>
         public OAuth2PermissionGrantRequestBuilder this[string position] { get {
             return new OAuth2PermissionGrantRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Oauth2PermissionGrants {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \oauth2PermissionGrants\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Get entities from oauth2PermissionGrants

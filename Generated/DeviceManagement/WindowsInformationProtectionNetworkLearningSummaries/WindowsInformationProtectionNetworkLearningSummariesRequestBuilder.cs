@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries.Item;
+using ApiSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries {
+namespace ApiSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries {
     /// <summary>Builds and executes requests for operations under \deviceManagement\windowsInformationProtectionNetworkLearningSummaries</summary>
     public class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.WindowsInformationProtectionNetwor
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.windowsInformationProtectionNetworkLearningSummaries collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection</summary>
         public WindowsInformationProtectionNetworkLearningSummaryRequestBuilder this[string position] { get {
             return new WindowsInformationProtectionNetworkLearningSummaryRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

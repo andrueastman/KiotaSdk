@@ -1,13 +1,14 @@
-using GraphServiceClient.Devices.Extensions;
-using GraphServiceClient.Devices.MemberOf;
-using GraphServiceClient.Devices.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.Devices.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.Devices.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.Devices.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.Devices.Microsoft.Graph.Restore;
-using GraphServiceClient.Devices.RegisteredOwners;
-using GraphServiceClient.Devices.RegisteredUsers;
-using GraphServiceClient.Devices.TransitiveMemberOf;
+using ApiSdk.Devices.Item.CheckMemberGroups;
+using ApiSdk.Devices.Item.CheckMemberObjects;
+using ApiSdk.Devices.Item.Extensions;
+using ApiSdk.Devices.Item.GetMemberGroups;
+using ApiSdk.Devices.Item.GetMemberObjects;
+using ApiSdk.Devices.Item.MemberOf;
+using ApiSdk.Devices.Item.RegisteredOwners;
+using ApiSdk.Devices.Item.RegisteredUsers;
+using ApiSdk.Devices.Item.Restore;
+using ApiSdk.Devices.Item.TransitiveMemberOf;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,13 +16,25 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Devices.Item {
+namespace ApiSdk.Devices.Item {
     /// <summary>Builds and executes requests for operations under \devices\{device-id}</summary>
     public class DeviceRequestBuilder {
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
@@ -30,21 +43,6 @@ namespace GraphServiceClient.Devices.Item {
         public MemberOfRequestBuilder MemberOf { get =>
             new MemberOfRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public RegisteredOwnersRequestBuilder RegisteredOwners { get =>
@@ -52,6 +50,9 @@ namespace GraphServiceClient.Devices.Item {
         }
         public RegisteredUsersRequestBuilder RegisteredUsers { get =>
             new RegisteredUsersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
             new TransitiveMemberOfRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -110,7 +111,7 @@ namespace GraphServiceClient.Devices.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Device body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -138,9 +139,9 @@ namespace GraphServiceClient.Devices.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Device> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Device> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Device>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Device>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
@@ -149,7 +150,7 @@ namespace GraphServiceClient.Devices.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Device body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Device body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

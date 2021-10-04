@@ -1,4 +1,5 @@
-using GraphServiceClient.Invitations.Item;
+using ApiSdk.Invitations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Invitations {
+namespace ApiSdk.Invitations {
     /// <summary>Builds and executes requests for operations under \invitations</summary>
     public class InvitationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Invitations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.invitations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.invitations.item collection</summary>
         public InvitationRequestBuilder this[string position] { get {
             return new InvitationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

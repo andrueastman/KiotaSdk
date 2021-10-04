@@ -1,8 +1,9 @@
-using GraphServiceClient.Identity.ApiConnectors;
-using GraphServiceClient.Identity.B2xUserFlows;
-using GraphServiceClient.Identity.ConditionalAccess;
-using GraphServiceClient.Identity.IdentityProviders;
-using GraphServiceClient.Identity.UserFlowAttributes;
+using ApiSdk.Identity.ApiConnectors;
+using ApiSdk.Identity.B2xUserFlows;
+using ApiSdk.Identity.ConditionalAccess;
+using ApiSdk.Identity.IdentityProviders;
+using ApiSdk.Identity.UserFlowAttributes;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity {
+namespace ApiSdk.Identity {
     /// <summary>Builds and executes requests for operations under \identity</summary>
     public class IdentityRequestBuilder {
         public ApiConnectorsRequestBuilder ApiConnectors { get =>
@@ -76,7 +77,7 @@ namespace GraphServiceClient.Identity {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Identity body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(IdentityContainer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -105,7 +106,7 @@ namespace GraphServiceClient.Identity {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Identity body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(IdentityContainer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

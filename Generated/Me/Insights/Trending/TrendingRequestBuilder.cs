@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Insights.Trending {
+namespace ApiSdk.Me.Insights.Trending {
     /// <summary>Builds and executes requests for operations under \me\insights\trending</summary>
     public class TrendingRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -16,7 +17,7 @@ namespace GraphServiceClient.Me.Insights.Trending {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.insights.trending collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.insights.trending.item collection</summary>
         public TrendingRequestBuilder this[string position] { get {
             return new TrendingRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -60,7 +61,7 @@ namespace GraphServiceClient.Me.Insights.Trending {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Trending body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.Trending body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -89,10 +90,10 @@ namespace GraphServiceClient.Me.Insights.Trending {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Trending> PostAsync(Trending body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Trending> PostAsync(ApiSdk.Models.Microsoft.Graph.Trending body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Trending>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Trending>(requestInfo, responseHandler);
         }
         /// <summary>Access this property from the derived type itemInsights.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Drive.Special {
+namespace ApiSdk.Drive.Special {
     public class SpecialResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<DriveItem> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.DriveItem> Value { get; set; }
         /// <summary>
-        /// Instantiates a new SpecialResponse and sets the default values.
+        /// Instantiates a new specialResponse and sets the default values.
         /// </summary>
         public SpecialResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.Drive.Special {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as SpecialResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as SpecialResponse).Value = n.GetCollectionOfObjectValues<DriveItem>().ToList(); } },
+                {"value", (o,n) => { (o as SpecialResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.DriveItem>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.Drive.Special {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<DriveItem>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.DriveItem>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

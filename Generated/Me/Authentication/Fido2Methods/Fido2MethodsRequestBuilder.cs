@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Authentication.Fido2Methods.Item;
+using ApiSdk.Me.Authentication.Fido2Methods.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication.Fido2Methods {
+namespace ApiSdk.Me.Authentication.Fido2Methods {
     /// <summary>Builds and executes requests for operations under \me\authentication\fido2Methods</summary>
     public class Fido2MethodsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Authentication.Fido2Methods {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.authentication.fido2Methods collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.authentication.fido2Methods.item collection</summary>
         public Fido2AuthenticationMethodRequestBuilder this[string position] { get {
             return new Fido2AuthenticationMethodRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

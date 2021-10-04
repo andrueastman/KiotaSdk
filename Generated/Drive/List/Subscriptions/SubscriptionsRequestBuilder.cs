@@ -1,4 +1,5 @@
-using GraphServiceClient.Drive.List.Subscriptions.Item;
+using ApiSdk.Drive.List.Subscriptions.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.Subscriptions {
+namespace ApiSdk.Drive.List.Subscriptions {
     /// <summary>Builds and executes requests for operations under \drive\list\subscriptions</summary>
     public class SubscriptionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Drive.List.Subscriptions {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.drive.list.subscriptions collection</summary>
+        /// <summary>Gets an item from the ApiSdk.drive.list.subscriptions.item collection</summary>
         public SubscriptionRequestBuilder this[string position] { get {
             return new SubscriptionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

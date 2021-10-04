@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.ManagedDevices.Item;
+using ApiSdk.DeviceManagement.ManagedDevices.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.ManagedDevices {
+namespace ApiSdk.DeviceManagement.ManagedDevices {
     /// <summary>Builds and executes requests for operations under \deviceManagement\managedDevices</summary>
     public class ManagedDevicesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.ManagedDevices {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.managedDevices collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.managedDevices.item collection</summary>
         public ManagedDeviceRequestBuilder this[string position] { get {
             return new ManagedDeviceRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

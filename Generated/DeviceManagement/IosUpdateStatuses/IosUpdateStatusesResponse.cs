@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceManagement.IosUpdateStatuses {
+namespace ApiSdk.DeviceManagement.IosUpdateStatuses {
     public class IosUpdateStatusesResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<IosUpdateDeviceStatus> Value { get; set; }
         /// <summary>
-        /// Instantiates a new IosUpdateStatusesResponse and sets the default values.
+        /// Instantiates a new iosUpdateStatusesResponse and sets the default values.
         /// </summary>
         public IosUpdateStatusesResponse() {
             AdditionalData = new Dictionary<string, object>();

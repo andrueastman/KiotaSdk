@@ -1,4 +1,5 @@
-using GraphServiceClient.Print.Operations.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Operations.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Operations {
+namespace ApiSdk.Print.Operations {
     /// <summary>Builds and executes requests for operations under \print\operations</summary>
     public class OperationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Print.Operations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.print.operations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.print.operations.item collection</summary>
         public PrintOperationRequestBuilder this[string position] { get {
             return new PrintOperationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

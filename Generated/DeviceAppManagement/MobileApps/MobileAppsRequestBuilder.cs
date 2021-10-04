@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.MobileApps.Item;
+using ApiSdk.DeviceAppManagement.MobileApps.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.MobileApps {
+namespace ApiSdk.DeviceAppManagement.MobileApps {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\mobileApps</summary>
     public class MobileAppsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.MobileApps {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.mobileApps collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.mobileApps.item collection</summary>
         public MobileAppRequestBuilder this[string position] { get {
             return new MobileAppRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

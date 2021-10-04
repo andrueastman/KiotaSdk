@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.GroupSettingTemplates {
+namespace ApiSdk.GroupSettingTemplates {
     public class GroupSettingTemplatesResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<GroupSettingTemplate> Value { get; set; }
         /// <summary>
-        /// Instantiates a new GroupSettingTemplatesResponse and sets the default values.
+        /// Instantiates a new groupSettingTemplatesResponse and sets the default values.
         /// </summary>
         public GroupSettingTemplatesResponse() {
             AdditionalData = new Dictionary<string, object>();

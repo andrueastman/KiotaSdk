@@ -1,10 +1,11 @@
-using GraphServiceClient.Groups.Calendar;
-using GraphServiceClient.Me.Calendar.CalendarPermissions;
-using GraphServiceClient.Me.Calendar.CalendarView;
-using GraphServiceClient.Me.Calendar.Events;
-using GraphServiceClient.Me.Calendar.Microsoft.Graph.GetSchedule;
-using GraphServiceClient.Me.Calendar.MultiValueExtendedProperties;
-using GraphServiceClient.Me.Calendar.SingleValueExtendedProperties;
+using ApiSdk.Me.Calendar.AllowedCalendarSharingRolesWithUser;
+using ApiSdk.Me.Calendar.CalendarPermissions;
+using ApiSdk.Me.Calendar.CalendarView;
+using ApiSdk.Me.Calendar.Events;
+using ApiSdk.Me.Calendar.GetSchedule;
+using ApiSdk.Me.Calendar.MultiValueExtendedProperties;
+using ApiSdk.Me.Calendar.SingleValueExtendedProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,7 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Calendar {
+namespace ApiSdk.Me.Calendar {
     /// <summary>Builds and executes requests for operations under \me\calendar</summary>
     public class CalendarRequestBuilder {
         public CalendarPermissionsRequestBuilder CalendarPermissions { get =>
@@ -26,13 +27,13 @@ namespace GraphServiceClient.Me.Calendar {
         public EventsRequestBuilder Events { get =>
             new EventsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public GetScheduleRequestBuilder GetSchedule { get =>
+            new GetScheduleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getScheduleRequestBuilder Microsoft.graph.getSchedule { get =>
-            new Microsoft.graph.getScheduleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
             new MultiValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -40,6 +41,14 @@ namespace GraphServiceClient.Me.Calendar {
         private string PathSegment { get; set; }
         public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
             new SingleValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\calendar\microsoft.graph.allowedCalendarSharingRoles(User='{User}')
+        /// <param name="User">Usage: User={User}</param>
+        /// </summary>
+        public AllowedCalendarSharingRolesWithUserRequestBuilder allowedCalendarSharingRolesWithUser(string User) {
+            if(string.IsNullOrEmpty(User)) throw new ArgumentNullException(nameof(User));
+            return new AllowedCalendarSharingRolesWithUserRequestBuilder(CurrentPath + PathSegment , HttpCore, User, false);
         }
         /// <summary>
         /// Instantiates a new CalendarRequestBuilder and sets the default values.
@@ -95,7 +104,7 @@ namespace GraphServiceClient.Me.Calendar {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -123,9 +132,9 @@ namespace GraphServiceClient.Me.Calendar {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Calendar> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Calendar> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Calendar>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Calendar>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The user's primary calendar. Read-only.
@@ -134,7 +143,7 @@ namespace GraphServiceClient.Me.Calendar {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

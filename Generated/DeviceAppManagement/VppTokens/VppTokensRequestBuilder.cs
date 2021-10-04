@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.VppTokens.Item;
+using ApiSdk.DeviceAppManagement.VppTokens.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.VppTokens {
+namespace ApiSdk.DeviceAppManagement.VppTokens {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\vppTokens</summary>
     public class VppTokensRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.VppTokens {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.vppTokens collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.vppTokens.item collection</summary>
         public VppTokenRequestBuilder this[string position] { get {
             return new VppTokenRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

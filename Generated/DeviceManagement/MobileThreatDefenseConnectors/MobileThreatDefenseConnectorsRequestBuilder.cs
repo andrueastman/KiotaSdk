@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.MobileThreatDefenseConnectors.Item;
+using ApiSdk.DeviceManagement.MobileThreatDefenseConnectors.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.MobileThreatDefenseConnectors {
+namespace ApiSdk.DeviceManagement.MobileThreatDefenseConnectors {
     /// <summary>Builds and executes requests for operations under \deviceManagement\mobileThreatDefenseConnectors</summary>
     public class MobileThreatDefenseConnectorsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.MobileThreatDefenseConnectors {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.mobileThreatDefenseConnectors collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.mobileThreatDefenseConnectors.item collection</summary>
         public MobileThreatDefenseConnectorRequestBuilder this[string position] { get {
             return new MobileThreatDefenseConnectorRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

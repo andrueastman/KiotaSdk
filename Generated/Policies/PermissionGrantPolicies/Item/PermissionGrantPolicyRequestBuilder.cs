@@ -1,5 +1,6 @@
-using GraphServiceClient.Policies.PermissionGrantPolicies.Excludes;
-using GraphServiceClient.Policies.PermissionGrantPolicies.Includes;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes;
+using ApiSdk.Policies.PermissionGrantPolicies.Item.Includes;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.PermissionGrantPolicies.Item {
+namespace ApiSdk.Policies.PermissionGrantPolicies.Item {
     /// <summary>Builds and executes requests for operations under \policies\permissionGrantPolicies\{permissionGrantPolicy-id}</summary>
     public class PermissionGrantPolicyRequestBuilder {
         /// <summary>Current path for the request</summary>

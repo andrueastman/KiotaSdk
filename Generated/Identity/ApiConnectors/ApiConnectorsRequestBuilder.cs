@@ -1,4 +1,5 @@
-using GraphServiceClient.Identity.ApiConnectors.Item;
+using ApiSdk.Identity.ApiConnectors.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.ApiConnectors {
+namespace ApiSdk.Identity.ApiConnectors {
     /// <summary>Builds and executes requests for operations under \identity\apiConnectors</summary>
     public class ApiConnectorsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Identity.ApiConnectors {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identity.apiConnectors collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identity.apiConnectors.item collection</summary>
         public IdentityApiConnectorRequestBuilder this[string position] { get {
             return new IdentityApiConnectorRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

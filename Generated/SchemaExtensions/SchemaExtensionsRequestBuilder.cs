@@ -1,4 +1,5 @@
-using GraphServiceClient.SchemaExtensions.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.SchemaExtensions.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.SchemaExtensions {
+namespace ApiSdk.SchemaExtensions {
     /// <summary>Builds and executes requests for operations under \schemaExtensions</summary>
     public class SchemaExtensionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.SchemaExtensions {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.schemaExtensions collection</summary>
+        /// <summary>Gets an item from the ApiSdk.schemaExtensions.item collection</summary>
         public SchemaExtensionRequestBuilder this[string position] { get {
             return new SchemaExtensionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

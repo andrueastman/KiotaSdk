@@ -1,10 +1,10 @@
-using GraphServiceClient.Groups.Onenote;
-using GraphServiceClient.Me.Onenote.Notebooks;
-using GraphServiceClient.Me.Onenote.Operations;
-using GraphServiceClient.Me.Onenote.Pages;
-using GraphServiceClient.Me.Onenote.Resources;
-using GraphServiceClient.Me.Onenote.SectionGroups;
-using GraphServiceClient.Me.Onenote.Sections;
+using ApiSdk.Me.Onenote.Notebooks;
+using ApiSdk.Me.Onenote.Operations;
+using ApiSdk.Me.Onenote.Pages;
+using ApiSdk.Me.Onenote.Resources;
+using ApiSdk.Me.Onenote.SectionGroups;
+using ApiSdk.Me.Onenote.Sections;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote {
+namespace ApiSdk.Me.Onenote {
     /// <summary>Builds and executes requests for operations under \me\onenote</summary>
     public class OnenoteRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -95,7 +95,7 @@ namespace GraphServiceClient.Me.Onenote {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -123,9 +123,9 @@ namespace GraphServiceClient.Me.Onenote {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Onenote> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Onenote> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Onenote>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Onenote>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Read-only.
@@ -134,7 +134,7 @@ namespace GraphServiceClient.Me.Onenote {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

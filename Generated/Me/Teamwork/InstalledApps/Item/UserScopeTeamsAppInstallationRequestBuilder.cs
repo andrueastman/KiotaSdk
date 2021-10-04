@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Teamwork.InstalledApps.Chat;
+using ApiSdk.Me.Teamwork.InstalledApps.Item.Chat;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Teamwork.InstalledApps.Item {
+namespace ApiSdk.Me.Teamwork.InstalledApps.Item {
     /// <summary>Builds and executes requests for operations under \me\teamwork\installedApps\{userScopeTeamsAppInstallation-id}</summary>
     public class UserScopeTeamsAppInstallationRequestBuilder {
         public ChatRequestBuilder Chat { get =>

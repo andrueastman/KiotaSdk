@@ -1,10 +1,11 @@
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.Assignments;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.DeviceSettingStateSummaries;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.DeviceStatuses;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.DeviceStatusOverview;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.UserStatuses;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations.UserStatusOverview;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.Assign;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.Assignments;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.DeviceSettingStateSummaries;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.DeviceStatuses;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.DeviceStatusOverview;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.UserStatuses;
+using ApiSdk.DeviceManagement.DeviceConfigurations.Item.UserStatusOverview;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,9 +13,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceConfigurations.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceConfigurations\{deviceConfiguration-id}</summary>
     public class DeviceConfigurationRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -33,9 +37,6 @@ namespace GraphServiceClient.DeviceManagement.DeviceConfigurations.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public UserStatusesRequestBuilder UserStatuses { get =>

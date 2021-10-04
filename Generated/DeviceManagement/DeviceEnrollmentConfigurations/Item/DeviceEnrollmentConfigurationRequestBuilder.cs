@@ -1,6 +1,7 @@
-using GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Assignments;
-using GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Microsoft.Graph.SetPriority;
+using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.Item.Assign;
+using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.Item.Assignments;
+using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.Item.SetPriority;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,9 +9,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Item {
+namespace ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceEnrollmentConfigurations\{deviceEnrollmentConfiguration-id}</summary>
     public class DeviceEnrollmentConfigurationRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -20,14 +24,11 @@ namespace GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Ite
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.setPriorityRequestBuilder Microsoft.graph.setPriority { get =>
-            new Microsoft.graph.setPriorityRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public SetPriorityRequestBuilder SetPriority { get =>
+            new SetPriorityRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new DeviceEnrollmentConfigurationRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

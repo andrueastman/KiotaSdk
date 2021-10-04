@@ -1,4 +1,5 @@
-using GraphServiceClient.Places.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Places.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Places {
+namespace ApiSdk.Places {
     /// <summary>Builds and executes requests for operations under \places</summary>
     public class PlacesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Places {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.places collection</summary>
+        /// <summary>Gets an item from the ApiSdk.places.item collection</summary>
         public PlaceRequestBuilder this[string position] { get {
             return new PlaceRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

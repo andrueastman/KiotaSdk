@@ -1,4 +1,4 @@
-using GraphServiceClient.Reports.MonthlyPrintUsageByPrinter;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Reports.DailyPrintUsageByPrinter.Item {
+namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item {
     /// <summary>Builds and executes requests for operations under \reports\dailyPrintUsageByPrinter\{printUsageByPrinter-id}</summary>
     public class PrintUsageByPrinterRequestBuilder {
         /// <summary>Current path for the request</summary>

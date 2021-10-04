@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Photos.Content;
+using ApiSdk.Me.Photos.Item.Value;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Photos.Item {
+namespace ApiSdk.Me.Photos.Item {
     /// <summary>Builds and executes requests for operations under \me\photos\{profilePhoto-id}</summary>
     public class ProfilePhotoRequestBuilder {
         public ContentRequestBuilder Content { get =>

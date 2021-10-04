@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.CalendarView.Item;
+using ApiSdk.Me.CalendarView.Delta;
+using ApiSdk.Me.CalendarView.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.CalendarView {
+namespace ApiSdk.Me.CalendarView {
     /// <summary>Builds and executes requests for operations under \me\calendarView</summary>
     public class CalendarViewRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.CalendarView {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.calendarView collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.calendarView.item collection</summary>
         public EventRequestBuilder this[string position] { get {
             return new EventRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -61,7 +63,7 @@ namespace GraphServiceClient.Me.CalendarView {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.CalendarView {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\calendarView\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The calendar view for the calendar. Read-only. Nullable.
@@ -90,10 +98,10 @@ namespace GraphServiceClient.Me.CalendarView {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Event> PostAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<@Event> PostAsync(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Event>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<@Event>(requestInfo, responseHandler);
         }
         /// <summary>The calendar view for the calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

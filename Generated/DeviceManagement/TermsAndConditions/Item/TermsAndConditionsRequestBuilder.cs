@@ -1,5 +1,6 @@
-using GraphServiceClient.DeviceManagement.TermsAndConditions.AcceptanceStatuses;
-using GraphServiceClient.DeviceManagement.TermsAndConditions.Assignments;
+using ApiSdk.DeviceManagement.TermsAndConditions.Item.AcceptanceStatuses;
+using ApiSdk.DeviceManagement.TermsAndConditions.Item.Assignments;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.TermsAndConditions.Item {
+namespace ApiSdk.DeviceManagement.TermsAndConditions.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\termsAndConditions\{termsAndConditions-id}</summary>
     public class TermsAndConditionsRequestBuilder {
         public AcceptanceStatusesRequestBuilder AcceptanceStatuses { get =>
@@ -78,7 +79,7 @@ namespace GraphServiceClient.DeviceManagement.TermsAndConditions.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(TermsAndConditions body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.TermsAndConditions body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -106,9 +107,9 @@ namespace GraphServiceClient.DeviceManagement.TermsAndConditions.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TermsAndConditions> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.TermsAndConditions> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<TermsAndConditions>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.TermsAndConditions>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The terms and conditions associated with device management of the company.
@@ -117,7 +118,7 @@ namespace GraphServiceClient.DeviceManagement.TermsAndConditions.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(TermsAndConditions body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.TermsAndConditions body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

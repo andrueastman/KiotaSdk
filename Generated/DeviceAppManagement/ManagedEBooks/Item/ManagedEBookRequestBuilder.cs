@@ -1,8 +1,9 @@
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.Assignments;
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.DeviceStates;
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.InstallSummary;
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.UserStateSummary;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Assign;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Assignments;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item.DeviceStates;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item.InstallSummary;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,9 +11,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedEBooks.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedEBooks.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedEBooks\{managedEBook-id}</summary>
     public class ManagedEBookRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -28,9 +32,6 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedEBooks.Item {
         }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public UserStateSummaryRequestBuilder UserStateSummary { get =>

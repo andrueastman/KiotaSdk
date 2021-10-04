@@ -1,10 +1,11 @@
-using GraphServiceClient.DirectoryRoles.Members;
-using GraphServiceClient.DirectoryRoles.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.DirectoryRoles.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.DirectoryRoles.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.DirectoryRoles.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.DirectoryRoles.Microsoft.Graph.Restore;
-using GraphServiceClient.DirectoryRoles.ScopedMembers;
+using ApiSdk.DirectoryRoles.Item.CheckMemberGroups;
+using ApiSdk.DirectoryRoles.Item.CheckMemberObjects;
+using ApiSdk.DirectoryRoles.Item.GetMemberGroups;
+using ApiSdk.DirectoryRoles.Item.GetMemberObjects;
+using ApiSdk.DirectoryRoles.Item.Members;
+using ApiSdk.DirectoryRoles.Item.Restore;
+using ApiSdk.DirectoryRoles.Item.ScopedMembers;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,11 +13,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DirectoryRoles.Item {
+namespace ApiSdk.DirectoryRoles.Item {
     /// <summary>Builds and executes requests for operations under \directoryRoles\{directoryRole-id}</summary>
     public class DirectoryRoleRequestBuilder {
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
@@ -24,23 +37,11 @@ namespace GraphServiceClient.DirectoryRoles.Item {
         public MembersRequestBuilder Members { get =>
             new MembersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public ScopedMembersRequestBuilder ScopedMembers { get =>
             new ScopedMembersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }

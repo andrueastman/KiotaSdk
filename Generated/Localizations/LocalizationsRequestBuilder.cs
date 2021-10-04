@@ -1,4 +1,5 @@
-using GraphServiceClient.Localizations.Item;
+using ApiSdk.Localizations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Localizations {
+namespace ApiSdk.Localizations {
     /// <summary>Builds and executes requests for operations under \localizations</summary>
     public class LocalizationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Localizations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.localizations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.localizations.item collection</summary>
         public OrganizationalBrandingLocalizationRequestBuilder this[string position] { get {
             return new OrganizationalBrandingLocalizationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,4 +1,5 @@
-using GraphServiceClient.Invitations.InvitedUser;
+using ApiSdk.Invitations.Item.InvitedUser;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Invitations.Item {
+namespace ApiSdk.Invitations.Item {
     /// <summary>Builds and executes requests for operations under \invitations\{invitation-id}</summary>
     public class InvitationRequestBuilder {
         /// <summary>Current path for the request</summary>

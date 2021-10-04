@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Security.SecureScoreControlProfiles.Item {
+namespace ApiSdk.Security.SecureScoreControlProfiles.Item {
     /// <summary>Builds and executes requests for operations under \security\secureScoreControlProfiles\{secureScoreControlProfile-id}</summary>
     public class SecureScoreControlProfileRequestBuilder {
         /// <summary>Current path for the request</summary>

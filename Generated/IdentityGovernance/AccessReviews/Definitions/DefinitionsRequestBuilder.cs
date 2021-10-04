@@ -1,4 +1,6 @@
-using GraphServiceClient.IdentityGovernance.AccessReviews.Definitions.Item;
+using ApiSdk.IdentityGovernance.AccessReviews.Definitions.FilterByCurrentUserWithOn;
+using ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.AccessReviews.Definitions {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions {
     /// <summary>Builds and executes requests for operations under \identityGovernance\accessReviews\definitions</summary>
     public class DefinitionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.IdentityGovernance.AccessReviews.Definitions {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identityGovernance.accessReviews.definitions collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identityGovernance.accessReviews.definitions.item collection</summary>
         public AccessReviewScheduleDefinitionRequestBuilder this[string position] { get {
             return new AccessReviewScheduleDefinitionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,14 @@ namespace GraphServiceClient.IdentityGovernance.AccessReviews.Definitions {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \identityGovernance\accessReviews\definitions\microsoft.graph.filterByCurrentUser(on={on})
+        /// <param name="on">Usage: on={on}</param>
+        /// </summary>
+        public FilterByCurrentUserWithOnRequestBuilder filterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(CurrentPath + PathSegment , HttpCore, on, false);
         }
         /// <summary>
         /// Get definitions from identityGovernance

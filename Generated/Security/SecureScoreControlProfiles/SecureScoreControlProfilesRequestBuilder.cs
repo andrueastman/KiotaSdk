@@ -1,4 +1,5 @@
-using GraphServiceClient.Security.SecureScoreControlProfiles.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Security.SecureScoreControlProfiles.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Security.SecureScoreControlProfiles {
+namespace ApiSdk.Security.SecureScoreControlProfiles {
     /// <summary>Builds and executes requests for operations under \security\secureScoreControlProfiles</summary>
     public class SecureScoreControlProfilesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Security.SecureScoreControlProfiles {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.security.secureScoreControlProfiles collection</summary>
+        /// <summary>Gets an item from the ApiSdk.security.secureScoreControlProfiles.item collection</summary>
         public SecureScoreControlProfileRequestBuilder this[string position] { get {
             return new SecureScoreControlProfileRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

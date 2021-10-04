@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.TroubleshootingEvents.Item {
+namespace ApiSdk.DeviceManagement.TroubleshootingEvents.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\troubleshootingEvents\{deviceManagementTroubleshootingEvent-id}</summary>
     public class DeviceManagementTroubleshootingEventRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,4 +1,5 @@
-using GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests.UserConsentRequests;
+using ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests.Item {
+namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
     /// <summary>Builds and executes requests for operations under \identityGovernance\appConsent\appConsentRequests\{appConsentRequest-id}</summary>
     public class AppConsentRequestRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.DeviceCategories.Item;
+using ApiSdk.DeviceManagement.DeviceCategories.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceCategories {
+namespace ApiSdk.DeviceManagement.DeviceCategories {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCategories</summary>
     public class DeviceCategoriesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceCategories {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.deviceCategories collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.deviceCategories.item collection</summary>
         public DeviceCategoryRequestBuilder this[string position] { get {
             return new DeviceCategoryRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -61,7 +62,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceCategories {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(DeviceCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.DeviceCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -90,10 +91,10 @@ namespace GraphServiceClient.DeviceManagement.DeviceCategories {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceCategory> PostAsync(DeviceCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.DeviceCategory> PostAsync(ApiSdk.Models.Microsoft.Graph.DeviceCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<DeviceCategory>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.DeviceCategory>(requestInfo, responseHandler);
         }
         /// <summary>The list of device categories with the tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

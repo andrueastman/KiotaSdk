@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.ManagedDeviceOverview.$ref;
+using ApiSdk.DeviceManagement.ManagedDeviceOverview.Ref;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,12 +7,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.ManagedDeviceOverview {
+namespace ApiSdk.DeviceManagement.ManagedDeviceOverview {
     /// <summary>Builds and executes requests for operations under \deviceManagement\managedDeviceOverview</summary>
     public class ManagedDeviceOverviewRequestBuilder {
-        public $refRequestBuilder $ref { get =>
-            new $refRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
@@ -20,6 +18,9 @@ namespace GraphServiceClient.DeviceManagement.ManagedDeviceOverview {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ManagedDeviceOverviewRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -61,9 +62,9 @@ namespace GraphServiceClient.DeviceManagement.ManagedDeviceOverview {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ManagedDeviceOverview> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.ManagedDeviceOverview> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<ManagedDeviceOverview>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.ManagedDeviceOverview>(requestInfo, responseHandler);
         }
         /// <summary>Device overview</summary>
         public class GetQueryParameters : QueryParametersBase {

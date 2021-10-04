@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities.Item;
+using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities {
     /// <summary>Builds and executes requests for operations under \deviceManagement\windowsAutopilotDeviceIdentities</summary>
     public class WindowsAutopilotDeviceIdentitiesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.windowsAutopilotDeviceIdentities collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.windowsAutopilotDeviceIdentities.item collection</summary>
         public WindowsAutopilotDeviceIdentityRequestBuilder this[string position] { get {
             return new WindowsAutopilotDeviceIdentityRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

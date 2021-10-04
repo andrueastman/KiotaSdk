@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Me.Insights.Trending {
+namespace ApiSdk.Me.Insights.Trending {
     public class TrendingResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<Trending> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.Trending> Value { get; set; }
         /// <summary>
-        /// Instantiates a new TrendingResponse and sets the default values.
+        /// Instantiates a new trendingResponse and sets the default values.
         /// </summary>
         public TrendingResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.Me.Insights.Trending {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as TrendingResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as TrendingResponse).Value = n.GetCollectionOfObjectValues<Trending>().ToList(); } },
+                {"value", (o,n) => { (o as TrendingResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Trending>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.Me.Insights.Trending {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<Trending>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Trending>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

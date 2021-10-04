@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceManagement.TermsAndConditions {
+namespace ApiSdk.DeviceManagement.TermsAndConditions {
     public class TermsAndConditionsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<TermsAndConditions> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.TermsAndConditions> Value { get; set; }
         /// <summary>
-        /// Instantiates a new TermsAndConditionsResponse and sets the default values.
+        /// Instantiates a new termsAndConditionsResponse and sets the default values.
         /// </summary>
         public TermsAndConditionsResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.DeviceManagement.TermsAndConditions {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as TermsAndConditionsResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as TermsAndConditionsResponse).Value = n.GetCollectionOfObjectValues<TermsAndConditions>().ToList(); } },
+                {"value", (o,n) => { (o as TermsAndConditionsResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.TermsAndConditions>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.DeviceManagement.TermsAndConditions {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<TermsAndConditions>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.TermsAndConditions>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

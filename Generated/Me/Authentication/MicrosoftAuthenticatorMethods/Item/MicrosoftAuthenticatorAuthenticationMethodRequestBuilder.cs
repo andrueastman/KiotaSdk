@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Authentication.MicrosoftAuthenticatorMethods.Device;
+using ApiSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item.Device;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication.MicrosoftAuthenticatorMethods.Item {
+namespace ApiSdk.Me.Authentication.MicrosoftAuthenticatorMethods.Item {
     /// <summary>Builds and executes requests for operations under \me\authentication\microsoftAuthenticatorMethods\{microsoftAuthenticatorAuthenticationMethod-id}</summary>
     public class MicrosoftAuthenticatorAuthenticationMethodRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods.Item;
+using ApiSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods {
+namespace ApiSdk.Me.Authentication.WindowsHelloForBusinessMethods {
     /// <summary>Builds and executes requests for operations under \me\authentication\windowsHelloForBusinessMethods</summary>
     public class WindowsHelloForBusinessMethodsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.authentication.windowsHelloForBusinessMethods collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.authentication.windowsHelloForBusinessMethods.item collection</summary>
         public WindowsHelloForBusinessAuthenticationMethodRequestBuilder this[string position] { get {
             return new WindowsHelloForBusinessAuthenticationMethodRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

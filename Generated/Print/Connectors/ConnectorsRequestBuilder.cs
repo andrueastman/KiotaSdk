@@ -1,4 +1,5 @@
-using GraphServiceClient.Print.Connectors.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Connectors.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Connectors {
+namespace ApiSdk.Print.Connectors {
     /// <summary>Builds and executes requests for operations under \print\connectors</summary>
     public class ConnectorsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Print.Connectors {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.print.connectors collection</summary>
+        /// <summary>Gets an item from the ApiSdk.print.connectors.item collection</summary>
         public PrintConnectorRequestBuilder this[string position] { get {
             return new PrintConnectorRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

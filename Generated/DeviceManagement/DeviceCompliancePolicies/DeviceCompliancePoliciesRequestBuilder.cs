@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Item;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceCompliancePolicies {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCompliancePolicies</summary>
     public class DeviceCompliancePoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceCompliancePolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.deviceCompliancePolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.deviceCompliancePolicies.item collection</summary>
         public DeviceCompliancePolicyRequestBuilder this[string position] { get {
             return new DeviceCompliancePolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

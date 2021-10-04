@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Oauth2PermissionGrants.Item {
+namespace ApiSdk.Oauth2PermissionGrants.Item {
     /// <summary>Builds and executes requests for operations under \oauth2PermissionGrants\{oAuth2PermissionGrant-id}</summary>
     public class OAuth2PermissionGrantRequestBuilder {
         /// <summary>Current path for the request</summary>

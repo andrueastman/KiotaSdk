@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Identity.ApiConnectors {
+namespace ApiSdk.Identity.ApiConnectors {
     public class ApiConnectorsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<IdentityApiConnector> Value { get; set; }
         /// <summary>
-        /// Instantiates a new ApiConnectorsResponse and sets the default values.
+        /// Instantiates a new apiConnectorsResponse and sets the default values.
         /// </summary>
         public ApiConnectorsResponse() {
             AdditionalData = new Dictionary<string, object>();

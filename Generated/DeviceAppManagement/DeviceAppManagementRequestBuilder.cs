@@ -1,18 +1,19 @@
-using GraphServiceClient.DeviceAppManagement.AndroidManagedAppProtections;
-using GraphServiceClient.DeviceAppManagement.DefaultManagedAppProtections;
-using GraphServiceClient.DeviceAppManagement.IosManagedAppProtections;
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies;
-using GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations;
-using GraphServiceClient.DeviceAppManagement.ManagedAppStatuses;
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks;
-using GraphServiceClient.DeviceAppManagement.MdmWindowsInformationProtectionPolicies;
-using GraphServiceClient.DeviceAppManagement.Microsoft.Graph.SyncMicrosoftStoreForBusinessApps;
-using GraphServiceClient.DeviceAppManagement.MobileAppCategories;
-using GraphServiceClient.DeviceAppManagement.MobileAppConfigurations;
-using GraphServiceClient.DeviceAppManagement.MobileApps;
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations;
-using GraphServiceClient.DeviceAppManagement.VppTokens;
-using GraphServiceClient.DeviceAppManagement.WindowsInformationProtectionPolicies;
+using ApiSdk.DeviceAppManagement.AndroidManagedAppProtections;
+using ApiSdk.DeviceAppManagement.DefaultManagedAppProtections;
+using ApiSdk.DeviceAppManagement.IosManagedAppProtections;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations;
+using ApiSdk.DeviceAppManagement.ManagedAppStatuses;
+using ApiSdk.DeviceAppManagement.ManagedEBooks;
+using ApiSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies;
+using ApiSdk.DeviceAppManagement.MobileAppCategories;
+using ApiSdk.DeviceAppManagement.MobileAppConfigurations;
+using ApiSdk.DeviceAppManagement.MobileApps;
+using ApiSdk.DeviceAppManagement.SyncMicrosoftStoreForBusinessApps;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations;
+using ApiSdk.DeviceAppManagement.VppTokens;
+using ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,7 +21,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement {
+namespace ApiSdk.DeviceAppManagement {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement</summary>
     public class DeviceAppManagementRequestBuilder {
         public AndroidManagedAppProtectionsRequestBuilder AndroidManagedAppProtections { get =>
@@ -53,9 +54,6 @@ namespace GraphServiceClient.DeviceAppManagement {
         public MdmWindowsInformationProtectionPoliciesRequestBuilder MdmWindowsInformationProtectionPolicies { get =>
             new MdmWindowsInformationProtectionPoliciesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder Microsoft.graph.syncMicrosoftStoreForBusinessApps { get =>
-            new Microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         public MobileAppCategoriesRequestBuilder MobileAppCategories { get =>
             new MobileAppCategoriesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -67,6 +65,9 @@ namespace GraphServiceClient.DeviceAppManagement {
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public SyncMicrosoftStoreForBusinessAppsRequestBuilder SyncMicrosoftStoreForBusinessApps { get =>
+            new SyncMicrosoftStoreForBusinessAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public TargetedManagedAppConfigurationsRequestBuilder TargetedManagedAppConfigurations { get =>
             new TargetedManagedAppConfigurationsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -116,7 +117,7 @@ namespace GraphServiceClient.DeviceAppManagement {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(DeviceAppManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.DeviceAppManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -134,9 +135,9 @@ namespace GraphServiceClient.DeviceAppManagement {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceAppManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.DeviceAppManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<DeviceAppManagement>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.DeviceAppManagement>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update deviceAppManagement
@@ -145,7 +146,7 @@ namespace GraphServiceClient.DeviceAppManagement {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(DeviceAppManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.DeviceAppManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

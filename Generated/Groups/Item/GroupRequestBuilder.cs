@@ -1,44 +1,45 @@
-using GraphServiceClient.Groups.AcceptedSenders;
-using GraphServiceClient.Groups.AppRoleAssignments;
-using GraphServiceClient.Groups.Calendar;
-using GraphServiceClient.Groups.CalendarView;
-using GraphServiceClient.Groups.Conversations;
-using GraphServiceClient.Groups.CreatedOnBehalfOf;
-using GraphServiceClient.Groups.Drive;
-using GraphServiceClient.Groups.Drives;
-using GraphServiceClient.Groups.Events;
-using GraphServiceClient.Groups.Extensions;
-using GraphServiceClient.Groups.GroupLifecyclePolicies;
-using GraphServiceClient.Groups.MemberOf;
-using GraphServiceClient.Groups.Members;
-using GraphServiceClient.Groups.MembersWithLicenseErrors;
-using GraphServiceClient.Groups.Microsoft.Graph.AddFavorite;
-using GraphServiceClient.Groups.Microsoft.Graph.AssignLicense;
-using GraphServiceClient.Groups.Microsoft.Graph.CheckGrantedPermissionsForApp;
-using GraphServiceClient.Groups.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.Groups.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.Groups.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.Groups.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.Groups.Microsoft.Graph.RemoveFavorite;
-using GraphServiceClient.Groups.Microsoft.Graph.Renew;
-using GraphServiceClient.Groups.Microsoft.Graph.ResetUnseenCount;
-using GraphServiceClient.Groups.Microsoft.Graph.Restore;
-using GraphServiceClient.Groups.Microsoft.Graph.SubscribeByMail;
-using GraphServiceClient.Groups.Microsoft.Graph.UnsubscribeByMail;
-using GraphServiceClient.Groups.Microsoft.Graph.ValidateProperties;
-using GraphServiceClient.Groups.Onenote;
-using GraphServiceClient.Groups.Owners;
-using GraphServiceClient.Groups.PermissionGrants;
-using GraphServiceClient.Groups.Photo;
-using GraphServiceClient.Groups.Photos;
-using GraphServiceClient.Groups.Planner;
-using GraphServiceClient.Groups.RejectedSenders;
-using GraphServiceClient.Groups.Settings;
-using GraphServiceClient.Groups.Sites;
-using GraphServiceClient.Groups.Team;
-using GraphServiceClient.Groups.Threads;
-using GraphServiceClient.Groups.TransitiveMemberOf;
-using GraphServiceClient.Groups.TransitiveMembers;
+using ApiSdk.Groups.Item.AcceptedSenders;
+using ApiSdk.Groups.Item.AddFavorite;
+using ApiSdk.Groups.Item.AppRoleAssignments;
+using ApiSdk.Groups.Item.AssignLicense;
+using ApiSdk.Groups.Item.Calendar;
+using ApiSdk.Groups.Item.CalendarView;
+using ApiSdk.Groups.Item.CheckGrantedPermissionsForApp;
+using ApiSdk.Groups.Item.CheckMemberGroups;
+using ApiSdk.Groups.Item.CheckMemberObjects;
+using ApiSdk.Groups.Item.Conversations;
+using ApiSdk.Groups.Item.CreatedOnBehalfOf;
+using ApiSdk.Groups.Item.Drive;
+using ApiSdk.Groups.Item.Drives;
+using ApiSdk.Groups.Item.Events;
+using ApiSdk.Groups.Item.Extensions;
+using ApiSdk.Groups.Item.GetMemberGroups;
+using ApiSdk.Groups.Item.GetMemberObjects;
+using ApiSdk.Groups.Item.GroupLifecyclePolicies;
+using ApiSdk.Groups.Item.MemberOf;
+using ApiSdk.Groups.Item.Members;
+using ApiSdk.Groups.Item.MembersWithLicenseErrors;
+using ApiSdk.Groups.Item.Onenote;
+using ApiSdk.Groups.Item.Owners;
+using ApiSdk.Groups.Item.PermissionGrants;
+using ApiSdk.Groups.Item.Photo;
+using ApiSdk.Groups.Item.Photos;
+using ApiSdk.Groups.Item.Planner;
+using ApiSdk.Groups.Item.RejectedSenders;
+using ApiSdk.Groups.Item.RemoveFavorite;
+using ApiSdk.Groups.Item.Renew;
+using ApiSdk.Groups.Item.ResetUnseenCount;
+using ApiSdk.Groups.Item.Restore;
+using ApiSdk.Groups.Item.Settings;
+using ApiSdk.Groups.Item.Sites;
+using ApiSdk.Groups.Item.SubscribeByMail;
+using ApiSdk.Groups.Item.Team;
+using ApiSdk.Groups.Item.Threads;
+using ApiSdk.Groups.Item.TransitiveMemberOf;
+using ApiSdk.Groups.Item.TransitiveMembers;
+using ApiSdk.Groups.Item.UnsubscribeByMail;
+using ApiSdk.Groups.Item.ValidateProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -46,20 +47,35 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Groups.Item {
+namespace ApiSdk.Groups.Item {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}</summary>
     public class GroupRequestBuilder {
         public AcceptedSendersRequestBuilder AcceptedSenders { get =>
             new AcceptedSendersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public AddFavoriteRequestBuilder AddFavorite { get =>
+            new AddFavoriteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
             new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public AssignLicenseRequestBuilder AssignLicense { get =>
+            new AssignLicenseRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public CalendarRequestBuilder Calendar { get =>
             new CalendarRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public CalendarViewRequestBuilder CalendarView { get =>
             new CalendarViewRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckGrantedPermissionsForAppRequestBuilder CheckGrantedPermissionsForApp { get =>
+            new CheckGrantedPermissionsForAppRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public ConversationsRequestBuilder Conversations { get =>
             new ConversationsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -81,6 +97,12 @@ namespace GraphServiceClient.Groups.Item {
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
             new GroupLifecyclePoliciesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -96,48 +118,6 @@ namespace GraphServiceClient.Groups.Item {
         }
         public MembersWithLicenseErrorsRequestBuilder MembersWithLicenseErrors { get =>
             new MembersWithLicenseErrorsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.addFavoriteRequestBuilder Microsoft.graph.addFavorite { get =>
-            new Microsoft.graph.addFavoriteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.assignLicenseRequestBuilder Microsoft.graph.assignLicense { get =>
-            new Microsoft.graph.assignLicenseRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkGrantedPermissionsForAppRequestBuilder Microsoft.graph.checkGrantedPermissionsForApp { get =>
-            new Microsoft.graph.checkGrantedPermissionsForAppRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.removeFavoriteRequestBuilder Microsoft.graph.removeFavorite { get =>
-            new Microsoft.graph.removeFavoriteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.renewRequestBuilder Microsoft.graph.renew { get =>
-            new Microsoft.graph.renewRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.resetUnseenCountRequestBuilder Microsoft.graph.resetUnseenCount { get =>
-            new Microsoft.graph.resetUnseenCountRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.subscribeByMailRequestBuilder Microsoft.graph.subscribeByMail { get =>
-            new Microsoft.graph.subscribeByMailRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.unsubscribeByMailRequestBuilder Microsoft.graph.unsubscribeByMail { get =>
-            new Microsoft.graph.unsubscribeByMailRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.validatePropertiesRequestBuilder Microsoft.graph.validateProperties { get =>
-            new Microsoft.graph.validatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public OnenoteRequestBuilder Onenote { get =>
             new OnenoteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -162,11 +142,26 @@ namespace GraphServiceClient.Groups.Item {
         public RejectedSendersRequestBuilder RejectedSenders { get =>
             new RejectedSendersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public RemoveFavoriteRequestBuilder RemoveFavorite { get =>
+            new RemoveFavoriteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RenewRequestBuilder Renew { get =>
+            new RenewRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ResetUnseenCountRequestBuilder ResetUnseenCount { get =>
+            new ResetUnseenCountRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public SettingsRequestBuilder Settings { get =>
             new SettingsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public SitesRequestBuilder Sites { get =>
             new SitesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SubscribeByMailRequestBuilder SubscribeByMail { get =>
+            new SubscribeByMailRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public TeamRequestBuilder Team { get =>
             new TeamRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -179,6 +174,12 @@ namespace GraphServiceClient.Groups.Item {
         }
         public TransitiveMembersRequestBuilder TransitiveMembers { get =>
             new TransitiveMembersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UnsubscribeByMailRequestBuilder UnsubscribeByMail { get =>
+            new UnsubscribeByMailRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Instantiates a new GroupRequestBuilder and sets the default values.
@@ -234,7 +235,7 @@ namespace GraphServiceClient.Groups.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -262,9 +263,9 @@ namespace GraphServiceClient.Groups.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Group> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Group> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Group>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Group>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
@@ -273,7 +274,7 @@ namespace GraphServiceClient.Groups.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

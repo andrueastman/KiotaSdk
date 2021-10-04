@@ -1,4 +1,5 @@
-using GraphServiceClient.Domains.Item;
+using ApiSdk.Domains.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Domains {
+namespace ApiSdk.Domains {
     /// <summary>Builds and executes requests for operations under \domains</summary>
     public class DomainsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Domains {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.domains collection</summary>
+        /// <summary>Gets an item from the ApiSdk.domains.item collection</summary>
         public DomainRequestBuilder this[string position] { get {
             return new DomainRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

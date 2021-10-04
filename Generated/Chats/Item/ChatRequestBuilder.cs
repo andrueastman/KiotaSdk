@@ -1,8 +1,9 @@
-using GraphServiceClient.Chats.InstalledApps;
-using GraphServiceClient.Chats.Members;
-using GraphServiceClient.Chats.Messages;
-using GraphServiceClient.Chats.Microsoft.Graph.SendActivityNotification;
-using GraphServiceClient.Chats.Tabs;
+using ApiSdk.Chats.Item.InstalledApps;
+using ApiSdk.Chats.Item.Members;
+using ApiSdk.Chats.Item.Messages;
+using ApiSdk.Chats.Item.SendActivityNotification;
+using ApiSdk.Chats.Item.Tabs;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Chats.Item {
+namespace ApiSdk.Chats.Item {
     /// <summary>Builds and executes requests for operations under \chats\{chat-id}</summary>
     public class ChatRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -28,11 +29,11 @@ namespace GraphServiceClient.Chats.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.sendActivityNotificationRequestBuilder Microsoft.graph.sendActivityNotification { get =>
-            new Microsoft.graph.sendActivityNotificationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public TabsRequestBuilder Tabs { get =>
             new TabsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -90,7 +91,7 @@ namespace GraphServiceClient.Chats.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Chat body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Chat body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -118,9 +119,9 @@ namespace GraphServiceClient.Chats.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Chat> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Chat> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Chat>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Chat>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update entity in chats
@@ -129,7 +130,7 @@ namespace GraphServiceClient.Chats.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Chat body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Chat body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

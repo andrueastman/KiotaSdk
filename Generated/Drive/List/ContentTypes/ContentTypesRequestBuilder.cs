@@ -1,4 +1,5 @@
-using GraphServiceClient.Drive.List.ContentTypes.Item;
+using ApiSdk.Drive.List.ContentTypes.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.ContentTypes {
+namespace ApiSdk.Drive.List.ContentTypes {
     /// <summary>Builds and executes requests for operations under \drive\list\contentTypes</summary>
     public class ContentTypesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Drive.List.ContentTypes {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.drive.list.contentTypes collection</summary>
+        /// <summary>Gets an item from the ApiSdk.drive.list.contentTypes.item collection</summary>
         public ContentTypeRequestBuilder this[string position] { get {
             return new ContentTypeRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

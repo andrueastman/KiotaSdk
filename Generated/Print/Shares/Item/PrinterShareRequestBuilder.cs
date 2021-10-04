@@ -1,6 +1,7 @@
-using GraphServiceClient.Print.Shares.AllowedGroups;
-using GraphServiceClient.Print.Shares.AllowedUsers;
-using GraphServiceClient.Print.Shares.Printer;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Shares.Item.AllowedGroups;
+using ApiSdk.Print.Shares.Item.AllowedUsers;
+using ApiSdk.Print.Shares.Item.Printer;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Shares.Item {
+namespace ApiSdk.Print.Shares.Item {
     /// <summary>Builds and executes requests for operations under \print\shares\{printerShare-id}</summary>
     public class PrinterShareRequestBuilder {
         public AllowedGroupsRequestBuilder AllowedGroups { get =>

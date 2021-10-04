@@ -1,6 +1,7 @@
-using GraphServiceClient.Sites.Item;
-using GraphServiceClient.Sites.Microsoft.Graph.Add;
-using GraphServiceClient.Sites.Microsoft.Graph.Remove;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Sites.Add;
+using ApiSdk.Sites.Item;
+using ApiSdk.Sites.Remove;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,24 +9,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Sites {
+namespace ApiSdk.Sites {
     /// <summary>Builds and executes requests for operations under \sites</summary>
     public class SitesRequestBuilder {
+        public AddRequestBuilder Add { get =>
+            new AddRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.addRequestBuilder Microsoft.graph.add { get =>
-            new Microsoft.graph.addRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.removeRequestBuilder Microsoft.graph.remove { get =>
-            new Microsoft.graph.removeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.sites collection</summary>
+        public RemoveRequestBuilder Remove { get =>
+            new RemoveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>Gets an item from the ApiSdk.sites.item collection</summary>
         public SiteRequestBuilder this[string position] { get {
             return new SiteRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -69,7 +70,7 @@ namespace GraphServiceClient.Sites {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -98,10 +99,10 @@ namespace GraphServiceClient.Sites {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Site> PostAsync(Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Site> PostAsync(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Site>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Site>(requestInfo, responseHandler);
         }
         /// <summary>Get entities from sites</summary>
         public class GetQueryParameters : QueryParametersBase {

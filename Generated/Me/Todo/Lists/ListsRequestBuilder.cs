@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.Todo.Lists.Item;
+using ApiSdk.Me.Todo.Lists.Delta;
+using ApiSdk.Me.Todo.Lists.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Todo.Lists {
+namespace ApiSdk.Me.Todo.Lists {
     /// <summary>Builds and executes requests for operations under \me\todo\lists</summary>
     public class ListsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.Todo.Lists {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.todo.lists collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.todo.lists.item collection</summary>
         public TodoTaskListRequestBuilder this[string position] { get {
             return new TodoTaskListRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.Todo.Lists {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\todo\lists\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The task lists in the users mailbox.

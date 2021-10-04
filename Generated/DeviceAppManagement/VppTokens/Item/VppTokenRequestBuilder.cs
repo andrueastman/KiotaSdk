@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.VppTokens.Microsoft.Graph.SyncLicenses;
+using ApiSdk.DeviceAppManagement.VppTokens.Item.SyncLicenses;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.VppTokens.Item {
+namespace ApiSdk.DeviceAppManagement.VppTokens.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\vppTokens\{vppToken-id}</summary>
     public class VppTokenRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -15,11 +16,11 @@ namespace GraphServiceClient.DeviceAppManagement.VppTokens.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.syncLicensesRequestBuilder Microsoft.graph.syncLicenses { get =>
-            new Microsoft.graph.syncLicensesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public SyncLicensesRequestBuilder SyncLicenses { get =>
+            new SyncLicensesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new VppTokenRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

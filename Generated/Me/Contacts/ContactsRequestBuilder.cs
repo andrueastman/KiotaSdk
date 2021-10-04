@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.Contacts.Item;
+using ApiSdk.Me.Contacts.Delta;
+using ApiSdk.Me.Contacts.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Contacts {
+namespace ApiSdk.Me.Contacts {
     /// <summary>Builds and executes requests for operations under \me\contacts</summary>
     public class ContactsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.Contacts {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.contacts collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.contacts.item collection</summary>
         public ContactRequestBuilder this[string position] { get {
             return new ContactRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.Contacts {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\contacts\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The user's contacts. Read-only. Nullable.

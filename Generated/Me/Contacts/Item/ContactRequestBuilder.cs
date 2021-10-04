@@ -1,7 +1,8 @@
-using GraphServiceClient.Me.Contacts.Extensions;
-using GraphServiceClient.Me.Contacts.MultiValueExtendedProperties;
-using GraphServiceClient.Me.Contacts.Photo;
-using GraphServiceClient.Me.Contacts.SingleValueExtendedProperties;
+using ApiSdk.Me.Contacts.Item.Extensions;
+using ApiSdk.Me.Contacts.Item.MultiValueExtendedProperties;
+using ApiSdk.Me.Contacts.Item.Photo;
+using ApiSdk.Me.Contacts.Item.SingleValueExtendedProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Contacts.Item {
+namespace ApiSdk.Me.Contacts.Item {
     /// <summary>Builds and executes requests for operations under \me\contacts\{contact-id}</summary>
     public class ContactRequestBuilder {
         /// <summary>Current path for the request</summary>

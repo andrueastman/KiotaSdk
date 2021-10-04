@@ -1,7 +1,8 @@
-using GraphServiceClient.DirectoryRoleTemplates.Item;
-using GraphServiceClient.DirectoryRoleTemplates.Microsoft.Graph.GetAvailableExtensionProperties;
-using GraphServiceClient.DirectoryRoleTemplates.Microsoft.Graph.GetByIds;
-using GraphServiceClient.DirectoryRoleTemplates.Microsoft.Graph.ValidateProperties;
+using ApiSdk.DirectoryRoleTemplates.GetAvailableExtensionProperties;
+using ApiSdk.DirectoryRoleTemplates.GetByIds;
+using ApiSdk.DirectoryRoleTemplates.Item;
+using ApiSdk.DirectoryRoleTemplates.ValidateProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,27 +10,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DirectoryRoleTemplates {
+namespace ApiSdk.DirectoryRoleTemplates {
     /// <summary>Builds and executes requests for operations under \directoryRoleTemplates</summary>
     public class DirectoryRoleTemplatesRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder Microsoft.graph.getAvailableExtensionProperties { get =>
-            new Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getByIdsRequestBuilder Microsoft.graph.getByIds { get =>
-            new Microsoft.graph.getByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.validatePropertiesRequestBuilder Microsoft.graph.validateProperties { get =>
-            new Microsoft.graph.validatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.directoryRoleTemplates collection</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>Gets an item from the ApiSdk.directoryRoleTemplates.item collection</summary>
         public DirectoryRoleTemplateRequestBuilder this[string position] { get {
             return new DirectoryRoleTemplateRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

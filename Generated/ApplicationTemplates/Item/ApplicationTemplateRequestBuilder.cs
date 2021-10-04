@@ -1,4 +1,5 @@
-using GraphServiceClient.ApplicationTemplates.Microsoft.Graph.Instantiate;
+using ApiSdk.ApplicationTemplates.Item.Instantiate;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,18 +7,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.ApplicationTemplates.Item {
+namespace ApiSdk.ApplicationTemplates.Item {
     /// <summary>Builds and executes requests for operations under \applicationTemplates\{applicationTemplate-id}</summary>
     public class ApplicationTemplateRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
+        public InstantiateRequestBuilder Instantiate { get =>
+            new InstantiateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.instantiateRequestBuilder Microsoft.graph.instantiate { get =>
-            new Microsoft.graph.instantiateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         /// <summary>

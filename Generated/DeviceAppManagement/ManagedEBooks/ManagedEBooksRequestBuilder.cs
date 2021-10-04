@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.ManagedEBooks.Item;
+using ApiSdk.DeviceAppManagement.ManagedEBooks.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedEBooks {
+namespace ApiSdk.DeviceAppManagement.ManagedEBooks {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedEBooks</summary>
     public class ManagedEBooksRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedEBooks {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.managedEBooks collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.managedEBooks.item collection</summary>
         public ManagedEBookRequestBuilder this[string position] { get {
             return new ManagedEBookRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

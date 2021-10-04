@@ -1,4 +1,5 @@
-using GraphServiceClient.Education.Me.Schools.$ref;
+using ApiSdk.Education.Me.Schools.Delta;
+using ApiSdk.Education.Me.Schools.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,12 +7,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Me.Schools {
+namespace ApiSdk.Education.Me.Schools {
     /// <summary>Builds and executes requests for operations under \education\me\schools</summary>
     public class SchoolsRequestBuilder {
-        public $refRequestBuilder $ref { get =>
-            new $refRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
@@ -20,6 +18,9 @@ namespace GraphServiceClient.Education.Me.Schools {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new SchoolsRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -53,6 +54,12 @@ namespace GraphServiceClient.Education.Me.Schools {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \education\me\schools\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Schools to which the user belongs. Nullable.

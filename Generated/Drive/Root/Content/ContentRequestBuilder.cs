@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.Root.Content {
+namespace ApiSdk.Drive.Root.Content {
     /// <summary>Builds and executes requests for operations under \drive\root\content</summary>
     public class ContentRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,4 +1,6 @@
-using GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations.Item;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations.GetUserIdsWithFlaggedAppRegistration;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations {
+namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedAppRegistrations</summary>
     public class ManagedAppRegistrationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.managedAppRegistrations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.managedAppRegistrations.item collection</summary>
         public ManagedAppRegistrationRequestBuilder this[string position] { get {
             return new ManagedAppRegistrationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -82,6 +84,12 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations {
         public async Task<ManagedAppRegistrationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await HttpCore.SendAsync<ManagedAppRegistrationsResponse>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \deviceAppManagement\managedAppRegistrations\microsoft.graph.getUserIdsWithFlaggedAppRegistration()
+        /// </summary>
+        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder getUserIdsWithFlaggedAppRegistration() {
+            return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The managed app registrations.

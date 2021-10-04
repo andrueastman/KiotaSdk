@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
+namespace ApiSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
     public class MdmWindowsInformationProtectionPoliciesResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<MdmWindowsInformationProtectionPolicy> Value { get; set; }
         /// <summary>
-        /// Instantiates a new MdmWindowsInformationProtectionPoliciesResponse and sets the default values.
+        /// Instantiates a new mdmWindowsInformationProtectionPoliciesResponse and sets the default values.
         /// </summary>
         public MdmWindowsInformationProtectionPoliciesResponse() {
             AdditionalData = new Dictionary<string, object>();

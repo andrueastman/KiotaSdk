@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Insights.Used.Resource;
+using ApiSdk.Me.Insights.Used.Item.Resource;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Insights.Used.Item {
+namespace ApiSdk.Me.Insights.Used.Item {
     /// <summary>Builds and executes requests for operations under \me\insights\used\{usedInsight-id}</summary>
     public class UsedInsightRequestBuilder {
         /// <summary>Current path for the request</summary>

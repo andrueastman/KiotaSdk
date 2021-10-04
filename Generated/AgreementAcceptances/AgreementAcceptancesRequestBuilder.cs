@@ -1,4 +1,5 @@
-using GraphServiceClient.AgreementAcceptances.Item;
+using ApiSdk.AgreementAcceptances.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AgreementAcceptances {
+namespace ApiSdk.AgreementAcceptances {
     /// <summary>Builds and executes requests for operations under \agreementAcceptances</summary>
     public class AgreementAcceptancesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.AgreementAcceptances {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.agreementAcceptances collection</summary>
+        /// <summary>Gets an item from the ApiSdk.agreementAcceptances.item collection</summary>
         public AgreementAcceptanceRequestBuilder this[string position] { get {
             return new AgreementAcceptanceRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

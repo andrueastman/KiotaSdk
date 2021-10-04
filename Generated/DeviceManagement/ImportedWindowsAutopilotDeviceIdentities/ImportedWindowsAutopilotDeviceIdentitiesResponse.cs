@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities {
+namespace ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities {
     public class ImportedWindowsAutopilotDeviceIdentitiesResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<ImportedWindowsAutopilotDeviceIdentity> Value { get; set; }
         /// <summary>
-        /// Instantiates a new ImportedWindowsAutopilotDeviceIdentitiesResponse and sets the default values.
+        /// Instantiates a new importedWindowsAutopilotDeviceIdentitiesResponse and sets the default values.
         /// </summary>
         public ImportedWindowsAutopilotDeviceIdentitiesResponse() {
             AdditionalData = new Dictionary<string, object>();

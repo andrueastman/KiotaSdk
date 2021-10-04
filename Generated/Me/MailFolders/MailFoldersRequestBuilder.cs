@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.MailFolders.Item;
+using ApiSdk.Me.MailFolders.Delta;
+using ApiSdk.Me.MailFolders.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.MailFolders {
+namespace ApiSdk.Me.MailFolders {
     /// <summary>Builds and executes requests for operations under \me\mailFolders</summary>
     public class MailFoldersRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.MailFolders {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.mailFolders collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.mailFolders.item collection</summary>
         public MailFolderRequestBuilder this[string position] { get {
             return new MailFolderRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.MailFolders {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\mailFolders\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The user's mail folders. Read-only. Nullable.

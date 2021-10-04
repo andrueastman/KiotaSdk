@@ -1,4 +1,5 @@
-using GraphServiceClient.Security.SecureScores.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Security.SecureScores.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Security.SecureScores {
+namespace ApiSdk.Security.SecureScores {
     /// <summary>Builds and executes requests for operations under \security\secureScores</summary>
     public class SecureScoresRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Security.SecureScores {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.security.secureScores collection</summary>
+        /// <summary>Gets an item from the ApiSdk.security.secureScores.item collection</summary>
         public SecureScoreRequestBuilder this[string position] { get {
             return new SecureScoreRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

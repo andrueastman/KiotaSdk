@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Authentication.Methods.Item;
+using ApiSdk.Me.Authentication.Methods.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication.Methods {
+namespace ApiSdk.Me.Authentication.Methods {
     /// <summary>Builds and executes requests for operations under \me\authentication\methods</summary>
     public class MethodsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Authentication.Methods {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.authentication.methods collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.authentication.methods.item collection</summary>
         public AuthenticationMethodRequestBuilder this[string position] { get {
             return new AuthenticationMethodRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

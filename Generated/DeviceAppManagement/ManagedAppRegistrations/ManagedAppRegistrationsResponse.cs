@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations {
+namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations {
     public class ManagedAppRegistrationsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<ManagedAppRegistration> Value { get; set; }
         /// <summary>
-        /// Instantiates a new ManagedAppRegistrationsResponse and sets the default values.
+        /// Instantiates a new managedAppRegistrationsResponse and sets the default values.
         /// </summary>
         public ManagedAppRegistrationsResponse() {
             AdditionalData = new Dictionary<string, object>();

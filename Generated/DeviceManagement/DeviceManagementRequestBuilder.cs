@@ -1,33 +1,36 @@
-using GraphServiceClient.DeviceManagement.ApplePushNotificationCertificate;
-using GraphServiceClient.DeviceManagement.ComplianceManagementPartners;
-using GraphServiceClient.DeviceManagement.ConditionalAccessSettings;
-using GraphServiceClient.DeviceManagement.DetectedApps;
-using GraphServiceClient.DeviceManagement.DeviceCategories;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
-using GraphServiceClient.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
-using GraphServiceClient.DeviceManagement.DeviceConfigurations;
-using GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations;
-using GraphServiceClient.DeviceManagement.DeviceManagementPartners;
-using GraphServiceClient.DeviceManagement.ExchangeConnectors;
-using GraphServiceClient.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
-using GraphServiceClient.DeviceManagement.IosUpdateStatuses;
-using GraphServiceClient.DeviceManagement.ManagedDeviceOverview;
-using GraphServiceClient.DeviceManagement.ManagedDevices;
-using GraphServiceClient.DeviceManagement.MobileThreatDefenseConnectors;
-using GraphServiceClient.DeviceManagement.NotificationMessageTemplates;
-using GraphServiceClient.DeviceManagement.RemoteAssistancePartners;
-using GraphServiceClient.DeviceManagement.ResourceOperations;
-using GraphServiceClient.DeviceManagement.RoleAssignments;
-using GraphServiceClient.DeviceManagement.RoleDefinitions;
-using GraphServiceClient.DeviceManagement.SoftwareUpdateStatusSummary;
-using GraphServiceClient.DeviceManagement.TelecomExpenseManagementPartners;
-using GraphServiceClient.DeviceManagement.TermsAndConditions;
-using GraphServiceClient.DeviceManagement.TroubleshootingEvents;
-using GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities;
-using GraphServiceClient.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
-using GraphServiceClient.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
+using ApiSdk.DeviceManagement.ApplePushNotificationCertificate;
+using ApiSdk.DeviceManagement.ComplianceManagementPartners;
+using ApiSdk.DeviceManagement.ConditionalAccessSettings;
+using ApiSdk.DeviceManagement.DetectedApps;
+using ApiSdk.DeviceManagement.DeviceCategories;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
+using ApiSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
+using ApiSdk.DeviceManagement.DeviceConfigurations;
+using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations;
+using ApiSdk.DeviceManagement.DeviceManagementPartners;
+using ApiSdk.DeviceManagement.ExchangeConnectors;
+using ApiSdk.DeviceManagement.GetEffectivePermissionsWithScope;
+using ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
+using ApiSdk.DeviceManagement.IosUpdateStatuses;
+using ApiSdk.DeviceManagement.ManagedDeviceOverview;
+using ApiSdk.DeviceManagement.ManagedDevices;
+using ApiSdk.DeviceManagement.MobileThreatDefenseConnectors;
+using ApiSdk.DeviceManagement.NotificationMessageTemplates;
+using ApiSdk.DeviceManagement.RemoteAssistancePartners;
+using ApiSdk.DeviceManagement.ResourceOperations;
+using ApiSdk.DeviceManagement.RoleAssignments;
+using ApiSdk.DeviceManagement.RoleDefinitions;
+using ApiSdk.DeviceManagement.SoftwareUpdateStatusSummary;
+using ApiSdk.DeviceManagement.TelecomExpenseManagementPartners;
+using ApiSdk.DeviceManagement.TermsAndConditions;
+using ApiSdk.DeviceManagement.TroubleshootingEvents;
+using ApiSdk.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
+using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities;
+using ApiSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
+using ApiSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -35,7 +38,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement {
+namespace ApiSdk.DeviceManagement {
     /// <summary>Builds and executes requests for operations under \deviceManagement</summary>
     public class DeviceManagementRequestBuilder {
         public ApplePushNotificationCertificateRequestBuilder ApplePushNotificationCertificate { get =>
@@ -176,7 +179,7 @@ namespace GraphServiceClient.DeviceManagement {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -194,9 +197,17 @@ namespace GraphServiceClient.DeviceManagement {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.DeviceManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<DeviceManagement>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.getEffectivePermissions(scope='{scope}')
+        /// <param name="scope">Usage: scope={scope}</param>
+        /// </summary>
+        public GetEffectivePermissionsWithScopeRequestBuilder getEffectivePermissionsWithScope(string scope) {
+            if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
+            return new GetEffectivePermissionsWithScopeRequestBuilder(CurrentPath + PathSegment , HttpCore, scope, false);
         }
         /// <summary>
         /// Update deviceManagement
@@ -205,10 +216,18 @@ namespace GraphServiceClient.DeviceManagement {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
+        /// <param name="domainName">Usage: domainName={domainName}</param>
+        /// </summary>
+        public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder verifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
+            if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
+            return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(CurrentPath + PathSegment , HttpCore, domainName, false);
         }
         /// <summary>Get deviceManagement</summary>
         public class GetQueryParameters : QueryParametersBase {

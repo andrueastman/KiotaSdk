@@ -1,6 +1,7 @@
-using GraphServiceClient.Directory.AdministrativeUnits.Extensions;
-using GraphServiceClient.Directory.AdministrativeUnits.Members;
-using GraphServiceClient.Directory.AdministrativeUnits.ScopedRoleMembers;
+using ApiSdk.Directory.AdministrativeUnits.Item.Extensions;
+using ApiSdk.Directory.AdministrativeUnits.Item.Members;
+using ApiSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Directory.AdministrativeUnits.Item {
+namespace ApiSdk.Directory.AdministrativeUnits.Item {
     /// <summary>Builds and executes requests for operations under \directory\administrativeUnits\{administrativeUnit-id}</summary>
     public class AdministrativeUnitRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -82,7 +83,7 @@ namespace GraphServiceClient.Directory.AdministrativeUnits.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(AdministrativeUnit body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.AdministrativeUnit body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -110,9 +111,9 @@ namespace GraphServiceClient.Directory.AdministrativeUnits.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<AdministrativeUnit> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<AdministrativeUnit>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update the navigation property administrativeUnits in directory
@@ -121,7 +122,7 @@ namespace GraphServiceClient.Directory.AdministrativeUnits.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(AdministrativeUnit body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.AdministrativeUnit body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

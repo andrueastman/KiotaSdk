@@ -1,5 +1,6 @@
-using GraphServiceClient.Me.Todo.Lists.Extensions;
-using GraphServiceClient.Me.Todo.Lists.Tasks;
+using ApiSdk.Me.Todo.Lists.Item.Extensions;
+using ApiSdk.Me.Todo.Lists.Item.Tasks;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Todo.Lists.Item {
+namespace ApiSdk.Me.Todo.Lists.Item {
     /// <summary>Builds and executes requests for operations under \me\todo\lists\{todoTaskList-id}</summary>
     public class TodoTaskListRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,10 +1,11 @@
-using GraphServiceClient.Me.MailFolders.ChildFolders;
-using GraphServiceClient.Me.MailFolders.MessageRules;
-using GraphServiceClient.Me.MailFolders.Messages;
-using GraphServiceClient.Me.MailFolders.Microsoft.Graph.Copy;
-using GraphServiceClient.Me.MailFolders.Microsoft.Graph.Move;
-using GraphServiceClient.Me.MailFolders.MultiValueExtendedProperties;
-using GraphServiceClient.Me.MailFolders.SingleValueExtendedProperties;
+using ApiSdk.Me.MailFolders.Item.ChildFolders;
+using ApiSdk.Me.MailFolders.Item.Copy;
+using ApiSdk.Me.MailFolders.Item.MessageRules;
+using ApiSdk.Me.MailFolders.Item.Messages;
+using ApiSdk.Me.MailFolders.Item.Move;
+using ApiSdk.Me.MailFolders.Item.MultiValueExtendedProperties;
+using ApiSdk.Me.MailFolders.Item.SingleValueExtendedProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,11 +13,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.MailFolders.Item {
+namespace ApiSdk.Me.MailFolders.Item {
     /// <summary>Builds and executes requests for operations under \me\mailFolders\{mailFolder-id}</summary>
     public class MailFolderRequestBuilder {
         public ChildFoldersRequestBuilder ChildFolders { get =>
             new ChildFoldersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CopyRequestBuilder Copy { get =>
+            new CopyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
@@ -30,11 +34,8 @@ namespace GraphServiceClient.Me.MailFolders.Item {
         public MessagesRequestBuilder Messages { get =>
             new MessagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.copyRequestBuilder Microsoft.graph.copy { get =>
-            new Microsoft.graph.copyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.moveRequestBuilder Microsoft.graph.move { get =>
-            new Microsoft.graph.moveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public MoveRequestBuilder Move { get =>
+            new MoveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
             new MultiValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);

@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Activities.HistoryItems;
+using ApiSdk.Me.Activities.Item.HistoryItems;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Activities.Item {
+namespace ApiSdk.Me.Activities.Item {
     /// <summary>Builds and executes requests for operations under \me\activities\{userActivity-id}</summary>
     public class UserActivityRequestBuilder {
         /// <summary>Current path for the request</summary>

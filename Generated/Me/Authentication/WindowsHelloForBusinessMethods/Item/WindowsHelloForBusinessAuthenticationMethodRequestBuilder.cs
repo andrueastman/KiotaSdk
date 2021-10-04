@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods.Device;
+using ApiSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item.Device;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods.Item {
+namespace ApiSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item {
     /// <summary>Builds and executes requests for operations under \me\authentication\windowsHelloForBusinessMethods\{windowsHelloForBusinessAuthenticationMethod-id}</summary>
     public class WindowsHelloForBusinessAuthenticationMethodRequestBuilder {
         /// <summary>Current path for the request</summary>

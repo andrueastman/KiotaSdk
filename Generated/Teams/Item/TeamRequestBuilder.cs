@@ -1,16 +1,17 @@
-using GraphServiceClient.Teams.Channels;
-using GraphServiceClient.Teams.Group;
-using GraphServiceClient.Teams.InstalledApps;
-using GraphServiceClient.Teams.Members;
-using GraphServiceClient.Teams.Microsoft.Graph.Archive;
-using GraphServiceClient.Teams.Microsoft.Graph.Clone;
-using GraphServiceClient.Teams.Microsoft.Graph.CompleteMigration;
-using GraphServiceClient.Teams.Microsoft.Graph.SendActivityNotification;
-using GraphServiceClient.Teams.Microsoft.Graph.Unarchive;
-using GraphServiceClient.Teams.Operations;
-using GraphServiceClient.Teams.PrimaryChannel;
-using GraphServiceClient.Teams.Schedule;
-using GraphServiceClient.Teams.Template;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Teams.Item.Archive;
+using ApiSdk.Teams.Item.Channels;
+using ApiSdk.Teams.Item.Clone;
+using ApiSdk.Teams.Item.CompleteMigration;
+using ApiSdk.Teams.Item.Group;
+using ApiSdk.Teams.Item.InstalledApps;
+using ApiSdk.Teams.Item.Members;
+using ApiSdk.Teams.Item.Operations;
+using ApiSdk.Teams.Item.PrimaryChannel;
+using ApiSdk.Teams.Item.Schedule;
+using ApiSdk.Teams.Item.SendActivityNotification;
+using ApiSdk.Teams.Item.Template;
+using ApiSdk.Teams.Item.Unarchive;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,11 +19,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Teams.Item {
+namespace ApiSdk.Teams.Item {
     /// <summary>Builds and executes requests for operations under \teams\{team-id}</summary>
     public class TeamRequestBuilder {
+        public ArchiveRequestBuilder Archive { get =>
+            new ArchiveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public ChannelsRequestBuilder Channels { get =>
             new ChannelsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CloneRequestBuilder Clone { get =>
+            new CloneRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CompleteMigrationRequestBuilder CompleteMigration { get =>
+            new CompleteMigrationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
@@ -39,21 +49,6 @@ namespace GraphServiceClient.Teams.Item {
         public MembersRequestBuilder Members { get =>
             new MembersRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.archiveRequestBuilder Microsoft.graph.archive { get =>
-            new Microsoft.graph.archiveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.cloneRequestBuilder Microsoft.graph.clone { get =>
-            new Microsoft.graph.cloneRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.completeMigrationRequestBuilder Microsoft.graph.completeMigration { get =>
-            new Microsoft.graph.completeMigrationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.sendActivityNotificationRequestBuilder Microsoft.graph.sendActivityNotification { get =>
-            new Microsoft.graph.sendActivityNotificationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.unarchiveRequestBuilder Microsoft.graph.unarchive { get =>
-            new Microsoft.graph.unarchiveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -65,8 +60,14 @@ namespace GraphServiceClient.Teams.Item {
         public ScheduleRequestBuilder Schedule { get =>
             new ScheduleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
+            new SendActivityNotificationRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public TemplateRequestBuilder Template { get =>
             new TemplateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UnarchiveRequestBuilder Unarchive { get =>
+            new UnarchiveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
@@ -122,7 +123,7 @@ namespace GraphServiceClient.Teams.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -150,9 +151,9 @@ namespace GraphServiceClient.Teams.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Team> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Team> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Team>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update entity in teams
@@ -161,7 +162,7 @@ namespace GraphServiceClient.Teams.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

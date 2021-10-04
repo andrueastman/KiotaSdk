@@ -1,4 +1,5 @@
-using GraphServiceClient.Policies.PermissionGrantPolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.PermissionGrantPolicies.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.PermissionGrantPolicies {
+namespace ApiSdk.Policies.PermissionGrantPolicies {
     /// <summary>Builds and executes requests for operations under \policies\permissionGrantPolicies</summary>
     public class PermissionGrantPoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Policies.PermissionGrantPolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.policies.permissionGrantPolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.policies.permissionGrantPolicies.item collection</summary>
         public PermissionGrantPolicyRequestBuilder this[string position] { get {
             return new PermissionGrantPolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

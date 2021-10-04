@@ -1,4 +1,6 @@
-using GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests.Item;
+using ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.FilterByCurrentUserWithOn;
+using ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests {
+namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests {
     /// <summary>Builds and executes requests for operations under \identityGovernance\appConsent\appConsentRequests</summary>
     public class AppConsentRequestsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identityGovernance.appConsent.appConsentRequests collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identityGovernance.appConsent.appConsentRequests.item collection</summary>
         public AppConsentRequestRequestBuilder this[string position] { get {
             return new AppConsentRequestRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,14 @@ namespace GraphServiceClient.IdentityGovernance.AppConsent.AppConsentRequests {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \identityGovernance\appConsent\appConsentRequests\microsoft.graph.filterByCurrentUser(on={on})
+        /// <param name="on">Usage: on={on}</param>
+        /// </summary>
+        public FilterByCurrentUserWithOnRequestBuilder filterByCurrentUserWithOn(string on) {
+            if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
+            return new FilterByCurrentUserWithOnRequestBuilder(CurrentPath + PathSegment , HttpCore, on, false);
         }
         /// <summary>
         /// Get appConsentRequests from identityGovernance

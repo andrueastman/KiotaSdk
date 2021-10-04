@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Onenote.Resources.Content;
+using ApiSdk.Me.Onenote.Resources.Item.Content;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Resources.Item {
+namespace ApiSdk.Me.Onenote.Resources.Item {
     /// <summary>Builds and executes requests for operations under \me\onenote\resources\{onenoteResource-id}</summary>
     public class OnenoteResourceRequestBuilder {
         public ContentRequestBuilder Content { get =>

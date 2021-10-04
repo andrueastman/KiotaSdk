@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.CertificateBasedAuthConfiguration {
+namespace ApiSdk.CertificateBasedAuthConfiguration {
     public class CertificateBasedAuthConfigurationResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<CertificateBasedAuthConfiguration> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration> Value { get; set; }
         /// <summary>
-        /// Instantiates a new CertificateBasedAuthConfigurationResponse and sets the default values.
+        /// Instantiates a new certificateBasedAuthConfigurationResponse and sets the default values.
         /// </summary>
         public CertificateBasedAuthConfigurationResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.CertificateBasedAuthConfiguration {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as CertificateBasedAuthConfigurationResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as CertificateBasedAuthConfigurationResponse).Value = n.GetCollectionOfObjectValues<CertificateBasedAuthConfiguration>().ToList(); } },
+                {"value", (o,n) => { (o as CertificateBasedAuthConfigurationResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.CertificateBasedAuthConfiguration {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<CertificateBasedAuthConfiguration>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

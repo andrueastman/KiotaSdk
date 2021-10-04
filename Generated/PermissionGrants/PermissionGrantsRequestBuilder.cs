@@ -1,7 +1,8 @@
-using GraphServiceClient.PermissionGrants.Item;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.GetAvailableExtensionProperties;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.GetByIds;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.ValidateProperties;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.PermissionGrants.GetAvailableExtensionProperties;
+using ApiSdk.PermissionGrants.GetByIds;
+using ApiSdk.PermissionGrants.Item;
+using ApiSdk.PermissionGrants.ValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,27 +10,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.PermissionGrants {
+namespace ApiSdk.PermissionGrants {
     /// <summary>Builds and executes requests for operations under \permissionGrants</summary>
     public class PermissionGrantsRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder Microsoft.graph.getAvailableExtensionProperties { get =>
-            new Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getByIdsRequestBuilder Microsoft.graph.getByIds { get =>
-            new Microsoft.graph.getByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.validatePropertiesRequestBuilder Microsoft.graph.validateProperties { get =>
-            new Microsoft.graph.validatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.permissionGrants collection</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>Gets an item from the ApiSdk.permissionGrants.item collection</summary>
         public ResourceSpecificPermissionGrantRequestBuilder this[string position] { get {
             return new ResourceSpecificPermissionGrantRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

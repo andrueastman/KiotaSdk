@@ -1,4 +1,5 @@
-using GraphServiceClient.Drive.List.ContentTypes.ColumnLinks;
+using ApiSdk.Drive.List.ContentTypes.Item.ColumnLinks;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.ContentTypes.Item {
+namespace ApiSdk.Drive.List.ContentTypes.Item {
     /// <summary>Builds and executes requests for operations under \drive\list\contentTypes\{contentType-id}</summary>
     public class ContentTypeRequestBuilder {
         public ColumnLinksRequestBuilder ColumnLinks { get =>

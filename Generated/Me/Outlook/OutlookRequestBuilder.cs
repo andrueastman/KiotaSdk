@@ -1,4 +1,8 @@
-using GraphServiceClient.Me.Outlook.MasterCategories;
+using ApiSdk.Me.Outlook.MasterCategories;
+using ApiSdk.Me.Outlook.SupportedLanguages;
+using ApiSdk.Me.Outlook.SupportedTimeZones;
+using ApiSdk.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Outlook {
+namespace ApiSdk.Me.Outlook {
     /// <summary>Builds and executes requests for operations under \me\outlook</summary>
     public class OutlookRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -74,7 +78,7 @@ namespace GraphServiceClient.Me.Outlook {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Outlook body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(OutlookUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -113,10 +117,30 @@ namespace GraphServiceClient.Me.Outlook {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Outlook body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(OutlookUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedLanguages()
+        /// </summary>
+        public SupportedLanguagesRequestBuilder supportedLanguages() {
+            return new SupportedLanguagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones()
+        /// </summary>
+        public SupportedTimeZonesRequestBuilder supportedTimeZones() {
+            return new SupportedTimeZonesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones(TimeZoneStandard={TimeZoneStandard})
+        /// <param name="TimeZoneStandard">Usage: TimeZoneStandard={TimeZoneStandard}</param>
+        /// </summary>
+        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder supportedTimeZonesWithTimeZoneStandard(string TimeZoneStandard) {
+            if(string.IsNullOrEmpty(TimeZoneStandard)) throw new ArgumentNullException(nameof(TimeZoneStandard));
+            return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(CurrentPath + PathSegment , HttpCore, TimeZoneStandard, false);
         }
         /// <summary>Selective Outlook services available to the user. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

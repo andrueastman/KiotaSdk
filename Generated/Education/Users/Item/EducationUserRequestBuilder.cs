@@ -1,8 +1,9 @@
-using GraphServiceClient.Education.Users.Classes;
-using GraphServiceClient.Education.Users.Rubrics;
-using GraphServiceClient.Education.Users.Schools;
-using GraphServiceClient.Education.Users.TaughtClasses;
-using GraphServiceClient.Education.Users.User;
+using ApiSdk.Education.Users.Item.Classes;
+using ApiSdk.Education.Users.Item.Rubrics;
+using ApiSdk.Education.Users.Item.Schools;
+using ApiSdk.Education.Users.Item.TaughtClasses;
+using ApiSdk.Education.Users.Item.User;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Users.Item {
+namespace ApiSdk.Education.Users.Item {
     /// <summary>Builds and executes requests for operations under \education\users\{educationUser-id}</summary>
     public class EducationUserRequestBuilder {
         public ClassesRequestBuilder Classes { get =>

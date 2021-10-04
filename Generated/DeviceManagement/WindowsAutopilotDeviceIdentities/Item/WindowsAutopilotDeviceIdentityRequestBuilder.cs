@@ -1,6 +1,7 @@
-using GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities.Microsoft.Graph.AssignUserToDevice;
-using GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities.Microsoft.Graph.UnassignUserFromDevice;
-using GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities.Microsoft.Graph.UpdateDeviceProperties;
+using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignUserToDevice;
+using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.UnassignUserFromDevice;
+using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.UpdateDeviceProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,26 +9,26 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.WindowsAutopilotDeviceIdentities.Item {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\windowsAutopilotDeviceIdentities\{windowsAutopilotDeviceIdentity-id}</summary>
     public class WindowsAutopilotDeviceIdentityRequestBuilder {
+        public AssignUserToDeviceRequestBuilder AssignUserToDevice { get =>
+            new AssignUserToDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignUserToDeviceRequestBuilder Microsoft.graph.assignUserToDevice { get =>
-            new Microsoft.graph.assignUserToDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.unassignUserFromDeviceRequestBuilder Microsoft.graph.unassignUserFromDevice { get =>
-            new Microsoft.graph.unassignUserFromDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.updateDevicePropertiesRequestBuilder Microsoft.graph.updateDeviceProperties { get =>
-            new Microsoft.graph.updateDevicePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public UnassignUserFromDeviceRequestBuilder UnassignUserFromDevice { get =>
+            new UnassignUserFromDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UpdateDevicePropertiesRequestBuilder UpdateDeviceProperties { get =>
+            new UpdateDevicePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new WindowsAutopilotDeviceIdentityRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

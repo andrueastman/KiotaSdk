@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.ResourceOperations.Item;
+using ApiSdk.DeviceManagement.ResourceOperations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.ResourceOperations {
+namespace ApiSdk.DeviceManagement.ResourceOperations {
     /// <summary>Builds and executes requests for operations under \deviceManagement\resourceOperations</summary>
     public class ResourceOperationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.ResourceOperations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.resourceOperations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.resourceOperations.item collection</summary>
         public ResourceOperationRequestBuilder this[string position] { get {
             return new ResourceOperationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

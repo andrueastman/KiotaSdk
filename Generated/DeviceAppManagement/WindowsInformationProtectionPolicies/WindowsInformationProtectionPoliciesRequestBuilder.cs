@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.WindowsInformationProtectionPolicies.Item;
+using ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.WindowsInformationProtectionPolicies {
+namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\windowsInformationProtectionPolicies</summary>
     public class WindowsInformationProtectionPoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.WindowsInformationProtectionPol
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.windowsInformationProtectionPolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.windowsInformationProtectionPolicies.item collection</summary>
         public WindowsInformationProtectionPolicyRequestBuilder this[string position] { get {
             return new WindowsInformationProtectionPolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

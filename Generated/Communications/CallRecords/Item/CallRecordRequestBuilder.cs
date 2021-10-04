@@ -1,4 +1,5 @@
-using GraphServiceClient.Communications.CallRecords.Sessions;
+using ApiSdk.Communications.CallRecords.Item.Sessions;
+using ApiSdk.Models.Microsoft.Graph.CallRecords;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Communications.CallRecords.Item {
+namespace ApiSdk.Communications.CallRecords.Item {
     /// <summary>Builds and executes requests for operations under \communications\callRecords\{callRecord-id}</summary>
     public class CallRecordRequestBuilder {
         /// <summary>Current path for the request</summary>

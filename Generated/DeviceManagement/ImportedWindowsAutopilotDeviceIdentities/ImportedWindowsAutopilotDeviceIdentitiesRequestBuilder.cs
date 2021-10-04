@@ -1,5 +1,6 @@
-using GraphServiceClient.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Item;
-using GraphServiceClient.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Microsoft.Graph.Import;
+using ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Import;
+using ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,21 +8,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities {
+namespace ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities {
     /// <summary>Builds and executes requests for operations under \deviceManagement\importedWindowsAutopilotDeviceIdentities</summary>
     public class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
+        public ImportRequestBuilder Import { get =>
+            new ImportRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.importRequestBuilder Microsoft.graph.import { get =>
-            new Microsoft.graph.importRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.importedWindowsAutopilotDeviceIdentities collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection</summary>
         public ImportedWindowsAutopilotDeviceIdentityRequestBuilder this[string position] { get {
             return new ImportedWindowsAutopilotDeviceIdentityRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

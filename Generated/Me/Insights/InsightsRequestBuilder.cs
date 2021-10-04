@@ -1,6 +1,7 @@
-using GraphServiceClient.Me.Insights.Shared;
-using GraphServiceClient.Me.Insights.Trending;
-using GraphServiceClient.Me.Insights.Used;
+using ApiSdk.Me.Insights.Shared;
+using ApiSdk.Me.Insights.Trending;
+using ApiSdk.Me.Insights.Used;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Insights {
+namespace ApiSdk.Me.Insights {
     /// <summary>Builds and executes requests for operations under \me\insights</summary>
     public class InsightsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -82,7 +83,7 @@ namespace GraphServiceClient.Me.Insights {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Insights body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(OfficeGraphInsights body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -121,7 +122,7 @@ namespace GraphServiceClient.Me.Insights {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Insights body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(OfficeGraphInsights body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

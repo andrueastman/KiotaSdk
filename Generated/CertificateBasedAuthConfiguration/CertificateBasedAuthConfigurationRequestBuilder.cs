@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.CertificateBasedAuthConfiguration {
+namespace ApiSdk.CertificateBasedAuthConfiguration {
     /// <summary>Builds and executes requests for operations under \certificateBasedAuthConfiguration</summary>
     public class CertificateBasedAuthConfigurationRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -16,7 +17,7 @@ namespace GraphServiceClient.CertificateBasedAuthConfiguration {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.certificateBasedAuthConfiguration collection</summary>
+        /// <summary>Gets an item from the ApiSdk.certificateBasedAuthConfiguration.item collection</summary>
         public CertificateBasedAuthConfigurationRequestBuilder this[string position] { get {
             return new CertificateBasedAuthConfigurationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -60,7 +61,7 @@ namespace GraphServiceClient.CertificateBasedAuthConfiguration {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(CertificateBasedAuthConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -89,10 +90,10 @@ namespace GraphServiceClient.CertificateBasedAuthConfiguration {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<CertificateBasedAuthConfiguration> PostAsync(CertificateBasedAuthConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration> PostAsync(ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<CertificateBasedAuthConfiguration>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>(requestInfo, responseHandler);
         }
         /// <summary>Get entities from certificateBasedAuthConfiguration</summary>
         public class GetQueryParameters : QueryParametersBase {

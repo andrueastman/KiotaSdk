@@ -1,18 +1,19 @@
-using GraphServiceClient.Me.Messages.Attachments;
-using GraphServiceClient.Me.Messages.Content;
-using GraphServiceClient.Me.Messages.Extensions;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.CalendarSharingMessage;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.Copy;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.CreateForward;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.CreateReply;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.CreateReplyAll;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.Forward;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.Move;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.Reply;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.ReplyAll;
-using GraphServiceClient.Me.Messages.Microsoft.Graph.Send;
-using GraphServiceClient.Me.Messages.MultiValueExtendedProperties;
-using GraphServiceClient.Me.Messages.SingleValueExtendedProperties;
+using ApiSdk.Me.Messages.Item.Attachments;
+using ApiSdk.Me.Messages.Item.CalendarSharingMessage;
+using ApiSdk.Me.Messages.Item.Copy;
+using ApiSdk.Me.Messages.Item.CreateForward;
+using ApiSdk.Me.Messages.Item.CreateReply;
+using ApiSdk.Me.Messages.Item.CreateReplyAll;
+using ApiSdk.Me.Messages.Item.Extensions;
+using ApiSdk.Me.Messages.Item.Forward;
+using ApiSdk.Me.Messages.Item.Move;
+using ApiSdk.Me.Messages.Item.MultiValueExtendedProperties;
+using ApiSdk.Me.Messages.Item.Reply;
+using ApiSdk.Me.Messages.Item.ReplyAll;
+using ApiSdk.Me.Messages.Item.Send;
+using ApiSdk.Me.Messages.Item.SingleValueExtendedProperties;
+using ApiSdk.Me.Messages.Item.Value;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,59 +21,59 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Messages.Item {
+namespace ApiSdk.Me.Messages.Item {
     /// <summary>Builds and executes requests for operations under \me\messages\{message-id}</summary>
     public class MessageRequestBuilder {
         public AttachmentsRequestBuilder Attachments { get =>
             new AttachmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
+            new CalendarSharingMessageRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public ContentRequestBuilder Content { get =>
             new ContentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CopyRequestBuilder Copy { get =>
+            new CopyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CreateForwardRequestBuilder CreateForward { get =>
+            new CreateForwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CreateReplyRequestBuilder CreateReply { get =>
+            new CreateReplyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CreateReplyAllRequestBuilder CreateReplyAll { get =>
+            new CreateReplyAllRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         public ExtensionsRequestBuilder Extensions { get =>
             new ExtensionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public ForwardRequestBuilder Forward { get =>
+            new ForwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.calendarSharingMessageRequestBuilder Microsoft.graph.calendarSharingMessage { get =>
-            new Microsoft.graph.calendarSharingMessageRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.copyRequestBuilder Microsoft.graph.copy { get =>
-            new Microsoft.graph.copyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.createForwardRequestBuilder Microsoft.graph.createForward { get =>
-            new Microsoft.graph.createForwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.createReplyRequestBuilder Microsoft.graph.createReply { get =>
-            new Microsoft.graph.createReplyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.createReplyAllRequestBuilder Microsoft.graph.createReplyAll { get =>
-            new Microsoft.graph.createReplyAllRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.forwardRequestBuilder Microsoft.graph.forward { get =>
-            new Microsoft.graph.forwardRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.moveRequestBuilder Microsoft.graph.move { get =>
-            new Microsoft.graph.moveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.replyRequestBuilder Microsoft.graph.reply { get =>
-            new Microsoft.graph.replyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.replyAllRequestBuilder Microsoft.graph.replyAll { get =>
-            new Microsoft.graph.replyAllRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.sendRequestBuilder Microsoft.graph.send { get =>
-            new Microsoft.graph.sendRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public MoveRequestBuilder Move { get =>
+            new MoveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public MultiValueExtendedPropertiesRequestBuilder MultiValueExtendedProperties { get =>
             new MultiValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public ReplyRequestBuilder Reply { get =>
+            new ReplyRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ReplyAllRequestBuilder ReplyAll { get =>
+            new ReplyAllRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SendRequestBuilder Send { get =>
+            new SendRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public SingleValueExtendedPropertiesRequestBuilder SingleValueExtendedProperties { get =>
             new SingleValueExtendedPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }

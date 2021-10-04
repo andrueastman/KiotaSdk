@@ -1,4 +1,5 @@
-using GraphServiceClient.Print.TaskDefinitions.Tasks;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.TaskDefinitions.Item.Tasks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.TaskDefinitions.Item {
+namespace ApiSdk.Print.TaskDefinitions.Item {
     /// <summary>Builds and executes requests for operations under \print\taskDefinitions\{printTaskDefinition-id}</summary>
     public class PrintTaskDefinitionRequestBuilder {
         /// <summary>Current path for the request</summary>

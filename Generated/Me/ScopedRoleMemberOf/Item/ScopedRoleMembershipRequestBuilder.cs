@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.ScopedRoleMemberOf.Item {
+namespace ApiSdk.Me.ScopedRoleMemberOf.Item {
     /// <summary>Builds and executes requests for operations under \me\scopedRoleMemberOf\{scopedRoleMembership-id}</summary>
     public class ScopedRoleMembershipRequestBuilder {
         /// <summary>Current path for the request</summary>

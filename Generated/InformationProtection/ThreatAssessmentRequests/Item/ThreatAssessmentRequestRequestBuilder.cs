@@ -1,4 +1,5 @@
-using GraphServiceClient.InformationProtection.ThreatAssessmentRequests.Results;
+using ApiSdk.InformationProtection.ThreatAssessmentRequests.Item.Results;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.InformationProtection.ThreatAssessmentRequests.Item {
+namespace ApiSdk.InformationProtection.ThreatAssessmentRequests.Item {
     /// <summary>Builds and executes requests for operations under \informationProtection\threatAssessmentRequests\{threatAssessmentRequest-id}</summary>
     public class ThreatAssessmentRequestRequestBuilder {
         /// <summary>Current path for the request</summary>

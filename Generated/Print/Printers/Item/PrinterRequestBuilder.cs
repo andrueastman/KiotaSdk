@@ -1,7 +1,8 @@
-using GraphServiceClient.Print.Printers.Connectors;
-using GraphServiceClient.Print.Printers.Microsoft.Graph.RestoreFactoryDefaults;
-using GraphServiceClient.Print.Printers.Shares;
-using GraphServiceClient.Print.Printers.TaskTriggers;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Printers.Item.Connectors;
+using ApiSdk.Print.Printers.Item.RestoreFactoryDefaults;
+using ApiSdk.Print.Printers.Item.Shares;
+using ApiSdk.Print.Printers.Item.TaskTriggers;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Printers.Item {
+namespace ApiSdk.Print.Printers.Item {
     /// <summary>Builds and executes requests for operations under \print\printers\{printer-id}</summary>
     public class PrinterRequestBuilder {
         public ConnectorsRequestBuilder Connectors { get =>
@@ -21,11 +22,11 @@ namespace GraphServiceClient.Print.Printers.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.restoreFactoryDefaultsRequestBuilder Microsoft.graph.restoreFactoryDefaults { get =>
-            new Microsoft.graph.restoreFactoryDefaultsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RestoreFactoryDefaultsRequestBuilder RestoreFactoryDefaults { get =>
+            new RestoreFactoryDefaultsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public SharesRequestBuilder Shares { get =>
             new SharesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -86,7 +87,7 @@ namespace GraphServiceClient.Print.Printers.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -114,9 +115,9 @@ namespace GraphServiceClient.Print.Printers.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Printer> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Printer> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Printer>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The list of printers registered in the tenant.
@@ -125,7 +126,7 @@ namespace GraphServiceClient.Print.Printers.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

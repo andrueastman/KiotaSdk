@@ -1,4 +1,5 @@
-using GraphServiceClient.Education.Me.Classes.$ref;
+using ApiSdk.Education.Me.Classes.Delta;
+using ApiSdk.Education.Me.Classes.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,12 +7,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Me.Classes {
+namespace ApiSdk.Education.Me.Classes {
     /// <summary>Builds and executes requests for operations under \education\me\classes</summary>
     public class ClassesRequestBuilder {
-        public $refRequestBuilder $ref { get =>
-            new $refRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
@@ -20,6 +18,9 @@ namespace GraphServiceClient.Education.Me.Classes {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ClassesRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -53,6 +54,12 @@ namespace GraphServiceClient.Education.Me.Classes {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \education\me\classes\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Classes to which the user belongs. Nullable.

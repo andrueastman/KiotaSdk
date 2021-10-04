@@ -1,7 +1,10 @@
-using GraphServiceClient.Drive.List.Items.Analytics;
-using GraphServiceClient.Drive.List.Items.DriveItem;
-using GraphServiceClient.Drive.List.Items.Fields;
-using GraphServiceClient.Drive.List.Items.Versions;
+using ApiSdk.Drive.List.Items.Item.Analytics;
+using ApiSdk.Drive.List.Items.Item.DriveItem;
+using ApiSdk.Drive.List.Items.Item.Fields;
+using ApiSdk.Drive.List.Items.Item.GetActivitiesByInterval;
+using ApiSdk.Drive.List.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using ApiSdk.Drive.List.Items.Item.Versions;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.Items.Item {
+namespace ApiSdk.Drive.List.Items.Item {
     /// <summary>Builds and executes requests for operations under \drive\list\items\{listItem-id}</summary>
     public class ListItemRequestBuilder {
         public AnalyticsRequestBuilder Analytics { get =>
@@ -86,7 +89,7 @@ namespace GraphServiceClient.Drive.List.Items.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ListItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.ListItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -108,15 +111,33 @@ namespace GraphServiceClient.Drive.List.Items.Item {
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
+        /// Builds and executes requests for operations under \drive\list\items\{listItem-id}\microsoft.graph.getActivitiesByInterval()
+        /// </summary>
+        public GetActivitiesByIntervalRequestBuilder getActivitiesByInterval() {
+            return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \drive\list\items\{listItem-id}\microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
+        /// <param name="endDateTime">Usage: endDateTime={endDateTime}</param>
+        /// <param name="interval">Usage: interval={interval}</param>
+        /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
+        /// </summary>
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
+            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
+            if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
+            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
+            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(CurrentPath + PathSegment , HttpCore, startDateTime, endDateTime, interval, false);
+        }
+        /// <summary>
         /// All items contained in the list.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ListItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.ListItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<ListItem>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.ListItem>(requestInfo, responseHandler);
         }
         /// <summary>
         /// All items contained in the list.
@@ -125,7 +146,7 @@ namespace GraphServiceClient.Drive.List.Items.Item {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ListItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.ListItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

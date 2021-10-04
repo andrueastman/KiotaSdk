@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicySettingStateSummaries.DeviceComplianceSettingStates;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries.Item.DeviceComplianceSettingStates;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceCompliancePolicySettingStateSummaries.Item {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCompliancePolicySettingStateSummaries\{deviceCompliancePolicySettingStateSummary-id}</summary>
     public class DeviceCompliancePolicySettingStateSummaryRequestBuilder {
         /// <summary>Current path for the request</summary>

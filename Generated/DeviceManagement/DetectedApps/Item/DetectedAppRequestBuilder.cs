@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.DetectedApps.ManagedDevices;
+using ApiSdk.DeviceManagement.DetectedApps.Item.ManagedDevices;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DetectedApps.Item {
+namespace ApiSdk.DeviceManagement.DetectedApps.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\detectedApps\{detectedApp-id}</summary>
     public class DetectedAppRequestBuilder {
         /// <summary>Current path for the request</summary>

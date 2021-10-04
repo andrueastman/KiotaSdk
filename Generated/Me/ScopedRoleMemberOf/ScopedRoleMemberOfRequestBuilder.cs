@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.ScopedRoleMemberOf.Item;
+using ApiSdk.Me.ScopedRoleMemberOf.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.ScopedRoleMemberOf {
+namespace ApiSdk.Me.ScopedRoleMemberOf {
     /// <summary>Builds and executes requests for operations under \me\scopedRoleMemberOf</summary>
     public class ScopedRoleMemberOfRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.ScopedRoleMemberOf {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.scopedRoleMemberOf collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.scopedRoleMemberOf.item collection</summary>
         public ScopedRoleMembershipRequestBuilder this[string position] { get {
             return new ScopedRoleMembershipRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

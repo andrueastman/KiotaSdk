@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceConfigurationDeviceStateSummaries {
+namespace ApiSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceConfigurationDeviceStateSummaries</summary>
     public class DeviceConfigurationDeviceStateSummariesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -70,7 +71,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceConfigurationDeviceStateSumm
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(DeviceConfigurationDeviceStateSummaries body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(DeviceConfigurationDeviceStateSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -109,7 +110,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceConfigurationDeviceStateSumm
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(DeviceConfigurationDeviceStateSummaries body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(DeviceConfigurationDeviceStateSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

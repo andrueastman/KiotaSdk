@@ -1,4 +1,5 @@
-using GraphServiceClient.Policies.FeatureRolloutPolicies.AppliesTo;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.FeatureRolloutPolicies.Item {
+namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
     /// <summary>Builds and executes requests for operations under \policies\featureRolloutPolicies\{featureRolloutPolicy-id}</summary>
     public class FeatureRolloutPolicyRequestBuilder {
         public AppliesToRequestBuilder AppliesTo { get =>

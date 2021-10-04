@@ -1,10 +1,11 @@
-using GraphServiceClient.Shares.DriveItem;
-using GraphServiceClient.Shares.Items;
-using GraphServiceClient.Shares.List;
-using GraphServiceClient.Shares.ListItem;
-using GraphServiceClient.Shares.Permission;
-using GraphServiceClient.Shares.Root;
-using GraphServiceClient.Shares.Site;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Shares.Item.DriveItem;
+using ApiSdk.Shares.Item.Items;
+using ApiSdk.Shares.Item.List;
+using ApiSdk.Shares.Item.ListItem;
+using ApiSdk.Shares.Item.Permission;
+using ApiSdk.Shares.Item.Root;
+using ApiSdk.Shares.Item.Site;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,7 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Shares.Item {
+namespace ApiSdk.Shares.Item {
     /// <summary>Builds and executes requests for operations under \shares\{sharedDriveItem-id}</summary>
     public class SharedDriveItemRequestBuilder {
         /// <summary>Current path for the request</summary>

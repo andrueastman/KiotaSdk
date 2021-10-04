@@ -1,4 +1,5 @@
-using GraphServiceClient.Print.Shares.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Shares.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Shares {
+namespace ApiSdk.Print.Shares {
     /// <summary>Builds and executes requests for operations under \print\shares</summary>
     public class SharesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Print.Shares {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.print.shares collection</summary>
+        /// <summary>Gets an item from the ApiSdk.print.shares.item collection</summary>
         public PrinterShareRequestBuilder this[string position] { get {
             return new PrinterShareRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,4 +1,5 @@
-using GraphServiceClient.AuditLogs.Provisioning.Item;
+using ApiSdk.AuditLogs.Provisioning.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuditLogs.Provisioning {
+namespace ApiSdk.AuditLogs.Provisioning {
     /// <summary>Builds and executes requests for operations under \auditLogs\provisioning</summary>
     public class ProvisioningRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.AuditLogs.Provisioning {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.auditLogs.provisioning collection</summary>
+        /// <summary>Gets an item from the ApiSdk.auditLogs.provisioning.item collection</summary>
         public ProvisioningObjectSummaryRequestBuilder this[string position] { get {
             return new ProvisioningObjectSummaryRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

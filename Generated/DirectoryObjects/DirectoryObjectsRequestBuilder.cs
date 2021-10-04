@@ -1,7 +1,8 @@
-using GraphServiceClient.DirectoryObjects.Item;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.GetAvailableExtensionProperties;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.GetByIds;
-using GraphServiceClient.DirectoryObjects.Microsoft.Graph.ValidateProperties;
+using ApiSdk.DirectoryObjects.GetAvailableExtensionProperties;
+using ApiSdk.DirectoryObjects.GetByIds;
+using ApiSdk.DirectoryObjects.Item;
+using ApiSdk.DirectoryObjects.ValidateProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,27 +10,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DirectoryObjects {
+namespace ApiSdk.DirectoryObjects {
     /// <summary>Builds and executes requests for operations under \directoryObjects</summary>
     public class DirectoryObjectsRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder Microsoft.graph.getAvailableExtensionProperties { get =>
-            new Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getByIdsRequestBuilder Microsoft.graph.getByIds { get =>
-            new Microsoft.graph.getByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.validatePropertiesRequestBuilder Microsoft.graph.validateProperties { get =>
-            new Microsoft.graph.validatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.directoryObjects collection</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>Gets an item from the ApiSdk.directoryObjects.item collection</summary>
         public DirectoryObjectRequestBuilder this[string position] { get {
             return new DirectoryObjectRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Onenote.Sections.Item;
+using ApiSdk.Me.Onenote.Sections.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Sections {
+namespace ApiSdk.Me.Onenote.Sections {
     /// <summary>Builds and executes requests for operations under \me\onenote\sections</summary>
     public class SectionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Onenote.Sections {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.onenote.sections collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.onenote.sections.item collection</summary>
         public OnenoteSectionRequestBuilder this[string position] { get {
             return new OnenoteSectionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

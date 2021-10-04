@@ -1,6 +1,7 @@
-using GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations.AppliedPolicies;
-using GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations.IntendedPolicies;
-using GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations.Operations;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item.AppliedPolicies;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPolicies;
+using ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item.Operations;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppRegistrations.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedAppRegistrations\{managedAppRegistration-id}</summary>
     public class ManagedAppRegistrationRequestBuilder {
         public AppliedPoliciesRequestBuilder AppliedPolicies { get =>

@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Insights.Shared.Item;
+using ApiSdk.Me.Insights.Shared.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Insights.Shared {
+namespace ApiSdk.Me.Insights.Shared {
     /// <summary>Builds and executes requests for operations under \me\insights\shared</summary>
     public class SharedRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Insights.Shared {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.insights.shared collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.insights.shared.item collection</summary>
         public SharedInsightRequestBuilder this[string position] { get {
             return new SharedInsightRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

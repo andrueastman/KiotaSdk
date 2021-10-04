@@ -1,5 +1,6 @@
-using GraphServiceClient.Print.Printers.Item;
-using GraphServiceClient.Print.Printers.Microsoft.Graph.Create;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Printers.Create;
+using ApiSdk.Print.Printers.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,21 +8,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Printers {
+namespace ApiSdk.Print.Printers {
     /// <summary>Builds and executes requests for operations under \print\printers</summary>
     public class PrintersRequestBuilder {
+        public CreateRequestBuilder Create { get =>
+            new CreateRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.createRequestBuilder Microsoft.graph.create { get =>
-            new Microsoft.graph.createRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.print.printers collection</summary>
+        /// <summary>Gets an item from the ApiSdk.print.printers.item collection</summary>
         public PrinterRequestBuilder this[string position] { get {
             return new PrinterRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -65,7 +66,7 @@ namespace GraphServiceClient.Print.Printers {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -94,10 +95,10 @@ namespace GraphServiceClient.Print.Printers {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Printer> PostAsync(Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Printer> PostAsync(ApiSdk.Models.Microsoft.Graph.Printer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Printer>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler);
         }
         /// <summary>The list of printers registered in the tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

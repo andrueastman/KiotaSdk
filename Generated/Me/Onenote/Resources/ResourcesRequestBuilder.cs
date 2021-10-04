@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Onenote.Resources.Item;
+using ApiSdk.Me.Onenote.Resources.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Resources {
+namespace ApiSdk.Me.Onenote.Resources {
     /// <summary>Builds and executes requests for operations under \me\onenote\resources</summary>
     public class ResourcesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Onenote.Resources {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.onenote.resources collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.onenote.resources.item collection</summary>
         public OnenoteResourceRequestBuilder this[string position] { get {
             return new OnenoteResourceRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

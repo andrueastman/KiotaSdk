@@ -1,4 +1,4 @@
-using GraphServiceClient.Me.RegisteredDevices.$ref;
+using ApiSdk.Me.RegisteredDevices.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,12 +6,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.RegisteredDevices {
+namespace ApiSdk.Me.RegisteredDevices {
     /// <summary>Builds and executes requests for operations under \me\registeredDevices</summary>
     public class RegisteredDevicesRequestBuilder {
-        public $refRequestBuilder $ref { get =>
-            new $refRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
@@ -20,6 +17,9 @@ namespace GraphServiceClient.Me.RegisteredDevices {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new RegisteredDevicesRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

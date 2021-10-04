@@ -1,4 +1,5 @@
-using GraphServiceClient.AppCatalogs.TeamsApps.Item;
+using ApiSdk.AppCatalogs.TeamsApps.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AppCatalogs.TeamsApps {
+namespace ApiSdk.AppCatalogs.TeamsApps {
     /// <summary>Builds and executes requests for operations under \appCatalogs\teamsApps</summary>
     public class TeamsAppsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.AppCatalogs.TeamsApps {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.appCatalogs.teamsApps collection</summary>
+        /// <summary>Gets an item from the ApiSdk.appCatalogs.teamsApps.item collection</summary>
         public TeamsAppRequestBuilder this[string position] { get {
             return new TeamsAppRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -61,7 +62,7 @@ namespace GraphServiceClient.AppCatalogs.TeamsApps {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(TeamsApp body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.TeamsApp body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -90,10 +91,10 @@ namespace GraphServiceClient.AppCatalogs.TeamsApps {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TeamsApp> PostAsync(TeamsApp body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.TeamsApp> PostAsync(ApiSdk.Models.Microsoft.Graph.TeamsApp body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<TeamsApp>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler);
         }
         /// <summary>Get teamsApps from appCatalogs</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,5 +1,6 @@
-using GraphServiceClient.Identity.ConditionalAccess.NamedLocations;
-using GraphServiceClient.Identity.ConditionalAccess.Policies;
+using ApiSdk.Identity.ConditionalAccess.NamedLocations;
+using ApiSdk.Identity.ConditionalAccess.Policies;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.ConditionalAccess {
+namespace ApiSdk.Identity.ConditionalAccess {
     /// <summary>Builds and executes requests for operations under \identity\conditionalAccess</summary>
     public class ConditionalAccessRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -78,7 +79,7 @@ namespace GraphServiceClient.Identity.ConditionalAccess {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ConditionalAccess body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ConditionalAccessRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -117,7 +118,7 @@ namespace GraphServiceClient.Identity.ConditionalAccess {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ConditionalAccess body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ConditionalAccessRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

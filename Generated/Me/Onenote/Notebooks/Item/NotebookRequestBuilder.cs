@@ -1,6 +1,7 @@
-using GraphServiceClient.Me.Onenote.Notebooks.Microsoft.Graph.CopyNotebook;
-using GraphServiceClient.Me.Onenote.Notebooks.SectionGroups;
-using GraphServiceClient.Me.Onenote.Notebooks.Sections;
+using ApiSdk.Me.Onenote.Notebooks.Item.CopyNotebook;
+using ApiSdk.Me.Onenote.Notebooks.Item.SectionGroups;
+using ApiSdk.Me.Onenote.Notebooks.Item.Sections;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,18 +9,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Notebooks.Item {
+namespace ApiSdk.Me.Onenote.Notebooks.Item {
     /// <summary>Builds and executes requests for operations under \me\onenote\notebooks\{notebook-id}</summary>
     public class NotebookRequestBuilder {
+        public CopyNotebookRequestBuilder CopyNotebook { get =>
+            new CopyNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.copyNotebookRequestBuilder Microsoft.graph.copyNotebook { get =>
-            new Microsoft.graph.copyNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public SectionGroupsRequestBuilder SectionGroups { get =>

@@ -1,5 +1,6 @@
-using GraphServiceClient.IdentityGovernance.TermsOfUse.AgreementAcceptances;
-using GraphServiceClient.IdentityGovernance.TermsOfUse.Agreements;
+using ApiSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances;
+using ApiSdk.IdentityGovernance.TermsOfUse.Agreements;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.TermsOfUse {
+namespace ApiSdk.IdentityGovernance.TermsOfUse {
     /// <summary>Builds and executes requests for operations under \identityGovernance\termsOfUse</summary>
     public class TermsOfUseRequestBuilder {
         public AgreementAcceptancesRequestBuilder AgreementAcceptances { get =>
@@ -78,7 +79,7 @@ namespace GraphServiceClient.IdentityGovernance.TermsOfUse {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(TermsOfUse body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(TermsOfUseContainer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -117,7 +118,7 @@ namespace GraphServiceClient.IdentityGovernance.TermsOfUse {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(TermsOfUse body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(TermsOfUseContainer body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

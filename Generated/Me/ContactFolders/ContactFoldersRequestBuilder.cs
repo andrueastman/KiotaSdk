@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.ContactFolders.Item;
+using ApiSdk.Me.ContactFolders.Delta;
+using ApiSdk.Me.ContactFolders.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.ContactFolders {
+namespace ApiSdk.Me.ContactFolders {
     /// <summary>Builds and executes requests for operations under \me\contactFolders</summary>
     public class ContactFoldersRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.ContactFolders {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.contactFolders collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.contactFolders.item collection</summary>
         public ContactFolderRequestBuilder this[string position] { get {
             return new ContactFolderRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.ContactFolders {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\contactFolders\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The user's contacts folders. Read-only. Nullable.

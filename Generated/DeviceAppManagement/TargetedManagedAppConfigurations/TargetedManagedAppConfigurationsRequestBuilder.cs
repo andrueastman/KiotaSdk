@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations.Item;
+using ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfigurations {
+namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\targetedManagedAppConfigurations</summary>
     public class TargetedManagedAppConfigurationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.TargetedManagedAppConfiguration
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.targetedManagedAppConfigurations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.targetedManagedAppConfigurations.item collection</summary>
         public TargetedManagedAppConfigurationRequestBuilder this[string position] { get {
             return new TargetedManagedAppConfigurationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

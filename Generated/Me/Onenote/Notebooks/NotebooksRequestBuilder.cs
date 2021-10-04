@@ -1,5 +1,7 @@
-using GraphServiceClient.Me.Onenote.Notebooks.Item;
-using GraphServiceClient.Me.Onenote.Notebooks.Microsoft.Graph.GetNotebookFromWebUrl;
+using ApiSdk.Me.Onenote.Notebooks.GetNotebookFromWebUrl;
+using ApiSdk.Me.Onenote.Notebooks.GetRecentNotebooksWithIncludePersonalNotebooks;
+using ApiSdk.Me.Onenote.Notebooks.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,21 +9,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Notebooks {
+namespace ApiSdk.Me.Onenote.Notebooks {
     /// <summary>Builds and executes requests for operations under \me\onenote\notebooks</summary>
     public class NotebooksRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetNotebookFromWebUrlRequestBuilder GetNotebookFromWebUrl { get =>
+            new GetNotebookFromWebUrlRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getNotebookFromWebUrlRequestBuilder Microsoft.graph.getNotebookFromWebUrl { get =>
-            new Microsoft.graph.getNotebookFromWebUrlRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.onenote.notebooks collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.onenote.notebooks.item collection</summary>
         public NotebookRequestBuilder this[string position] { get {
             return new NotebookRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -86,6 +88,14 @@ namespace GraphServiceClient.Me.Onenote.Notebooks {
         public async Task<NotebooksResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await HttpCore.SendAsync<NotebooksResponse>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\onenote\notebooks\microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})
+        /// <param name="includePersonalNotebooks">Usage: includePersonalNotebooks={includePersonalNotebooks}</param>
+        /// </summary>
+        public GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder getRecentNotebooksWithIncludePersonalNotebooks(bool? includePersonalNotebooks) {
+            _ = includePersonalNotebooks ?? throw new ArgumentNullException(nameof(includePersonalNotebooks));
+            return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(CurrentPath + PathSegment , HttpCore, includePersonalNotebooks, false);
         }
         /// <summary>
         /// The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.

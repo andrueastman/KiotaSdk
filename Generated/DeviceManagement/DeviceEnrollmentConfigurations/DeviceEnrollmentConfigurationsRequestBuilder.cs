@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations.Item;
+using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations {
+namespace ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceEnrollmentConfigurations</summary>
     public class DeviceEnrollmentConfigurationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.DeviceEnrollmentConfigurations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.deviceEnrollmentConfigurations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.deviceEnrollmentConfigurations.item collection</summary>
         public DeviceEnrollmentConfigurationRequestBuilder this[string position] { get {
             return new DeviceEnrollmentConfigurationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

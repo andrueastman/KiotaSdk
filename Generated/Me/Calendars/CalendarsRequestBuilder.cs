@@ -1,5 +1,5 @@
-using GraphServiceClient.Groups.Calendar;
-using GraphServiceClient.Me.Calendars.Item;
+using ApiSdk.Me.Calendars.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Calendars {
+namespace ApiSdk.Me.Calendars {
     /// <summary>Builds and executes requests for operations under \me\calendars</summary>
     public class CalendarsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -18,7 +18,7 @@ namespace GraphServiceClient.Me.Calendars {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.calendars collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.calendars.item collection</summary>
         public CalendarRequestBuilder this[string position] { get {
             return new CalendarRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -62,7 +62,7 @@ namespace GraphServiceClient.Me.Calendars {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -91,10 +91,10 @@ namespace GraphServiceClient.Me.Calendars {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Calendar> PostAsync(Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Calendar> PostAsync(ApiSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Calendar>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Calendar>(requestInfo, responseHandler);
         }
         /// <summary>The user's calendars. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

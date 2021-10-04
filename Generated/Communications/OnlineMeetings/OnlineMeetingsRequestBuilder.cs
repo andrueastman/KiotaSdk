@@ -1,5 +1,6 @@
-using GraphServiceClient.Communications.OnlineMeetings.Item;
-using GraphServiceClient.Communications.OnlineMeetings.Microsoft.Graph.CreateOrGet;
+using ApiSdk.Communications.OnlineMeetings.CreateOrGet;
+using ApiSdk.Communications.OnlineMeetings.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,21 +8,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Communications.OnlineMeetings {
+namespace ApiSdk.Communications.OnlineMeetings {
     /// <summary>Builds and executes requests for operations under \communications\onlineMeetings</summary>
     public class OnlineMeetingsRequestBuilder {
+        public CreateOrGetRequestBuilder CreateOrGet { get =>
+            new CreateOrGetRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.createOrGetRequestBuilder Microsoft.graph.createOrGet { get =>
-            new Microsoft.graph.createOrGetRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.communications.onlineMeetings collection</summary>
+        /// <summary>Gets an item from the ApiSdk.communications.onlineMeetings.item collection</summary>
         public OnlineMeetingRequestBuilder this[string position] { get {
             return new OnlineMeetingRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

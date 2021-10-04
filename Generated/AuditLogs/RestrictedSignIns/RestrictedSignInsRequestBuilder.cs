@@ -1,4 +1,5 @@
-using GraphServiceClient.AuditLogs.RestrictedSignIns.Item;
+using ApiSdk.AuditLogs.RestrictedSignIns.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuditLogs.RestrictedSignIns {
+namespace ApiSdk.AuditLogs.RestrictedSignIns {
     /// <summary>Builds and executes requests for operations under \auditLogs\restrictedSignIns</summary>
     public class RestrictedSignInsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.AuditLogs.RestrictedSignIns {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.auditLogs.restrictedSignIns collection</summary>
+        /// <summary>Gets an item from the ApiSdk.auditLogs.restrictedSignIns.item collection</summary>
         public RestrictedSignInRequestBuilder this[string position] { get {
             return new RestrictedSignInRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceAppManagement.ManagedAppStatuses.Item;
+using ApiSdk.DeviceAppManagement.ManagedAppStatuses.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppStatuses {
+namespace ApiSdk.DeviceAppManagement.ManagedAppStatuses {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedAppStatuses</summary>
     public class ManagedAppStatusesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedAppStatuses {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceAppManagement.managedAppStatuses collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceAppManagement.managedAppStatuses.item collection</summary>
         public ManagedAppStatusRequestBuilder this[string position] { get {
             return new ManagedAppStatusRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

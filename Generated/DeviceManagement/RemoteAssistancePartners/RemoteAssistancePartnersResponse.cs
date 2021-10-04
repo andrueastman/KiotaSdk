@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.DeviceManagement.RemoteAssistancePartners {
+namespace ApiSdk.DeviceManagement.RemoteAssistancePartners {
     public class RemoteAssistancePartnersResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<RemoteAssistancePartner> Value { get; set; }
         /// <summary>
-        /// Instantiates a new RemoteAssistancePartnersResponse and sets the default values.
+        /// Instantiates a new remoteAssistancePartnersResponse and sets the default values.
         /// </summary>
         public RemoteAssistancePartnersResponse() {
             AdditionalData = new Dictionary<string, object>();

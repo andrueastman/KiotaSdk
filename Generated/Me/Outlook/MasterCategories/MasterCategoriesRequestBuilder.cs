@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Outlook.MasterCategories.Item;
+using ApiSdk.Me.Outlook.MasterCategories.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Outlook.MasterCategories {
+namespace ApiSdk.Me.Outlook.MasterCategories {
     /// <summary>Builds and executes requests for operations under \me\outlook\masterCategories</summary>
     public class MasterCategoriesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Outlook.MasterCategories {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.outlook.masterCategories collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.outlook.masterCategories.item collection</summary>
         public OutlookCategoryRequestBuilder this[string position] { get {
             return new OutlookCategoryRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

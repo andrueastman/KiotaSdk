@@ -1,4 +1,6 @@
-using GraphServiceClient.Identity.IdentityProviders.Item;
+using ApiSdk.Identity.IdentityProviders.AvailableProviderTypes;
+using ApiSdk.Identity.IdentityProviders.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.IdentityProviders {
+namespace ApiSdk.Identity.IdentityProviders {
     /// <summary>Builds and executes requests for operations under \identity\identityProviders</summary>
     public class IdentityProvidersRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,10 +19,16 @@ namespace GraphServiceClient.Identity.IdentityProviders {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identity.identityProviders collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identity.identityProviders.item collection</summary>
         public IdentityProviderBaseRequestBuilder this[string position] { get {
             return new IdentityProviderBaseRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
+        /// <summary>
+        /// Builds and executes requests for operations under \identity\identityProviders\microsoft.graph.availableProviderTypes()
+        /// </summary>
+        public AvailableProviderTypesRequestBuilder availableProviderTypes() {
+            return new AvailableProviderTypesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

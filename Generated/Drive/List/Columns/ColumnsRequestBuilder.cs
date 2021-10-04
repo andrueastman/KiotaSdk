@@ -1,4 +1,5 @@
-using GraphServiceClient.Drive.List.Columns.Item;
+using ApiSdk.Drive.List.Columns.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.Columns {
+namespace ApiSdk.Drive.List.Columns {
     /// <summary>Builds and executes requests for operations under \drive\list\columns</summary>
     public class ColumnsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Drive.List.Columns {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.drive.list.columns collection</summary>
+        /// <summary>Gets an item from the ApiSdk.drive.list.columns.item collection</summary>
         public ColumnDefinitionRequestBuilder this[string position] { get {
             return new ColumnDefinitionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

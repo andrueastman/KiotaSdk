@@ -1,7 +1,8 @@
-using GraphServiceClient.Me.Authentication.Fido2Methods;
-using GraphServiceClient.Me.Authentication.Methods;
-using GraphServiceClient.Me.Authentication.MicrosoftAuthenticatorMethods;
-using GraphServiceClient.Me.Authentication.WindowsHelloForBusinessMethods;
+using ApiSdk.Me.Authentication.Fido2Methods;
+using ApiSdk.Me.Authentication.Methods;
+using ApiSdk.Me.Authentication.MicrosoftAuthenticatorMethods;
+using ApiSdk.Me.Authentication.WindowsHelloForBusinessMethods;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Authentication {
+namespace ApiSdk.Me.Authentication {
     /// <summary>Builds and executes requests for operations under \me\authentication</summary>
     public class AuthenticationRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -86,7 +87,7 @@ namespace GraphServiceClient.Me.Authentication {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Authentication body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Authentication body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -114,9 +115,9 @@ namespace GraphServiceClient.Me.Authentication {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Authentication> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Authentication> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Authentication>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Authentication>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update the navigation property authentication in me
@@ -125,7 +126,7 @@ namespace GraphServiceClient.Me.Authentication {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Authentication body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Authentication body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

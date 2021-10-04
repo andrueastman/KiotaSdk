@@ -1,16 +1,17 @@
-using GraphServiceClient.Policies.ActivityBasedTimeoutPolicies;
-using GraphServiceClient.Policies.AdminConsentRequestPolicy;
-using GraphServiceClient.Policies.AuthenticationFlowsPolicy;
-using GraphServiceClient.Policies.AuthenticationMethodsPolicy;
-using GraphServiceClient.Policies.AuthorizationPolicy;
-using GraphServiceClient.Policies.ClaimsMappingPolicies;
-using GraphServiceClient.Policies.ConditionalAccessPolicies;
-using GraphServiceClient.Policies.FeatureRolloutPolicies;
-using GraphServiceClient.Policies.HomeRealmDiscoveryPolicies;
-using GraphServiceClient.Policies.IdentitySecurityDefaultsEnforcementPolicy;
-using GraphServiceClient.Policies.PermissionGrantPolicies;
-using GraphServiceClient.Policies.TokenIssuancePolicies;
-using GraphServiceClient.Policies.TokenLifetimePolicies;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.ActivityBasedTimeoutPolicies;
+using ApiSdk.Policies.AdminConsentRequestPolicy;
+using ApiSdk.Policies.AuthenticationFlowsPolicy;
+using ApiSdk.Policies.AuthenticationMethodsPolicy;
+using ApiSdk.Policies.AuthorizationPolicy;
+using ApiSdk.Policies.ClaimsMappingPolicies;
+using ApiSdk.Policies.ConditionalAccessPolicies;
+using ApiSdk.Policies.FeatureRolloutPolicies;
+using ApiSdk.Policies.HomeRealmDiscoveryPolicies;
+using ApiSdk.Policies.IdentitySecurityDefaultsEnforcementPolicy;
+using ApiSdk.Policies.PermissionGrantPolicies;
+using ApiSdk.Policies.TokenIssuancePolicies;
+using ApiSdk.Policies.TokenLifetimePolicies;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,7 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies {
+namespace ApiSdk.Policies {
     /// <summary>Builds and executes requests for operations under \policies</summary>
     public class PoliciesRequestBuilder {
         public ActivityBasedTimeoutPoliciesRequestBuilder ActivityBasedTimeoutPolicies { get =>
@@ -108,7 +109,7 @@ namespace GraphServiceClient.Policies {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Policies body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(PolicyRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -137,7 +138,7 @@ namespace GraphServiceClient.Policies {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Policies body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(PolicyRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

@@ -1,8 +1,9 @@
-using GraphServiceClient.Drive.List.Columns;
-using GraphServiceClient.Drive.List.ContentTypes;
-using GraphServiceClient.Drive.List.Drive;
-using GraphServiceClient.Drive.List.Items;
-using GraphServiceClient.Drive.List.Subscriptions;
+using ApiSdk.Drive.List.Columns;
+using ApiSdk.Drive.List.ContentTypes;
+using ApiSdk.Drive.List.Drive;
+using ApiSdk.Drive.List.Items;
+using ApiSdk.Drive.List.Subscriptions;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List {
+namespace ApiSdk.Drive.List {
     /// <summary>Builds and executes requests for operations under \drive\list</summary>
     public class ListRequestBuilder {
         public ColumnsRequestBuilder Columns { get =>
@@ -90,7 +91,7 @@ namespace GraphServiceClient.Drive.List {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(List body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.List body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -118,9 +119,9 @@ namespace GraphServiceClient.Drive.List {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<List> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.List> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<List>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.List>(requestInfo, responseHandler);
         }
         /// <summary>
         /// For drives in SharePoint, the underlying document library list. Read-only. Nullable.
@@ -129,7 +130,7 @@ namespace GraphServiceClient.Drive.List {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(List body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.List body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);

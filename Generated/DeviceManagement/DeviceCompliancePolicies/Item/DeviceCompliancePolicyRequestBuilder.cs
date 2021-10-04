@@ -1,12 +1,13 @@
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Assignments;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.DeviceSettingStateSummaries;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.DeviceStatuses;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.DeviceStatusOverview;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Microsoft.Graph.Assign;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Microsoft.Graph.ScheduleActionsForRules;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.ScheduledActionsForRule;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.UserStatuses;
-using GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.UserStatusOverview;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assign;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assignments;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingStateSummaries;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatusOverview;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsForRules;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatuses;
+using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatusOverview;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,9 +15,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Item {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCompliancePolicies\{deviceCompliancePolicy-id}</summary>
     public class DeviceCompliancePolicyRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -35,14 +39,11 @@ namespace GraphServiceClient.DeviceManagement.DeviceCompliancePolicies.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.scheduleActionsForRulesRequestBuilder Microsoft.graph.scheduleActionsForRules { get =>
-            new Microsoft.graph.scheduleActionsForRulesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public ScheduleActionsForRulesRequestBuilder ScheduleActionsForRules { get =>
+            new ScheduleActionsForRulesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public ScheduledActionsForRuleRequestBuilder ScheduledActionsForRule { get =>
             new ScheduledActionsForRuleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }

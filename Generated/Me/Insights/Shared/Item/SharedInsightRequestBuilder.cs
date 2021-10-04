@@ -1,5 +1,6 @@
-using GraphServiceClient.Me.Insights.Shared.LastSharedMethod;
-using GraphServiceClient.Me.Insights.Shared.Resource;
+using ApiSdk.Me.Insights.Shared.Item.LastSharedMethod;
+using ApiSdk.Me.Insights.Shared.Item.Resource;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Insights.Shared.Item {
+namespace ApiSdk.Me.Insights.Shared.Item {
     /// <summary>Builds and executes requests for operations under \me\insights\shared\{sharedInsight-id}</summary>
     public class SharedInsightRequestBuilder {
         /// <summary>Current path for the request</summary>

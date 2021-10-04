@@ -1,4 +1,5 @@
-using GraphServiceClient.Policies.ClaimsMappingPolicies.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Policies.ClaimsMappingPolicies.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Policies.ClaimsMappingPolicies {
+namespace ApiSdk.Policies.ClaimsMappingPolicies {
     /// <summary>Builds and executes requests for operations under \policies\claimsMappingPolicies</summary>
     public class ClaimsMappingPoliciesRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Policies.ClaimsMappingPolicies {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.policies.claimsMappingPolicies collection</summary>
+        /// <summary>Gets an item from the ApiSdk.policies.claimsMappingPolicies.item collection</summary>
         public ClaimsMappingPolicyRequestBuilder this[string position] { get {
             return new ClaimsMappingPolicyRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

@@ -1,7 +1,8 @@
-using GraphServiceClient.Planner.Tasks.AssignedToTaskBoardFormat;
-using GraphServiceClient.Planner.Tasks.BucketTaskBoardFormat;
-using GraphServiceClient.Planner.Tasks.Details;
-using GraphServiceClient.Planner.Tasks.ProgressTaskBoardFormat;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Planner.Tasks.Item.AssignedToTaskBoardFormat;
+using ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat;
+using ApiSdk.Planner.Tasks.Item.Details;
+using ApiSdk.Planner.Tasks.Item.ProgressTaskBoardFormat;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Planner.Tasks.Item {
+namespace ApiSdk.Planner.Tasks.Item {
     /// <summary>Builds and executes requests for operations under \planner\tasks\{plannerTask-id}</summary>
     public class PlannerTaskRequestBuilder {
         public AssignedToTaskBoardFormatRequestBuilder AssignedToTaskBoardFormat { get =>

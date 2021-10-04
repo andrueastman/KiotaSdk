@@ -1,4 +1,5 @@
-using GraphServiceClient.Education.Me.Rubrics.Item;
+using ApiSdk.Education.Me.Rubrics.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Education.Me.Rubrics {
+namespace ApiSdk.Education.Me.Rubrics {
     /// <summary>Builds and executes requests for operations under \education\me\rubrics</summary>
     public class RubricsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Education.Me.Rubrics {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.education.me.rubrics collection</summary>
+        /// <summary>Gets an item from the ApiSdk.education.me.rubrics.item collection</summary>
         public EducationRubricRequestBuilder this[string position] { get {
             return new EducationRubricRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

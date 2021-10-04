@@ -1,5 +1,6 @@
-using GraphServiceClient.GroupLifecyclePolicies.Microsoft.Graph.AddGroup;
-using GraphServiceClient.GroupLifecyclePolicies.Microsoft.Graph.RemoveGroup;
+using ApiSdk.GroupLifecyclePolicies.Item.AddGroup;
+using ApiSdk.GroupLifecyclePolicies.Item.RemoveGroup;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,23 +8,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.GroupLifecyclePolicies.Item {
+namespace ApiSdk.GroupLifecyclePolicies.Item {
     /// <summary>Builds and executes requests for operations under \groupLifecyclePolicies\{groupLifecyclePolicy-id}</summary>
     public class GroupLifecyclePolicyRequestBuilder {
+        public AddGroupRequestBuilder AddGroup { get =>
+            new AddGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.addGroupRequestBuilder Microsoft.graph.addGroup { get =>
-            new Microsoft.graph.addGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.removeGroupRequestBuilder Microsoft.graph.removeGroup { get =>
-            new Microsoft.graph.removeGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RemoveGroupRequestBuilder RemoveGroup { get =>
+            new RemoveGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new GroupLifecyclePolicyRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

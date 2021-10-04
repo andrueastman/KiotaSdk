@@ -1,7 +1,9 @@
-using GraphServiceClient.ServicePrincipals.Item;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.GetAvailableExtensionProperties;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.GetByIds;
-using GraphServiceClient.ServicePrincipals.Microsoft.Graph.ValidateProperties;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.ServicePrincipals.Delta;
+using ApiSdk.ServicePrincipals.GetAvailableExtensionProperties;
+using ApiSdk.ServicePrincipals.GetByIds;
+using ApiSdk.ServicePrincipals.Item;
+using ApiSdk.ServicePrincipals.ValidateProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,27 +11,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.ServicePrincipals {
+namespace ApiSdk.ServicePrincipals {
     /// <summary>Builds and executes requests for operations under \servicePrincipals</summary>
     public class ServicePrincipalsRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetAvailableExtensionPropertiesRequestBuilder GetAvailableExtensionProperties { get =>
+            new GetAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetByIdsRequestBuilder GetByIds { get =>
+            new GetByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder Microsoft.graph.getAvailableExtensionProperties { get =>
-            new Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getByIdsRequestBuilder Microsoft.graph.getByIds { get =>
-            new Microsoft.graph.getByIdsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.validatePropertiesRequestBuilder Microsoft.graph.validateProperties { get =>
-            new Microsoft.graph.validatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.servicePrincipals collection</summary>
+        public ValidatePropertiesRequestBuilder ValidateProperties { get =>
+            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>Gets an item from the ApiSdk.servicePrincipals.item collection</summary>
         public ServicePrincipalRequestBuilder this[string position] { get {
             return new ServicePrincipalRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -83,6 +85,12 @@ namespace GraphServiceClient.ServicePrincipals {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \servicePrincipals\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// Get entities from servicePrincipals

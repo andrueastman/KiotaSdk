@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuditLogs.RestrictedSignIns.Item {
+namespace ApiSdk.AuditLogs.RestrictedSignIns.Item {
     /// <summary>Builds and executes requests for operations under \auditLogs\restrictedSignIns\{restrictedSignIn-id}</summary>
     public class RestrictedSignInRequestBuilder {
         /// <summary>Current path for the request</summary>

@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Me.LicenseDetails {
+namespace ApiSdk.Me.LicenseDetails {
     public class LicenseDetailsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<LicenseDetails> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.LicenseDetails> Value { get; set; }
         /// <summary>
-        /// Instantiates a new LicenseDetailsResponse and sets the default values.
+        /// Instantiates a new licenseDetailsResponse and sets the default values.
         /// </summary>
         public LicenseDetailsResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.Me.LicenseDetails {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as LicenseDetailsResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as LicenseDetailsResponse).Value = n.GetCollectionOfObjectValues<LicenseDetails>().ToList(); } },
+                {"value", (o,n) => { (o as LicenseDetailsResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.LicenseDetails>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.Me.LicenseDetails {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<LicenseDetails>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.LicenseDetails>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

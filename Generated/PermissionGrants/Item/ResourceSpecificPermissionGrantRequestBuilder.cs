@@ -1,8 +1,9 @@
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.CheckMemberGroups;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.CheckMemberObjects;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.GetMemberGroups;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.GetMemberObjects;
-using GraphServiceClient.PermissionGrants.Microsoft.Graph.Restore;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.PermissionGrants.Item.CheckMemberGroups;
+using ApiSdk.PermissionGrants.Item.CheckMemberObjects;
+using ApiSdk.PermissionGrants.Item.GetMemberGroups;
+using ApiSdk.PermissionGrants.Item.GetMemberObjects;
+using ApiSdk.PermissionGrants.Item.Restore;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,32 +11,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.PermissionGrants.Item {
+namespace ApiSdk.PermissionGrants.Item {
     /// <summary>Builds and executes requests for operations under \permissionGrants\{resourceSpecificPermissionGrant-id}</summary>
     public class ResourceSpecificPermissionGrantRequestBuilder {
+        public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
+            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
+            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
+            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
+            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.checkMemberGroupsRequestBuilder Microsoft.graph.checkMemberGroups { get =>
-            new Microsoft.graph.checkMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.checkMemberObjectsRequestBuilder Microsoft.graph.checkMemberObjects { get =>
-            new Microsoft.graph.checkMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberGroupsRequestBuilder Microsoft.graph.getMemberGroups { get =>
-            new Microsoft.graph.getMemberGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.getMemberObjectsRequestBuilder Microsoft.graph.getMemberObjects { get =>
-            new Microsoft.graph.getMemberObjectsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.restoreRequestBuilder Microsoft.graph.restore { get =>
-            new Microsoft.graph.restoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RestoreRequestBuilder Restore { get =>
+            new RestoreRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ResourceSpecificPermissionGrantRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

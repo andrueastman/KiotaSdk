@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Education.Me.Schools {
+namespace ApiSdk.Education.Me.Schools {
     public class SchoolsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
         public List<EducationSchool> Value { get; set; }
         /// <summary>
-        /// Instantiates a new SchoolsResponse and sets the default values.
+        /// Instantiates a new schoolsResponse and sets the default values.
         /// </summary>
         public SchoolsResponse() {
             AdditionalData = new Dictionary<string, object>();

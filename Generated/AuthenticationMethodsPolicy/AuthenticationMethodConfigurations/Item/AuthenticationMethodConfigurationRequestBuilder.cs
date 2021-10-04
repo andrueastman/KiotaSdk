@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.AuthenticationMethodsPolicy.AuthenticationMethodConfigurations.Item {
+namespace ApiSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfigurations.Item {
     /// <summary>Builds and executes requests for operations under \authenticationMethodsPolicy\authenticationMethodConfigurations\{authenticationMethodConfiguration-id}</summary>
     public class AuthenticationMethodConfigurationRequestBuilder {
         /// <summary>Current path for the request</summary>

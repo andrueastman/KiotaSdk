@@ -1,4 +1,5 @@
-using GraphServiceClient.Print.Services.Endpoints;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Print.Services.Item.Endpoints;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Print.Services.Item {
+namespace ApiSdk.Print.Services.Item {
     /// <summary>Builds and executes requests for operations under \print\services\{printService-id}</summary>
     public class PrintServiceRequestBuilder {
         /// <summary>Current path for the request</summary>

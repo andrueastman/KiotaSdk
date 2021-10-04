@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Drive.List.Columns.Item {
+namespace ApiSdk.Drive.List.Columns.Item {
     /// <summary>Builds and executes requests for operations under \drive\list\columns\{columnDefinition-id}</summary>
     public class ColumnDefinitionRequestBuilder {
         /// <summary>Current path for the request</summary>

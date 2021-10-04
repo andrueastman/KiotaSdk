@@ -1,4 +1,5 @@
-using GraphServiceClient.Me.Calendar.CalendarPermissions.Item;
+using ApiSdk.Me.Calendar.CalendarPermissions.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Calendar.CalendarPermissions {
+namespace ApiSdk.Me.Calendar.CalendarPermissions {
     /// <summary>Builds and executes requests for operations under \me\calendar\calendarPermissions</summary>
     public class CalendarPermissionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Me.Calendar.CalendarPermissions {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.calendar.calendarPermissions collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.calendar.calendarPermissions.item collection</summary>
         public CalendarPermissionRequestBuilder this[string position] { get {
             return new CalendarPermissionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

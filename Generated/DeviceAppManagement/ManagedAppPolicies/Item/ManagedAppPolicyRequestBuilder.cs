@@ -1,7 +1,8 @@
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Microsoft.Graph.ManagedAppProtection;
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Microsoft.Graph.TargetApps;
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Microsoft.Graph.TargetedManagedAppProtection;
-using GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Microsoft.Graph.WindowsInformationProtection;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item.ManagedAppProtection;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item.TargetApps;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item.TargetedManagedAppProtection;
+using ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item.WindowsInformationProtection;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedAppPolicies.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedAppPolicies\{managedAppPolicy-id}</summary>
     public class ManagedAppPolicyRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -18,20 +19,20 @@ namespace GraphServiceClient.DeviceAppManagement.ManagedAppPolicies.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.managedAppProtectionRequestBuilder Microsoft.graph.managedAppProtection { get =>
-            new Microsoft.graph.managedAppProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.targetAppsRequestBuilder Microsoft.graph.targetApps { get =>
-            new Microsoft.graph.targetAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.targetedManagedAppProtectionRequestBuilder Microsoft.graph.targetedManagedAppProtection { get =>
-            new Microsoft.graph.targetedManagedAppProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.windowsInformationProtectionRequestBuilder Microsoft.graph.windowsInformationProtection { get =>
-            new Microsoft.graph.windowsInformationProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
+            new ManagedAppProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public TargetAppsRequestBuilder TargetApps { get =>
+            new TargetAppsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public TargetedManagedAppProtectionRequestBuilder TargetedManagedAppProtection { get =>
+            new TargetedManagedAppProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public WindowsInformationProtectionRequestBuilder WindowsInformationProtection { get =>
+            new WindowsInformationProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ManagedAppPolicyRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

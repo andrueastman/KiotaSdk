@@ -1,6 +1,7 @@
-using GraphServiceClient.DeviceAppManagement.MobileApps.Assignments;
-using GraphServiceClient.DeviceAppManagement.MobileApps.Categories;
-using GraphServiceClient.DeviceAppManagement.MobileApps.Microsoft.Graph.Assign;
+using ApiSdk.DeviceAppManagement.MobileApps.Item.Assign;
+using ApiSdk.DeviceAppManagement.MobileApps.Item.Assignments;
+using ApiSdk.DeviceAppManagement.MobileApps.Item.Categories;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,9 +9,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceAppManagement.MobileApps.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\mobileApps\{mobileApp-id}</summary>
     public class MobileAppRequestBuilder {
+        public AssignRequestBuilder Assign { get =>
+            new AssignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public AssignmentsRequestBuilder Assignments { get =>
             new AssignmentsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -23,9 +27,6 @@ namespace GraphServiceClient.DeviceAppManagement.MobileApps.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.assignRequestBuilder Microsoft.graph.assign { get =>
-            new Microsoft.graph.assignRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         /// <summary>

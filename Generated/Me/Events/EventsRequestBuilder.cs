@@ -1,4 +1,6 @@
-using GraphServiceClient.Me.Events.Item;
+using ApiSdk.Me.Events.Delta;
+using ApiSdk.Me.Events.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Events {
+namespace ApiSdk.Me.Events {
     /// <summary>Builds and executes requests for operations under \me\events</summary>
     public class EventsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +19,7 @@ namespace GraphServiceClient.Me.Events {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.events collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.events.item collection</summary>
         public EventRequestBuilder this[string position] { get {
             return new EventRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -61,7 +63,7 @@ namespace GraphServiceClient.Me.Events {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -71,6 +73,12 @@ namespace GraphServiceClient.Me.Events {
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddMiddlewareOptions(o?.ToArray());
             return requestInfo;
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\events\microsoft.graph.delta()
+        /// </summary>
+        public DeltaRequestBuilder delta() {
+            return new DeltaRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>
         /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
@@ -90,10 +98,10 @@ namespace GraphServiceClient.Me.Events {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Event> PostAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<@Event> PostAsync(@Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Event>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<@Event>(requestInfo, responseHandler);
         }
         /// <summary>The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

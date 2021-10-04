@@ -1,8 +1,10 @@
-using GraphServiceClient.Me.Onenote.Pages.Content;
-using GraphServiceClient.Me.Onenote.Pages.Microsoft.Graph.CopyToSection;
-using GraphServiceClient.Me.Onenote.Pages.Microsoft.Graph.OnenotePatchContent;
-using GraphServiceClient.Me.Onenote.Pages.ParentNotebook;
-using GraphServiceClient.Me.Onenote.Pages.ParentSection;
+using ApiSdk.Me.Onenote.Pages.Item.Content;
+using ApiSdk.Me.Onenote.Pages.Item.CopyToSection;
+using ApiSdk.Me.Onenote.Pages.Item.OnenotePatchContent;
+using ApiSdk.Me.Onenote.Pages.Item.ParentNotebook;
+using ApiSdk.Me.Onenote.Pages.Item.ParentSection;
+using ApiSdk.Me.Onenote.Pages.Item.Preview;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,11 +12,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Pages.Item {
+namespace ApiSdk.Me.Onenote.Pages.Item {
     /// <summary>Builds and executes requests for operations under \me\onenote\pages\{onenotePage-id}</summary>
     public class OnenotePageRequestBuilder {
         public ContentRequestBuilder Content { get =>
             new ContentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CopyToSectionRequestBuilder CopyToSection { get =>
+            new CopyToSectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
@@ -22,11 +27,8 @@ namespace GraphServiceClient.Me.Onenote.Pages.Item {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.copyToSectionRequestBuilder Microsoft.graph.copyToSection { get =>
-            new Microsoft.graph.copyToSectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.onenotePatchContentRequestBuilder Microsoft.graph.onenotePatchContent { get =>
-            new Microsoft.graph.onenotePatchContentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public OnenotePatchContentRequestBuilder OnenotePatchContent { get =>
+            new OnenotePatchContentRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public ParentNotebookRequestBuilder ParentNotebook { get =>
             new ParentNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -133,6 +135,12 @@ namespace GraphServiceClient.Me.Onenote.Pages.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \me\onenote\pages\{onenotePage-id}\microsoft.graph.preview()
+        /// </summary>
+        public PreviewRequestBuilder preview() {
+            return new PreviewRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

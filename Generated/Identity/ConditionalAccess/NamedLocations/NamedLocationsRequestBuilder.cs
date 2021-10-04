@@ -1,4 +1,5 @@
-using GraphServiceClient.Identity.ConditionalAccess.NamedLocations.Item;
+using ApiSdk.Identity.ConditionalAccess.NamedLocations.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.ConditionalAccess.NamedLocations {
+namespace ApiSdk.Identity.ConditionalAccess.NamedLocations {
     /// <summary>Builds and executes requests for operations under \identity\conditionalAccess\namedLocations</summary>
     public class NamedLocationsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Identity.ConditionalAccess.NamedLocations {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identity.conditionalAccess.namedLocations collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identity.conditionalAccess.namedLocations.item collection</summary>
         public NamedLocationRequestBuilder this[string position] { get {
             return new NamedLocationRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

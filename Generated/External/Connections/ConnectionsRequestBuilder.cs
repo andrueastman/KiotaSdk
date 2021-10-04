@@ -1,4 +1,5 @@
-using GraphServiceClient.External.Connections.Item;
+using ApiSdk.External.Connections.Item;
+using ApiSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.External.Connections {
+namespace ApiSdk.External.Connections {
     /// <summary>Builds and executes requests for operations under \external\connections</summary>
     public class ConnectionsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.External.Connections {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.external.connections collection</summary>
+        /// <summary>Gets an item from the ApiSdk.external.connections.item collection</summary>
         public ExternalConnectionRequestBuilder this[string position] { get {
             return new ExternalConnectionRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

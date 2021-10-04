@@ -1,5 +1,6 @@
-using GraphServiceClient.IdentityGovernance.AccessReviews.Definitions.Instances;
-using GraphServiceClient.IdentityGovernance.AccessReviews.Definitions.Microsoft.Graph.Stop;
+using ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances;
+using ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Stop;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.AccessReviews.Definitions.Item {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item {
     /// <summary>Builds and executes requests for operations under \identityGovernance\accessReviews\definitions\{accessReviewScheduleDefinition-id}</summary>
     public class AccessReviewScheduleDefinitionRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -19,11 +20,11 @@ namespace GraphServiceClient.IdentityGovernance.AccessReviews.Definitions.Item {
         }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.stopRequestBuilder Microsoft.graph.stop { get =>
-            new Microsoft.graph.stopRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public StopRequestBuilder Stop { get =>
+            new StopRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new AccessReviewScheduleDefinitionRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

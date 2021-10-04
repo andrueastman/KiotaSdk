@@ -1,5 +1,6 @@
-using GraphServiceClient.Communications.Calls.Item;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.LogTeleconferenceDeviceQuality;
+using ApiSdk.Communications.Calls.Item;
+using ApiSdk.Communications.Calls.LogTeleconferenceDeviceQuality;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Communications.Calls {
+namespace ApiSdk.Communications.Calls {
     /// <summary>Builds and executes requests for operations under \communications\calls</summary>
     public class CallsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -16,12 +17,12 @@ namespace GraphServiceClient.Communications.Calls {
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.logTeleconferenceDeviceQualityRequestBuilder Microsoft.graph.logTeleconferenceDeviceQuality { get =>
-            new Microsoft.graph.logTeleconferenceDeviceQualityRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public LogTeleconferenceDeviceQualityRequestBuilder LogTeleconferenceDeviceQuality { get =>
+            new LogTeleconferenceDeviceQualityRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.communications.calls collection</summary>
+        /// <summary>Gets an item from the ApiSdk.communications.calls.item collection</summary>
         public CallRequestBuilder this[string position] { get {
             return new CallRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

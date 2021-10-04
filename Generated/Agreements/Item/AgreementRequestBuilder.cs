@@ -1,6 +1,7 @@
-using GraphServiceClient.Agreements.Acceptances;
-using GraphServiceClient.Agreements.File;
-using GraphServiceClient.Agreements.Files;
+using ApiSdk.Agreements.Item.Acceptances;
+using ApiSdk.Agreements.Item.File;
+using ApiSdk.Agreements.Item.Files;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Agreements.Item {
+namespace ApiSdk.Agreements.Item {
     /// <summary>Builds and executes requests for operations under \agreements\{agreement-id}</summary>
     public class AgreementRequestBuilder {
         public AcceptancesRequestBuilder Acceptances { get =>

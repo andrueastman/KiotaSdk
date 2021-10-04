@@ -1,18 +1,19 @@
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Answer;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.CancelMediaProcessing;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.ChangeScreenSharingRole;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.KeepAlive;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Mute;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.PlayPrompt;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.RecordResponse;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Redirect;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Reject;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.SubscribeToTone;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Transfer;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.Unmute;
-using GraphServiceClient.Communications.Calls.Microsoft.Graph.UpdateRecordingStatus;
-using GraphServiceClient.Communications.Calls.Operations;
-using GraphServiceClient.Communications.Calls.Participants;
+using ApiSdk.Communications.Calls.Item.Answer;
+using ApiSdk.Communications.Calls.Item.CancelMediaProcessing;
+using ApiSdk.Communications.Calls.Item.ChangeScreenSharingRole;
+using ApiSdk.Communications.Calls.Item.KeepAlive;
+using ApiSdk.Communications.Calls.Item.Mute;
+using ApiSdk.Communications.Calls.Item.Operations;
+using ApiSdk.Communications.Calls.Item.Participants;
+using ApiSdk.Communications.Calls.Item.PlayPrompt;
+using ApiSdk.Communications.Calls.Item.RecordResponse;
+using ApiSdk.Communications.Calls.Item.Redirect;
+using ApiSdk.Communications.Calls.Item.Reject;
+using ApiSdk.Communications.Calls.Item.SubscribeToTone;
+using ApiSdk.Communications.Calls.Item.Transfer;
+using ApiSdk.Communications.Calls.Item.Unmute;
+using ApiSdk.Communications.Calls.Item.UpdateRecordingStatus;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,53 +21,29 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Communications.Calls.Item {
+namespace ApiSdk.Communications.Calls.Item {
     /// <summary>Builds and executes requests for operations under \communications\calls\{call-id}</summary>
     public class CallRequestBuilder {
+        public AnswerRequestBuilder Answer { get =>
+            new AnswerRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CancelMediaProcessingRequestBuilder CancelMediaProcessing { get =>
+            new CancelMediaProcessingRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ChangeScreenSharingRoleRequestBuilder ChangeScreenSharingRole { get =>
+            new ChangeScreenSharingRoleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.answerRequestBuilder Microsoft.graph.answer { get =>
-            new Microsoft.graph.answerRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public KeepAliveRequestBuilder KeepAlive { get =>
+            new KeepAliveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.cancelMediaProcessingRequestBuilder Microsoft.graph.cancelMediaProcessing { get =>
-            new Microsoft.graph.cancelMediaProcessingRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.changeScreenSharingRoleRequestBuilder Microsoft.graph.changeScreenSharingRole { get =>
-            new Microsoft.graph.changeScreenSharingRoleRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.keepAliveRequestBuilder Microsoft.graph.keepAlive { get =>
-            new Microsoft.graph.keepAliveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.muteRequestBuilder Microsoft.graph.mute { get =>
-            new Microsoft.graph.muteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.playPromptRequestBuilder Microsoft.graph.playPrompt { get =>
-            new Microsoft.graph.playPromptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.recordResponseRequestBuilder Microsoft.graph.recordResponse { get =>
-            new Microsoft.graph.recordResponseRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.redirectRequestBuilder Microsoft.graph.redirect { get =>
-            new Microsoft.graph.redirectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.rejectRequestBuilder Microsoft.graph.reject { get =>
-            new Microsoft.graph.rejectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.subscribeToToneRequestBuilder Microsoft.graph.subscribeToTone { get =>
-            new Microsoft.graph.subscribeToToneRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.transferRequestBuilder Microsoft.graph.transfer { get =>
-            new Microsoft.graph.transferRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.unmuteRequestBuilder Microsoft.graph.unmute { get =>
-            new Microsoft.graph.unmuteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.updateRecordingStatusRequestBuilder Microsoft.graph.updateRecordingStatus { get =>
-            new Microsoft.graph.updateRecordingStatusRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public MuteRequestBuilder Mute { get =>
+            new MuteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         public OperationsRequestBuilder Operations { get =>
             new OperationsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
@@ -76,6 +53,30 @@ namespace GraphServiceClient.Communications.Calls.Item {
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public PlayPromptRequestBuilder PlayPrompt { get =>
+            new PlayPromptRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RecordResponseRequestBuilder RecordResponse { get =>
+            new RecordResponseRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RedirectRequestBuilder Redirect { get =>
+            new RedirectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RejectRequestBuilder Reject { get =>
+            new RejectRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SubscribeToToneRequestBuilder SubscribeToTone { get =>
+            new SubscribeToToneRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public TransferRequestBuilder Transfer { get =>
+            new TransferRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UnmuteRequestBuilder Unmute { get =>
+            new UnmuteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UpdateRecordingStatusRequestBuilder UpdateRecordingStatus { get =>
+            new UpdateRecordingStatusRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new CallRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

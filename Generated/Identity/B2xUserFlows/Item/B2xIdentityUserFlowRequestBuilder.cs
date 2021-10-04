@@ -1,7 +1,8 @@
-using GraphServiceClient.Identity.B2xUserFlows.IdentityProviders;
-using GraphServiceClient.Identity.B2xUserFlows.Languages;
-using GraphServiceClient.Identity.B2xUserFlows.UserAttributeAssignments;
-using GraphServiceClient.Identity.B2xUserFlows.UserFlowIdentityProviders;
+using ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders;
+using ApiSdk.Identity.B2xUserFlows.Item.Languages;
+using ApiSdk.Identity.B2xUserFlows.Item.UserAttributeAssignments;
+using ApiSdk.Identity.B2xUserFlows.Item.UserFlowIdentityProviders;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.B2xUserFlows.Item {
+namespace ApiSdk.Identity.B2xUserFlows.Item {
     /// <summary>Builds and executes requests for operations under \identity\b2xUserFlows\{b2xIdentityUserFlow-id}</summary>
     public class B2xIdentityUserFlowRequestBuilder {
         /// <summary>Current path for the request</summary>

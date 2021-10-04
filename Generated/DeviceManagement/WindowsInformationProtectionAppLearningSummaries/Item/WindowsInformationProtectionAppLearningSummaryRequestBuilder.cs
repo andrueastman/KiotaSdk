@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.WindowsInformationProtectionAppLearningSummaries.Item {
+namespace ApiSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\windowsInformationProtectionAppLearningSummaries\{windowsInformationProtectionAppLearningSummary-id}</summary>
     public class WindowsInformationProtectionAppLearningSummaryRequestBuilder {
         /// <summary>Current path for the request</summary>

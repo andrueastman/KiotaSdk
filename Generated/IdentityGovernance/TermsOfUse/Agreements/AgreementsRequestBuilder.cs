@@ -1,4 +1,5 @@
-using GraphServiceClient.IdentityGovernance.TermsOfUse.Agreements.Item;
+using ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.IdentityGovernance.TermsOfUse.Agreements {
+namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements {
     /// <summary>Builds and executes requests for operations under \identityGovernance\termsOfUse\agreements</summary>
     public class AgreementsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.IdentityGovernance.TermsOfUse.Agreements {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.identityGovernance.termsOfUse.agreements collection</summary>
+        /// <summary>Gets an item from the ApiSdk.identityGovernance.termsOfUse.agreements.item collection</summary>
         public AgreementRequestBuilder this[string position] { get {
             return new AgreementRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

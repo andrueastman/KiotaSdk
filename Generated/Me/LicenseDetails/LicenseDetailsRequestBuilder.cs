@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.LicenseDetails {
+namespace ApiSdk.Me.LicenseDetails {
     /// <summary>Builds and executes requests for operations under \me\licenseDetails</summary>
     public class LicenseDetailsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -16,7 +17,7 @@ namespace GraphServiceClient.Me.LicenseDetails {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.me.licenseDetails collection</summary>
+        /// <summary>Gets an item from the ApiSdk.me.licenseDetails.item collection</summary>
         public LicenseDetailsRequestBuilder this[string position] { get {
             return new LicenseDetailsRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }
@@ -60,7 +61,7 @@ namespace GraphServiceClient.Me.LicenseDetails {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(LicenseDetails body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Models.Microsoft.Graph.LicenseDetails body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -89,10 +90,10 @@ namespace GraphServiceClient.Me.LicenseDetails {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<LicenseDetails> PostAsync(LicenseDetails body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.LicenseDetails> PostAsync(ApiSdk.Models.Microsoft.Graph.LicenseDetails body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<LicenseDetails>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.LicenseDetails>(requestInfo, responseHandler);
         }
         /// <summary>A collection of this user's license details. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,4 +1,5 @@
-using GraphServiceClient.Planner.Buckets.Tasks;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Planner.Buckets.Item.Tasks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Planner.Buckets.Item {
+namespace ApiSdk.Planner.Buckets.Item {
     /// <summary>Builds and executes requests for operations under \planner\buckets\{plannerBucket-id}</summary>
     public class PlannerBucketRequestBuilder {
         /// <summary>Current path for the request</summary>

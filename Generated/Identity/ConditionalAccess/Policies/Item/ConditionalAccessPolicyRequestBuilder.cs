@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Identity.ConditionalAccess.Policies.Item {
+namespace ApiSdk.Identity.ConditionalAccess.Policies.Item {
     /// <summary>Builds and executes requests for operations under \identity\conditionalAccess\policies\{conditionalAccessPolicy-id}</summary>
     public class ConditionalAccessPolicyRequestBuilder {
         /// <summary>Current path for the request</summary>

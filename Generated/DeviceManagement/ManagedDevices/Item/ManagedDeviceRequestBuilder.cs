@@ -1,24 +1,25 @@
-using GraphServiceClient.DeviceManagement.ManagedDevices.DeviceCategory;
-using GraphServiceClient.DeviceManagement.ManagedDevices.DeviceCompliancePolicyStates;
-using GraphServiceClient.DeviceManagement.ManagedDevices.DeviceConfigurationStates;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.BypassActivationLock;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.CleanWindowsDevice;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.DeleteUserFromSharedAppleDevice;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.DisableLostMode;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.LocateDevice;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.LogoutSharedAppleDeviceActiveUser;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.RebootNow;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.RecoverPasscode;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.RemoteLock;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.RequestRemoteAssistance;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.ResetPasscode;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.Retire;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.ShutDown;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.SyncDevice;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.UpdateWindowsDeviceAccount;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.WindowsDefenderScan;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.WindowsDefenderUpdateSignatures;
-using GraphServiceClient.DeviceManagement.ManagedDevices.Microsoft.Graph.Wipe;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.BypassActivationLock;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.CleanWindowsDevice;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceCategory;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceCompliancePolicyStates;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceConfigurationStates;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.DisableLostMode;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.LocateDevice;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.RebootNow;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.RecoverPasscode;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.RemoteLock;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.RequestRemoteAssistance;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.ResetPasscode;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.Retire;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.ShutDown;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.SyncDevice;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.UpdateWindowsDeviceAccount;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderScan;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
+using ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -26,11 +27,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.ManagedDevices.Item {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\managedDevices\{managedDevice-id}</summary>
     public class ManagedDeviceRequestBuilder {
+        public BypassActivationLockRequestBuilder BypassActivationLock { get =>
+            new BypassActivationLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CleanWindowsDeviceRequestBuilder CleanWindowsDevice { get =>
+            new CleanWindowsDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public DeleteUserFromSharedAppleDeviceRequestBuilder DeleteUserFromSharedAppleDevice { get =>
+            new DeleteUserFromSharedAppleDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         public DeviceCategoryRequestBuilder DeviceCategory { get =>
             new DeviceCategoryRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
@@ -40,66 +50,57 @@ namespace GraphServiceClient.DeviceManagement.ManagedDevices.Item {
         public DeviceConfigurationStatesRequestBuilder DeviceConfigurationStates { get =>
             new DeviceConfigurationStatesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
+        public DisableLostModeRequestBuilder DisableLostMode { get =>
+            new DisableLostModeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.bypassActivationLockRequestBuilder Microsoft.graph.bypassActivationLock { get =>
-            new Microsoft.graph.bypassActivationLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public LocateDeviceRequestBuilder LocateDevice { get =>
+            new LocateDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.cleanWindowsDeviceRequestBuilder Microsoft.graph.cleanWindowsDevice { get =>
-            new Microsoft.graph.cleanWindowsDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder Microsoft.graph.deleteUserFromSharedAppleDevice { get =>
-            new Microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.disableLostModeRequestBuilder Microsoft.graph.disableLostMode { get =>
-            new Microsoft.graph.disableLostModeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.locateDeviceRequestBuilder Microsoft.graph.locateDevice { get =>
-            new Microsoft.graph.locateDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder Microsoft.graph.logoutSharedAppleDeviceActiveUser { get =>
-            new Microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.rebootNowRequestBuilder Microsoft.graph.rebootNow { get =>
-            new Microsoft.graph.rebootNowRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.recoverPasscodeRequestBuilder Microsoft.graph.recoverPasscode { get =>
-            new Microsoft.graph.recoverPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.remoteLockRequestBuilder Microsoft.graph.remoteLock { get =>
-            new Microsoft.graph.remoteLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.requestRemoteAssistanceRequestBuilder Microsoft.graph.requestRemoteAssistance { get =>
-            new Microsoft.graph.requestRemoteAssistanceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.resetPasscodeRequestBuilder Microsoft.graph.resetPasscode { get =>
-            new Microsoft.graph.resetPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.retireRequestBuilder Microsoft.graph.retire { get =>
-            new Microsoft.graph.retireRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.shutDownRequestBuilder Microsoft.graph.shutDown { get =>
-            new Microsoft.graph.shutDownRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.syncDeviceRequestBuilder Microsoft.graph.syncDevice { get =>
-            new Microsoft.graph.syncDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.updateWindowsDeviceAccountRequestBuilder Microsoft.graph.updateWindowsDeviceAccount { get =>
-            new Microsoft.graph.updateWindowsDeviceAccountRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.windowsDefenderScanRequestBuilder Microsoft.graph.windowsDefenderScan { get =>
-            new Microsoft.graph.windowsDefenderScanRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder Microsoft.graph.windowsDefenderUpdateSignatures { get =>
-            new Microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.wipeRequestBuilder Microsoft.graph.wipe { get =>
-            new Microsoft.graph.wipeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        public LogoutSharedAppleDeviceActiveUserRequestBuilder LogoutSharedAppleDeviceActiveUser { get =>
+            new LogoutSharedAppleDeviceActiveUserRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public RebootNowRequestBuilder RebootNow { get =>
+            new RebootNowRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RecoverPasscodeRequestBuilder RecoverPasscode { get =>
+            new RecoverPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RemoteLockRequestBuilder RemoteLock { get =>
+            new RemoteLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RequestRemoteAssistanceRequestBuilder RequestRemoteAssistance { get =>
+            new RequestRemoteAssistanceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ResetPasscodeRequestBuilder ResetPasscode { get =>
+            new ResetPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public RetireRequestBuilder Retire { get =>
+            new RetireRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ShutDownRequestBuilder ShutDown { get =>
+            new ShutDownRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SyncDeviceRequestBuilder SyncDevice { get =>
+            new SyncDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public UpdateWindowsDeviceAccountRequestBuilder UpdateWindowsDeviceAccount { get =>
+            new UpdateWindowsDeviceAccountRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public WindowsDefenderScanRequestBuilder WindowsDefenderScan { get =>
+            new WindowsDefenderScanRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public WindowsDefenderUpdateSignaturesRequestBuilder WindowsDefenderUpdateSignatures { get =>
+            new WindowsDefenderUpdateSignaturesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public WipeRequestBuilder Wipe { get =>
+            new WipeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new ManagedDeviceRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

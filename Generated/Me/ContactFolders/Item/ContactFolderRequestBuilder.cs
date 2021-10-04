@@ -1,7 +1,8 @@
-using GraphServiceClient.Me.ContactFolders.ChildFolders;
-using GraphServiceClient.Me.ContactFolders.Contacts;
-using GraphServiceClient.Me.ContactFolders.MultiValueExtendedProperties;
-using GraphServiceClient.Me.ContactFolders.SingleValueExtendedProperties;
+using ApiSdk.Me.ContactFolders.Item.ChildFolders;
+using ApiSdk.Me.ContactFolders.Item.Contacts;
+using ApiSdk.Me.ContactFolders.Item.MultiValueExtendedProperties;
+using ApiSdk.Me.ContactFolders.Item.SingleValueExtendedProperties;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.ContactFolders.Item {
+namespace ApiSdk.Me.ContactFolders.Item {
     /// <summary>Builds and executes requests for operations under \me\contactFolders\{contactFolder-id}</summary>
     public class ContactFolderRequestBuilder {
         public ChildFoldersRequestBuilder ChildFolders { get =>

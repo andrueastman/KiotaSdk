@@ -1,15 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-namespace GraphServiceClient.Users {
+namespace ApiSdk.Users {
     public class UsersResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<User> Value { get; set; }
+        public List<ApiSdk.Models.Microsoft.Graph.User> Value { get; set; }
         /// <summary>
-        /// Instantiates a new UsersResponse and sets the default values.
+        /// Instantiates a new usersResponse and sets the default values.
         /// </summary>
         public UsersResponse() {
             AdditionalData = new Dictionary<string, object>();
@@ -20,7 +22,7 @@ namespace GraphServiceClient.Users {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as UsersResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as UsersResponse).Value = n.GetCollectionOfObjectValues<User>().ToList(); } },
+                {"value", (o,n) => { (o as UsersResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.User>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +32,7 @@ namespace GraphServiceClient.Users {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<User>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.User>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

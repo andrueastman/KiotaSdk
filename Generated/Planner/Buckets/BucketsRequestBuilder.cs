@@ -1,4 +1,5 @@
-using GraphServiceClient.Planner.Buckets.Item;
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Planner.Buckets.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Planner.Buckets {
+namespace ApiSdk.Planner.Buckets {
     /// <summary>Builds and executes requests for operations under \planner\buckets</summary>
     public class BucketsRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.Planner.Buckets {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.planner.buckets collection</summary>
+        /// <summary>Gets an item from the ApiSdk.planner.buckets.item collection</summary>
         public PlannerBucketRequestBuilder this[string position] { get {
             return new PlannerBucketRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

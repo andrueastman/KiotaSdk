@@ -1,8 +1,9 @@
-using GraphServiceClient.Me.Onenote.Sections.Microsoft.Graph.CopyToNotebook;
-using GraphServiceClient.Me.Onenote.Sections.Microsoft.Graph.CopyToSectionGroup;
-using GraphServiceClient.Me.Onenote.Sections.Pages;
-using GraphServiceClient.Me.Onenote.Sections.ParentNotebook;
-using GraphServiceClient.Me.Onenote.Sections.ParentSectionGroup;
+using ApiSdk.Me.Onenote.Sections.Item.CopyToNotebook;
+using ApiSdk.Me.Onenote.Sections.Item.CopyToSectionGroup;
+using ApiSdk.Me.Onenote.Sections.Item.Pages;
+using ApiSdk.Me.Onenote.Sections.Item.ParentNotebook;
+using ApiSdk.Me.Onenote.Sections.Item.ParentSectionGroup;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,21 +11,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Me.Onenote.Sections.Item {
+namespace ApiSdk.Me.Onenote.Sections.Item {
     /// <summary>Builds and executes requests for operations under \me\onenote\sections\{onenoteSection-id}</summary>
     public class OnenoteSectionRequestBuilder {
+        public CopyToNotebookRequestBuilder CopyToNotebook { get =>
+            new CopyToNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public CopyToSectionGroupRequestBuilder CopyToSectionGroup { get =>
+            new CopyToSectionGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
-        public Microsoft.graph.copyToNotebookRequestBuilder Microsoft.graph.copyToNotebook { get =>
-            new Microsoft.graph.copyToNotebookRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
-        public Microsoft.graph.copyToSectionGroupRequestBuilder Microsoft.graph.copyToSectionGroup { get =>
-            new Microsoft.graph.copyToSectionGroupRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         public PagesRequestBuilder Pages { get =>
             new PagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }

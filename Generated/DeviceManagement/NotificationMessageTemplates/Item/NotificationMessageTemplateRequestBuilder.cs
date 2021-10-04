@@ -1,5 +1,6 @@
-using GraphServiceClient.DeviceManagement.NotificationMessageTemplates.LocalizedNotificationMessages;
-using GraphServiceClient.DeviceManagement.NotificationMessageTemplates.Microsoft.Graph.SendTestMessage;
+using ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedNotificationMessages;
+using ApiSdk.DeviceManagement.NotificationMessageTemplates.Item.SendTestMessage;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.NotificationMessageTemplates.Item {
+namespace ApiSdk.DeviceManagement.NotificationMessageTemplates.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\notificationMessageTemplates\{notificationMessageTemplate-id}</summary>
     public class NotificationMessageTemplateRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -19,11 +20,11 @@ namespace GraphServiceClient.DeviceManagement.NotificationMessageTemplates.Item 
         public LocalizedNotificationMessagesRequestBuilder LocalizedNotificationMessages { get =>
             new LocalizedNotificationMessagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
         }
-        public Microsoft.graph.sendTestMessageRequestBuilder Microsoft.graph.sendTestMessage { get =>
-            new Microsoft.graph.sendTestMessageRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
-        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public SendTestMessageRequestBuilder SendTestMessage { get =>
+            new SendTestMessageRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new NotificationMessageTemplateRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>

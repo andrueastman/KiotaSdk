@@ -1,3 +1,4 @@
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.IosUpdateStatuses.Item {
+namespace ApiSdk.DeviceManagement.IosUpdateStatuses.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\iosUpdateStatuses\{iosUpdateDeviceStatus-id}</summary>
     public class IosUpdateDeviceStatusRequestBuilder {
         /// <summary>Current path for the request</summary>

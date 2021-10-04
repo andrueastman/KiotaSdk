@@ -1,4 +1,5 @@
-using GraphServiceClient.DeviceManagement.TelecomExpenseManagementPartners.Item;
+using ApiSdk.DeviceManagement.TelecomExpenseManagementPartners.Item;
+using ApiSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.DeviceManagement.TelecomExpenseManagementPartners {
+namespace ApiSdk.DeviceManagement.TelecomExpenseManagementPartners {
     /// <summary>Builds and executes requests for operations under \deviceManagement\telecomExpenseManagementPartners</summary>
     public class TelecomExpenseManagementPartnersRequestBuilder {
         /// <summary>Current path for the request</summary>
@@ -17,7 +18,7 @@ namespace GraphServiceClient.DeviceManagement.TelecomExpenseManagementPartners {
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
-        /// <summary>Gets an item from the GraphServiceClient.deviceManagement.telecomExpenseManagementPartners collection</summary>
+        /// <summary>Gets an item from the ApiSdk.deviceManagement.telecomExpenseManagementPartners.item collection</summary>
         public TelecomExpenseManagementPartnerRequestBuilder this[string position] { get {
             return new TelecomExpenseManagementPartnerRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
         } }

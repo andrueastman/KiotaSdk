@@ -1,3 +1,17 @@
+using ApiSdk.Models.Microsoft.Graph;
+using ApiSdk.Sites.Item.Analytics;
+using ApiSdk.Sites.Item.Columns;
+using ApiSdk.Sites.Item.ContentTypes;
+using ApiSdk.Sites.Item.Drive;
+using ApiSdk.Sites.Item.Drives;
+using ApiSdk.Sites.Item.GetActivitiesByInterval;
+using ApiSdk.Sites.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using ApiSdk.Sites.Item.GetByPathWithPath;
+using ApiSdk.Sites.Item.Items;
+using ApiSdk.Sites.Item.Lists;
+using ApiSdk.Sites.Item.Onenote;
+using ApiSdk.Sites.Item.Permissions;
+using ApiSdk.Sites.Item.Sites;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -5,17 +19,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace GraphServiceClient.Sites.Sites.Item {
-    /// <summary>Builds and executes requests for operations under \sites\{site-id}\sites\{site-id1}</summary>
+namespace ApiSdk.Sites.Item {
+    /// <summary>Builds and executes requests for operations under \sites\{site-id}</summary>
     public class SiteRequestBuilder {
+        public AnalyticsRequestBuilder Analytics { get =>
+            new AnalyticsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ColumnsRequestBuilder Columns { get =>
+            new ColumnsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ContentTypesRequestBuilder ContentTypes { get =>
+            new ContentTypesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
+        public DriveRequestBuilder Drive { get =>
+            new DriveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public DrivesRequestBuilder Drives { get =>
+            new DrivesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>The http core service to use to execute the requests.</summary>
         private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
+        public ItemsRequestBuilder Items { get =>
+            new ItemsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public ListsRequestBuilder Lists { get =>
+            new ListsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public OnenoteRequestBuilder Onenote { get =>
+            new OnenoteRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        public PermissionsRequestBuilder Permissions { get =>
+            new PermissionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        public SitesRequestBuilder Sites { get =>
+            new SitesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
         /// <summary>
         /// Instantiates a new SiteRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
@@ -31,7 +75,7 @@ namespace GraphServiceClient.Sites.Sites.Item {
             IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Delete entity from sites
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
@@ -45,7 +89,7 @@ namespace GraphServiceClient.Sites.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Get entity from sites by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
@@ -65,12 +109,12 @@ namespace GraphServiceClient.Sites.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Update entity in sites
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
@@ -82,7 +126,7 @@ namespace GraphServiceClient.Sites.Sites.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Delete entity from sites
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -92,29 +136,55 @@ namespace GraphServiceClient.Sites.Sites.Item {
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getActivitiesByInterval()
+        /// </summary>
+        public GetActivitiesByIntervalRequestBuilder getActivitiesByInterval() {
+            return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
+        /// <param name="endDateTime">Usage: endDateTime={endDateTime}</param>
+        /// <param name="interval">Usage: interval={interval}</param>
+        /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
+        /// </summary>
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
+            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
+            if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
+            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
+            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(CurrentPath + PathSegment , HttpCore, startDateTime, endDateTime, interval, false);
+        }
+        /// <summary>
+        /// Get entity from sites by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Site> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Site> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<Site>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Site>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The collection of the sub-sites under this site.
+        /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getByPath(path='{path}')
+        /// <param name="path">Usage: path={path}</param>
+        /// </summary>
+        public GetByPathWithPathRequestBuilder getByPathWithPath(string path) {
+            if(string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            return new GetByPathWithPathRequestBuilder(CurrentPath + PathSegment , HttpCore, path, false);
+        }
+        /// <summary>
+        /// Update entity in sites
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>The collection of the sub-sites under this site.</summary>
+        /// <summary>Get entity from sites by key</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }
