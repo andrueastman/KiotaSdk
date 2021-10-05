@@ -76,7 +76,7 @@ namespace ApiSdk {
             new AgreementAcceptancesRequestBuilder(PathSegment , HttpCore, false);
         }
         public AgreementsRequestBuilder Agreements { get =>
-            new (PathSegment , HttpCore, false);
+            new AgreementsRequestBuilder(PathSegment , HttpCore, false);
         }
         public AppCatalogsRequestBuilder AppCatalogs { get =>
             new AppCatalogsRequestBuilder(PathSegment , HttpCore, false);
