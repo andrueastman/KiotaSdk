@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\kiota\abstractions\dotnet\src\Microsoft.Kiota.Abstractions.csproj" />
     <ProjectReference Include="..\kiota\authentication\dotnet\azure\src\Microsoft.Kiota.Authentication.Azure.csproj" />
-    <ProjectReference Include="..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClient.csproj" />
+    <ProjectReference Include="..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClientLibrary.csproj" />
     <ProjectReference Include="..\kiota\serialization\dotnet\json\src\Microsoft.Kiota.Serialization.Json.csproj" />
   </ItemGroup>
 

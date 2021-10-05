@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiotaSdk", "KiotaSdk.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Abstractions", "..\kiota\abstractions\dotnet\src\Microsoft.Kiota.Abstractions.csproj", "{95E28D2B-33C8-4C11-8D3C-8726DA6AA3DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Http.HttpClient", "..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClient.csproj", "{9D74A8EC-1A97-473A-89A0-C92122F99BE8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Authentication.Azure", "..\kiota\authentication\dotnet\azure\src\Microsoft.Kiota.Authentication.Azure.csproj", "{C157997B-ECB9-4ABC-9477-4DB0752FC6A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Serialization.Json", "..\kiota\serialization\dotnet\json\src\Microsoft.Kiota.Serialization.Json.csproj", "{E067017B-9EE2-42AE-A417-E1334F5E2DA1}"
@@ -17,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Http.HttpClientLibrary", "..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClientLibrary.csproj", "{1651C153-1107-4C47-AB03-FE0B4DFD79BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,6 @@ Global
 		{95E28D2B-33C8-4C11-8D3C-8726DA6AA3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95E28D2B-33C8-4C11-8D3C-8726DA6AA3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95E28D2B-33C8-4C11-8D3C-8726DA6AA3DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D74A8EC-1A97-473A-89A0-C92122F99BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D74A8EC-1A97-473A-89A0-C92122F99BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D74A8EC-1A97-473A-89A0-C92122F99BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D74A8EC-1A97-473A-89A0-C92122F99BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C157997B-ECB9-4ABC-9477-4DB0752FC6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C157997B-ECB9-4ABC-9477-4DB0752FC6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C157997B-ECB9-4ABC-9477-4DB0752FC6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +40,10 @@ Global
 		{E067017B-9EE2-42AE-A417-E1334F5E2DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E067017B-9EE2-42AE-A417-E1334F5E2DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E067017B-9EE2-42AE-A417-E1334F5E2DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
