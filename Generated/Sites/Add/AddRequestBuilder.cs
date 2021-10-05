@@ -54,10 +54,10 @@ namespace ApiSdk.Sites.Add {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<@Add>> PostAsync(AddRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<IEnumerable<ApiSdk.Sites.Add.Add>> PostAsync(AddRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendCollectionAsync<@Add>(requestInfo, responseHandler);
+            return await HttpCore.SendCollectionAsync<ApiSdk.Sites.Add.Add>(requestInfo, responseHandler);
         }
     }
 }

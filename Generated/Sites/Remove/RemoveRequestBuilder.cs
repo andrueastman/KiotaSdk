@@ -54,10 +54,10 @@ namespace ApiSdk.Sites.Remove {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<@Remove>> PostAsync(RemoveRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<IEnumerable<ApiSdk.Sites.Remove.Remove>> PostAsync(RemoveRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendCollectionAsync<@Remove>(requestInfo, responseHandler);
+            return await HttpCore.SendCollectionAsync<ApiSdk.Sites.Remove.Remove>(requestInfo, responseHandler);
         }
     }
 }

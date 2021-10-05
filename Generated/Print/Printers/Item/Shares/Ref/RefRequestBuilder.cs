@@ -56,7 +56,7 @@ namespace ApiSdk.Print.Printers.Item.Shares.Ref {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options for HTTP middlewares</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(@Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(ApiSdk.Print.Printers.Item.Shares.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
@@ -85,10 +85,10 @@ namespace ApiSdk.Print.Printers.Item.Shares.Ref {
         /// <param name="o">Request options for HTTP middlewares</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<@Ref> PostAsync(@Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Print.Printers.Item.Shares.Ref.Ref> PostAsync(ApiSdk.Print.Printers.Item.Shares.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<@Ref>(requestInfo, responseHandler);
+            return await HttpCore.SendAsync<ApiSdk.Print.Printers.Item.Shares.Ref.Ref>(requestInfo, responseHandler);
         }
         /// <summary>The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
