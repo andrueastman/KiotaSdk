@@ -12,41 +12,41 @@ namespace ApiSdk.Communications.OnlineMeetings {
     /// <summary>Builds and executes requests for operations under \communications\onlineMeetings</summary>
     public class OnlineMeetingsRequestBuilder {
         public CreateOrGetRequestBuilder CreateOrGet { get =>
-            new CreateOrGetRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new CreateOrGetRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Gets an item from the ApiSdk.communications.onlineMeetings.item collection</summary>
         public OnlineMeetingRequestBuilder this[string position] { get {
-            return new OnlineMeetingRequestBuilder(CurrentPath + PathSegment  + "/" + position, HttpCore, false);
+            return new OnlineMeetingRequestBuilder(CurrentPath + PathSegment  + "/" + position, RequestAdapter, false);
         } }
         /// <summary>
         /// Instantiates a new OnlineMeetingsRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public OnlineMeetingsRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public OnlineMeetingsRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/onlineMeetings";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Get onlineMeetings from communications
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
             };
@@ -57,48 +57,48 @@ namespace ApiSdk.Communications.OnlineMeetings {
                 qParams.AddQueryParameters(requestInfo.QueryParameters);
             }
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Create new navigation property to onlineMeetings for communications
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(OnlineMeeting body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(OnlineMeeting body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
-            requestInfo.SetContentFromParsable(HttpCore, "application/json", body);
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Get onlineMeetings from communications
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<OnlineMeetingsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<OnlineMeetingsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<OnlineMeetingsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<OnlineMeetingsResponse>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Create new navigation property to onlineMeetings for communications
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<OnlineMeeting> PostAsync(OnlineMeeting body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<OnlineMeeting> PostAsync(OnlineMeeting body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<OnlineMeeting>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, responseHandler);
         }
         /// <summary>Get onlineMeetings from communications</summary>
         public class GetQueryParameters : QueryParametersBase {

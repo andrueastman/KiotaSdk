@@ -17,65 +17,65 @@ namespace ApiSdk.Users.Item.Onenote {
     public class OnenoteRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         public NotebooksRequestBuilder Notebooks { get =>
-            new NotebooksRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new NotebooksRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public OperationsRequestBuilder Operations { get =>
-            new OperationsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new OperationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public PagesRequestBuilder Pages { get =>
-            new PagesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new PagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         public ResourcesRequestBuilder Resources { get =>
-            new ResourcesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ResourcesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public SectionGroupsRequestBuilder SectionGroups { get =>
-            new SectionGroupsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new SectionGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public SectionsRequestBuilder Sections { get =>
-            new SectionsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new SectionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Instantiates a new OnenoteRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public OnenoteRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public OnenoteRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/onenote";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
             };
@@ -86,58 +86,58 @@ namespace ApiSdk.Users.Item.Onenote {
                 qParams.AddQueryParameters(requestInfo.QueryParameters);
             }
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
-            requestInfo.SetContentFromParsable(HttpCore, "application/json", body);
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
         /// Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.Onenote> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ApiSdk.Models.Microsoft.Graph.Onenote> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<ApiSdk.Models.Microsoft.Graph.Onenote>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.Onenote>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Onenote body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

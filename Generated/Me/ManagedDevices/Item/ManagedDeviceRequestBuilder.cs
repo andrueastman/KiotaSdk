@@ -31,111 +31,111 @@ namespace ApiSdk.Me.ManagedDevices.Item {
     /// <summary>Builds and executes requests for operations under \me\managedDevices\{managedDevice-id}</summary>
     public class ManagedDeviceRequestBuilder {
         public BypassActivationLockRequestBuilder BypassActivationLock { get =>
-            new BypassActivationLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new BypassActivationLockRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public CleanWindowsDeviceRequestBuilder CleanWindowsDevice { get =>
-            new CleanWindowsDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new CleanWindowsDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         public DeleteUserFromSharedAppleDeviceRequestBuilder DeleteUserFromSharedAppleDevice { get =>
-            new DeleteUserFromSharedAppleDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DeleteUserFromSharedAppleDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public DeviceCategoryRequestBuilder DeviceCategory { get =>
-            new DeviceCategoryRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DeviceCategoryRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public DeviceCompliancePolicyStatesRequestBuilder DeviceCompliancePolicyStates { get =>
-            new DeviceCompliancePolicyStatesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DeviceCompliancePolicyStatesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public DeviceConfigurationStatesRequestBuilder DeviceConfigurationStates { get =>
-            new DeviceConfigurationStatesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DeviceConfigurationStatesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public DisableLostModeRequestBuilder DisableLostMode { get =>
-            new DisableLostModeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DisableLostModeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         public LocateDeviceRequestBuilder LocateDevice { get =>
-            new LocateDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new LocateDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public LogoutSharedAppleDeviceActiveUserRequestBuilder LogoutSharedAppleDeviceActiveUser { get =>
-            new LogoutSharedAppleDeviceActiveUserRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new LogoutSharedAppleDeviceActiveUserRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public RebootNowRequestBuilder RebootNow { get =>
-            new RebootNowRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new RebootNowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public RecoverPasscodeRequestBuilder RecoverPasscode { get =>
-            new RecoverPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new RecoverPasscodeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public RemoteLockRequestBuilder RemoteLock { get =>
-            new RemoteLockRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new RemoteLockRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         public RequestRemoteAssistanceRequestBuilder RequestRemoteAssistance { get =>
-            new RequestRemoteAssistanceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new RequestRemoteAssistanceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public ResetPasscodeRequestBuilder ResetPasscode { get =>
-            new ResetPasscodeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ResetPasscodeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public RetireRequestBuilder Retire { get =>
-            new RetireRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new RetireRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public ShutDownRequestBuilder ShutDown { get =>
-            new ShutDownRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ShutDownRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public SyncDeviceRequestBuilder SyncDevice { get =>
-            new SyncDeviceRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new SyncDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public UpdateWindowsDeviceAccountRequestBuilder UpdateWindowsDeviceAccount { get =>
-            new UpdateWindowsDeviceAccountRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new UpdateWindowsDeviceAccountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public WindowsDefenderScanRequestBuilder WindowsDefenderScan { get =>
-            new WindowsDefenderScanRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new WindowsDefenderScanRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public WindowsDefenderUpdateSignaturesRequestBuilder WindowsDefenderUpdateSignatures { get =>
-            new WindowsDefenderUpdateSignaturesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new WindowsDefenderUpdateSignaturesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public WipeRequestBuilder Wipe { get =>
-            new WipeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new WipeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Instantiates a new ManagedDeviceRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public ManagedDeviceRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public ManagedDeviceRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
             };
@@ -146,58 +146,58 @@ namespace ApiSdk.Me.ManagedDevices.Item {
                 qParams.AddQueryParameters(requestInfo.QueryParameters);
             }
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ManagedDevice body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(ManagedDevice body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
-            requestInfo.SetContentFromParsable(HttpCore, "application/json", body);
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ManagedDevice> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ManagedDevice> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<ManagedDevice>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ManagedDevice>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The managed devices associated with the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ManagedDevice body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(ManagedDevice body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>The managed devices associated with the user.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -11,23 +11,23 @@ namespace ApiSdk.Workbooks.Item.Workbook.Functions.Quartile_Inc {
     public class Quartile_IncRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>
         /// Instantiates a new Quartile_IncRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public Quartile_IncRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public Quartile_IncRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/microsoft.graph.quartile_Inc";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
@@ -35,30 +35,30 @@ namespace ApiSdk.Workbooks.Item.Workbook.Functions.Quartile_Inc {
         /// Invoke action quartile_Inc
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePostRequestInformation(Quartile_IncRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePostRequestInformation(Quartile_IncRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
-            requestInfo.SetContentFromParsable(HttpCore, "application/json", body);
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// Invoke action quartile_Inc
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Quartile_IncResponse> PostAsync(Quartile_IncRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<Quartile_IncResponse> PostAsync(Quartile_IncRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await HttpCore.SendAsync<Quartile_IncResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<Quartile_IncResponse>(requestInfo, responseHandler);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class Quartile_IncResponse : IParsable {

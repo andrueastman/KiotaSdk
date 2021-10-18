@@ -10,30 +10,30 @@ namespace ApiSdk.Me.Insights.Shared.Item.Resource.ScheduleChangeRequest {
     /// <summary>Builds and executes requests for operations under \me\insights\shared\{sharedInsight-id}\resource\microsoft.graph.scheduleChangeRequest</summary>
     public class ScheduleChangeRequestRequestBuilder {
         public ApproveRequestBuilder Approve { get =>
-            new ApproveRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ApproveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
         public DeclineRequestBuilder Decline { get =>
-            new DeclineRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new DeclineRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>
         /// Instantiates a new ScheduleChangeRequestRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public ScheduleChangeRequestRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public ScheduleChangeRequestRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/microsoft.graph.scheduleChangeRequest";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }

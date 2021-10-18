@@ -20,27 +20,27 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet</summary>
     public class WorksheetRequestBuilder {
         public ChartsRequestBuilder Charts { get =>
-            new ChartsRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ChartsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         public NamesRequestBuilder Names { get =>
-            new NamesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new NamesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public PivotTablesRequestBuilder PivotTables { get =>
-            new PivotTablesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new PivotTablesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         public ProtectionRequestBuilder Protection { get =>
-            new ProtectionRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new ProtectionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         public TablesRequestBuilder Tables { get =>
-            new TablesRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            new TablesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\microsoft.graph.cell(row={row},column={column})
@@ -50,43 +50,43 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet {
         public CellWithRowWithColumnRequestBuilder cellWithRowWithColumn(int? row, int? column) {
             _ = column ?? throw new ArgumentNullException(nameof(column));
             _ = row ?? throw new ArgumentNullException(nameof(row));
-            return new CellWithRowWithColumnRequestBuilder(CurrentPath + PathSegment , HttpCore, row, column, false);
+            return new CellWithRowWithColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, row, column, false);
         }
         /// <summary>
         /// Instantiates a new WorksheetRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public WorksheetRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public WorksheetRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/worksheet";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
-        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
             };
@@ -97,64 +97,64 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet {
                 qParams.AddQueryParameters(requestInfo.QueryParameters);
             }
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(WorkbookWorksheet body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(WorkbookWorksheet body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
             };
             requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
-            requestInfo.SetContentFromParsable(HttpCore, "application/json", body);
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<WorkbookWorksheet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<WorkbookWorksheet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await HttpCore.SendAsync<WorkbookWorksheet>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, responseHandler);
         }
         /// <summary>
         /// The worksheet containing the current table. Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
-        /// <param name="o">Request options for HTTP middlewares</param>
+        /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(WorkbookWorksheet body, Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(WorkbookWorksheet body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\microsoft.graph.range()
         /// </summary>
         public RangeRequestBuilder range() {
-            return new RangeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\microsoft.graph.range(address='{address}')
@@ -162,13 +162,13 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet {
         /// </summary>
         public RangeWithAddressRequestBuilder rangeWithAddress(string address) {
             if(string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
-            return new RangeWithAddressRequestBuilder(CurrentPath + PathSegment , HttpCore, address, false);
+            return new RangeWithAddressRequestBuilder(CurrentPath + PathSegment , RequestAdapter, address, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\microsoft.graph.usedRange()
         /// </summary>
         public UsedRangeRequestBuilder usedRange() {
-            return new UsedRangeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            return new UsedRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\microsoft.graph.usedRange(valuesOnly={valuesOnly})
@@ -176,7 +176,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet {
         /// </summary>
         public UsedRangeWithValuesOnlyRequestBuilder usedRangeWithValuesOnly(bool? valuesOnly) {
             _ = valuesOnly ?? throw new ArgumentNullException(nameof(valuesOnly));
-            return new UsedRangeWithValuesOnlyRequestBuilder(CurrentPath + PathSegment , HttpCore, valuesOnly, false);
+            return new UsedRangeWithValuesOnlyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, valuesOnly, false);
         }
         /// <summary>The worksheet containing the current table. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -73,221 +73,221 @@ namespace ApiSdk {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
     public class GraphClient {
         public AgreementAcceptancesRequestBuilder AgreementAcceptances { get =>
-            new AgreementAcceptancesRequestBuilder(PathSegment , HttpCore, false);
+            new AgreementAcceptancesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public AgreementsRequestBuilder Agreements { get =>
-            new AgreementsRequestBuilder(PathSegment , HttpCore, false);
+            new AgreementsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public AppCatalogsRequestBuilder AppCatalogs { get =>
-            new AppCatalogsRequestBuilder(PathSegment , HttpCore, false);
+            new AppCatalogsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ApplicationsRequestBuilder Applications { get =>
-            new ApplicationsRequestBuilder(PathSegment , HttpCore, false);
+            new ApplicationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ApplicationTemplatesRequestBuilder ApplicationTemplates { get =>
-            new ApplicationTemplatesRequestBuilder(PathSegment , HttpCore, false);
+            new ApplicationTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public AuditLogsRequestBuilder AuditLogs { get =>
-            new AuditLogsRequestBuilder(PathSegment , HttpCore, false);
+            new AuditLogsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public AuthenticationMethodConfigurationsRequestBuilder AuthenticationMethodConfigurations { get =>
-            new AuthenticationMethodConfigurationsRequestBuilder(PathSegment , HttpCore, false);
+            new AuthenticationMethodConfigurationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public AuthenticationMethodsPolicyRequestBuilder AuthenticationMethodsPolicy { get =>
-            new AuthenticationMethodsPolicyRequestBuilder(PathSegment , HttpCore, false);
+            new AuthenticationMethodsPolicyRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public BrandingRequestBuilder Branding { get =>
-            new BrandingRequestBuilder(PathSegment , HttpCore, false);
+            new BrandingRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public CertificateBasedAuthConfigurationRequestBuilder CertificateBasedAuthConfiguration { get =>
-            new CertificateBasedAuthConfigurationRequestBuilder(PathSegment , HttpCore, false);
+            new CertificateBasedAuthConfigurationRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ChatsRequestBuilder Chats { get =>
-            new ChatsRequestBuilder(PathSegment , HttpCore, false);
+            new ChatsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public CommunicationsRequestBuilder Communications { get =>
-            new CommunicationsRequestBuilder(PathSegment , HttpCore, false);
+            new CommunicationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ConnectionsRequestBuilder Connections { get =>
-            new ConnectionsRequestBuilder(PathSegment , HttpCore, false);
+            new ConnectionsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ContactsRequestBuilder Contacts { get =>
-            new ContactsRequestBuilder(PathSegment , HttpCore, false);
+            new ContactsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ContractsRequestBuilder Contracts { get =>
-            new ContractsRequestBuilder(PathSegment , HttpCore, false);
+            new ContractsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DataPolicyOperationsRequestBuilder DataPolicyOperations { get =>
-            new DataPolicyOperationsRequestBuilder(PathSegment , HttpCore, false);
+            new DataPolicyOperationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DeviceAppManagementRequestBuilder DeviceAppManagement { get =>
-            new DeviceAppManagementRequestBuilder(PathSegment , HttpCore, false);
+            new DeviceAppManagementRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DeviceManagementRequestBuilder DeviceManagement { get =>
-            new DeviceManagementRequestBuilder(PathSegment , HttpCore, false);
+            new DeviceManagementRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DevicesRequestBuilder Devices { get =>
-            new DevicesRequestBuilder(PathSegment , HttpCore, false);
+            new DevicesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DirectoryRequestBuilder Directory { get =>
-            new DirectoryRequestBuilder(PathSegment , HttpCore, false);
+            new DirectoryRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DirectoryObjectsRequestBuilder DirectoryObjects { get =>
-            new DirectoryObjectsRequestBuilder(PathSegment , HttpCore, false);
+            new DirectoryObjectsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DirectoryRolesRequestBuilder DirectoryRoles { get =>
-            new DirectoryRolesRequestBuilder(PathSegment , HttpCore, false);
+            new DirectoryRolesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DirectoryRoleTemplatesRequestBuilder DirectoryRoleTemplates { get =>
-            new DirectoryRoleTemplatesRequestBuilder(PathSegment , HttpCore, false);
+            new DirectoryRoleTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DomainDnsRecordsRequestBuilder DomainDnsRecords { get =>
-            new DomainDnsRecordsRequestBuilder(PathSegment , HttpCore, false);
+            new DomainDnsRecordsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DomainsRequestBuilder Domains { get =>
-            new DomainsRequestBuilder(PathSegment , HttpCore, false);
+            new DomainsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(PathSegment , HttpCore, false);
+            new DriveRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(PathSegment , HttpCore, false);
+            new DrivesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public EducationRequestBuilder Education { get =>
-            new EducationRequestBuilder(PathSegment , HttpCore, false);
+            new EducationRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ExternalRequestBuilder External { get =>
-            new ExternalRequestBuilder(PathSegment , HttpCore, false);
+            new ExternalRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
-            new GroupLifecyclePoliciesRequestBuilder(PathSegment , HttpCore, false);
+            new GroupLifecyclePoliciesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public GroupsRequestBuilder Groups { get =>
-            new GroupsRequestBuilder(PathSegment , HttpCore, false);
+            new GroupsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public GroupSettingsRequestBuilder GroupSettings { get =>
-            new GroupSettingsRequestBuilder(PathSegment , HttpCore, false);
+            new GroupSettingsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public GroupSettingTemplatesRequestBuilder GroupSettingTemplates { get =>
-            new GroupSettingTemplatesRequestBuilder(PathSegment , HttpCore, false);
+            new GroupSettingTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         public IdentityRequestBuilder Identity { get =>
-            new IdentityRequestBuilder(PathSegment , HttpCore, false);
+            new IdentityRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public IdentityGovernanceRequestBuilder IdentityGovernance { get =>
-            new IdentityGovernanceRequestBuilder(PathSegment , HttpCore, false);
+            new IdentityGovernanceRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public IdentityProvidersRequestBuilder IdentityProviders { get =>
-            new IdentityProvidersRequestBuilder(PathSegment , HttpCore, false);
+            new IdentityProvidersRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public InformationProtectionRequestBuilder InformationProtection { get =>
-            new InformationProtectionRequestBuilder(PathSegment , HttpCore, false);
+            new InformationProtectionRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public InvitationsRequestBuilder Invitations { get =>
-            new InvitationsRequestBuilder(PathSegment , HttpCore, false);
+            new InvitationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public LocalizationsRequestBuilder Localizations { get =>
-            new LocalizationsRequestBuilder(PathSegment , HttpCore, false);
+            new LocalizationsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public MeRequestBuilder Me { get =>
-            new MeRequestBuilder(PathSegment , HttpCore, false);
+            new MeRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
-            new Oauth2PermissionGrantsRequestBuilder(PathSegment , HttpCore, false);
+            new Oauth2PermissionGrantsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public OrganizationRequestBuilder Organization { get =>
-            new OrganizationRequestBuilder(PathSegment , HttpCore, false);
+            new OrganizationRequestBuilder(PathSegment , RequestAdapter, false);
         }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
         public PermissionGrantsRequestBuilder PermissionGrants { get =>
-            new PermissionGrantsRequestBuilder(PathSegment , HttpCore, false);
+            new PermissionGrantsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public PlacesRequestBuilder Places { get =>
-            new PlacesRequestBuilder(PathSegment , HttpCore, false);
+            new PlacesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public PlannerRequestBuilder Planner { get =>
-            new PlannerRequestBuilder(PathSegment , HttpCore, false);
+            new PlannerRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public PoliciesRequestBuilder Policies { get =>
-            new PoliciesRequestBuilder(PathSegment , HttpCore, false);
+            new PoliciesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public PrintRequestBuilder Print { get =>
-            new PrintRequestBuilder(PathSegment , HttpCore, false);
+            new PrintRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ReportsRequestBuilder Reports { get =>
-            new ReportsRequestBuilder(PathSegment , HttpCore, false);
+            new ReportsRequestBuilder(PathSegment , RequestAdapter, false);
         }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         public RoleManagementRequestBuilder RoleManagement { get =>
-            new RoleManagementRequestBuilder(PathSegment , HttpCore, false);
+            new RoleManagementRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SchemaExtensionsRequestBuilder SchemaExtensions { get =>
-            new SchemaExtensionsRequestBuilder(PathSegment , HttpCore, false);
+            new SchemaExtensionsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ScopedRoleMembershipsRequestBuilder ScopedRoleMemberships { get =>
-            new ScopedRoleMembershipsRequestBuilder(PathSegment , HttpCore, false);
+            new ScopedRoleMembershipsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SearchRequestBuilder Search { get =>
-            new SearchRequestBuilder(PathSegment , HttpCore, false);
+            new SearchRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SecurityRequestBuilder Security { get =>
-            new SecurityRequestBuilder(PathSegment , HttpCore, false);
+            new SecurityRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public ServicePrincipalsRequestBuilder ServicePrincipals { get =>
-            new ServicePrincipalsRequestBuilder(PathSegment , HttpCore, false);
+            new ServicePrincipalsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SharesRequestBuilder Shares { get =>
-            new SharesRequestBuilder(PathSegment , HttpCore, false);
+            new SharesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SitesRequestBuilder Sites { get =>
-            new SitesRequestBuilder(PathSegment , HttpCore, false);
+            new SitesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SubscribedSkusRequestBuilder SubscribedSkus { get =>
-            new SubscribedSkusRequestBuilder(PathSegment , HttpCore, false);
+            new SubscribedSkusRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public SubscriptionsRequestBuilder Subscriptions { get =>
-            new SubscriptionsRequestBuilder(PathSegment , HttpCore, false);
+            new SubscriptionsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public TeamsRequestBuilder Teams { get =>
-            new TeamsRequestBuilder(PathSegment , HttpCore, false);
+            new TeamsRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public TeamsTemplatesRequestBuilder TeamsTemplates { get =>
-            new TeamsTemplatesRequestBuilder(PathSegment , HttpCore, false);
+            new TeamsTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public TeamworkRequestBuilder Teamwork { get =>
-            new TeamworkRequestBuilder(PathSegment , HttpCore, false);
+            new TeamworkRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public UsersRequestBuilder Users { get =>
-            new UsersRequestBuilder(PathSegment , HttpCore, false);
+            new UsersRequestBuilder(PathSegment , RequestAdapter, false);
         }
         public WorkbooksRequestBuilder Workbooks { get =>
-            new WorkbooksRequestBuilder(PathSegment , HttpCore, false);
+            new WorkbooksRequestBuilder(PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Instantiates a new GraphClient and sets the default values.
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public GraphClient(IHttpCore httpCore) {
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+        public GraphClient(IRequestAdapter requestAdapter) {
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "https://graph.microsoft.com/v1.0";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
         }
-        public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default) {
+        public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
             };
             requestInfo.SetURI(string.Empty, PathSegment, false);
             h?.Invoke(requestInfo.Headers);
-            requestInfo.AddMiddlewareOptions(o?.ToArray());
+            requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
-        public async Task GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IMiddlewareOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            await HttpCore.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
     }
 }

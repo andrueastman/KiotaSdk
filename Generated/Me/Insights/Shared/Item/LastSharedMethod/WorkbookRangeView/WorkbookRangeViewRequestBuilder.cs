@@ -10,23 +10,23 @@ namespace ApiSdk.Me.Insights.Shared.Item.LastSharedMethod.WorkbookRangeView {
     public class WorkbookRangeViewRequestBuilder {
         /// <summary>Current path for the request</summary>
         private string CurrentPath { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
-        private IHttpCore HttpCore { get; set; }
         /// <summary>Whether the current path is a raw URL</summary>
         private bool IsRawUrl { get; set; }
         /// <summary>Path segment to use to build the URL for the current request builder</summary>
         private string PathSegment { get; set; }
+        /// <summary>The http core service to use to execute the requests.</summary>
+        private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>
         /// Instantiates a new WorkbookRangeViewRequestBuilder and sets the default values.
         /// <param name="currentPath">Current path for the request</param>
-        /// <param name="httpCore">The http core service to use to execute the requests.</param>
         /// <param name="isRawUrl">Whether the current path is a raw URL</param>
+        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
         /// </summary>
-        public WorkbookRangeViewRequestBuilder(string currentPath, IHttpCore httpCore, bool isRawUrl = true) {
+        public WorkbookRangeViewRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
             if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
-            _ = httpCore ?? throw new ArgumentNullException(nameof(httpCore));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathSegment = "/microsoft.graph.workbookRangeView";
-            HttpCore = httpCore;
+            RequestAdapter = requestAdapter;
             CurrentPath = currentPath;
             IsRawUrl = isRawUrl;
         }
@@ -34,7 +34,7 @@ namespace ApiSdk.Me.Insights.Shared.Item.LastSharedMethod.WorkbookRangeView {
         /// Builds and executes requests for operations under \me\insights\shared\{sharedInsight-id}\lastSharedMethod\microsoft.graph.workbookRangeView\microsoft.graph.range()
         /// </summary>
         public RangeRequestBuilder range() {
-            return new RangeRequestBuilder(CurrentPath + PathSegment , HttpCore, false);
+            return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
     }
 }
