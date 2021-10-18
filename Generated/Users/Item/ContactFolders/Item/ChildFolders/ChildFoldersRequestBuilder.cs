@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.ContactFolders.Item.ChildFolders {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\contactFolders\{contactFolder-id}\childFolders\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

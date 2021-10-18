@@ -125,20 +125,20 @@ namespace ApiSdk.Me.Outlook {
         /// <summary>
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedLanguages()
         /// </summary>
-        public SupportedLanguagesRequestBuilder supportedLanguages() {
+        public SupportedLanguagesRequestBuilder SupportedLanguages() {
             return new SupportedLanguagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones()
         /// </summary>
-        public SupportedTimeZonesRequestBuilder supportedTimeZones() {
+        public SupportedTimeZonesRequestBuilder SupportedTimeZones() {
             return new SupportedTimeZonesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones(TimeZoneStandard={TimeZoneStandard})
         /// <param name="TimeZoneStandard">Usage: TimeZoneStandard={TimeZoneStandard}</param>
         /// </summary>
-        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder supportedTimeZonesWithTimeZoneStandard(string TimeZoneStandard) {
+        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder SupportedTimeZonesWithTimeZoneStandard(string TimeZoneStandard) {
             if(string.IsNullOrEmpty(TimeZoneStandard)) throw new ArgumentNullException(nameof(TimeZoneStandard));
             return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(CurrentPath + PathSegment , RequestAdapter, TimeZoneStandard, false);
         }

@@ -24,7 +24,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.UserFlowIdentityProviders {
         /// <summary>
         /// Builds and executes requests for operations under \identity\b2xUserFlows\{b2xIdentityUserFlow-id}\userFlowIdentityProviders\microsoft.graph.availableProviderTypes()
         /// </summary>
-        public AvailableProviderTypesRequestBuilder availableProviderTypes() {
+        public AvailableProviderTypesRequestBuilder AvailableProviderTypes() {
             return new AvailableProviderTypesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

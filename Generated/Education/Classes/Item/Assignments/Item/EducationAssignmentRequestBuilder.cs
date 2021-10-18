@@ -139,7 +139,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         /// <summary>
         /// Builds and executes requests for operations under \education\classes\{educationClass-id}\assignments\{educationAssignment-id}\microsoft.graph.setUpResourcesFolder()
         /// </summary>
-        public SetUpResourcesFolderRequestBuilder setUpResourcesFolder() {
+        public SetUpResourcesFolderRequestBuilder SetUpResourcesFolder() {
             return new SetUpResourcesFolderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>All assignments associated with this class. Nullable.</summary>

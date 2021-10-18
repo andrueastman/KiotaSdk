@@ -77,7 +77,7 @@ namespace ApiSdk.Chats {
         /// <summary>
         /// Builds and executes requests for operations under \chats\microsoft.graph.getAllMessages()
         /// </summary>
-        public GetAllMessagesRequestBuilder getAllMessages() {
+        public GetAllMessagesRequestBuilder GetAllMessages() {
             return new GetAllMessagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

@@ -100,7 +100,7 @@ namespace ApiSdk.Me.Activities {
         /// <summary>
         /// Builds and executes requests for operations under \me\activities\microsoft.graph.recent()
         /// </summary>
-        public RecentRequestBuilder recent() {
+        public RecentRequestBuilder Recent() {
             return new RecentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>The user's activities across devices. Read-only. Nullable.</summary>

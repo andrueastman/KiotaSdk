@@ -93,7 +93,7 @@ namespace ApiSdk.Groups.Item.Onenote.Notebooks {
         /// Builds and executes requests for operations under \groups\{group-id}\onenote\notebooks\microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})
         /// <param name="includePersonalNotebooks">Usage: includePersonalNotebooks={includePersonalNotebooks}</param>
         /// </summary>
-        public GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder getRecentNotebooksWithIncludePersonalNotebooks(bool? includePersonalNotebooks) {
+        public GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder GetRecentNotebooksWithIncludePersonalNotebooks(bool? includePersonalNotebooks) {
             _ = includePersonalNotebooks ?? throw new ArgumentNullException(nameof(includePersonalNotebooks));
             return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(CurrentPath + PathSegment , RequestAdapter, includePersonalNotebooks, false);
         }

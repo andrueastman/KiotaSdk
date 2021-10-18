@@ -92,7 +92,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.UserAttributeAssignments {
         /// <summary>
         /// Builds and executes requests for operations under \identity\b2xUserFlows\{b2xIdentityUserFlow-id}\userAttributeAssignments\microsoft.graph.getOrder()
         /// </summary>
-        public GetOrderRequestBuilder getOrder() {
+        public GetOrderRequestBuilder GetOrder() {
             return new GetOrderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

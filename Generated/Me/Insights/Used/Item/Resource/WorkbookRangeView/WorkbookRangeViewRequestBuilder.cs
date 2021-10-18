@@ -33,7 +33,7 @@ namespace ApiSdk.Me.Insights.Used.Item.Resource.WorkbookRangeView {
         /// <summary>
         /// Builds and executes requests for operations under \me\insights\used\{usedInsight-id}\resource\microsoft.graph.workbookRangeView\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
     }

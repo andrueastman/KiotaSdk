@@ -77,7 +77,7 @@ namespace ApiSdk.Me.MailFolders.Item.ChildFolders {
         /// <summary>
         /// Builds and executes requests for operations under \me\mailFolders\{mailFolder-id}\childFolders\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

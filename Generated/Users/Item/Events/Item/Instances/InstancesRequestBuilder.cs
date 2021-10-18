@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Events.Item.Instances {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\events\{event-id}\instances\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

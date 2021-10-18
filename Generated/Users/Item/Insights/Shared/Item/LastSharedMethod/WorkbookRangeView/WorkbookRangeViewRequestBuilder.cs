@@ -33,7 +33,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeV
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\lastSharedMethod\microsoft.graph.workbookRangeView\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
     }

@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.CalendarView.Item.Calendar.Events {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\calendarView\{event-id}\calendar\events\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

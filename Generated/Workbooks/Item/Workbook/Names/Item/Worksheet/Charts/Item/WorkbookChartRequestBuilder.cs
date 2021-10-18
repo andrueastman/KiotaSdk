@@ -146,14 +146,14 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\charts\{workbookChart-id}\microsoft.graph.image()
         /// </summary>
-        public ImageRequestBuilder image() {
+        public ImageRequestBuilder Image() {
             return new ImageRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\charts\{workbookChart-id}\microsoft.graph.image(width={width})
         /// <param name="width">Usage: width={width}</param>
         /// </summary>
-        public ImageWithWidthRequestBuilder imageWithWidth(int? width) {
+        public ImageWithWidthRequestBuilder ImageWithWidth(int? width) {
             _ = width ?? throw new ArgumentNullException(nameof(width));
             return new ImageWithWidthRequestBuilder(CurrentPath + PathSegment , RequestAdapter, width, false);
         }
@@ -162,7 +162,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item {
         /// <param name="height">Usage: height={height}</param>
         /// <param name="width">Usage: width={width}</param>
         /// </summary>
-        public ImageWithWidthWithHeightRequestBuilder imageWithWidthWithHeight(int? width, int? height) {
+        public ImageWithWidthWithHeightRequestBuilder ImageWithWidthWithHeight(int? width, int? height) {
             _ = height ?? throw new ArgumentNullException(nameof(height));
             _ = width ?? throw new ArgumentNullException(nameof(width));
             return new ImageWithWidthWithHeightRequestBuilder(CurrentPath + PathSegment , RequestAdapter, width, height, false);
@@ -173,7 +173,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item {
         /// <param name="height">Usage: height={height}</param>
         /// <param name="width">Usage: width={width}</param>
         /// </summary>
-        public ImageWithWidthWithHeightWithFittingModeRequestBuilder imageWithWidthWithHeightWithFittingMode(int? width, int? height, string fittingMode) {
+        public ImageWithWidthWithHeightWithFittingModeRequestBuilder ImageWithWidthWithHeightWithFittingMode(int? width, int? height, string fittingMode) {
             if(string.IsNullOrEmpty(fittingMode)) throw new ArgumentNullException(nameof(fittingMode));
             _ = height ?? throw new ArgumentNullException(nameof(height));
             _ = width ?? throw new ArgumentNullException(nameof(width));

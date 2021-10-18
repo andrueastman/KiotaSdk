@@ -131,7 +131,7 @@ namespace ApiSdk.Sites.Item.Onenote.Pages.Item.ParentNotebook.Sections.Item.Page
         /// <summary>
         /// Builds and executes requests for operations under \sites\{site-id}\onenote\pages\{onenotePage-id}\parentNotebook\sections\{onenoteSection-id}\pages\{onenotePage-id1}\microsoft.graph.preview()
         /// </summary>
-        public PreviewRequestBuilder preview() {
+        public PreviewRequestBuilder Preview() {
             return new PreviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>The collection of pages in the section.  Read-only. Nullable.</summary>

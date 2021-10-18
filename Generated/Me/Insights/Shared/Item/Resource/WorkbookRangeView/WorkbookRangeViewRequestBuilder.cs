@@ -33,7 +33,7 @@ namespace ApiSdk.Me.Insights.Shared.Item.Resource.WorkbookRangeView {
         /// <summary>
         /// Builds and executes requests for operations under \me\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRangeView\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
     }

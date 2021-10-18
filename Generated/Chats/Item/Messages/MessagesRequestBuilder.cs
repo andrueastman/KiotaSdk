@@ -77,7 +77,7 @@ namespace ApiSdk.Chats.Item.Messages {
         /// <summary>
         /// Builds and executes requests for operations under \chats\{chat-id}\messages\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

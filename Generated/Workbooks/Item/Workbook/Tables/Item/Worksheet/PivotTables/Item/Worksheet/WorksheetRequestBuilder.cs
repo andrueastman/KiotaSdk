@@ -27,7 +27,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.PivotTables.Item.
         /// <param name="column">Usage: column={column}</param>
         /// <param name="row">Usage: row={row}</param>
         /// </summary>
-        public CellWithRowWithColumnRequestBuilder cellWithRowWithColumn(int? row, int? column) {
+        public CellWithRowWithColumnRequestBuilder CellWithRowWithColumn(int? row, int? column) {
             _ = column ?? throw new ArgumentNullException(nameof(column));
             _ = row ?? throw new ArgumentNullException(nameof(row));
             return new CellWithRowWithColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, row, column, false);
@@ -133,28 +133,28 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.PivotTables.Item.
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\pivotTables\{workbookPivotTable-id}\worksheet\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\pivotTables\{workbookPivotTable-id}\worksheet\microsoft.graph.range(address='{address}')
         /// <param name="address">Usage: address={address}</param>
         /// </summary>
-        public RangeWithAddressRequestBuilder rangeWithAddress(string address) {
+        public RangeWithAddressRequestBuilder RangeWithAddress(string address) {
             if(string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
             return new RangeWithAddressRequestBuilder(CurrentPath + PathSegment , RequestAdapter, address, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\pivotTables\{workbookPivotTable-id}\worksheet\microsoft.graph.usedRange()
         /// </summary>
-        public UsedRangeRequestBuilder usedRange() {
+        public UsedRangeRequestBuilder UsedRange() {
             return new UsedRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\worksheet\pivotTables\{workbookPivotTable-id}\worksheet\microsoft.graph.usedRange(valuesOnly={valuesOnly})
         /// <param name="valuesOnly">Usage: valuesOnly={valuesOnly}</param>
         /// </summary>
-        public UsedRangeWithValuesOnlyRequestBuilder usedRangeWithValuesOnly(bool? valuesOnly) {
+        public UsedRangeWithValuesOnlyRequestBuilder UsedRangeWithValuesOnly(bool? valuesOnly) {
             _ = valuesOnly ?? throw new ArgumentNullException(nameof(valuesOnly));
             return new UsedRangeWithValuesOnlyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, valuesOnly, false);
         }

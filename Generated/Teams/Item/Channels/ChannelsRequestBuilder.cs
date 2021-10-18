@@ -77,7 +77,7 @@ namespace ApiSdk.Teams.Item.Channels {
         /// <summary>
         /// Builds and executes requests for operations under \teams\{team-id}\channels\microsoft.graph.getAllMessages()
         /// </summary>
-        public GetAllMessagesRequestBuilder getAllMessages() {
+        public GetAllMessagesRequestBuilder GetAllMessages() {
             return new GetAllMessagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

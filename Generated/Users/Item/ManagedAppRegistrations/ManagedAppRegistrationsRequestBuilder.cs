@@ -69,7 +69,7 @@ namespace ApiSdk.Users.Item.ManagedAppRegistrations {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\managedAppRegistrations\microsoft.graph.getUserIdsWithFlaggedAppRegistration()
         /// </summary>
-        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder getUserIdsWithFlaggedAppRegistration() {
+        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder GetUserIdsWithFlaggedAppRegistration() {
             return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Zero or more managed app registrations that belong to the user.</summary>

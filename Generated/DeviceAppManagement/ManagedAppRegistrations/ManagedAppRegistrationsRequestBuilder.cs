@@ -88,7 +88,7 @@ namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations {
         /// <summary>
         /// Builds and executes requests for operations under \deviceAppManagement\managedAppRegistrations\microsoft.graph.getUserIdsWithFlaggedAppRegistration()
         /// </summary>
-        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder getUserIdsWithFlaggedAppRegistration() {
+        public GetUserIdsWithFlaggedAppRegistrationRequestBuilder GetUserIdsWithFlaggedAppRegistration() {
             return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

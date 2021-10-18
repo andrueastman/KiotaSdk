@@ -139,7 +139,7 @@ namespace ApiSdk.Me.Onenote.Notebooks.Item.SectionGroups.Item.Sections.Item.Page
         /// <summary>
         /// Builds and executes requests for operations under \me\onenote\notebooks\{notebook-id}\sectionGroups\{sectionGroup-id}\sections\{onenoteSection-id}\pages\{onenotePage-id}\microsoft.graph.preview()
         /// </summary>
-        public PreviewRequestBuilder preview() {
+        public PreviewRequestBuilder Preview() {
             return new PreviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>The collection of pages in the section.  Read-only. Nullable.</summary>

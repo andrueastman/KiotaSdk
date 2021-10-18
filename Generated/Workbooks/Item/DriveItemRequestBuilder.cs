@@ -180,21 +180,21 @@ namespace ApiSdk.Workbooks.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.delta(token='{token}')
         /// <param name="token">Usage: token={token}</param>
         /// </summary>
-        public DeltaWithTokenRequestBuilder deltaWithToken(string token) {
+        public DeltaWithTokenRequestBuilder DeltaWithToken(string token) {
             if(string.IsNullOrEmpty(token)) throw new ArgumentNullException(nameof(token));
             return new DeltaWithTokenRequestBuilder(CurrentPath + PathSegment , RequestAdapter, token, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.getActivitiesByInterval()
         /// </summary>
-        public GetActivitiesByIntervalRequestBuilder getActivitiesByInterval() {
+        public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval() {
             return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -203,7 +203,7 @@ namespace ApiSdk.Workbooks.Item {
         /// <param name="interval">Usage: interval={interval}</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
         /// </summary>
-        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
             if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
             if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
@@ -236,7 +236,7 @@ namespace ApiSdk.Workbooks.Item {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.search(q='{q}')
         /// <param name="q">Usage: q={q}</param>
         /// </summary>
-        public SearchWithQRequestBuilder searchWithQ(string q) {
+        public SearchWithQRequestBuilder SearchWithQ(string q) {
             if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
             return new SearchWithQRequestBuilder(CurrentPath + PathSegment , RequestAdapter, q, false);
         }

@@ -117,7 +117,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.dataBodyRange()
         /// </summary>
-        public DataBodyRangeRequestBuilder dataBodyRange() {
+        public DataBodyRangeRequestBuilder DataBodyRange() {
             return new DataBodyRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -144,7 +144,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.headerRowRange()
         /// </summary>
-        public HeaderRowRangeRequestBuilder headerRowRange() {
+        public HeaderRowRangeRequestBuilder HeaderRowRange() {
             return new HeaderRowRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -162,13 +162,13 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.totalRowRange()
         /// </summary>
-        public TotalRowRangeRequestBuilder totalRowRange() {
+        public TotalRowRangeRequestBuilder TotalRowRange() {
             return new TotalRowRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Collection of tables that are part of the worksheet. Read-only.</summary>

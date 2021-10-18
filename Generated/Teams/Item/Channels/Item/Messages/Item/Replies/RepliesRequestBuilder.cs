@@ -77,7 +77,7 @@ namespace ApiSdk.Teams.Item.Channels.Item.Messages.Item.Replies {
         /// <summary>
         /// Builds and executes requests for operations under \teams\{team-id}\channels\{channel-id}\messages\{chatMessage-id}\replies\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

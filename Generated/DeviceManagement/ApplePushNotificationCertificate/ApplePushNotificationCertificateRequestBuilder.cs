@@ -96,7 +96,7 @@ namespace ApiSdk.DeviceManagement.ApplePushNotificationCertificate {
         /// <summary>
         /// Builds and executes requests for operations under \deviceManagement\applePushNotificationCertificate\microsoft.graph.downloadApplePushNotificationCertificateSigningRequest()
         /// </summary>
-        public DownloadApplePushNotificationCertificateSigningRequestRequestBuilder downloadApplePushNotificationCertificateSigningRequest() {
+        public DownloadApplePushNotificationCertificateSigningRequestRequestBuilder DownloadApplePushNotificationCertificateSigningRequest() {
             return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

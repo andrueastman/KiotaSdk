@@ -143,7 +143,7 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item.Submissions.Item {
         /// <summary>
         /// Builds and executes requests for operations under \education\classes\{educationClass-id}\assignments\{educationAssignment-id}\submissions\{educationSubmission-id}\microsoft.graph.setUpResourcesFolder()
         /// </summary>
-        public SetUpResourcesFolderRequestBuilder setUpResourcesFolder() {
+        public SetUpResourcesFolderRequestBuilder SetUpResourcesFolder() {
             return new SetUpResourcesFolderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.</summary>

@@ -26,7 +26,7 @@ namespace ApiSdk.IdentityProviders {
         /// <summary>
         /// Builds and executes requests for operations under \identityProviders\microsoft.graph.availableProviderTypes()
         /// </summary>
-        public AvailableProviderTypesRequestBuilder availableProviderTypes() {
+        public AvailableProviderTypesRequestBuilder AvailableProviderTypes() {
             return new AvailableProviderTypesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

@@ -117,21 +117,21 @@ namespace ApiSdk.Drive {
         /// <summary>
         /// Builds and executes requests for operations under \drive\microsoft.graph.recent()
         /// </summary>
-        public RecentRequestBuilder recent() {
+        public RecentRequestBuilder Recent() {
             return new RecentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \drive\microsoft.graph.search(q='{q}')
         /// <param name="q">Usage: q={q}</param>
         /// </summary>
-        public SearchWithQRequestBuilder searchWithQ(string q) {
+        public SearchWithQRequestBuilder SearchWithQ(string q) {
             if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
             return new SearchWithQRequestBuilder(CurrentPath + PathSegment , RequestAdapter, q, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \drive\microsoft.graph.sharedWithMe()
         /// </summary>
-        public SharedWithMeRequestBuilder sharedWithMe() {
+        public SharedWithMeRequestBuilder SharedWithMe() {
             return new SharedWithMeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Get drive</summary>

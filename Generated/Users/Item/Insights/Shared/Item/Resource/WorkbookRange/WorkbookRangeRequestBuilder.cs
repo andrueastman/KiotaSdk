@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.boundingRect(anotherRange='{anotherRange}')
         /// <param name="anotherRange">Usage: anotherRange={anotherRange}</param>
         /// </summary>
-        public BoundingRectWithAnotherRangeRequestBuilder boundingRectWithAnotherRange(string anotherRange) {
+        public BoundingRectWithAnotherRangeRequestBuilder BoundingRectWithAnotherRange(string anotherRange) {
             if(string.IsNullOrEmpty(anotherRange)) throw new ArgumentNullException(nameof(anotherRange));
             return new BoundingRectWithAnotherRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, anotherRange, false);
         }
@@ -71,7 +71,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <param name="column">Usage: column={column}</param>
         /// <param name="row">Usage: row={row}</param>
         /// </summary>
-        public CellWithRowWithColumnRequestBuilder cellWithRowWithColumn(int? row, int? column) {
+        public CellWithRowWithColumnRequestBuilder CellWithRowWithColumn(int? row, int? column) {
             _ = column ?? throw new ArgumentNullException(nameof(column));
             _ = row ?? throw new ArgumentNullException(nameof(row));
             return new CellWithRowWithColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, row, column, false);
@@ -79,28 +79,28 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.columnsAfter()
         /// </summary>
-        public ColumnsAfterRequestBuilder columnsAfter() {
+        public ColumnsAfterRequestBuilder ColumnsAfter() {
             return new ColumnsAfterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.columnsAfter(count={count})
         /// <param name="count">Usage: count={count}</param>
         /// </summary>
-        public ColumnsAfterWithCountRequestBuilder columnsAfterWithCount(int? count) {
+        public ColumnsAfterWithCountRequestBuilder ColumnsAfterWithCount(int? count) {
             _ = count ?? throw new ArgumentNullException(nameof(count));
             return new ColumnsAfterWithCountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, count, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.columnsBefore()
         /// </summary>
-        public ColumnsBeforeRequestBuilder columnsBefore() {
+        public ColumnsBeforeRequestBuilder ColumnsBefore() {
             return new ColumnsBeforeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.columnsBefore(count={count})
         /// <param name="count">Usage: count={count}</param>
         /// </summary>
-        public ColumnsBeforeWithCountRequestBuilder columnsBeforeWithCount(int? count) {
+        public ColumnsBeforeWithCountRequestBuilder ColumnsBeforeWithCount(int? count) {
             _ = count ?? throw new ArgumentNullException(nameof(count));
             return new ColumnsBeforeWithCountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, count, false);
         }
@@ -108,7 +108,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.column(column={column})
         /// <param name="column">Usage: column={column}</param>
         /// </summary>
-        public ColumnWithColumnRequestBuilder columnWithColumn(int? column) {
+        public ColumnWithColumnRequestBuilder ColumnWithColumn(int? column) {
             _ = column ?? throw new ArgumentNullException(nameof(column));
             return new ColumnWithColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, column, false);
         }
@@ -129,39 +129,39 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.entireColumn()
         /// </summary>
-        public EntireColumnRequestBuilder entireColumn() {
+        public EntireColumnRequestBuilder EntireColumn() {
             return new EntireColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.entireRow()
         /// </summary>
-        public EntireRowRequestBuilder entireRow() {
+        public EntireRowRequestBuilder EntireRow() {
             return new EntireRowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.intersection(anotherRange='{anotherRange}')
         /// <param name="anotherRange">Usage: anotherRange={anotherRange}</param>
         /// </summary>
-        public IntersectionWithAnotherRangeRequestBuilder intersectionWithAnotherRange(string anotherRange) {
+        public IntersectionWithAnotherRangeRequestBuilder IntersectionWithAnotherRange(string anotherRange) {
             if(string.IsNullOrEmpty(anotherRange)) throw new ArgumentNullException(nameof(anotherRange));
             return new IntersectionWithAnotherRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, anotherRange, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.lastCell()
         /// </summary>
-        public LastCellRequestBuilder lastCell() {
+        public LastCellRequestBuilder LastCell() {
             return new LastCellRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.lastColumn()
         /// </summary>
-        public LastColumnRequestBuilder lastColumn() {
+        public LastColumnRequestBuilder LastColumn() {
             return new LastColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.lastRow()
         /// </summary>
-        public LastRowRequestBuilder lastRow() {
+        public LastRowRequestBuilder LastRow() {
             return new LastRowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -169,7 +169,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <param name="columnOffset">Usage: columnOffset={columnOffset}</param>
         /// <param name="rowOffset">Usage: rowOffset={rowOffset}</param>
         /// </summary>
-        public OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder offsetRangeWithRowOffsetWithColumnOffset(int? rowOffset, int? columnOffset) {
+        public OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder OffsetRangeWithRowOffsetWithColumnOffset(int? rowOffset, int? columnOffset) {
             _ = columnOffset ?? throw new ArgumentNullException(nameof(columnOffset));
             _ = rowOffset ?? throw new ArgumentNullException(nameof(rowOffset));
             return new OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder(CurrentPath + PathSegment , RequestAdapter, rowOffset, columnOffset, false);
@@ -179,7 +179,7 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <param name="deltaColumns">Usage: deltaColumns={deltaColumns}</param>
         /// <param name="deltaRows">Usage: deltaRows={deltaRows}</param>
         /// </summary>
-        public ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder resizedRangeWithDeltaRowsWithDeltaColumns(int? deltaRows, int? deltaColumns) {
+        public ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder ResizedRangeWithDeltaRowsWithDeltaColumns(int? deltaRows, int? deltaColumns) {
             _ = deltaColumns ?? throw new ArgumentNullException(nameof(deltaColumns));
             _ = deltaRows ?? throw new ArgumentNullException(nameof(deltaRows));
             return new ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, deltaRows, deltaColumns, false);
@@ -187,28 +187,28 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.rowsAbove()
         /// </summary>
-        public RowsAboveRequestBuilder rowsAbove() {
+        public RowsAboveRequestBuilder RowsAbove() {
             return new RowsAboveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.rowsAbove(count={count})
         /// <param name="count">Usage: count={count}</param>
         /// </summary>
-        public RowsAboveWithCountRequestBuilder rowsAboveWithCount(int? count) {
+        public RowsAboveWithCountRequestBuilder RowsAboveWithCount(int? count) {
             _ = count ?? throw new ArgumentNullException(nameof(count));
             return new RowsAboveWithCountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, count, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.rowsBelow()
         /// </summary>
-        public RowsBelowRequestBuilder rowsBelow() {
+        public RowsBelowRequestBuilder RowsBelow() {
             return new RowsBelowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.rowsBelow(count={count})
         /// <param name="count">Usage: count={count}</param>
         /// </summary>
-        public RowsBelowWithCountRequestBuilder rowsBelowWithCount(int? count) {
+        public RowsBelowWithCountRequestBuilder RowsBelowWithCount(int? count) {
             _ = count ?? throw new ArgumentNullException(nameof(count));
             return new RowsBelowWithCountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, count, false);
         }
@@ -216,28 +216,28 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange {
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.row(row={row})
         /// <param name="row">Usage: row={row}</param>
         /// </summary>
-        public RowWithRowRequestBuilder rowWithRow(int? row) {
+        public RowWithRowRequestBuilder RowWithRow(int? row) {
             _ = row ?? throw new ArgumentNullException(nameof(row));
             return new RowWithRowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, row, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.usedRange()
         /// </summary>
-        public UsedRangeRequestBuilder usedRange() {
+        public UsedRangeRequestBuilder UsedRange() {
             return new UsedRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.usedRange(valuesOnly={valuesOnly})
         /// <param name="valuesOnly">Usage: valuesOnly={valuesOnly}</param>
         /// </summary>
-        public UsedRangeWithValuesOnlyRequestBuilder usedRangeWithValuesOnly(bool? valuesOnly) {
+        public UsedRangeWithValuesOnlyRequestBuilder UsedRangeWithValuesOnly(bool? valuesOnly) {
             _ = valuesOnly ?? throw new ArgumentNullException(nameof(valuesOnly));
             return new UsedRangeWithValuesOnlyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, valuesOnly, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.visibleView()
         /// </summary>
-        public VisibleViewRequestBuilder visibleView() {
+        public VisibleViewRequestBuilder VisibleView() {
             return new VisibleViewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
     }

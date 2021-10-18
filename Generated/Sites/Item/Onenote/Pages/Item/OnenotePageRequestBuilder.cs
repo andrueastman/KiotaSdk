@@ -139,7 +139,7 @@ namespace ApiSdk.Sites.Item.Onenote.Pages.Item {
         /// <summary>
         /// Builds and executes requests for operations under \sites\{site-id}\onenote\pages\{onenotePage-id}\microsoft.graph.preview()
         /// </summary>
-        public PreviewRequestBuilder preview() {
+        public PreviewRequestBuilder Preview() {
             return new PreviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.</summary>

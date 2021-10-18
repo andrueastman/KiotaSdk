@@ -357,13 +357,13 @@ namespace ApiSdk.Users.Item {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppDiagnosticStatuses()
         /// </summary>
-        public GetManagedAppDiagnosticStatusesRequestBuilder getManagedAppDiagnosticStatuses() {
+        public GetManagedAppDiagnosticStatusesRequestBuilder GetManagedAppDiagnosticStatuses() {
             return new GetManagedAppDiagnosticStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppPolicies()
         /// </summary>
-        public GetManagedAppPoliciesRequestBuilder getManagedAppPolicies() {
+        public GetManagedAppPoliciesRequestBuilder GetManagedAppPolicies() {
             return new GetManagedAppPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -383,7 +383,7 @@ namespace ApiSdk.Users.Item {
         /// <param name="EndDateTime">Usage: EndDateTime={EndDateTime}</param>
         /// <param name="StartDateTime">Usage: StartDateTime={StartDateTime}</param>
         /// </summary>
-        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder reminderViewWithStartDateTimeWithEndDateTime(string StartDateTime, string EndDateTime) {
+        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string StartDateTime, string EndDateTime) {
             if(string.IsNullOrEmpty(EndDateTime)) throw new ArgumentNullException(nameof(EndDateTime));
             if(string.IsNullOrEmpty(StartDateTime)) throw new ArgumentNullException(nameof(StartDateTime));
             return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, StartDateTime, EndDateTime, false);

@@ -89,7 +89,7 @@ namespace ApiSdk.Applications {
         /// <summary>
         /// Builds and executes requests for operations under \applications\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

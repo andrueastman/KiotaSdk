@@ -205,7 +205,7 @@ namespace ApiSdk.DeviceManagement {
         /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.getEffectivePermissions(scope='{scope}')
         /// <param name="scope">Usage: scope={scope}</param>
         /// </summary>
-        public GetEffectivePermissionsWithScopeRequestBuilder getEffectivePermissionsWithScope(string scope) {
+        public GetEffectivePermissionsWithScopeRequestBuilder GetEffectivePermissionsWithScope(string scope) {
             if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
             return new GetEffectivePermissionsWithScopeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, scope, false);
         }
@@ -225,7 +225,7 @@ namespace ApiSdk.DeviceManagement {
         /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
         /// <param name="domainName">Usage: domainName={domainName}</param>
         /// </summary>
-        public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder verifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
+        public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder VerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
             if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
             return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(CurrentPath + PathSegment , RequestAdapter, domainName, false);
         }

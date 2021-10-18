@@ -119,7 +119,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Names.Item {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\names\{workbookNamedItem-id1}\microsoft.graph.range()
         /// </summary>
-        public RangeRequestBuilder range() {
+        public RangeRequestBuilder Range() {
             return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>Returns collection of names that are associated with the worksheet. Read-only.</summary>

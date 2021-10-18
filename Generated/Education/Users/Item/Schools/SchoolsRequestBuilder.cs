@@ -58,7 +58,7 @@ namespace ApiSdk.Education.Users.Item.Schools {
         /// <summary>
         /// Builds and executes requests for operations under \education\users\{educationUser-id}\schools\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

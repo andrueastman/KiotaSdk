@@ -160,7 +160,7 @@ namespace ApiSdk.Workbooks.Item.Workbook {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\microsoft.graph.sessionInfoResource(key='{key}')
         /// <param name="key">Usage: key={key}</param>
         /// </summary>
-        public SessionInfoResourceWithKeyRequestBuilder sessionInfoResourceWithKey(string key) {
+        public SessionInfoResourceWithKeyRequestBuilder SessionInfoResourceWithKey(string key) {
             if(string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
             return new SessionInfoResourceWithKeyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, key, false);
         }

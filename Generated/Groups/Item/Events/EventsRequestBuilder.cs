@@ -77,7 +77,7 @@ namespace ApiSdk.Groups.Item.Events {
         /// <summary>
         /// Builds and executes requests for operations under \groups\{group-id}\events\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

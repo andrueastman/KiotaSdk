@@ -113,7 +113,7 @@ namespace ApiSdk.Workbooks.Item.ListItem {
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\listItem\microsoft.graph.getActivitiesByInterval()
         /// </summary>
-        public GetActivitiesByIntervalRequestBuilder getActivitiesByInterval() {
+        public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval() {
             return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -122,7 +122,7 @@ namespace ApiSdk.Workbooks.Item.ListItem {
         /// <param name="interval">Usage: interval={interval}</param>
         /// <param name="startDateTime">Usage: startDateTime={startDateTime}</param>
         /// </summary>
-        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
+        public GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(string startDateTime, string endDateTime, string interval) {
             if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
             if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));

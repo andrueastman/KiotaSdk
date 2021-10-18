@@ -26,7 +26,7 @@ namespace ApiSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.Calenda
         /// Builds and executes requests for operations under \me\calendarGroups\{calendarGroup-id}\calendars\{calendar-id}\calendarView\{event-id}\calendar\microsoft.graph.allowedCalendarSharingRoles(User='{User}')
         /// <param name="User">Usage: User={User}</param>
         /// </summary>
-        public AllowedCalendarSharingRolesWithUserRequestBuilder allowedCalendarSharingRolesWithUser(string User) {
+        public AllowedCalendarSharingRolesWithUserRequestBuilder AllowedCalendarSharingRolesWithUser(string User) {
             if(string.IsNullOrEmpty(User)) throw new ArgumentNullException(nameof(User));
             return new AllowedCalendarSharingRolesWithUserRequestBuilder(CurrentPath + PathSegment , RequestAdapter, User, false);
         }

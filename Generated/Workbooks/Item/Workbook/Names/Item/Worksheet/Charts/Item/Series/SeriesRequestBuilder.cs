@@ -41,7 +41,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Series
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\charts\{workbookChart-id}\series\microsoft.graph.count()
         /// </summary>
-        public CountRequestBuilder count() {
+        public CountRequestBuilder Count() {
             return new CountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Series
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\charts\{workbookChart-id}\series\microsoft.graph.itemAt(index={index})
         /// <param name="index">Usage: index={index}</param>
         /// </summary>
-        public ItemAtWithIndexRequestBuilder itemAtWithIndex(int? index) {
+        public ItemAtWithIndexRequestBuilder ItemAtWithIndex(int? index) {
             _ = index ?? throw new ArgumentNullException(nameof(index));
             return new ItemAtWithIndexRequestBuilder(CurrentPath + PathSegment , RequestAdapter, index, false);
         }

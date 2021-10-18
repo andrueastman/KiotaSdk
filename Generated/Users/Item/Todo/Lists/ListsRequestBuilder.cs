@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Todo.Lists {
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\todo\lists\microsoft.graph.delta()
         /// </summary>
-        public DeltaRequestBuilder delta() {
+        public DeltaRequestBuilder Delta() {
             return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>

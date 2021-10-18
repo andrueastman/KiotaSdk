@@ -78,7 +78,7 @@ namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConse
         /// Builds and executes requests for operations under \identityGovernance\appConsent\appConsentRequests\{appConsentRequest-id}\userConsentRequests\microsoft.graph.filterByCurrentUser(on={on})
         /// <param name="on">Usage: on={on}</param>
         /// </summary>
-        public FilterByCurrentUserWithOnRequestBuilder filterByCurrentUserWithOn(string on) {
+        public FilterByCurrentUserWithOnRequestBuilder FilterByCurrentUserWithOn(string on) {
             if(string.IsNullOrEmpty(on)) throw new ArgumentNullException(nameof(on));
             return new FilterByCurrentUserWithOnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, on, false);
         }
