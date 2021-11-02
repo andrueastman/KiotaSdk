@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Http.HttpClientLibrary", "..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClientLibrary.csproj", "{1651C153-1107-4C47-AB03-FE0B4DFD79BB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Graph.Core", "..\msgraph-sdk-dotnet-core\src\Microsoft.Graph.Core\Microsoft.Graph.Core.csproj", "{DBC1A034-F445-4955-9411-F150EFB300CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1651C153-1107-4C47-AB03-FE0B4DFD79BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBC1A034-F445-4955-9411-F150EFB300CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC1A034-F445-4955-9411-F150EFB300CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC1A034-F445-4955-9411-F150EFB300CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC1A034-F445-4955-9411-F150EFB300CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
