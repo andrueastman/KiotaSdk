@@ -1,69 +1,69 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Users.Item.Activities;
-using ApiSdk.Users.Item.AgreementAcceptances;
-using ApiSdk.Users.Item.AppRoleAssignments;
-using ApiSdk.Users.Item.AssignLicense;
-using ApiSdk.Users.Item.Authentication;
-using ApiSdk.Users.Item.Calendar;
-using ApiSdk.Users.Item.CalendarGroups;
-using ApiSdk.Users.Item.Calendars;
-using ApiSdk.Users.Item.CalendarView;
-using ApiSdk.Users.Item.ChangePassword;
-using ApiSdk.Users.Item.Chats;
-using ApiSdk.Users.Item.CheckMemberGroups;
-using ApiSdk.Users.Item.CheckMemberObjects;
-using ApiSdk.Users.Item.ContactFolders;
-using ApiSdk.Users.Item.Contacts;
-using ApiSdk.Users.Item.CreatedObjects;
-using ApiSdk.Users.Item.DeviceManagementTroubleshootingEvents;
-using ApiSdk.Users.Item.DirectReports;
-using ApiSdk.Users.Item.Drive;
-using ApiSdk.Users.Item.Drives;
-using ApiSdk.Users.Item.Events;
-using ApiSdk.Users.Item.ExportPersonalData;
-using ApiSdk.Users.Item.Extensions;
-using ApiSdk.Users.Item.FindMeetingTimes;
-using ApiSdk.Users.Item.FollowedSites;
-using ApiSdk.Users.Item.GetMailTips;
-using ApiSdk.Users.Item.GetManagedAppDiagnosticStatuses;
-using ApiSdk.Users.Item.GetManagedAppPolicies;
-using ApiSdk.Users.Item.GetMemberGroups;
-using ApiSdk.Users.Item.GetMemberObjects;
-using ApiSdk.Users.Item.InferenceClassification;
-using ApiSdk.Users.Item.Insights;
-using ApiSdk.Users.Item.JoinedTeams;
-using ApiSdk.Users.Item.LicenseDetails;
-using ApiSdk.Users.Item.MailFolders;
-using ApiSdk.Users.Item.ManagedAppRegistrations;
-using ApiSdk.Users.Item.ManagedDevices;
-using ApiSdk.Users.Item.Manager;
-using ApiSdk.Users.Item.MemberOf;
-using ApiSdk.Users.Item.Messages;
-using ApiSdk.Users.Item.Oauth2PermissionGrants;
-using ApiSdk.Users.Item.Onenote;
-using ApiSdk.Users.Item.OnlineMeetings;
-using ApiSdk.Users.Item.Outlook;
-using ApiSdk.Users.Item.OwnedDevices;
-using ApiSdk.Users.Item.OwnedObjects;
-using ApiSdk.Users.Item.People;
-using ApiSdk.Users.Item.Photo;
-using ApiSdk.Users.Item.Photos;
-using ApiSdk.Users.Item.Planner;
-using ApiSdk.Users.Item.Presence;
-using ApiSdk.Users.Item.RegisteredDevices;
-using ApiSdk.Users.Item.ReminderViewWithStartDateTimeWithEndDateTime;
-using ApiSdk.Users.Item.RemoveAllDevicesFromManagement;
-using ApiSdk.Users.Item.ReprocessLicenseAssignment;
-using ApiSdk.Users.Item.Restore;
-using ApiSdk.Users.Item.RevokeSignInSessions;
-using ApiSdk.Users.Item.ScopedRoleMemberOf;
-using ApiSdk.Users.Item.SendMail;
-using ApiSdk.Users.Item.Settings;
-using ApiSdk.Users.Item.Teamwork;
-using ApiSdk.Users.Item.Todo;
-using ApiSdk.Users.Item.TransitiveMemberOf;
-using ApiSdk.Users.Item.TranslateExchangeIds;
-using ApiSdk.Users.Item.WipeManagedAppRegistrationsByDeviceTag;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Activities;
+using GraphSdk.Users.Item.AgreementAcceptances;
+using GraphSdk.Users.Item.AppRoleAssignments;
+using GraphSdk.Users.Item.AssignLicense;
+using GraphSdk.Users.Item.Authentication;
+using GraphSdk.Users.Item.Calendar;
+using GraphSdk.Users.Item.CalendarGroups;
+using GraphSdk.Users.Item.Calendars;
+using GraphSdk.Users.Item.CalendarView;
+using GraphSdk.Users.Item.ChangePassword;
+using GraphSdk.Users.Item.Chats;
+using GraphSdk.Users.Item.CheckMemberGroups;
+using GraphSdk.Users.Item.CheckMemberObjects;
+using GraphSdk.Users.Item.ContactFolders;
+using GraphSdk.Users.Item.Contacts;
+using GraphSdk.Users.Item.CreatedObjects;
+using GraphSdk.Users.Item.DeviceManagementTroubleshootingEvents;
+using GraphSdk.Users.Item.DirectReports;
+using GraphSdk.Users.Item.Drive;
+using GraphSdk.Users.Item.Drives;
+using GraphSdk.Users.Item.Events;
+using GraphSdk.Users.Item.ExportPersonalData;
+using GraphSdk.Users.Item.Extensions;
+using GraphSdk.Users.Item.FindMeetingTimes;
+using GraphSdk.Users.Item.FollowedSites;
+using GraphSdk.Users.Item.GetMailTips;
+using GraphSdk.Users.Item.GetManagedAppDiagnosticStatuses;
+using GraphSdk.Users.Item.GetManagedAppPolicies;
+using GraphSdk.Users.Item.GetMemberGroups;
+using GraphSdk.Users.Item.GetMemberObjects;
+using GraphSdk.Users.Item.InferenceClassification;
+using GraphSdk.Users.Item.Insights;
+using GraphSdk.Users.Item.JoinedTeams;
+using GraphSdk.Users.Item.LicenseDetails;
+using GraphSdk.Users.Item.MailFolders;
+using GraphSdk.Users.Item.ManagedAppRegistrations;
+using GraphSdk.Users.Item.ManagedDevices;
+using GraphSdk.Users.Item.Manager;
+using GraphSdk.Users.Item.MemberOf;
+using GraphSdk.Users.Item.Messages;
+using GraphSdk.Users.Item.Oauth2PermissionGrants;
+using GraphSdk.Users.Item.Onenote;
+using GraphSdk.Users.Item.OnlineMeetings;
+using GraphSdk.Users.Item.Outlook;
+using GraphSdk.Users.Item.OwnedDevices;
+using GraphSdk.Users.Item.OwnedObjects;
+using GraphSdk.Users.Item.People;
+using GraphSdk.Users.Item.Photo;
+using GraphSdk.Users.Item.Photos;
+using GraphSdk.Users.Item.Planner;
+using GraphSdk.Users.Item.Presence;
+using GraphSdk.Users.Item.RegisteredDevices;
+using GraphSdk.Users.Item.ReminderViewWithStartDateTimeWithEndDateTime;
+using GraphSdk.Users.Item.RemoveAllDevicesFromManagement;
+using GraphSdk.Users.Item.ReprocessLicenseAssignment;
+using GraphSdk.Users.Item.Restore;
+using GraphSdk.Users.Item.RevokeSignInSessions;
+using GraphSdk.Users.Item.ScopedRoleMemberOf;
+using GraphSdk.Users.Item.SendMail;
+using GraphSdk.Users.Item.Settings;
+using GraphSdk.Users.Item.Teamwork;
+using GraphSdk.Users.Item.Todo;
+using GraphSdk.Users.Item.TransitiveMemberOf;
+using GraphSdk.Users.Item.TranslateExchangeIds;
+using GraphSdk.Users.Item.WipeManagedAppRegistrationsByDeviceTag;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -71,233 +71,245 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Users.Item {
+namespace GraphSdk.Users.Item {
     /// <summary>Builds and executes requests for operations under \users\{user-id}</summary>
     public class UserRequestBuilder {
         public ActivitiesRequestBuilder Activities { get =>
-            new ActivitiesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AgreementAcceptancesRequestBuilder AgreementAcceptances { get =>
-            new AgreementAcceptancesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AgreementAcceptancesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
-            new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignLicenseRequestBuilder AssignLicense { get =>
-            new AssignLicenseRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignLicenseRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationRequestBuilder Authentication { get =>
-            new AuthenticationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AuthenticationRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarRequestBuilder Calendar { get =>
-            new CalendarRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarGroupsRequestBuilder CalendarGroups { get =>
-            new CalendarGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarsRequestBuilder Calendars { get =>
-            new CalendarsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarViewRequestBuilder CalendarView { get =>
-            new CalendarViewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarViewRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChangePasswordRequestBuilder ChangePassword { get =>
-            new ChangePasswordRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChangePasswordRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChatsRequestBuilder Chats { get =>
-            new ChatsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChatsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContactFoldersRequestBuilder ContactFolders { get =>
-            new ContactFoldersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContactFoldersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContactsRequestBuilder Contacts { get =>
-            new ContactsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreatedObjectsRequestBuilder CreatedObjects { get =>
-            new CreatedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreatedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DeviceManagementTroubleshootingEventsRequestBuilder DeviceManagementTroubleshootingEvents { get =>
-            new DeviceManagementTroubleshootingEventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceManagementTroubleshootingEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectReportsRequestBuilder DirectReports { get =>
-            new DirectReportsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DirectReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DrivesRequestBuilder(PathParameters, RequestAdapter);
         }
         public EventsRequestBuilder Events { get =>
-            new EventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new EventsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExportPersonalDataRequestBuilder ExportPersonalData { get =>
-            new ExportPersonalDataRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExportPersonalDataRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExtensionsRequestBuilder Extensions { get =>
-            new ExtensionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public FindMeetingTimesRequestBuilder FindMeetingTimes { get =>
-            new FindMeetingTimesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FindMeetingTimesRequestBuilder(PathParameters, RequestAdapter);
         }
         public FollowedSitesRequestBuilder FollowedSites { get =>
-            new FollowedSitesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FollowedSitesRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMailTipsRequestBuilder GetMailTips { get =>
-            new GetMailTipsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMailTipsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public InferenceClassificationRequestBuilder InferenceClassification { get =>
-            new InferenceClassificationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InferenceClassificationRequestBuilder(PathParameters, RequestAdapter);
         }
         public InsightsRequestBuilder Insights { get =>
-            new InsightsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InsightsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public JoinedTeamsRequestBuilder JoinedTeams { get =>
-            new JoinedTeamsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new JoinedTeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         public LicenseDetailsRequestBuilder LicenseDetails { get =>
-            new LicenseDetailsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new LicenseDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         public MailFoldersRequestBuilder MailFolders { get =>
-            new MailFoldersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MailFoldersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppRegistrationsRequestBuilder ManagedAppRegistrations { get =>
-            new ManagedAppRegistrationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedAppRegistrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedDevicesRequestBuilder ManagedDevices { get =>
-            new ManagedDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagerRequestBuilder Manager { get =>
-            new ManagerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagerRequestBuilder(PathParameters, RequestAdapter);
         }
         public MemberOfRequestBuilder MemberOf { get =>
-            new MemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public MessagesRequestBuilder Messages { get =>
-            new MessagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
-            new Oauth2PermissionGrantsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new Oauth2PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnenoteRequestBuilder Onenote { get =>
-            new OnenoteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnenoteRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnlineMeetingsRequestBuilder OnlineMeetings { get =>
-            new OnlineMeetingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnlineMeetingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OutlookRequestBuilder Outlook { get =>
-            new OutlookRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OutlookRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnedDevicesRequestBuilder OwnedDevices { get =>
-            new OwnedDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnedObjectsRequestBuilder OwnedObjects { get =>
-            new OwnedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PeopleRequestBuilder People { get =>
-            new PeopleRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PeopleRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotoRequestBuilder Photo { get =>
-            new PhotoRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotoRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotosRequestBuilder Photos { get =>
-            new PhotosRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotosRequestBuilder(PathParameters, RequestAdapter);
         }
         public PlannerRequestBuilder Planner { get =>
-            new PlannerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PlannerRequestBuilder(PathParameters, RequestAdapter);
         }
         public PresenceRequestBuilder Presence { get =>
-            new PresenceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         public RegisteredDevicesRequestBuilder RegisteredDevices { get =>
-            new RegisteredDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RegisteredDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public RemoveAllDevicesFromManagementRequestBuilder RemoveAllDevicesFromManagement { get =>
-            new RemoveAllDevicesFromManagementRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoveAllDevicesFromManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         public ReprocessLicenseAssignmentRequestBuilder ReprocessLicenseAssignment { get =>
-            new ReprocessLicenseAssignmentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ReprocessLicenseAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public RevokeSignInSessionsRequestBuilder RevokeSignInSessions { get =>
-            new RevokeSignInSessionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RevokeSignInSessionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ScopedRoleMemberOfRequestBuilder ScopedRoleMemberOf { get =>
-            new ScopedRoleMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScopedRoleMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public SendMailRequestBuilder SendMail { get =>
-            new SendMailRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SendMailRequestBuilder(PathParameters, RequestAdapter);
         }
         public SettingsRequestBuilder Settings { get =>
-            new SettingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamworkRequestBuilder Teamwork { get =>
-            new TeamworkRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TeamworkRequestBuilder(PathParameters, RequestAdapter);
         }
         public TodoRequestBuilder Todo { get =>
-            new TodoRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TodoRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
-            new TransitiveMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public TranslateExchangeIdsRequestBuilder TranslateExchangeIds { get =>
-            new TranslateExchangeIdsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TranslateExchangeIdsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WipeManagedAppRegistrationsByDeviceTagRequestBuilder WipeManagedAppRegistrationsByDeviceTag { get =>
-            new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new UserRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public UserRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public UserRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Instantiates a new UserRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public UserRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Delete entity from users
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Get entity from users by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -305,8 +317,9 @@ namespace ApiSdk.Users.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -317,24 +330,25 @@ namespace ApiSdk.Users.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Update entity in users
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Delete entity from users
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -344,36 +358,36 @@ namespace ApiSdk.Users.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Get entity from users by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppDiagnosticStatuses()
         /// </summary>
         public GetManagedAppDiagnosticStatusesRequestBuilder GetManagedAppDiagnosticStatuses() {
-            return new GetManagedAppDiagnosticStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetManagedAppDiagnosticStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\microsoft.graph.getManagedAppPolicies()
         /// </summary>
         public GetManagedAppPoliciesRequestBuilder GetManagedAppPolicies() {
-            return new GetManagedAppPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetManagedAppPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Represents an Azure Active Directory user object.
+        /// Update entity in users
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
@@ -383,12 +397,12 @@ namespace ApiSdk.Users.Item {
         /// <param name="EndDateTime">Usage: EndDateTime={EndDateTime}</param>
         /// <param name="StartDateTime">Usage: StartDateTime={StartDateTime}</param>
         /// </summary>
-        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string StartDateTime, string EndDateTime) {
-            if(string.IsNullOrEmpty(EndDateTime)) throw new ArgumentNullException(nameof(EndDateTime));
-            if(string.IsNullOrEmpty(StartDateTime)) throw new ArgumentNullException(nameof(StartDateTime));
-            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, StartDateTime, EndDateTime, false);
+        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string startDateTime, string endDateTime) {
+            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
+            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
+            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, startDateTime, endDateTime);
         }
-        /// <summary>Represents an Azure Active Directory user object.</summary>
+        /// <summary>Get entity from users by key</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

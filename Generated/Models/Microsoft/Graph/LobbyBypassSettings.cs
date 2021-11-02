@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class LobbyBypassSettings : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies whether or not to always let dial-in callers bypass the lobby. Optional.</summary>
         public bool? IsDialInBypassEnabled { get; set; }
-        /// <summary>Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.</summary>
+        /// <summary>Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.</summary>
         public LobbyBypassScope? Scope { get; set; }
         /// <summary>
         /// Instantiates a new lobbyBypassSettings and sets the default values.

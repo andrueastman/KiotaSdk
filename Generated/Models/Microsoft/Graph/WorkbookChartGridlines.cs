@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookChartGridlines : Entity, IParsable {
         /// <summary>Represents the formatting of chart gridlines. Read-only.</summary>
         public WorkbookChartGridlinesFormat Format { get; set; }

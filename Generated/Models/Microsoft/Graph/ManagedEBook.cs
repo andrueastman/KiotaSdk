@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ManagedEBook : Entity, IParsable {
         /// <summary>The list of assignments for this eBook.</summary>
         public List<ManagedEBookAssignment> Assignments { get; set; }

@@ -1,13 +1,13 @@
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assign;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assignments;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingStateSummaries;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatusOverview;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsForRules;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatuses;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatusOverview;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assign;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.Assignments;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingStateSummaries;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatusOverview;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduleActionsForRules;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatuses;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.UserStatusOverview;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,57 +15,68 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
+namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCompliancePolicies\{deviceCompliancePolicy-id}</summary>
     public class DeviceCompliancePolicyRequestBuilder {
         public AssignRequestBuilder Assign { get =>
-            new AssignRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignmentsRequestBuilder Assignments { get =>
-            new AssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DeviceSettingStateSummariesRequestBuilder DeviceSettingStateSummaries { get =>
-            new DeviceSettingStateSummariesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceSettingStateSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceStatusesRequestBuilder DeviceStatuses { get =>
-            new DeviceStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceStatusOverviewRequestBuilder DeviceStatusOverview { get =>
-            new DeviceStatusOverviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceStatusOverviewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ScheduleActionsForRulesRequestBuilder ScheduleActionsForRules { get =>
-            new ScheduleActionsForRulesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScheduleActionsForRulesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ScheduledActionsForRuleRequestBuilder ScheduledActionsForRule { get =>
-            new ScheduledActionsForRuleRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScheduledActionsForRuleRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public UserStatusesRequestBuilder UserStatuses { get =>
-            new UserStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UserStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         public UserStatusOverviewRequestBuilder UserStatusOverview { get =>
-            new UserStatusOverviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UserStatusOverviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DeviceCompliancePolicyRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public DeviceCompliancePolicyRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public DeviceCompliancePolicyRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new DeviceCompliancePolicyRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public DeviceCompliancePolicyRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// The device compliance policies.
@@ -75,8 +86,9 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -90,8 +102,9 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -111,8 +124,9 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

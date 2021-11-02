@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class SwapShiftsChangeRequest : OfferShiftRequest, IParsable {
-        /// <summary>Shift ID for the recipient user with whom the request is to swap.</summary>
+        /// <summary>ShiftId for the recipient user with whom the request is to swap.</summary>
         public string RecipientShiftId { get; set; }
         /// <summary>
         /// The deserialization information for the current model

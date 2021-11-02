@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EmailAddress : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The email address of an entity instance.</summary>
+        /// <summary>The email address of the person or entity.</summary>
         public string Address { get; set; }
-        /// <summary>The display name of an entity instance.</summary>
+        /// <summary>The display name of the person or entity.</summary>
         public string Name { get; set; }
         /// <summary>
         /// Instantiates a new emailAddress and sets the default values.

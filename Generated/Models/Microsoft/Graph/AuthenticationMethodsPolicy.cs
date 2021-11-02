@@ -3,17 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AuthenticationMethodsPolicy : Entity, IParsable {
         /// <summary>Represents the settings for each authentication method.</summary>
         public List<AuthenticationMethodConfiguration> AuthenticationMethodConfigurations { get; set; }
-        /// <summary>A description of the policy.</summary>
+        /// <summary>A description of the policy. Read-only.</summary>
         public string Description { get; set; }
-        /// <summary>The name of the policy.</summary>
+        /// <summary>The name of the policy. Read-only.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The date and time of the last update to the policy.</summary>
+        /// <summary>The date and time of the last update to the policy. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The version of the policy in use.</summary>
+        /// <summary>The version of the policy in use. Read-only.</summary>
         public string PolicyVersion { get; set; }
         public int? ReconfirmationInDays { get; set; }
         /// <summary>

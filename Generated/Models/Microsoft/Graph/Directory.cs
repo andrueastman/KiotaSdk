@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Directory : Entity, IParsable {
-        public List<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit> AdministrativeUnits { get; set; }
+        /// <summary>Conceptual container for user and group directory objects.</summary>
+        public List<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit> AdministrativeUnits { get; set; }
         /// <summary>Recently deleted items. Read-only. Nullable.</summary>
         public List<DirectoryObject> DeletedItems { get; set; }
         /// <summary>
@@ -13,7 +14,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"administrativeUnits", (o,n) => { (o as Directory).AdministrativeUnits = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit>().ToList(); } },
+                {"administrativeUnits", (o,n) => { (o as Directory).AdministrativeUnits = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>().ToList(); } },
                 {"deletedItems", (o,n) => { (o as Directory).DeletedItems = n.GetCollectionOfObjectValues<DirectoryObject>().ToList(); } },
             };
         }
@@ -24,7 +25,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit>("administrativeUnits", AdministrativeUnits);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>("administrativeUnits", AdministrativeUnits);
             writer.WriteCollectionOfObjectValues<DirectoryObject>("deletedItems", DeletedItems);
         }
     }

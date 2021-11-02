@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AdminConsentRequestPolicy : Entity, IParsable {
         /// <summary>Specifies whether the admin consent request feature is enabled or disabled. Required.</summary>
         public bool? IsEnabled { get; set; }
@@ -13,7 +13,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public bool? RemindersEnabled { get; set; }
         /// <summary>Specifies the duration the request is active before it automatically expires if no decision is applied.</summary>
         public int? RequestDurationInDays { get; set; }
-        /// <summary>Required.</summary>
+        /// <summary>The list of reviewers for the admin consent. Required.</summary>
         public List<AccessReviewReviewerScope> Reviewers { get; set; }
         /// <summary>Specifies the version of this policy. When the policy is updated, this version is updated. Read-only.</summary>
         public int? Version { get; set; }

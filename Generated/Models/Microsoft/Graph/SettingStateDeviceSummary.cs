@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class SettingStateDeviceSummary : Entity, IParsable {
         /// <summary>Device Compliant count for the setting</summary>
         public int? CompliantDeviceCount { get; set; }

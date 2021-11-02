@@ -1,10 +1,10 @@
-using ApiSdk.Education.Classes.Item.Assignments.Item.Categories;
-using ApiSdk.Education.Classes.Item.Assignments.Item.Publish;
-using ApiSdk.Education.Classes.Item.Assignments.Item.Resources;
-using ApiSdk.Education.Classes.Item.Assignments.Item.Rubric;
-using ApiSdk.Education.Classes.Item.Assignments.Item.SetUpResourcesFolder;
-using ApiSdk.Education.Classes.Item.Assignments.Item.Submissions;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Categories;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Publish;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Resources;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Rubric;
+using GraphSdk.Education.Classes.Item.Assignments.Item.SetUpResourcesFolder;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -12,45 +12,59 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Education.Classes.Item.Assignments.Item {
+namespace GraphSdk.Education.Classes.Item.Assignments.Item {
     /// <summary>Builds and executes requests for operations under \education\classes\{educationClass-id}\assignments\{educationAssignment-id}</summary>
     public class EducationAssignmentRequestBuilder {
         public CategoriesRequestBuilder Categories { get =>
-            new CategoriesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PublishRequestBuilder Publish { get =>
-            new PublishRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PublishRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ResourcesRequestBuilder Resources { get =>
-            new ResourcesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ResourcesRequestBuilder(PathParameters, RequestAdapter);
         }
         public RubricRequestBuilder Rubric { get =>
-            new RubricRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RubricRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public SetUpResourcesFolderRequestBuilder SetUpResourcesFolder { get =>
+            new SetUpResourcesFolderRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubmissionsRequestBuilder Submissions { get =>
-            new SubmissionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SubmissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new EducationAssignmentRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public EducationAssignmentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}/assignments/{educationAssignment_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new EducationAssignmentRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public EducationAssignmentRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public EducationAssignmentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}/assignments/{educationAssignment_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// All assignments associated with this class. Nullable.
@@ -60,8 +74,9 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -75,8 +90,9 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -96,8 +112,9 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -135,12 +152,6 @@ namespace ApiSdk.Education.Classes.Item.Assignments.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
-        }
-        /// <summary>
-        /// Builds and executes requests for operations under \education\classes\{educationClass-id}\assignments\{educationAssignment-id}\microsoft.graph.setUpResourcesFolder()
-        /// </summary>
-        public SetUpResourcesFolderRequestBuilder SetUpResourcesFolder() {
-            return new SetUpResourcesFolderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
         }
         /// <summary>All assignments associated with this class. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

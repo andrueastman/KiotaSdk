@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EducationAssignmentResource : Entity, IParsable {
-        /// <summary>Indicates whether this resource should be copied to each student submission for modification and submission.</summary>
+        /// <summary>Indicates whether this resource should be copied to each student submission for modification and submission. Required</summary>
         public bool? DistributeForStudentWork { get; set; }
         /// <summary>Resource object that has been associated with this assignment.</summary>
         public EducationResource Resource { get; set; }

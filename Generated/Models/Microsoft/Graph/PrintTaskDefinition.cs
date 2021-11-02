@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PrintTaskDefinition : Entity, IParsable {
         public AppIdentity CreatedBy { get; set; }
         /// <summary>The name of the printTaskDefinition.</summary>

@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Me.ContactFolders.Item.ChildFolders.Delta {
+namespace GraphSdk.Me.ContactFolders.Item.ChildFolders.Delta {
     public class Delta : Entity, IParsable {
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
         public List<ContactFolder> ChildFolders { get; set; }

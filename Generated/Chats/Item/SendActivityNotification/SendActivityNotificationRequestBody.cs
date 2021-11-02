@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Chats.Item.SendActivityNotification {
+namespace GraphSdk.Chats.Item.SendActivityNotification {
     public class SendActivityNotificationRequestBody : IParsable {
         public string ActivityType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -12,7 +12,7 @@ namespace ApiSdk.Chats.Item.SendActivityNotification {
         public long? ChainId { get; set; }
         public ItemBody PreviewText { get; set; }
         public TeamworkNotificationRecipient Recipient { get; set; }
-        public List<ApiSdk.Models.Microsoft.Graph.KeyValuePair> TemplateParameters { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.KeyValuePair> TemplateParameters { get; set; }
         public TeamworkActivityTopic Topic { get; set; }
         /// <summary>
         /// Instantiates a new sendActivityNotificationRequestBody and sets the default values.
@@ -29,7 +29,7 @@ namespace ApiSdk.Chats.Item.SendActivityNotification {
                 {"chainId", (o,n) => { (o as SendActivityNotificationRequestBody).ChainId = n.GetLongValue(); } },
                 {"previewText", (o,n) => { (o as SendActivityNotificationRequestBody).PreviewText = n.GetObjectValue<ItemBody>(); } },
                 {"recipient", (o,n) => { (o as SendActivityNotificationRequestBody).Recipient = n.GetObjectValue<TeamworkNotificationRecipient>(); } },
-                {"templateParameters", (o,n) => { (o as SendActivityNotificationRequestBody).TemplateParameters = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.KeyValuePair>().ToList(); } },
+                {"templateParameters", (o,n) => { (o as SendActivityNotificationRequestBody).TemplateParameters = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.KeyValuePair>().ToList(); } },
                 {"topic", (o,n) => { (o as SendActivityNotificationRequestBody).Topic = n.GetObjectValue<TeamworkActivityTopic>(); } },
             };
         }
@@ -43,7 +43,7 @@ namespace ApiSdk.Chats.Item.SendActivityNotification {
             writer.WriteLongValue("chainId", ChainId);
             writer.WriteObjectValue<ItemBody>("previewText", PreviewText);
             writer.WriteObjectValue<TeamworkNotificationRecipient>("recipient", Recipient);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.KeyValuePair>("templateParameters", TemplateParameters);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.KeyValuePair>("templateParameters", TemplateParameters);
             writer.WriteObjectValue<TeamworkActivityTopic>("topic", Topic);
             writer.WriteAdditionalData(AdditionalData);
         }

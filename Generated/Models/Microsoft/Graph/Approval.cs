@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Approval : Entity, IParsable {
-        /// <summary>Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.</summary>
+        /// <summary>A collection of stages in the approval decision.</summary>
         public List<ApprovalStage> Stages { get; set; }
         /// <summary>
         /// The deserialization information for the current model

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Call : Entity, IParsable {
         /// <summary>The callback URL on which callbacks will be delivered. Must be https.</summary>
         public string CallbackUri { get; set; }
@@ -12,17 +12,17 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public CallOptions CallOptions { get; set; }
         /// <summary>The routing information on how the call was retargeted. Read-only.</summary>
         public List<CallRoute> CallRoutes { get; set; }
-        /// <summary>The chat information. Required information for meeting scenarios.</summary>
+        /// <summary>The chat information. Required information for joining a meeting.</summary>
         public ChatInfo ChatInfo { get; set; }
         /// <summary>The direction of the call. The possible value are incoming or outgoing. Read-only.</summary>
         public CallDirection? Direction { get; set; }
         /// <summary>The context associated with an incoming call. Read-only. Server generated.</summary>
         public IncomingContext IncomingContext { get; set; }
-        /// <summary>The media configuration. Required information for creating peer to peer calls or joining meetings.</summary>
+        /// <summary>The media configuration. Required.</summary>
         public MediaConfig MediaConfig { get; set; }
         /// <summary>Read-only. The call media state.</summary>
         public CallMediaState MediaState { get; set; }
-        /// <summary>The meeting information. Required information for meeting scenarios.</summary>
+        /// <summary>The meeting information that's required for joining a meeting.</summary>
         public MeetingInfo MeetingInfo { get; set; }
         public string MyParticipantId { get; set; }
         /// <summary>Read-only. Nullable.</summary>

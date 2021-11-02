@@ -1,45 +1,45 @@
-using ApiSdk.Groups.Item.AcceptedSenders;
-using ApiSdk.Groups.Item.AddFavorite;
-using ApiSdk.Groups.Item.AppRoleAssignments;
-using ApiSdk.Groups.Item.AssignLicense;
-using ApiSdk.Groups.Item.Calendar;
-using ApiSdk.Groups.Item.CalendarView;
-using ApiSdk.Groups.Item.CheckGrantedPermissionsForApp;
-using ApiSdk.Groups.Item.CheckMemberGroups;
-using ApiSdk.Groups.Item.CheckMemberObjects;
-using ApiSdk.Groups.Item.Conversations;
-using ApiSdk.Groups.Item.CreatedOnBehalfOf;
-using ApiSdk.Groups.Item.Drive;
-using ApiSdk.Groups.Item.Drives;
-using ApiSdk.Groups.Item.Events;
-using ApiSdk.Groups.Item.Extensions;
-using ApiSdk.Groups.Item.GetMemberGroups;
-using ApiSdk.Groups.Item.GetMemberObjects;
-using ApiSdk.Groups.Item.GroupLifecyclePolicies;
-using ApiSdk.Groups.Item.MemberOf;
-using ApiSdk.Groups.Item.Members;
-using ApiSdk.Groups.Item.MembersWithLicenseErrors;
-using ApiSdk.Groups.Item.Onenote;
-using ApiSdk.Groups.Item.Owners;
-using ApiSdk.Groups.Item.PermissionGrants;
-using ApiSdk.Groups.Item.Photo;
-using ApiSdk.Groups.Item.Photos;
-using ApiSdk.Groups.Item.Planner;
-using ApiSdk.Groups.Item.RejectedSenders;
-using ApiSdk.Groups.Item.RemoveFavorite;
-using ApiSdk.Groups.Item.Renew;
-using ApiSdk.Groups.Item.ResetUnseenCount;
-using ApiSdk.Groups.Item.Restore;
-using ApiSdk.Groups.Item.Settings;
-using ApiSdk.Groups.Item.Sites;
-using ApiSdk.Groups.Item.SubscribeByMail;
-using ApiSdk.Groups.Item.Team;
-using ApiSdk.Groups.Item.Threads;
-using ApiSdk.Groups.Item.TransitiveMemberOf;
-using ApiSdk.Groups.Item.TransitiveMembers;
-using ApiSdk.Groups.Item.UnsubscribeByMail;
-using ApiSdk.Groups.Item.ValidateProperties;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Groups.Item.AcceptedSenders;
+using GraphSdk.Groups.Item.AddFavorite;
+using GraphSdk.Groups.Item.AppRoleAssignments;
+using GraphSdk.Groups.Item.AssignLicense;
+using GraphSdk.Groups.Item.Calendar;
+using GraphSdk.Groups.Item.CalendarView;
+using GraphSdk.Groups.Item.CheckGrantedPermissionsForApp;
+using GraphSdk.Groups.Item.CheckMemberGroups;
+using GraphSdk.Groups.Item.CheckMemberObjects;
+using GraphSdk.Groups.Item.Conversations;
+using GraphSdk.Groups.Item.CreatedOnBehalfOf;
+using GraphSdk.Groups.Item.Drive;
+using GraphSdk.Groups.Item.Drives;
+using GraphSdk.Groups.Item.Events;
+using GraphSdk.Groups.Item.Extensions;
+using GraphSdk.Groups.Item.GetMemberGroups;
+using GraphSdk.Groups.Item.GetMemberObjects;
+using GraphSdk.Groups.Item.GroupLifecyclePolicies;
+using GraphSdk.Groups.Item.MemberOf;
+using GraphSdk.Groups.Item.Members;
+using GraphSdk.Groups.Item.MembersWithLicenseErrors;
+using GraphSdk.Groups.Item.Onenote;
+using GraphSdk.Groups.Item.Owners;
+using GraphSdk.Groups.Item.PermissionGrants;
+using GraphSdk.Groups.Item.Photo;
+using GraphSdk.Groups.Item.Photos;
+using GraphSdk.Groups.Item.Planner;
+using GraphSdk.Groups.Item.RejectedSenders;
+using GraphSdk.Groups.Item.RemoveFavorite;
+using GraphSdk.Groups.Item.Renew;
+using GraphSdk.Groups.Item.ResetUnseenCount;
+using GraphSdk.Groups.Item.Restore;
+using GraphSdk.Groups.Item.Settings;
+using GraphSdk.Groups.Item.Sites;
+using GraphSdk.Groups.Item.SubscribeByMail;
+using GraphSdk.Groups.Item.Team;
+using GraphSdk.Groups.Item.Threads;
+using GraphSdk.Groups.Item.TransitiveMemberOf;
+using GraphSdk.Groups.Item.TransitiveMembers;
+using GraphSdk.Groups.Item.UnsubscribeByMail;
+using GraphSdk.Groups.Item.ValidateProperties;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -47,170 +47,182 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Groups.Item {
+namespace GraphSdk.Groups.Item {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}</summary>
     public class GroupRequestBuilder {
         public AcceptedSendersRequestBuilder AcceptedSenders { get =>
-            new AcceptedSendersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AcceptedSendersRequestBuilder(PathParameters, RequestAdapter);
         }
         public AddFavoriteRequestBuilder AddFavorite { get =>
-            new AddFavoriteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AddFavoriteRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
-            new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignLicenseRequestBuilder AssignLicense { get =>
-            new AssignLicenseRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignLicenseRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarRequestBuilder Calendar { get =>
-            new CalendarRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarViewRequestBuilder CalendarView { get =>
-            new CalendarViewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarViewRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckGrantedPermissionsForAppRequestBuilder CheckGrantedPermissionsForApp { get =>
-            new CheckGrantedPermissionsForAppRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckGrantedPermissionsForAppRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ConversationsRequestBuilder Conversations { get =>
-            new ConversationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ConversationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreatedOnBehalfOfRequestBuilder CreatedOnBehalfOf { get =>
-            new CreatedOnBehalfOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreatedOnBehalfOfRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DrivesRequestBuilder(PathParameters, RequestAdapter);
         }
         public EventsRequestBuilder Events { get =>
-            new EventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new EventsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExtensionsRequestBuilder Extensions { get =>
-            new ExtensionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
-            new GroupLifecyclePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GroupLifecyclePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MemberOfRequestBuilder MemberOf { get =>
-            new MemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public MembersRequestBuilder Members { get =>
-            new MembersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         public MembersWithLicenseErrorsRequestBuilder MembersWithLicenseErrors { get =>
-            new MembersWithLicenseErrorsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MembersWithLicenseErrorsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnenoteRequestBuilder Onenote { get =>
-            new OnenoteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnenoteRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnersRequestBuilder Owners { get =>
-            new OwnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PermissionGrantsRequestBuilder PermissionGrants { get =>
-            new PermissionGrantsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotoRequestBuilder Photo { get =>
-            new PhotoRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotoRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotosRequestBuilder Photos { get =>
-            new PhotosRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotosRequestBuilder(PathParameters, RequestAdapter);
         }
         public PlannerRequestBuilder Planner { get =>
-            new PlannerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PlannerRequestBuilder(PathParameters, RequestAdapter);
         }
         public RejectedSendersRequestBuilder RejectedSenders { get =>
-            new RejectedSendersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RejectedSendersRequestBuilder(PathParameters, RequestAdapter);
         }
         public RemoveFavoriteRequestBuilder RemoveFavorite { get =>
-            new RemoveFavoriteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoveFavoriteRequestBuilder(PathParameters, RequestAdapter);
         }
         public RenewRequestBuilder Renew { get =>
-            new RenewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RenewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ResetUnseenCountRequestBuilder ResetUnseenCount { get =>
-            new ResetUnseenCountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ResetUnseenCountRequestBuilder(PathParameters, RequestAdapter);
         }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public SettingsRequestBuilder Settings { get =>
-            new SettingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SitesRequestBuilder Sites { get =>
-            new SitesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SitesRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubscribeByMailRequestBuilder SubscribeByMail { get =>
-            new SubscribeByMailRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamRequestBuilder Team { get =>
-            new TeamRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TeamRequestBuilder(PathParameters, RequestAdapter);
         }
         public ThreadsRequestBuilder Threads { get =>
-            new ThreadsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ThreadsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
-            new TransitiveMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransitiveMembersRequestBuilder TransitiveMembers { get =>
-            new TransitiveMembersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransitiveMembersRequestBuilder(PathParameters, RequestAdapter);
         }
         public UnsubscribeByMailRequestBuilder UnsubscribeByMail { get =>
-            new UnsubscribeByMailRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UnsubscribeByMailRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public ValidatePropertiesRequestBuilder ValidateProperties { get =>
-            new ValidatePropertiesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ValidatePropertiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new GroupRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public GroupRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public GroupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Instantiates a new GroupRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public GroupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Delete entity from groups
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Get entity from groups by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -218,8 +230,9 @@ namespace ApiSdk.Groups.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -230,24 +243,25 @@ namespace ApiSdk.Groups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Update entity in groups
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Delete entity from groups
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -257,29 +271,29 @@ namespace ApiSdk.Groups.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Get entity from groups by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.Group> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.Group> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.Group>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Group>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Update entity in groups
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Group body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.</summary>
+        /// <summary>Get entity from groups by key</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

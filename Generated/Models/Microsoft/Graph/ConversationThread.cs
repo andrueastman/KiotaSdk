@@ -3,25 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ConversationThread : Entity, IParsable {
-        /// <summary>The Cc: recipients for the thread.</summary>
+        /// <summary>The Cc: recipients for the thread. Returned only on $select.</summary>
         public List<Recipient> CcRecipients { get; set; }
-        /// <summary>Indicates whether any of the posts within this thread has at least one attachment.</summary>
+        /// <summary>Indicates whether any of the posts within this thread has at least one attachment. Returned by default.</summary>
         public bool? HasAttachments { get; set; }
-        /// <summary>Indicates if the thread is locked.</summary>
+        /// <summary>Indicates if the thread is locked. Returned by default.</summary>
         public bool? IsLocked { get; set; }
-        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
+        /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.</summary>
         public DateTimeOffset? LastDeliveredDateTime { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public List<Post> Posts { get; set; }
-        /// <summary>A short summary from the body of the latest post in this conversation.</summary>
+        /// <summary>A short summary from the body of the latest post in this conversation. Returned by default.</summary>
         public string Preview { get; set; }
-        /// <summary>The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.</summary>
+        /// <summary>The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. Returned by default.</summary>
         public string Topic { get; set; }
-        /// <summary>The To: recipients for the thread.</summary>
+        /// <summary>The To: recipients for the thread. Returned only on $select.</summary>
         public List<Recipient> ToRecipients { get; set; }
-        /// <summary>All the users that sent a message to this thread.</summary>
+        /// <summary>All the users that sent a message to this thread. Returned by default.</summary>
         public List<string> UniqueSenders { get; set; }
         /// <summary>
         /// The deserialization information for the current model

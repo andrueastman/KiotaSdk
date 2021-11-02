@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ConditionalAccessGrantControls : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.</summary>
         public List<ConditionalAccessGrantControl?> BuiltInControls { get; set; }
-        /// <summary>List of custom controls IDs required by the policy. Learn more about custom controls here: https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview</summary>
+        /// <summary>List of custom controls IDs required by the policy. For more information, see Custom controls.</summary>
         public List<string> CustomAuthenticationFactors { get; set; }
         /// <summary>Defines the relationship of the grant controls. Possible values: AND, OR.</summary>
         public string Operator { get; set; }

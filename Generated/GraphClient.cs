@@ -1,66 +1,68 @@
-using ApiSdk.AgreementAcceptances;
-using ApiSdk.Agreements;
-using ApiSdk.AppCatalogs;
-using ApiSdk.Applications;
-using ApiSdk.ApplicationTemplates;
-using ApiSdk.AuditLogs;
-using ApiSdk.AuthenticationMethodConfigurations;
-using ApiSdk.AuthenticationMethodsPolicy;
-using ApiSdk.Branding;
-using ApiSdk.CertificateBasedAuthConfiguration;
-using ApiSdk.Chats;
-using ApiSdk.Communications;
-using ApiSdk.Connections;
-using ApiSdk.Contacts;
-using ApiSdk.Contracts;
-using ApiSdk.DataPolicyOperations;
-using ApiSdk.DeviceAppManagement;
-using ApiSdk.DeviceManagement;
-using ApiSdk.Devices;
-using ApiSdk.Directory;
-using ApiSdk.DirectoryObjects;
-using ApiSdk.DirectoryRoles;
-using ApiSdk.DirectoryRoleTemplates;
-using ApiSdk.DomainDnsRecords;
-using ApiSdk.Domains;
-using ApiSdk.Drive;
-using ApiSdk.Drives;
-using ApiSdk.Education;
-using ApiSdk.External;
-using ApiSdk.GroupLifecyclePolicies;
-using ApiSdk.Groups;
-using ApiSdk.GroupSettings;
-using ApiSdk.GroupSettingTemplates;
-using ApiSdk.Identity;
-using ApiSdk.IdentityGovernance;
-using ApiSdk.IdentityProviders;
-using ApiSdk.InformationProtection;
-using ApiSdk.Invitations;
-using ApiSdk.Localizations;
-using ApiSdk.Me;
-using ApiSdk.Oauth2PermissionGrants;
-using ApiSdk.Organization;
-using ApiSdk.PermissionGrants;
-using ApiSdk.Places;
-using ApiSdk.Planner;
-using ApiSdk.Policies;
-using ApiSdk.Print;
-using ApiSdk.Reports;
-using ApiSdk.RoleManagement;
-using ApiSdk.SchemaExtensions;
-using ApiSdk.ScopedRoleMemberships;
-using ApiSdk.Search;
-using ApiSdk.Security;
-using ApiSdk.ServicePrincipals;
-using ApiSdk.Shares;
-using ApiSdk.Sites;
-using ApiSdk.SubscribedSkus;
-using ApiSdk.Subscriptions;
-using ApiSdk.Teams;
-using ApiSdk.TeamsTemplates;
-using ApiSdk.Teamwork;
-using ApiSdk.Users;
-using ApiSdk.Workbooks;
+using GraphSdk.Admin;
+using GraphSdk.AgreementAcceptances;
+using GraphSdk.Agreements;
+using GraphSdk.AppCatalogs;
+using GraphSdk.Applications;
+using GraphSdk.ApplicationTemplates;
+using GraphSdk.AuditLogs;
+using GraphSdk.AuthenticationMethodConfigurations;
+using GraphSdk.AuthenticationMethodsPolicy;
+using GraphSdk.Branding;
+using GraphSdk.CertificateBasedAuthConfiguration;
+using GraphSdk.Chats;
+using GraphSdk.Communications;
+using GraphSdk.Compliance;
+using GraphSdk.Connections;
+using GraphSdk.Contacts;
+using GraphSdk.Contracts;
+using GraphSdk.DataPolicyOperations;
+using GraphSdk.DeviceAppManagement;
+using GraphSdk.DeviceManagement;
+using GraphSdk.Devices;
+using GraphSdk.Directory;
+using GraphSdk.DirectoryObjects;
+using GraphSdk.DirectoryRoles;
+using GraphSdk.DirectoryRoleTemplates;
+using GraphSdk.DomainDnsRecords;
+using GraphSdk.Domains;
+using GraphSdk.Drive;
+using GraphSdk.Drives;
+using GraphSdk.Education;
+using GraphSdk.External;
+using GraphSdk.GroupLifecyclePolicies;
+using GraphSdk.Groups;
+using GraphSdk.GroupSettings;
+using GraphSdk.GroupSettingTemplates;
+using GraphSdk.Identity;
+using GraphSdk.IdentityGovernance;
+using GraphSdk.IdentityProviders;
+using GraphSdk.InformationProtection;
+using GraphSdk.Invitations;
+using GraphSdk.Localizations;
+using GraphSdk.Me;
+using GraphSdk.Oauth2PermissionGrants;
+using GraphSdk.Organization;
+using GraphSdk.PermissionGrants;
+using GraphSdk.Places;
+using GraphSdk.Planner;
+using GraphSdk.Policies;
+using GraphSdk.Print;
+using GraphSdk.Reports;
+using GraphSdk.RoleManagement;
+using GraphSdk.SchemaExtensions;
+using GraphSdk.ScopedRoleMemberships;
+using GraphSdk.Search;
+using GraphSdk.Security;
+using GraphSdk.ServicePrincipals;
+using GraphSdk.Shares;
+using GraphSdk.Sites;
+using GraphSdk.SubscribedSkus;
+using GraphSdk.Subscriptions;
+using GraphSdk.Teams;
+using GraphSdk.TeamsTemplates;
+using GraphSdk.Teamwork;
+using GraphSdk.Users;
+using GraphSdk.Workbooks;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Serialization.Json;
@@ -69,209 +71,218 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk {
+namespace GraphSdk {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
     public class GraphClient {
+        public AdminRequestBuilder Admin { get =>
+            new AdminRequestBuilder(PathParameters, RequestAdapter);
+        }
         public AgreementAcceptancesRequestBuilder AgreementAcceptances { get =>
-            new AgreementAcceptancesRequestBuilder(PathSegment , RequestAdapter, false);
+            new AgreementAcceptancesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AgreementsRequestBuilder Agreements { get =>
-            new AgreementsRequestBuilder(PathSegment , RequestAdapter, false);
+            new AgreementsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppCatalogsRequestBuilder AppCatalogs { get =>
-            new AppCatalogsRequestBuilder(PathSegment , RequestAdapter, false);
+            new AppCatalogsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplicationsRequestBuilder Applications { get =>
-            new ApplicationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ApplicationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplicationTemplatesRequestBuilder ApplicationTemplates { get =>
-            new ApplicationTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
+            new ApplicationTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuditLogsRequestBuilder AuditLogs { get =>
-            new AuditLogsRequestBuilder(PathSegment , RequestAdapter, false);
+            new AuditLogsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationMethodConfigurationsRequestBuilder AuthenticationMethodConfigurations { get =>
-            new AuthenticationMethodConfigurationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new AuthenticationMethodConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationMethodsPolicyRequestBuilder AuthenticationMethodsPolicy { get =>
-            new AuthenticationMethodsPolicyRequestBuilder(PathSegment , RequestAdapter, false);
+            new AuthenticationMethodsPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         public BrandingRequestBuilder Branding { get =>
-            new BrandingRequestBuilder(PathSegment , RequestAdapter, false);
+            new BrandingRequestBuilder(PathParameters, RequestAdapter);
         }
         public CertificateBasedAuthConfigurationRequestBuilder CertificateBasedAuthConfiguration { get =>
-            new CertificateBasedAuthConfigurationRequestBuilder(PathSegment , RequestAdapter, false);
+            new CertificateBasedAuthConfigurationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChatsRequestBuilder Chats { get =>
-            new ChatsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ChatsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CommunicationsRequestBuilder Communications { get =>
-            new CommunicationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new CommunicationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public ComplianceRequestBuilder Compliance { get =>
+            new ComplianceRequestBuilder(PathParameters, RequestAdapter);
         }
         public ConnectionsRequestBuilder Connections { get =>
-            new ConnectionsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ConnectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContactsRequestBuilder Contacts { get =>
-            new ContactsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContractsRequestBuilder Contracts { get =>
-            new ContractsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ContractsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DataPolicyOperationsRequestBuilder DataPolicyOperations { get =>
-            new DataPolicyOperationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new DataPolicyOperationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceAppManagementRequestBuilder DeviceAppManagement { get =>
-            new DeviceAppManagementRequestBuilder(PathSegment , RequestAdapter, false);
+            new DeviceAppManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceManagementRequestBuilder DeviceManagement { get =>
-            new DeviceManagementRequestBuilder(PathSegment , RequestAdapter, false);
+            new DeviceManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         public DevicesRequestBuilder Devices { get =>
-            new DevicesRequestBuilder(PathSegment , RequestAdapter, false);
+            new DevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectoryRequestBuilder Directory { get =>
-            new DirectoryRequestBuilder(PathSegment , RequestAdapter, false);
+            new DirectoryRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectoryObjectsRequestBuilder DirectoryObjects { get =>
-            new DirectoryObjectsRequestBuilder(PathSegment , RequestAdapter, false);
+            new DirectoryObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectoryRolesRequestBuilder DirectoryRoles { get =>
-            new DirectoryRolesRequestBuilder(PathSegment , RequestAdapter, false);
+            new DirectoryRolesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectoryRoleTemplatesRequestBuilder DirectoryRoleTemplates { get =>
-            new DirectoryRoleTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
+            new DirectoryRoleTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DomainDnsRecordsRequestBuilder DomainDnsRecords { get =>
-            new DomainDnsRecordsRequestBuilder(PathSegment , RequestAdapter, false);
+            new DomainDnsRecordsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DomainsRequestBuilder Domains { get =>
-            new DomainsRequestBuilder(PathSegment , RequestAdapter, false);
+            new DomainsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(PathSegment , RequestAdapter, false);
+            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(PathSegment , RequestAdapter, false);
+            new DrivesRequestBuilder(PathParameters, RequestAdapter);
         }
         public EducationRequestBuilder Education { get =>
-            new EducationRequestBuilder(PathSegment , RequestAdapter, false);
+            new EducationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExternalRequestBuilder External { get =>
-            new ExternalRequestBuilder(PathSegment , RequestAdapter, false);
+            new ExternalRequestBuilder(PathParameters, RequestAdapter);
         }
         public GroupLifecyclePoliciesRequestBuilder GroupLifecyclePolicies { get =>
-            new GroupLifecyclePoliciesRequestBuilder(PathSegment , RequestAdapter, false);
+            new GroupLifecyclePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public GroupsRequestBuilder Groups { get =>
-            new GroupsRequestBuilder(PathSegment , RequestAdapter, false);
+            new GroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GroupSettingsRequestBuilder GroupSettings { get =>
-            new GroupSettingsRequestBuilder(PathSegment , RequestAdapter, false);
+            new GroupSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GroupSettingTemplatesRequestBuilder GroupSettingTemplates { get =>
-            new GroupSettingTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
+            new GroupSettingTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public IdentityRequestBuilder Identity { get =>
-            new IdentityRequestBuilder(PathSegment , RequestAdapter, false);
+            new IdentityRequestBuilder(PathParameters, RequestAdapter);
         }
         public IdentityGovernanceRequestBuilder IdentityGovernance { get =>
-            new IdentityGovernanceRequestBuilder(PathSegment , RequestAdapter, false);
+            new IdentityGovernanceRequestBuilder(PathParameters, RequestAdapter);
         }
         public IdentityProvidersRequestBuilder IdentityProviders { get =>
-            new IdentityProvidersRequestBuilder(PathSegment , RequestAdapter, false);
+            new IdentityProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
         public InformationProtectionRequestBuilder InformationProtection { get =>
-            new InformationProtectionRequestBuilder(PathSegment , RequestAdapter, false);
+            new InformationProtectionRequestBuilder(PathParameters, RequestAdapter);
         }
         public InvitationsRequestBuilder Invitations { get =>
-            new InvitationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new InvitationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public LocalizationsRequestBuilder Localizations { get =>
-            new LocalizationsRequestBuilder(PathSegment , RequestAdapter, false);
+            new LocalizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public MeRequestBuilder Me { get =>
-            new MeRequestBuilder(PathSegment , RequestAdapter, false);
+            new MeRequestBuilder(PathParameters, RequestAdapter);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
-            new Oauth2PermissionGrantsRequestBuilder(PathSegment , RequestAdapter, false);
+            new Oauth2PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OrganizationRequestBuilder Organization { get =>
-            new OrganizationRequestBuilder(PathSegment , RequestAdapter, false);
+            new OrganizationRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PermissionGrantsRequestBuilder PermissionGrants { get =>
-            new PermissionGrantsRequestBuilder(PathSegment , RequestAdapter, false);
+            new PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public PlacesRequestBuilder Places { get =>
-            new PlacesRequestBuilder(PathSegment , RequestAdapter, false);
+            new PlacesRequestBuilder(PathParameters, RequestAdapter);
         }
         public PlannerRequestBuilder Planner { get =>
-            new PlannerRequestBuilder(PathSegment , RequestAdapter, false);
+            new PlannerRequestBuilder(PathParameters, RequestAdapter);
         }
         public PoliciesRequestBuilder Policies { get =>
-            new PoliciesRequestBuilder(PathSegment , RequestAdapter, false);
+            new PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public PrintRequestBuilder Print { get =>
-            new PrintRequestBuilder(PathSegment , RequestAdapter, false);
+            new PrintRequestBuilder(PathParameters, RequestAdapter);
         }
         public ReportsRequestBuilder Reports { get =>
-            new ReportsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RoleManagementRequestBuilder RoleManagement { get =>
-            new RoleManagementRequestBuilder(PathSegment , RequestAdapter, false);
+            new RoleManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         public SchemaExtensionsRequestBuilder SchemaExtensions { get =>
-            new SchemaExtensionsRequestBuilder(PathSegment , RequestAdapter, false);
+            new SchemaExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ScopedRoleMembershipsRequestBuilder ScopedRoleMemberships { get =>
-            new ScopedRoleMembershipsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ScopedRoleMembershipsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SearchRequestBuilder Search { get =>
-            new SearchRequestBuilder(PathSegment , RequestAdapter, false);
+            new SearchRequestBuilder(PathParameters, RequestAdapter);
         }
         public SecurityRequestBuilder Security { get =>
-            new SecurityRequestBuilder(PathSegment , RequestAdapter, false);
+            new SecurityRequestBuilder(PathParameters, RequestAdapter);
         }
         public ServicePrincipalsRequestBuilder ServicePrincipals { get =>
-            new ServicePrincipalsRequestBuilder(PathSegment , RequestAdapter, false);
+            new ServicePrincipalsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SharesRequestBuilder Shares { get =>
-            new SharesRequestBuilder(PathSegment , RequestAdapter, false);
+            new SharesRequestBuilder(PathParameters, RequestAdapter);
         }
         public SitesRequestBuilder Sites { get =>
-            new SitesRequestBuilder(PathSegment , RequestAdapter, false);
+            new SitesRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubscribedSkusRequestBuilder SubscribedSkus { get =>
-            new SubscribedSkusRequestBuilder(PathSegment , RequestAdapter, false);
+            new SubscribedSkusRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubscriptionsRequestBuilder Subscriptions { get =>
-            new SubscriptionsRequestBuilder(PathSegment , RequestAdapter, false);
+            new SubscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamsRequestBuilder Teams { get =>
-            new TeamsRequestBuilder(PathSegment , RequestAdapter, false);
+            new TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamsTemplatesRequestBuilder TeamsTemplates { get =>
-            new TeamsTemplatesRequestBuilder(PathSegment , RequestAdapter, false);
+            new TeamsTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamworkRequestBuilder Teamwork { get =>
-            new TeamworkRequestBuilder(PathSegment , RequestAdapter, false);
+            new TeamworkRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public UsersRequestBuilder Users { get =>
-            new UsersRequestBuilder(PathSegment , RequestAdapter, false);
+            new UsersRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbooksRequestBuilder Workbooks { get =>
-            new WorkbooksRequestBuilder(PathSegment , RequestAdapter, false);
+            new WorkbooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new GraphClient and sets the default values.
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
         public GraphClient(IRequestAdapter requestAdapter) {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "https://graph.microsoft.com/v1.0";
+            PathParameters = new Dictionary<string, object>();
+            UrlTemplate = "https://graph.microsoft.com/v1.0";
             RequestAdapter = requestAdapter;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
@@ -279,8 +290,9 @@ namespace ApiSdk {
         public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(string.Empty, PathSegment, false);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;

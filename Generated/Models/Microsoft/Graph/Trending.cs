@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Trending : Entity, IParsable {
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Used for navigating to the trending document.</summary>

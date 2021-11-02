@@ -1,16 +1,16 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.Apply;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyBottomItemsFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyBottomPercentFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyCellColorFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyCustomFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyDynamicFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyFontColorFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyIconFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyTopItemsFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyTopPercentFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyValuesFilter;
-using ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.Clear;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.Apply;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyBottomItemsFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyBottomPercentFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyCellColorFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyCustomFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyDynamicFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyFontColorFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyIconFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyTopItemsFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyTopPercentFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.ApplyValuesFilter;
+using GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter.Clear;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -18,66 +18,77 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter {
+namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\tables\{workbookTable-id}\columns\{workbookTableColumn-id}\filter</summary>
     public class FilterRequestBuilder {
         public ApplyRequestBuilder Apply { get =>
-            new ApplyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyBottomItemsFilterRequestBuilder ApplyBottomItemsFilter { get =>
-            new ApplyBottomItemsFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyBottomItemsFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyBottomPercentFilterRequestBuilder ApplyBottomPercentFilter { get =>
-            new ApplyBottomPercentFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyBottomPercentFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyCellColorFilterRequestBuilder ApplyCellColorFilter { get =>
-            new ApplyCellColorFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyCellColorFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyCustomFilterRequestBuilder ApplyCustomFilter { get =>
-            new ApplyCustomFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyCustomFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyDynamicFilterRequestBuilder ApplyDynamicFilter { get =>
-            new ApplyDynamicFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyDynamicFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyFontColorFilterRequestBuilder ApplyFontColorFilter { get =>
-            new ApplyFontColorFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyFontColorFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyIconFilterRequestBuilder ApplyIconFilter { get =>
-            new ApplyIconFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyIconFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyTopItemsFilterRequestBuilder ApplyTopItemsFilter { get =>
-            new ApplyTopItemsFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyTopItemsFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyTopPercentFilterRequestBuilder ApplyTopPercentFilter { get =>
-            new ApplyTopPercentFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyTopPercentFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ApplyValuesFilterRequestBuilder ApplyValuesFilter { get =>
-            new ApplyValuesFilterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplyValuesFilterRequestBuilder(PathParameters, RequestAdapter);
         }
         public ClearRequestBuilder Clear { get =>
-            new ClearRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ClearRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new FilterRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public FilterRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public FilterRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/filter";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/tables/{workbookTable_id}/columns/{workbookTableColumn_id}/filter{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new FilterRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public FilterRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/tables/{workbookTable_id}/columns/{workbookTableColumn_id}/filter{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Retrieve the filter applied to the column. Read-only.
@@ -87,8 +98,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -102,8 +114,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -123,8 +136,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Tables.Item.Columns.Item.Filter {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

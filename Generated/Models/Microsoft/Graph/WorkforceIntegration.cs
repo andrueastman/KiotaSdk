@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkforceIntegration : ChangeTrackedEntity, IParsable {
         /// <summary>API version for the call back URL. Start with 1.</summary>
         public int? ApiVersion { get; set; }
@@ -13,7 +13,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public WorkforceIntegrationEncryption Encryption { get; set; }
         /// <summary>Indicates whether this workforce integration is currently active and available.</summary>
         public bool? IsActive { get; set; }
-        /// <summary>This property will replace supports in v1.0. We recommend that you use this property instead of supports. The supports property will still be supported in beta for the time being. Possible values are none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, timeCard, timeOffReason, timeOff, timeOffRequest and unknownFutureValue. If selecting more than one value, all values must start with the first letter in uppercase.</summary>
+        /// <summary>The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.</summary>
         public WorkforceIntegrationSupportedEntities? SupportedEntities { get; set; }
         /// <summary>Workforce Integration URL for callbacks from the Shifts service.</summary>
         public string Url { get; set; }

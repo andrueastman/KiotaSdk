@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EnrollmentConfigurationAssignment : Entity, IParsable {
         /// <summary>Represents an assignment to managed devices in the tenant</summary>
         public DeviceAndAppManagementAssignmentTarget Target { get; set; }

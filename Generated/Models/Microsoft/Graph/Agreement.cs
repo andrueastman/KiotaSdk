@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Agreement : Entity, IParsable {
         /// <summary>Read-only. Information about acceptances of this agreement.</summary>
         public List<AgreementAcceptance> Acceptances { get; set; }
@@ -11,9 +11,9 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string DisplayName { get; set; }
         /// <summary>Default PDF linked to this agreement.</summary>
         public AgreementFile File { get; set; }
-        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.</summary>
         public List<AgreementFileLocalization> Files { get; set; }
-        /// <summary>This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.</summary>
+        /// <summary>Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.</summary>
         public bool? IsPerDeviceAcceptanceRequired { get; set; }
         /// <summary>Indicates whether the user has to expand the agreement before accepting.</summary>
         public bool? IsViewingBeforeAcceptanceRequired { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PrintConnector : Entity, IParsable {
         /// <summary>The connector's version.</summary>
         public string AppVersion { get; set; }

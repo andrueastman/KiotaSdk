@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Permission : Entity, IParsable {
         /// <summary>A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
@@ -11,6 +11,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public IdentitySet GrantedTo { get; set; }
         /// <summary>For link type permissions, the details of the users to whom permission was granted. Read-only.</summary>
         public List<IdentitySet> GrantedToIdentities { get; set; }
+        public List<SharePointIdentitySet> GrantedToIdentitiesV2 { get; set; }
+        public SharePointIdentitySet GrantedToV2 { get; set; }
         /// <summary>This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.</summary>
         public bool? HasPassword { get; set; }
         /// <summary>Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.</summary>
@@ -21,7 +23,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public SharingLink Link { get; set; }
         /// <summary>The type of permission, e.g. read. See below for the full list of roles. Read-only.</summary>
         public List<string> Roles { get; set; }
-        /// <summary>A unique token that can be used to access this shared item via the [shares API][]. Read-only.</summary>
+        /// <summary>A unique token that can be used to access this shared item via the **shares** API. Read-only.</summary>
         public string ShareId { get; set; }
         /// <summary>
         /// The deserialization information for the current model
@@ -31,6 +33,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"expirationDateTime", (o,n) => { (o as Permission).ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 {"grantedTo", (o,n) => { (o as Permission).GrantedTo = n.GetObjectValue<IdentitySet>(); } },
                 {"grantedToIdentities", (o,n) => { (o as Permission).GrantedToIdentities = n.GetCollectionOfObjectValues<IdentitySet>().ToList(); } },
+                {"grantedToIdentitiesV2", (o,n) => { (o as Permission).GrantedToIdentitiesV2 = n.GetCollectionOfObjectValues<SharePointIdentitySet>().ToList(); } },
+                {"grantedToV2", (o,n) => { (o as Permission).GrantedToV2 = n.GetObjectValue<SharePointIdentitySet>(); } },
                 {"hasPassword", (o,n) => { (o as Permission).HasPassword = n.GetBoolValue(); } },
                 {"inheritedFrom", (o,n) => { (o as Permission).InheritedFrom = n.GetObjectValue<ItemReference>(); } },
                 {"invitation", (o,n) => { (o as Permission).Invitation = n.GetObjectValue<SharingInvitation>(); } },
@@ -49,6 +53,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteObjectValue<IdentitySet>("grantedTo", GrantedTo);
             writer.WriteCollectionOfObjectValues<IdentitySet>("grantedToIdentities", GrantedToIdentities);
+            writer.WriteCollectionOfObjectValues<SharePointIdentitySet>("grantedToIdentitiesV2", GrantedToIdentitiesV2);
+            writer.WriteObjectValue<SharePointIdentitySet>("grantedToV2", GrantedToV2);
             writer.WriteBoolValue("hasPassword", HasPassword);
             writer.WriteObjectValue<ItemReference>("inheritedFrom", InheritedFrom);
             writer.WriteObjectValue<SharingInvitation>("invitation", Invitation);

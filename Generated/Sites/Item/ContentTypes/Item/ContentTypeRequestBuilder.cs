@@ -1,5 +1,14 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Sites.Item.ContentTypes.Item.ColumnLinks;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Sites.Item.ContentTypes.Item.AssociateWithHubSites;
+using GraphSdk.Sites.Item.ContentTypes.Item.Base;
+using GraphSdk.Sites.Item.ContentTypes.Item.BaseTypes;
+using GraphSdk.Sites.Item.ContentTypes.Item.ColumnLinks;
+using GraphSdk.Sites.Item.ContentTypes.Item.ColumnPositions;
+using GraphSdk.Sites.Item.ContentTypes.Item.Columns;
+using GraphSdk.Sites.Item.ContentTypes.Item.CopyToDefaultContentLocation;
+using GraphSdk.Sites.Item.ContentTypes.Item.IsPublished;
+using GraphSdk.Sites.Item.ContentTypes.Item.Publish;
+using GraphSdk.Sites.Item.ContentTypes.Item.Unpublish;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -7,33 +16,68 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Sites.Item.ContentTypes.Item {
+namespace GraphSdk.Sites.Item.ContentTypes.Item {
     /// <summary>Builds and executes requests for operations under \sites\{site-id}\contentTypes\{contentType-id}</summary>
     public class ContentTypeRequestBuilder {
-        public ColumnLinksRequestBuilder ColumnLinks { get =>
-            new ColumnLinksRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+        public AssociateWithHubSitesRequestBuilder AssociateWithHubSites { get =>
+            new AssociateWithHubSitesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        public BaseRequestBuilder Base { get =>
+            new BaseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public BaseTypesRequestBuilder BaseTypes { get =>
+            new BaseTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public ColumnLinksRequestBuilder ColumnLinks { get =>
+            new ColumnLinksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public ColumnPositionsRequestBuilder ColumnPositions { get =>
+            new ColumnPositionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public ColumnsRequestBuilder Columns { get =>
+            new ColumnsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public CopyToDefaultContentLocationRequestBuilder CopyToDefaultContentLocation { get =>
+            new CopyToDefaultContentLocationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        public PublishRequestBuilder Publish { get =>
+            new PublishRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        public UnpublishRequestBuilder Unpublish { get =>
+            new UnpublishRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ContentTypeRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public ContentTypeRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public ContentTypeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/contentTypes/{contentType_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new ContentTypeRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public ContentTypeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/contentTypes/{contentType_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// The collection of content types defined for this site.
@@ -43,8 +87,9 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -58,8 +103,9 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -79,8 +125,9 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -106,6 +153,12 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item {
         public async Task<ContentType> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<ContentType>(requestInfo, responseHandler);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \sites\{site-id}\contentTypes\{contentType-id}\microsoft.graph.isPublished()
+        /// </summary>
+        public IsPublishedRequestBuilder IsPublished() {
+            return new IsPublishedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The collection of content types defined for this site.

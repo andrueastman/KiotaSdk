@@ -1,17 +1,17 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Teams.Item.Archive;
-using ApiSdk.Teams.Item.Channels;
-using ApiSdk.Teams.Item.Clone;
-using ApiSdk.Teams.Item.CompleteMigration;
-using ApiSdk.Teams.Item.Group;
-using ApiSdk.Teams.Item.InstalledApps;
-using ApiSdk.Teams.Item.Members;
-using ApiSdk.Teams.Item.Operations;
-using ApiSdk.Teams.Item.PrimaryChannel;
-using ApiSdk.Teams.Item.Schedule;
-using ApiSdk.Teams.Item.SendActivityNotification;
-using ApiSdk.Teams.Item.Template;
-using ApiSdk.Teams.Item.Unarchive;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Teams.Item.Archive;
+using GraphSdk.Teams.Item.Channels;
+using GraphSdk.Teams.Item.Clone;
+using GraphSdk.Teams.Item.CompleteMigration;
+using GraphSdk.Teams.Item.Group;
+using GraphSdk.Teams.Item.InstalledApps;
+using GraphSdk.Teams.Item.Members;
+using GraphSdk.Teams.Item.Operations;
+using GraphSdk.Teams.Item.PrimaryChannel;
+using GraphSdk.Teams.Item.Schedule;
+using GraphSdk.Teams.Item.SendActivityNotification;
+using GraphSdk.Teams.Item.Template;
+using GraphSdk.Teams.Item.Unarchive;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -19,69 +19,80 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Teams.Item {
+namespace GraphSdk.Teams.Item {
     /// <summary>Builds and executes requests for operations under \teams\{team-id}</summary>
     public class TeamRequestBuilder {
         public ArchiveRequestBuilder Archive { get =>
-            new ArchiveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ArchiveRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChannelsRequestBuilder Channels { get =>
-            new ChannelsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChannelsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CloneRequestBuilder Clone { get =>
-            new CloneRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CloneRequestBuilder(PathParameters, RequestAdapter);
         }
         public CompleteMigrationRequestBuilder CompleteMigration { get =>
-            new CompleteMigrationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CompleteMigrationRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public GroupRequestBuilder Group { get =>
-            new GroupRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GroupRequestBuilder(PathParameters, RequestAdapter);
         }
         public InstalledAppsRequestBuilder InstalledApps { get =>
-            new InstalledAppsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InstalledAppsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MembersRequestBuilder Members { get =>
-            new MembersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         public OperationsRequestBuilder Operations { get =>
-            new OperationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PrimaryChannelRequestBuilder PrimaryChannel { get =>
-            new PrimaryChannelRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PrimaryChannelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ScheduleRequestBuilder Schedule { get =>
-            new ScheduleRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScheduleRequestBuilder(PathParameters, RequestAdapter);
         }
         public SendActivityNotificationRequestBuilder SendActivityNotification { get =>
-            new SendActivityNotificationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SendActivityNotificationRequestBuilder(PathParameters, RequestAdapter);
         }
         public TemplateRequestBuilder Template { get =>
-            new TemplateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TemplateRequestBuilder(PathParameters, RequestAdapter);
         }
         public UnarchiveRequestBuilder Unarchive { get =>
-            new UnarchiveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UnarchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new TeamRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public TeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/teams/{team_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new TeamRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public TeamRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public TeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/teams/{team_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Delete entity from teams
@@ -91,8 +102,9 @@ namespace ApiSdk.Teams.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -106,8 +118,9 @@ namespace ApiSdk.Teams.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -123,12 +136,13 @@ namespace ApiSdk.Teams.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -151,9 +165,9 @@ namespace ApiSdk.Teams.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.Team> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.Team> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update entity in teams
@@ -162,7 +176,7 @@ namespace ApiSdk.Teams.Item {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Team body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);

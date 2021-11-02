@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AccessReviewScheduleSettings : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.</summary>
+        /// <summary>Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.</summary>
         public List<AccessReviewApplyAction> ApplyActions { get; set; }
-        /// <summary>Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</summary>
+        /// <summary>Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.</summary>
         public bool? AutoApplyDecisionsEnabled { get; set; }
-        /// <summary>Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.</summary>
+        /// <summary>Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.</summary>
         public string DefaultDecision { get; set; }
         /// <summary>Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.</summary>
         public bool? DefaultDecisionEnabled { get; set; }
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public bool? JustificationRequiredOnApproval { get; set; }
         /// <summary>Indicates whether emails are enabled or disabled. Default value is false.</summary>
         public bool? MailNotificationsEnabled { get; set; }
-        /// <summary>Indicates whether decision recommendations are enabled/disabled.</summary>
+        /// <summary>Indicates whether decision recommendations are enabled or disabled.</summary>
         public bool? RecommendationsEnabled { get; set; }
         /// <summary>Detailed settings for recurrence using the standard Outlook recurrence object. Only weekly and absoluteMonthly on recurrencePattern are supported. Use the property startDate on recurrenceRange to determine the day the review starts.</summary>
         public PatternedRecurrence Recurrence { get; set; }

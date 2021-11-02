@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Sites.Item.Onenote.Notebooks.Item.Sections.Item.ParentSectionGroup.ParentNotebook.CopyNotebook {
+namespace GraphSdk.Sites.Item.Onenote.Notebooks.Item.Sections.Item.ParentSectionGroup.ParentNotebook.CopyNotebook {
     public class CopyNotebookRequestBody : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

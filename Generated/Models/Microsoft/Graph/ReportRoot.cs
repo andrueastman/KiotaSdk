@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ReportRoot : Entity, IParsable {
         public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
         public List<PrintUsageByUser> DailyPrintUsageByUser { get; set; }

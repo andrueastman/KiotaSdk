@@ -1,17 +1,17 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Policies.ActivityBasedTimeoutPolicies;
-using ApiSdk.Policies.AdminConsentRequestPolicy;
-using ApiSdk.Policies.AuthenticationFlowsPolicy;
-using ApiSdk.Policies.AuthenticationMethodsPolicy;
-using ApiSdk.Policies.AuthorizationPolicy;
-using ApiSdk.Policies.ClaimsMappingPolicies;
-using ApiSdk.Policies.ConditionalAccessPolicies;
-using ApiSdk.Policies.FeatureRolloutPolicies;
-using ApiSdk.Policies.HomeRealmDiscoveryPolicies;
-using ApiSdk.Policies.IdentitySecurityDefaultsEnforcementPolicy;
-using ApiSdk.Policies.PermissionGrantPolicies;
-using ApiSdk.Policies.TokenIssuancePolicies;
-using ApiSdk.Policies.TokenLifetimePolicies;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Policies.ActivityBasedTimeoutPolicies;
+using GraphSdk.Policies.AdminConsentRequestPolicy;
+using GraphSdk.Policies.AuthenticationFlowsPolicy;
+using GraphSdk.Policies.AuthenticationMethodsPolicy;
+using GraphSdk.Policies.AuthorizationPolicy;
+using GraphSdk.Policies.ClaimsMappingPolicies;
+using GraphSdk.Policies.ConditionalAccessPolicies;
+using GraphSdk.Policies.FeatureRolloutPolicies;
+using GraphSdk.Policies.HomeRealmDiscoveryPolicies;
+using GraphSdk.Policies.IdentitySecurityDefaultsEnforcementPolicy;
+using GraphSdk.Policies.PermissionGrantPolicies;
+using GraphSdk.Policies.TokenIssuancePolicies;
+using GraphSdk.Policies.TokenLifetimePolicies;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -19,69 +19,80 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Policies {
+namespace GraphSdk.Policies {
     /// <summary>Builds and executes requests for operations under \policies</summary>
     public class PoliciesRequestBuilder {
         public ActivityBasedTimeoutPoliciesRequestBuilder ActivityBasedTimeoutPolicies { get =>
-            new ActivityBasedTimeoutPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ActivityBasedTimeoutPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AdminConsentRequestPolicyRequestBuilder AdminConsentRequestPolicy { get =>
-            new AdminConsentRequestPolicyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AdminConsentRequestPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationFlowsPolicyRequestBuilder AuthenticationFlowsPolicy { get =>
-            new AuthenticationFlowsPolicyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AuthenticationFlowsPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationMethodsPolicyRequestBuilder AuthenticationMethodsPolicy { get =>
-            new AuthenticationMethodsPolicyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AuthenticationMethodsPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthorizationPolicyRequestBuilder AuthorizationPolicy { get =>
-            new AuthorizationPolicyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AuthorizationPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
         public ClaimsMappingPoliciesRequestBuilder ClaimsMappingPolicies { get =>
-            new ClaimsMappingPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ClaimsMappingPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ConditionalAccessPoliciesRequestBuilder ConditionalAccessPolicies { get =>
-            new ConditionalAccessPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ConditionalAccessPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public FeatureRolloutPoliciesRequestBuilder FeatureRolloutPolicies { get =>
-            new FeatureRolloutPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FeatureRolloutPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public HomeRealmDiscoveryPoliciesRequestBuilder HomeRealmDiscoveryPolicies { get =>
-            new HomeRealmDiscoveryPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new HomeRealmDiscoveryPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public IdentitySecurityDefaultsEnforcementPolicyRequestBuilder IdentitySecurityDefaultsEnforcementPolicy { get =>
-            new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PermissionGrantPoliciesRequestBuilder PermissionGrantPolicies { get =>
-            new PermissionGrantPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PermissionGrantPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
-            new TokenIssuancePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TokenIssuancePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public TokenLifetimePoliciesRequestBuilder TokenLifetimePolicies { get =>
-            new TokenLifetimePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TokenLifetimePoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new PoliciesRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/policies{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new PoliciesRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public PoliciesRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/policies";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/policies{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Get policies
@@ -92,8 +103,9 @@ namespace ApiSdk.Policies {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -113,8 +125,9 @@ namespace ApiSdk.Policies {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

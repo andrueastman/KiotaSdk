@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Authentication : Entity, IParsable {
         public List<Fido2AuthenticationMethod> Fido2Methods { get; set; }
         public List<AuthenticationMethod> Methods { get; set; }

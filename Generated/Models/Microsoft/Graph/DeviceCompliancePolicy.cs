@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class DeviceCompliancePolicy : Entity, IParsable {
         /// <summary>The collection of assignments for this compliance policy.</summary>
         public List<DeviceCompliancePolicyAssignment> Assignments { get; set; }
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string DisplayName { get; set; }
         /// <summary>DateTime the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The list of scheduled action for this rule</summary>
+        /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
         public List<DeviceComplianceScheduledActionForRule> ScheduledActionsForRule { get; set; }
         /// <summary>List of DeviceComplianceUserStatus.</summary>
         public List<DeviceComplianceUserStatus> UserStatuses { get; set; }

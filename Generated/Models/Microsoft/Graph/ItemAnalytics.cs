@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ItemAnalytics : Entity, IParsable {
         public ItemActivityStat AllTime { get; set; }
         public List<ItemActivityStat> ItemActivityStats { get; set; }

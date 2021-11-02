@@ -1,14 +1,14 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.CellWithRowWithColumn;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Names;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.PivotTables;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Protection;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Range;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.RangeWithAddress;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.UsedRange;
-using ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.UsedRangeWithValuesOnly;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.CellWithRowWithColumn;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Names;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.PivotTables;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Protection;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Range;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.RangeWithAddress;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.UsedRange;
+using GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.UsedRangeWithValuesOnly;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -16,32 +16,30 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
+namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet</summary>
     public class WorksheetRequestBuilder {
         public ChartsRequestBuilder Charts { get =>
-            new ChartsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChartsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public NamesRequestBuilder Names { get =>
-            new NamesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new NamesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PivotTablesRequestBuilder PivotTables { get =>
-            new PivotTablesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PivotTablesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ProtectionRequestBuilder Protection { get =>
-            new ProtectionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ProtectionRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public TablesRequestBuilder Tables { get =>
-            new TablesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TablesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.cell(row={row},column={column})
         /// <param name="column">Usage: column={column}</param>
@@ -50,21 +48,34 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         public CellWithRowWithColumnRequestBuilder CellWithRowWithColumn(int? row, int? column) {
             _ = column ?? throw new ArgumentNullException(nameof(column));
             _ = row ?? throw new ArgumentNullException(nameof(row));
-            return new CellWithRowWithColumnRequestBuilder(CurrentPath + PathSegment , RequestAdapter, row, column, false);
+            return new CellWithRowWithColumnRequestBuilder(PathParameters, RequestAdapter, row, column);
         }
         /// <summary>
         /// Instantiates a new WorksheetRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public WorksheetRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public WorksheetRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/worksheet";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new WorksheetRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public WorksheetRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
@@ -74,8 +85,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -89,8 +101,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -110,8 +123,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -154,7 +168,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.range()
         /// </summary>
         public RangeRequestBuilder Range() {
-            return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new RangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.range(address='{address}')
@@ -162,13 +176,13 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         /// </summary>
         public RangeWithAddressRequestBuilder RangeWithAddress(string address) {
             if(string.IsNullOrEmpty(address)) throw new ArgumentNullException(nameof(address));
-            return new RangeWithAddressRequestBuilder(CurrentPath + PathSegment , RequestAdapter, address, false);
+            return new RangeWithAddressRequestBuilder(PathParameters, RequestAdapter, address);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.usedRange()
         /// </summary>
         public UsedRangeRequestBuilder UsedRange() {
-            return new UsedRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new UsedRangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.usedRange(valuesOnly={valuesOnly})
@@ -176,7 +190,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         /// </summary>
         public UsedRangeWithValuesOnlyRequestBuilder UsedRangeWithValuesOnly(bool? valuesOnly) {
             _ = valuesOnly ?? throw new ArgumentNullException(nameof(valuesOnly));
-            return new UsedRangeWithValuesOnlyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, valuesOnly, false);
+            return new UsedRangeWithValuesOnlyRequestBuilder(PathParameters, RequestAdapter, valuesOnly);
         }
         /// <summary>Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

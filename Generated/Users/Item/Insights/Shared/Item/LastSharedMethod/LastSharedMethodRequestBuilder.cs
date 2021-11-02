@@ -1,18 +1,18 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.CalendarSharingMessage;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.ManagedAppProtection;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.MobileAppContentFile;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.PrintDocument;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.PrintJob;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.Ref;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.ScheduleChangeRequest;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.TargetedManagedAppProtection;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WindowsInformationProtection;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRange;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeFill;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeFormat;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeSort;
-using ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeView;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.CalendarSharingMessage;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.ManagedAppProtection;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.MobileAppContentFile;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.PrintDocument;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.PrintJob;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.Ref;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.ScheduleChangeRequest;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.TargetedManagedAppProtection;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WindowsInformationProtection;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRange;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeFill;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeFormat;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeSort;
+using GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRangeView;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -20,72 +20,83 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod {
+namespace GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod {
     /// <summary>Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\lastSharedMethod</summary>
     public class LastSharedMethodRequestBuilder {
         public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
-            new CalendarSharingMessageRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
-            new ManagedAppProtectionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
         }
         public MobileAppContentFileRequestBuilder MobileAppContentFile { get =>
-            new MobileAppContentFileRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MobileAppContentFileRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PrintDocumentRequestBuilder PrintDocument { get =>
-            new PrintDocumentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PrintDocumentRequestBuilder(PathParameters, RequestAdapter);
         }
         public PrintJobRequestBuilder PrintJob { get =>
-            new PrintJobRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PrintJobRequestBuilder(PathParameters, RequestAdapter);
         }
         public RefRequestBuilder Ref { get =>
-            new RefRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RefRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ScheduleChangeRequestRequestBuilder ScheduleChangeRequest { get =>
-            new ScheduleChangeRequestRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScheduleChangeRequestRequestBuilder(PathParameters, RequestAdapter);
         }
         public TargetedManagedAppProtectionRequestBuilder TargetedManagedAppProtection { get =>
-            new TargetedManagedAppProtectionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TargetedManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WindowsInformationProtectionRequestBuilder WindowsInformationProtection { get =>
-            new WindowsInformationProtectionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsInformationProtectionRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRangeRequestBuilder WorkbookRange { get =>
-            new WorkbookRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRangeRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRangeFillRequestBuilder WorkbookRangeFill { get =>
-            new WorkbookRangeFillRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRangeFillRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRangeFormatRequestBuilder WorkbookRangeFormat { get =>
-            new WorkbookRangeFormatRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRangeFormatRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRangeSortRequestBuilder WorkbookRangeSort { get =>
-            new WorkbookRangeSortRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRangeSortRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRangeViewRequestBuilder WorkbookRangeView { get =>
-            new WorkbookRangeViewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRangeViewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new LastSharedMethodRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public LastSharedMethodRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public LastSharedMethodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/lastSharedMethod";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}/insights/shared/{sharedInsight_id}/lastSharedMethod{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new LastSharedMethodRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public LastSharedMethodRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}/insights/shared/{sharedInsight_id}/lastSharedMethod{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Get lastSharedMethod from users
@@ -96,8 +107,9 @@ namespace ApiSdk.Users.Item.Insights.Shared.Item.LastSharedMethod {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);

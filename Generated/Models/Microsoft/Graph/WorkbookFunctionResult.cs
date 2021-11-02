@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookFunctionResult : Entity, IParsable {
         public string Error { get; set; }
         public Json Value { get; set; }

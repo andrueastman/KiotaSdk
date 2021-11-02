@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Me.MailFolders.Item.ChildFolders.Delta {
+namespace GraphSdk.Me.MailFolders.Item.ChildFolders.Delta {
     public class Delta : Entity, IParsable {
         /// <summary>The number of immediate child mailFolders in the current mailFolder.</summary>
         public int? ChildFolderCount { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PrintJobConfiguration : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,7 +26,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string InputBin { get; set; }
         /// <summary>The margin settings to use when printing.</summary>
         public PrintMargin Margin { get; set; }
-        /// <summary>The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.</summary>
+        /// <summary>The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.</summary>
         public string MediaSize { get; set; }
         /// <summary>The default media (such as paper) type to print the document on.</summary>
         public string MediaType { get; set; }

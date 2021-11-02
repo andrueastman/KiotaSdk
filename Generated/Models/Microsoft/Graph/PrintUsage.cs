@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PrintUsage : Entity, IParsable {
         public long? CompletedBlackAndWhiteJobCount { get; set; }
         public long? CompletedColorJobCount { get; set; }

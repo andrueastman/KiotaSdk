@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ManagedAppPolicy : Entity, IParsable {
         /// <summary>The date and time the policy was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

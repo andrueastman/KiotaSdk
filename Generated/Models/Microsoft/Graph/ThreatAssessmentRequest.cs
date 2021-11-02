@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ThreatAssessmentRequest : Entity, IParsable {
         /// <summary>The threat category. Possible values are: spam, phishing, malware.</summary>
         public ThreatCategory? Category { get; set; }
@@ -15,7 +15,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The expected assessment from submitter. Possible values are: block, unblock.</summary>
         public ThreatExpectedAssessment? ExpectedAssessment { get; set; }
-        /// <summary>The source of the threat assessment request. Possible values are: user, administrator.</summary>
+        /// <summary>The source of the threat assessment request. Possible values are: administrator.</summary>
         public ThreatAssessmentRequestSource? RequestSource { get; set; }
         /// <summary>A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.</summary>
         public List<ThreatAssessmentResult> Results { get; set; }

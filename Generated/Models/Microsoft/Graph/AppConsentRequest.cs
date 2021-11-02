@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AppConsentRequest : Entity, IParsable {
         /// <summary>The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.</summary>
         public string AppDisplayName { get; set; }
         /// <summary>The identifier of the application. Required. Supports $filter (eq only) and $orderby.</summary>
         public string AppId { get; set; }
-        /// <summary>A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.</summary>
+        /// <summary>A list of pending scopes waiting for approval. Required.</summary>
         public List<AppConsentRequestScope> PendingScopes { get; set; }
         /// <summary>A list of pending user consent requests.</summary>
         public List<UserConsentRequest> UserConsentRequests { get; set; }

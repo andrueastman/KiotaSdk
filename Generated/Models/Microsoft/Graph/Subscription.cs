@@ -3,21 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Subscription : Entity, IParsable {
         /// <summary>Identifier of the application used to create the subscription. Read-only.</summary>
         public string ApplicationId { get; set; }
-        /// <summary>Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.</summary>
+        /// <summary>Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.</summary>
         public string ChangeType { get; set; }
-        /// <summary>Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.</summary>
+        /// <summary>Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.</summary>
         public string ClientState { get; set; }
-        /// <summary>Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.</summary>
+        /// <summary>Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.</summary>
         public string CreatorId { get; set; }
         /// <summary>A base64-encoded representation of a certificate with a public key used to encrypt resource data in change notifications. Optional. Required when includeResourceData is true.</summary>
         public string EncryptionCertificate { get; set; }
-        /// <summary>A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.</summary>
+        /// <summary>A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.</summary>
         public string EncryptionCertificateId { get; set; }
-        /// <summary>Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.</summary>
+        /// <summary>Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>When set to true, change notifications include resource data (such as content of a chat message). Optional.</summary>
         public bool? IncludeResourceData { get; set; }
@@ -27,9 +27,10 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string LifecycleNotificationUrl { get; set; }
         /// <summary>OData Query Options for specifying value for the targeting resource. Clients receive notifications when resource reaches the state matching the query options provided here. With this new property in the subscription creation payload along with all existing properties, Webhooks will deliver notifications whenever a resource reaches the desired state mentioned in the notificationQueryOptions property eg  when the print job is completed, when a print job resource isFetchable property value becomes true etc.</summary>
         public string NotificationQueryOptions { get; set; }
-        /// <summary>The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.</summary>
+        /// <summary>Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.</summary>
         public string NotificationUrl { get; set; }
-        /// <summary>Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.</summary>
+        public string NotificationUrlAppId { get; set; }
+        /// <summary>Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.</summary>
         public string Resource { get; set; }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,6 +49,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"lifecycleNotificationUrl", (o,n) => { (o as Subscription).LifecycleNotificationUrl = n.GetStringValue(); } },
                 {"notificationQueryOptions", (o,n) => { (o as Subscription).NotificationQueryOptions = n.GetStringValue(); } },
                 {"notificationUrl", (o,n) => { (o as Subscription).NotificationUrl = n.GetStringValue(); } },
+                {"notificationUrlAppId", (o,n) => { (o as Subscription).NotificationUrlAppId = n.GetStringValue(); } },
                 {"resource", (o,n) => { (o as Subscription).Resource = n.GetStringValue(); } },
             };
         }
@@ -70,6 +72,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteStringValue("lifecycleNotificationUrl", LifecycleNotificationUrl);
             writer.WriteStringValue("notificationQueryOptions", NotificationQueryOptions);
             writer.WriteStringValue("notificationUrl", NotificationUrl);
+            writer.WriteStringValue("notificationUrlAppId", NotificationUrlAppId);
             writer.WriteStringValue("resource", Resource);
         }
     }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class TeamMemberSettings : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public bool? AllowAddRemoveApps { get; set; }
         /// <summary>If set to true, members can add and update private channels.</summary>
         public bool? AllowCreatePrivateChannels { get; set; }
-        /// <summary>If set to true, members can add and update any channels.</summary>
+        /// <summary>If set to true, members can add and update channels.</summary>
         public bool? AllowCreateUpdateChannels { get; set; }
         /// <summary>If set to true, members can add, update, and remove connectors.</summary>
         public bool? AllowCreateUpdateRemoveConnectors { get; set; }

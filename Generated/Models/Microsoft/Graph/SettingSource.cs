@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class SettingSource : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,6 +11,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string DisplayName { get; set; }
         /// <summary>Not yet documented</summary>
         public string Id { get; set; }
+        /// <summary>Not yet documented. Possible values are: deviceConfiguration, deviceIntent.</summary>
+        public SettingSourceType? SourceType { get; set; }
         /// <summary>
         /// Instantiates a new settingSource and sets the default values.
         /// </summary>
@@ -24,6 +26,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"displayName", (o,n) => { (o as SettingSource).DisplayName = n.GetStringValue(); } },
                 {"id", (o,n) => { (o as SettingSource).Id = n.GetStringValue(); } },
+                {"sourceType", (o,n) => { (o as SettingSource).SourceType = n.GetEnumValue<SettingSourceType>(); } },
             };
         }
         /// <summary>
@@ -34,6 +37,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("id", Id);
+            writer.WriteEnumValue<SettingSourceType>("sourceType", SourceType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

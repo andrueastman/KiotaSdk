@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ManagedAppPolicyDeploymentSummary : Entity, IParsable {
         /// <summary>Not yet documented</summary>
         public int? ConfigurationDeployedUserCount { get; set; }

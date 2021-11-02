@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class TermsOfUseContainer : Entity, IParsable {
         public List<AgreementAcceptance> AgreementAcceptances { get; set; }
         public List<Agreement> Agreements { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Website : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string Address { get; set; }
         /// <summary>The display name of the web site.</summary>
         public string DisplayName { get; set; }
-        /// <summary>Possible values are: other, home, work, blog, profile.</summary>
+        /// <summary>The possible values are: other, home, work, blog, profile.</summary>
         public WebsiteType? Type { get; set; }
         /// <summary>
         /// Instantiates a new website and sets the default values.

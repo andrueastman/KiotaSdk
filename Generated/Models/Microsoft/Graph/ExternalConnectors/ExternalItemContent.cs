@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph.ExternalConnectors {
+namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
     public class ExternalItemContent : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The type of content in the value property. Possible values are: text, html, unknownFutureValue.</summary>
         public ExternalItemContentType? Type { get; set; }
+        /// <summary>The content for the externalItem. Required.</summary>
         public string Value { get; set; }
         /// <summary>
         /// Instantiates a new externalItemContent and sets the default values.

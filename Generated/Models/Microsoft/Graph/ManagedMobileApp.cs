@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ManagedMobileApp : Entity, IParsable {
         /// <summary>The identifier for an app with it's operating system type.</summary>
         public MobileAppIdentifier MobileAppIdentifier { get; set; }

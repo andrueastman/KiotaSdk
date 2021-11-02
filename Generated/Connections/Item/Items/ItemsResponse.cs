@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph.ExternalConnectors;
+using GraphSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Connections.Item.Items {
+namespace GraphSdk.Connections.Item.Items {
     public class ItemsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

@@ -1,4 +1,4 @@
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public enum ManagementAgentType {
         Eas,
         Mdm,
@@ -11,5 +11,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
         Unknown,
         Jamf,
         GoogleCloudDevicePolicyController,
+        Microsoft365ManagedMdm,
+        MsSense,
+        IntuneAosp,
     }
 }

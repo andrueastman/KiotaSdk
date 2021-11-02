@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Photo : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,7 +23,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public int? Iso { get; set; }
         /// <summary>The orientation value from the camera. Writable on OneDrive Personal.</summary>
         public int? Orientation { get; set; }
-        /// <summary>The date and time the photo was taken in UTC time. Read-only.</summary>
+        /// <summary>Represents the date and time the photo was taken. Read-only.</summary>
         public DateTimeOffset? TakenDateTime { get; set; }
         /// <summary>
         /// Instantiates a new photo and sets the default values.

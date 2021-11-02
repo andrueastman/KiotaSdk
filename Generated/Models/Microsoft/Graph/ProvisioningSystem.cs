@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ProvisioningSystem : Identity, IParsable {
         /// <summary>Details of the system.</summary>
         public DetailsInfo Details { get; set; }

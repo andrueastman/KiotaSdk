@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class SubscribedSku : Entity, IParsable {
         /// <summary>For example, 'User' or 'Company'.</summary>
         public string AppliesTo { get; set; }

@@ -1,19 +1,19 @@
-using ApiSdk.Communications.Calls.Item.Answer;
-using ApiSdk.Communications.Calls.Item.CancelMediaProcessing;
-using ApiSdk.Communications.Calls.Item.ChangeScreenSharingRole;
-using ApiSdk.Communications.Calls.Item.KeepAlive;
-using ApiSdk.Communications.Calls.Item.Mute;
-using ApiSdk.Communications.Calls.Item.Operations;
-using ApiSdk.Communications.Calls.Item.Participants;
-using ApiSdk.Communications.Calls.Item.PlayPrompt;
-using ApiSdk.Communications.Calls.Item.RecordResponse;
-using ApiSdk.Communications.Calls.Item.Redirect;
-using ApiSdk.Communications.Calls.Item.Reject;
-using ApiSdk.Communications.Calls.Item.SubscribeToTone;
-using ApiSdk.Communications.Calls.Item.Transfer;
-using ApiSdk.Communications.Calls.Item.Unmute;
-using ApiSdk.Communications.Calls.Item.UpdateRecordingStatus;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Communications.Calls.Item.Answer;
+using GraphSdk.Communications.Calls.Item.CancelMediaProcessing;
+using GraphSdk.Communications.Calls.Item.ChangeScreenSharingRole;
+using GraphSdk.Communications.Calls.Item.KeepAlive;
+using GraphSdk.Communications.Calls.Item.Mute;
+using GraphSdk.Communications.Calls.Item.Operations;
+using GraphSdk.Communications.Calls.Item.Participants;
+using GraphSdk.Communications.Calls.Item.PlayPrompt;
+using GraphSdk.Communications.Calls.Item.RecordResponse;
+using GraphSdk.Communications.Calls.Item.Redirect;
+using GraphSdk.Communications.Calls.Item.Reject;
+using GraphSdk.Communications.Calls.Item.SubscribeToTone;
+using GraphSdk.Communications.Calls.Item.Transfer;
+using GraphSdk.Communications.Calls.Item.Unmute;
+using GraphSdk.Communications.Calls.Item.UpdateRecordingStatus;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -21,75 +21,86 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Communications.Calls.Item {
+namespace GraphSdk.Communications.Calls.Item {
     /// <summary>Builds and executes requests for operations under \communications\calls\{call-id}</summary>
     public class CallRequestBuilder {
         public AnswerRequestBuilder Answer { get =>
-            new AnswerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AnswerRequestBuilder(PathParameters, RequestAdapter);
         }
         public CancelMediaProcessingRequestBuilder CancelMediaProcessing { get =>
-            new CancelMediaProcessingRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CancelMediaProcessingRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChangeScreenSharingRoleRequestBuilder ChangeScreenSharingRole { get =>
-            new ChangeScreenSharingRoleRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChangeScreenSharingRoleRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public KeepAliveRequestBuilder KeepAlive { get =>
-            new KeepAliveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new KeepAliveRequestBuilder(PathParameters, RequestAdapter);
         }
         public MuteRequestBuilder Mute { get =>
-            new MuteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MuteRequestBuilder(PathParameters, RequestAdapter);
         }
         public OperationsRequestBuilder Operations { get =>
-            new OperationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OperationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ParticipantsRequestBuilder Participants { get =>
-            new ParticipantsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ParticipantsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PlayPromptRequestBuilder PlayPrompt { get =>
-            new PlayPromptRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PlayPromptRequestBuilder(PathParameters, RequestAdapter);
         }
         public RecordResponseRequestBuilder RecordResponse { get =>
-            new RecordResponseRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RecordResponseRequestBuilder(PathParameters, RequestAdapter);
         }
         public RedirectRequestBuilder Redirect { get =>
-            new RedirectRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RedirectRequestBuilder(PathParameters, RequestAdapter);
         }
         public RejectRequestBuilder Reject { get =>
-            new RejectRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RejectRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public SubscribeToToneRequestBuilder SubscribeToTone { get =>
-            new SubscribeToToneRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SubscribeToToneRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransferRequestBuilder Transfer { get =>
-            new TransferRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransferRequestBuilder(PathParameters, RequestAdapter);
         }
         public UnmuteRequestBuilder Unmute { get =>
-            new UnmuteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UnmuteRequestBuilder(PathParameters, RequestAdapter);
         }
         public UpdateRecordingStatusRequestBuilder UpdateRecordingStatus { get =>
-            new UpdateRecordingStatusRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UpdateRecordingStatusRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new CallRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public CallRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/communications/calls/{call_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new CallRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public CallRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public CallRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/communications/calls/{call_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Delete navigation property calls for communications
@@ -99,8 +110,9 @@ namespace ApiSdk.Communications.Calls.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -114,8 +126,9 @@ namespace ApiSdk.Communications.Calls.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -135,8 +148,9 @@ namespace ApiSdk.Communications.Calls.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

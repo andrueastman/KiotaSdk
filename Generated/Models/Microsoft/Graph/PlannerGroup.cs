@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PlannerGroup : Entity, IParsable {
         /// <summary>Read-only. Nullable. Returns the plannerPlans owned by the group.</summary>
         public List<PlannerPlan> Plans { get; set; }

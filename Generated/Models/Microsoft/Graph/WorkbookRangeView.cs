@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookRangeView : Entity, IParsable {
         /// <summary>Represents the cell addresses</summary>
         public Json CellAddresses { get; set; }
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.Microsoft.Graph {
         /// <summary>Returns the number of visible rows. Read-only.</summary>
         public int? RowCount { get; set; }
         /// <summary>Represents a collection of range views associated with the range. Read-only. Read-only.</summary>
-        public List<ApiSdk.Models.Microsoft.Graph.WorkbookRangeView> Rows { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.WorkbookRangeView> Rows { get; set; }
         /// <summary>Text values of the specified range. The Text value will not depend on the cell width. The # sign substitution that happens in Excel UI will not affect the text value returned by the API. Read-only.</summary>
         public Json Text { get; set; }
         /// <summary>Represents the raw values of the specified range view. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.</summary>
         public Json Values { get; set; }
-        /// <summary>Represents the type of data of each cell. Read-only. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.</summary>
+        /// <summary>Represents the type of data of each cell. Read-only. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.</summary>
         public Json ValueTypes { get; set; }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +42,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"index", (o,n) => { (o as WorkbookRangeView).Index = n.GetIntValue(); } },
                 {"numberFormat", (o,n) => { (o as WorkbookRangeView).NumberFormat = n.GetObjectValue<Json>(); } },
                 {"rowCount", (o,n) => { (o as WorkbookRangeView).RowCount = n.GetIntValue(); } },
-                {"rows", (o,n) => { (o as WorkbookRangeView).Rows = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.WorkbookRangeView>().ToList(); } },
+                {"rows", (o,n) => { (o as WorkbookRangeView).Rows = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.WorkbookRangeView>().ToList(); } },
                 {"text", (o,n) => { (o as WorkbookRangeView).Text = n.GetObjectValue<Json>(); } },
                 {"values", (o,n) => { (o as WorkbookRangeView).Values = n.GetObjectValue<Json>(); } },
                 {"valueTypes", (o,n) => { (o as WorkbookRangeView).ValueTypes = n.GetObjectValue<Json>(); } },
@@ -63,7 +63,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteIntValue("index", Index);
             writer.WriteObjectValue<Json>("numberFormat", NumberFormat);
             writer.WriteIntValue("rowCount", RowCount);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.WorkbookRangeView>("rows", Rows);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.WorkbookRangeView>("rows", Rows);
             writer.WriteObjectValue<Json>("text", Text);
             writer.WriteObjectValue<Json>("values", Values);
             writer.WriteObjectValue<Json>("valueTypes", ValueTypes);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class DeviceInstallState : Entity, IParsable {
         /// <summary>Device Id.</summary>
         public string DeviceId { get; set; }

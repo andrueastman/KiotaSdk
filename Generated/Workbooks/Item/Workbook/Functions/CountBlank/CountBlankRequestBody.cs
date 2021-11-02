@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Workbooks.Item.Workbook.Functions.CountBlank {
+namespace GraphSdk.Workbooks.Item.Workbook.Functions.CountBlank {
     public class CountBlankRequestBody : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

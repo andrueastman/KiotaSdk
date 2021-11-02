@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph.ExternalConnectors {
+namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
     public class ExternalItem : Entity, IParsable {
+        /// <summary>An array of access control entries. Each entry specifies the access granted to a user or group. Required.</summary>
         public List<Acl> Acl { get; set; }
+        /// <summary>A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.</summary>
         public ExternalItemContent Content { get; set; }
+        /// <summary>A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.</summary>
         public Properties Properties { get; set; }
         /// <summary>
         /// The deserialization information for the current model

@@ -1,9 +1,9 @@
-using ApiSdk.Domains.Item.DomainNameReferences;
-using ApiSdk.Domains.Item.ForceDelete;
-using ApiSdk.Domains.Item.ServiceConfigurationRecords;
-using ApiSdk.Domains.Item.VerificationDnsRecords;
-using ApiSdk.Domains.Item.Verify;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Domains.Item.DomainNameReferences;
+using GraphSdk.Domains.Item.ForceDelete;
+using GraphSdk.Domains.Item.ServiceConfigurationRecords;
+using GraphSdk.Domains.Item.VerificationDnsRecords;
+using GraphSdk.Domains.Item.Verify;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -11,45 +11,56 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Domains.Item {
+namespace GraphSdk.Domains.Item {
     /// <summary>Builds and executes requests for operations under \domains\{domain-id}</summary>
     public class DomainRequestBuilder {
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DomainNameReferencesRequestBuilder DomainNameReferences { get =>
-            new DomainNameReferencesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DomainNameReferencesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ForceDeleteRequestBuilder ForceDelete { get =>
-            new ForceDeleteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ForceDeleteRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ServiceConfigurationRecordsRequestBuilder ServiceConfigurationRecords { get =>
-            new ServiceConfigurationRecordsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ServiceConfigurationRecordsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public VerificationDnsRecordsRequestBuilder VerificationDnsRecords { get =>
-            new VerificationDnsRecordsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new VerificationDnsRecordsRequestBuilder(PathParameters, RequestAdapter);
         }
         public VerifyRequestBuilder Verify { get =>
-            new VerifyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DomainRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public DomainRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public DomainRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/domains/{domain_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new DomainRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public DomainRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/domains/{domain_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Delete entity from domains
@@ -59,8 +70,9 @@ namespace ApiSdk.Domains.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -74,8 +86,9 @@ namespace ApiSdk.Domains.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -95,8 +108,9 @@ namespace ApiSdk.Domains.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

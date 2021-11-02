@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PrintDocument : Entity, IParsable {
         /// <summary>The document's content (MIME) type. Read-only.</summary>
         public string ContentType { get; set; }

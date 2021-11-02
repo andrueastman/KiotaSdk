@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Chat : Entity, IParsable {
         /// <summary>Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</summary>
         public ChatType? ChatType { get; set; }

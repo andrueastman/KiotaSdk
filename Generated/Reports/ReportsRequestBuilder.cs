@@ -1,100 +1,100 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Reports.DailyPrintUsageByPrinter;
-using ApiSdk.Reports.DailyPrintUsageByUser;
-using ApiSdk.Reports.DeviceConfigurationDeviceActivity;
-using ApiSdk.Reports.DeviceConfigurationUserActivity;
-using ApiSdk.Reports.GetEmailActivityCountsWithPeriod;
-using ApiSdk.Reports.GetEmailActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetEmailActivityUserDetailWithDate;
-using ApiSdk.Reports.GetEmailActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetEmailAppUsageAppsUserCountsWithPeriod;
-using ApiSdk.Reports.GetEmailAppUsageUserCountsWithPeriod;
-using ApiSdk.Reports.GetEmailAppUsageUserDetailWithDate;
-using ApiSdk.Reports.GetEmailAppUsageUserDetailWithPeriod;
-using ApiSdk.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod;
-using ApiSdk.Reports.GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime;
-using ApiSdk.Reports.GetMailboxUsageDetailWithPeriod;
-using ApiSdk.Reports.GetMailboxUsageMailboxCountsWithPeriod;
-using ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod;
-using ApiSdk.Reports.GetMailboxUsageStorageWithPeriod;
-using ApiSdk.Reports.GetOffice365ActivationCounts;
-using ApiSdk.Reports.GetOffice365ActivationsUserCounts;
-using ApiSdk.Reports.GetOffice365ActivationsUserDetail;
-using ApiSdk.Reports.GetOffice365ActiveUserCountsWithPeriod;
-using ApiSdk.Reports.GetOffice365ActiveUserDetailWithDate;
-using ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod;
-using ApiSdk.Reports.GetOffice365GroupsActivityCountsWithPeriod;
-using ApiSdk.Reports.GetOffice365GroupsActivityDetailWithDate;
-using ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod;
-using ApiSdk.Reports.GetOffice365GroupsActivityFileCountsWithPeriod;
-using ApiSdk.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod;
-using ApiSdk.Reports.GetOffice365GroupsActivityStorageWithPeriod;
-using ApiSdk.Reports.GetOffice365ServicesUserCountsWithPeriod;
-using ApiSdk.Reports.GetOneDriveActivityFileCountsWithPeriod;
-using ApiSdk.Reports.GetOneDriveActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetOneDriveActivityUserDetailWithDate;
-using ApiSdk.Reports.GetOneDriveActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetOneDriveUsageAccountCountsWithPeriod;
-using ApiSdk.Reports.GetOneDriveUsageAccountDetailWithDate;
-using ApiSdk.Reports.GetOneDriveUsageAccountDetailWithPeriod;
-using ApiSdk.Reports.GetOneDriveUsageFileCountsWithPeriod;
-using ApiSdk.Reports.GetOneDriveUsageStorageWithPeriod;
-using ApiSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime;
-using ApiSdk.Reports.GetSharePointActivityFileCountsWithPeriod;
-using ApiSdk.Reports.GetSharePointActivityPagesWithPeriod;
-using ApiSdk.Reports.GetSharePointActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetSharePointActivityUserDetailWithDate;
-using ApiSdk.Reports.GetSharePointActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetSharePointSiteUsageDetailWithDate;
-using ApiSdk.Reports.GetSharePointSiteUsageDetailWithPeriod;
-using ApiSdk.Reports.GetSharePointSiteUsageFileCountsWithPeriod;
-using ApiSdk.Reports.GetSharePointSiteUsagePagesWithPeriod;
-using ApiSdk.Reports.GetSharePointSiteUsageSiteCountsWithPeriod;
-using ApiSdk.Reports.GetSharePointSiteUsageStorageWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessActivityCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessActivityUserDetailWithDate;
-using ApiSdk.Reports.GetSkypeForBusinessActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate;
-using ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessParticipantActivityCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod;
-using ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPeriod;
-using ApiSdk.Reports.GetTeamsDeviceUsageUserCountsWithPeriod;
-using ApiSdk.Reports.GetTeamsDeviceUsageUserDetailWithDate;
-using ApiSdk.Reports.GetTeamsDeviceUsageUserDetailWithPeriod;
-using ApiSdk.Reports.GetTeamsUserActivityCountsWithPeriod;
-using ApiSdk.Reports.GetTeamsUserActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetTeamsUserActivityUserDetailWithDate;
-using ApiSdk.Reports.GetTeamsUserActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime;
-using ApiSdk.Reports.GetYammerActivityCountsWithPeriod;
-using ApiSdk.Reports.GetYammerActivityUserCountsWithPeriod;
-using ApiSdk.Reports.GetYammerActivityUserDetailWithDate;
-using ApiSdk.Reports.GetYammerActivityUserDetailWithPeriod;
-using ApiSdk.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod;
-using ApiSdk.Reports.GetYammerDeviceUsageUserCountsWithPeriod;
-using ApiSdk.Reports.GetYammerDeviceUsageUserDetailWithDate;
-using ApiSdk.Reports.GetYammerDeviceUsageUserDetailWithPeriod;
-using ApiSdk.Reports.GetYammerGroupsActivityCountsWithPeriod;
-using ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate;
-using ApiSdk.Reports.GetYammerGroupsActivityDetailWithPeriod;
-using ApiSdk.Reports.GetYammerGroupsActivityGroupCountsWithPeriod;
-using ApiSdk.Reports.ManagedDeviceEnrollmentFailureDetails;
-using ApiSdk.Reports.ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken;
-using ApiSdk.Reports.ManagedDeviceEnrollmentTopFailures;
-using ApiSdk.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod;
-using ApiSdk.Reports.MonthlyPrintUsageByPrinter;
-using ApiSdk.Reports.MonthlyPrintUsageByUser;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Reports.DailyPrintUsageByPrinter;
+using GraphSdk.Reports.DailyPrintUsageByUser;
+using GraphSdk.Reports.DeviceConfigurationDeviceActivity;
+using GraphSdk.Reports.DeviceConfigurationUserActivity;
+using GraphSdk.Reports.GetEmailActivityCountsWithPeriod;
+using GraphSdk.Reports.GetEmailActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetEmailActivityUserDetailWithDate;
+using GraphSdk.Reports.GetEmailActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetEmailAppUsageAppsUserCountsWithPeriod;
+using GraphSdk.Reports.GetEmailAppUsageUserCountsWithPeriod;
+using GraphSdk.Reports.GetEmailAppUsageUserDetailWithDate;
+using GraphSdk.Reports.GetEmailAppUsageUserDetailWithPeriod;
+using GraphSdk.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod;
+using GraphSdk.Reports.GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime;
+using GraphSdk.Reports.GetMailboxUsageDetailWithPeriod;
+using GraphSdk.Reports.GetMailboxUsageMailboxCountsWithPeriod;
+using GraphSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod;
+using GraphSdk.Reports.GetMailboxUsageStorageWithPeriod;
+using GraphSdk.Reports.GetOffice365ActivationCounts;
+using GraphSdk.Reports.GetOffice365ActivationsUserCounts;
+using GraphSdk.Reports.GetOffice365ActivationsUserDetail;
+using GraphSdk.Reports.GetOffice365ActiveUserCountsWithPeriod;
+using GraphSdk.Reports.GetOffice365ActiveUserDetailWithDate;
+using GraphSdk.Reports.GetOffice365ActiveUserDetailWithPeriod;
+using GraphSdk.Reports.GetOffice365GroupsActivityCountsWithPeriod;
+using GraphSdk.Reports.GetOffice365GroupsActivityDetailWithDate;
+using GraphSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod;
+using GraphSdk.Reports.GetOffice365GroupsActivityFileCountsWithPeriod;
+using GraphSdk.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod;
+using GraphSdk.Reports.GetOffice365GroupsActivityStorageWithPeriod;
+using GraphSdk.Reports.GetOffice365ServicesUserCountsWithPeriod;
+using GraphSdk.Reports.GetOneDriveActivityFileCountsWithPeriod;
+using GraphSdk.Reports.GetOneDriveActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetOneDriveActivityUserDetailWithDate;
+using GraphSdk.Reports.GetOneDriveActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetOneDriveUsageAccountCountsWithPeriod;
+using GraphSdk.Reports.GetOneDriveUsageAccountDetailWithDate;
+using GraphSdk.Reports.GetOneDriveUsageAccountDetailWithPeriod;
+using GraphSdk.Reports.GetOneDriveUsageFileCountsWithPeriod;
+using GraphSdk.Reports.GetOneDriveUsageStorageWithPeriod;
+using GraphSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime;
+using GraphSdk.Reports.GetSharePointActivityFileCountsWithPeriod;
+using GraphSdk.Reports.GetSharePointActivityPagesWithPeriod;
+using GraphSdk.Reports.GetSharePointActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetSharePointActivityUserDetailWithDate;
+using GraphSdk.Reports.GetSharePointActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetSharePointSiteUsageDetailWithDate;
+using GraphSdk.Reports.GetSharePointSiteUsageDetailWithPeriod;
+using GraphSdk.Reports.GetSharePointSiteUsageFileCountsWithPeriod;
+using GraphSdk.Reports.GetSharePointSiteUsagePagesWithPeriod;
+using GraphSdk.Reports.GetSharePointSiteUsageSiteCountsWithPeriod;
+using GraphSdk.Reports.GetSharePointSiteUsageStorageWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessActivityCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessActivityUserDetailWithDate;
+using GraphSdk.Reports.GetSkypeForBusinessActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessDeviceUsageUserCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate;
+using GraphSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessOrganizerActivityCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessParticipantActivityCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod;
+using GraphSdk.Reports.GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPeriod;
+using GraphSdk.Reports.GetTeamsDeviceUsageUserCountsWithPeriod;
+using GraphSdk.Reports.GetTeamsDeviceUsageUserDetailWithDate;
+using GraphSdk.Reports.GetTeamsDeviceUsageUserDetailWithPeriod;
+using GraphSdk.Reports.GetTeamsUserActivityCountsWithPeriod;
+using GraphSdk.Reports.GetTeamsUserActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetTeamsUserActivityUserDetailWithDate;
+using GraphSdk.Reports.GetTeamsUserActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime;
+using GraphSdk.Reports.GetYammerActivityCountsWithPeriod;
+using GraphSdk.Reports.GetYammerActivityUserCountsWithPeriod;
+using GraphSdk.Reports.GetYammerActivityUserDetailWithDate;
+using GraphSdk.Reports.GetYammerActivityUserDetailWithPeriod;
+using GraphSdk.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod;
+using GraphSdk.Reports.GetYammerDeviceUsageUserCountsWithPeriod;
+using GraphSdk.Reports.GetYammerDeviceUsageUserDetailWithDate;
+using GraphSdk.Reports.GetYammerDeviceUsageUserDetailWithPeriod;
+using GraphSdk.Reports.GetYammerGroupsActivityCountsWithPeriod;
+using GraphSdk.Reports.GetYammerGroupsActivityDetailWithDate;
+using GraphSdk.Reports.GetYammerGroupsActivityDetailWithPeriod;
+using GraphSdk.Reports.GetYammerGroupsActivityGroupCountsWithPeriod;
+using GraphSdk.Reports.ManagedDeviceEnrollmentFailureDetails;
+using GraphSdk.Reports.ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken;
+using GraphSdk.Reports.ManagedDeviceEnrollmentTopFailures;
+using GraphSdk.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod;
+using GraphSdk.Reports.MonthlyPrintUsageByPrinter;
+using GraphSdk.Reports.MonthlyPrintUsageByUser;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -102,42 +102,53 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Reports {
+namespace GraphSdk.Reports {
     /// <summary>Builds and executes requests for operations under \reports</summary>
     public class ReportsRequestBuilder {
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DailyPrintUsageByPrinterRequestBuilder DailyPrintUsageByPrinter { get =>
-            new DailyPrintUsageByPrinterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DailyPrintUsageByPrinterRequestBuilder(PathParameters, RequestAdapter);
         }
         public DailyPrintUsageByUserRequestBuilder DailyPrintUsageByUser { get =>
-            new DailyPrintUsageByUserRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DailyPrintUsageByUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MonthlyPrintUsageByPrinterRequestBuilder MonthlyPrintUsageByPrinter { get =>
-            new MonthlyPrintUsageByPrinterRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MonthlyPrintUsageByPrinterRequestBuilder(PathParameters, RequestAdapter);
         }
         public MonthlyPrintUsageByUserRequestBuilder MonthlyPrintUsageByUser { get =>
-            new MonthlyPrintUsageByUserRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MonthlyPrintUsageByUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new ReportsRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public ReportsRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public ReportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/reports";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/reports{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new ReportsRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public ReportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/reports{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Get reports
@@ -148,8 +159,9 @@ namespace ApiSdk.Reports {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -169,8 +181,9 @@ namespace ApiSdk.Reports {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -180,13 +193,13 @@ namespace ApiSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.deviceConfigurationDeviceActivity()
         /// </summary>
         public DeviceConfigurationDeviceActivityRequestBuilder DeviceConfigurationDeviceActivity() {
-            return new DeviceConfigurationDeviceActivityRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new DeviceConfigurationDeviceActivityRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.deviceConfigurationUserActivity()
         /// </summary>
         public DeviceConfigurationUserActivityRequestBuilder DeviceConfigurationUserActivity() {
-            return new DeviceConfigurationUserActivityRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new DeviceConfigurationUserActivityRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Get reports
@@ -205,7 +218,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailActivityCountsWithPeriodRequestBuilder GetEmailActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailActivityUserCounts(period='{period}')
@@ -213,7 +226,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailActivityUserCountsWithPeriodRequestBuilder GetEmailActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailActivityUserDetail(date={date})
@@ -221,7 +234,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailActivityUserDetailWithDateRequestBuilder GetEmailActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetEmailActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetEmailActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailActivityUserDetail(period='{period}')
@@ -229,7 +242,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailActivityUserDetailWithPeriodRequestBuilder GetEmailActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageAppsUserCounts(period='{period}')
@@ -237,7 +250,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder GetEmailAppUsageAppsUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageUserCounts(period='{period}')
@@ -245,7 +258,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailAppUsageUserCountsWithPeriodRequestBuilder GetEmailAppUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageUserDetail(date={date})
@@ -253,7 +266,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailAppUsageUserDetailWithDateRequestBuilder GetEmailAppUsageUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetEmailAppUsageUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageUserDetail(period='{period}')
@@ -261,7 +274,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailAppUsageUserDetailWithPeriodRequestBuilder GetEmailAppUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageVersionsUserCounts(period='{period}')
@@ -269,7 +282,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder GetEmailAppUsageVersionsUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getGroupArchivedPrintJobs(groupId='{groupId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -281,7 +294,7 @@ namespace ApiSdk.Reports {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(groupId)) throw new ArgumentNullException(nameof(groupId));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
-            return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, groupId, startDateTime, endDateTime, false);
+            return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, groupId, startDateTime, endDateTime);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getMailboxUsageDetail(period='{period}')
@@ -289,7 +302,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetMailboxUsageDetailWithPeriodRequestBuilder GetMailboxUsageDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetMailboxUsageDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetMailboxUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getMailboxUsageMailboxCounts(period='{period}')
@@ -297,7 +310,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetMailboxUsageMailboxCountsWithPeriodRequestBuilder GetMailboxUsageMailboxCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getMailboxUsageQuotaStatusMailboxCounts(period='{period}')
@@ -305,7 +318,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder GetMailboxUsageQuotaStatusMailboxCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getMailboxUsageStorage(period='{period}')
@@ -313,25 +326,25 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetMailboxUsageStorageWithPeriodRequestBuilder GetMailboxUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetMailboxUsageStorageWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetMailboxUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActivationCounts()
         /// </summary>
         public GetOffice365ActivationCountsRequestBuilder GetOffice365ActivationCounts() {
-            return new GetOffice365ActivationCountsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetOffice365ActivationCountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActivationsUserCounts()
         /// </summary>
         public GetOffice365ActivationsUserCountsRequestBuilder GetOffice365ActivationsUserCounts() {
-            return new GetOffice365ActivationsUserCountsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetOffice365ActivationsUserCountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActivationsUserDetail()
         /// </summary>
         public GetOffice365ActivationsUserDetailRequestBuilder GetOffice365ActivationsUserDetail() {
-            return new GetOffice365ActivationsUserDetailRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetOffice365ActivationsUserDetailRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActiveUserCounts(period='{period}')
@@ -339,7 +352,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365ActiveUserCountsWithPeriodRequestBuilder GetOffice365ActiveUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActiveUserDetail(date={date})
@@ -347,7 +360,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365ActiveUserDetailWithDateRequestBuilder GetOffice365ActiveUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetOffice365ActiveUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActiveUserDetail(period='{period}')
@@ -355,7 +368,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365ActiveUserDetailWithPeriodRequestBuilder GetOffice365ActiveUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityCounts(period='{period}')
@@ -363,7 +376,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityCountsWithPeriodRequestBuilder GetOffice365GroupsActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityDetail(date={date})
@@ -371,7 +384,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityDetailWithDateRequestBuilder GetOffice365GroupsActivityDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityDetail(period='{period}')
@@ -379,7 +392,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityDetailWithPeriodRequestBuilder GetOffice365GroupsActivityDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityFileCounts(period='{period}')
@@ -387,7 +400,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder GetOffice365GroupsActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityGroupCounts(period='{period}')
@@ -395,7 +408,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder GetOffice365GroupsActivityGroupCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityStorage(period='{period}')
@@ -403,7 +416,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365GroupsActivityStorageWithPeriodRequestBuilder GetOffice365GroupsActivityStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ServicesUserCounts(period='{period}')
@@ -411,7 +424,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOffice365ServicesUserCountsWithPeriodRequestBuilder GetOffice365ServicesUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityFileCounts(period='{period}')
@@ -419,7 +432,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveActivityFileCountsWithPeriodRequestBuilder GetOneDriveActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityUserCounts(period='{period}')
@@ -427,7 +440,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveActivityUserCountsWithPeriodRequestBuilder GetOneDriveActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityUserDetail(date={date})
@@ -435,7 +448,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveActivityUserDetailWithDateRequestBuilder GetOneDriveActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetOneDriveActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityUserDetail(period='{period}')
@@ -443,7 +456,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveActivityUserDetailWithPeriodRequestBuilder GetOneDriveActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageAccountCounts(period='{period}')
@@ -451,7 +464,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveUsageAccountCountsWithPeriodRequestBuilder GetOneDriveUsageAccountCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageAccountDetail(date={date})
@@ -459,7 +472,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveUsageAccountDetailWithDateRequestBuilder GetOneDriveUsageAccountDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageAccountDetail(period='{period}')
@@ -467,7 +480,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveUsageAccountDetailWithPeriodRequestBuilder GetOneDriveUsageAccountDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageFileCounts(period='{period}')
@@ -475,7 +488,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveUsageFileCountsWithPeriodRequestBuilder GetOneDriveUsageFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageStorage(period='{period}')
@@ -483,7 +496,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetOneDriveUsageStorageWithPeriodRequestBuilder GetOneDriveUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetOneDriveUsageStorageWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetOneDriveUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getPrinterArchivedPrintJobs(printerId='{printerId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -495,7 +508,7 @@ namespace ApiSdk.Reports {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(printerId)) throw new ArgumentNullException(nameof(printerId));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
-            return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, printerId, startDateTime, endDateTime, false);
+            return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, printerId, startDateTime, endDateTime);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityFileCounts(period='{period}')
@@ -503,7 +516,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointActivityFileCountsWithPeriodRequestBuilder GetSharePointActivityFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointActivityFileCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointActivityFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityPages(period='{period}')
@@ -511,7 +524,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointActivityPagesWithPeriodRequestBuilder GetSharePointActivityPagesWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointActivityPagesWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointActivityPagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityUserCounts(period='{period}')
@@ -519,7 +532,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointActivityUserCountsWithPeriodRequestBuilder GetSharePointActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityUserDetail(date={date})
@@ -527,7 +540,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointActivityUserDetailWithDateRequestBuilder GetSharePointActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetSharePointActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityUserDetail(period='{period}')
@@ -535,7 +548,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointActivityUserDetailWithPeriodRequestBuilder GetSharePointActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageDetail(date={date})
@@ -543,7 +556,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsageDetailWithDateRequestBuilder GetSharePointSiteUsageDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetSharePointSiteUsageDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageDetail(period='{period}')
@@ -551,7 +564,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsageDetailWithPeriodRequestBuilder GetSharePointSiteUsageDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageFileCounts(period='{period}')
@@ -559,7 +572,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder GetSharePointSiteUsageFileCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsagePages(period='{period}')
@@ -567,7 +580,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsagePagesWithPeriodRequestBuilder GetSharePointSiteUsagePagesWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageSiteCounts(period='{period}')
@@ -575,7 +588,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder GetSharePointSiteUsageSiteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageStorage(period='{period}')
@@ -583,7 +596,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSharePointSiteUsageStorageWithPeriodRequestBuilder GetSharePointSiteUsageStorageWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessActivityCounts(period='{period}')
@@ -591,7 +604,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessActivityUserCounts(period='{period}')
@@ -599,7 +612,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessActivityUserDetail(date={date})
@@ -607,7 +620,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder GetSkypeForBusinessActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessActivityUserDetail(period='{period}')
@@ -615,7 +628,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder GetSkypeForBusinessActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')
@@ -623,7 +636,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageUserCounts(period='{period}')
@@ -631,7 +644,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(date={date})
@@ -639,7 +652,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(period='{period}')
@@ -647,7 +660,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessOrganizerActivityCounts(period='{period}')
@@ -655,7 +668,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')
@@ -663,7 +676,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessOrganizerActivityUserCounts(period='{period}')
@@ -671,7 +684,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessParticipantActivityCounts(period='{period}')
@@ -679,7 +692,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessParticipantActivityMinuteCounts(period='{period}')
@@ -687,7 +700,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessParticipantActivityUserCounts(period='{period}')
@@ -695,7 +708,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessParticipantActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessPeerToPeerActivityCounts(period='{period}')
@@ -703,7 +716,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessPeerToPeerActivityMinuteCounts(period='{period}')
@@ -711,7 +724,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessPeerToPeerActivityUserCounts(period='{period}')
@@ -719,7 +732,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsDeviceUsageDistributionUserCounts(period='{period}')
@@ -727,7 +740,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetTeamsDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsDeviceUsageUserCounts(period='{period}')
@@ -735,7 +748,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder GetTeamsDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})
@@ -743,7 +756,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder GetTeamsDeviceUsageUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsDeviceUsageUserDetail(period='{period}')
@@ -751,7 +764,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder GetTeamsDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsUserActivityCounts(period='{period}')
@@ -759,7 +772,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsUserActivityCountsWithPeriodRequestBuilder GetTeamsUserActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsUserActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsUserActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsUserActivityUserCounts(period='{period}')
@@ -767,7 +780,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsUserActivityUserCountsWithPeriodRequestBuilder GetTeamsUserActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsUserActivityUserDetail(date={date})
@@ -775,7 +788,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsUserActivityUserDetailWithDateRequestBuilder GetTeamsUserActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsUserActivityUserDetail(period='{period}')
@@ -783,7 +796,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetTeamsUserActivityUserDetailWithPeriodRequestBuilder GetTeamsUserActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -795,7 +808,7 @@ namespace ApiSdk.Reports {
             _ = endDateTime ?? throw new ArgumentNullException(nameof(endDateTime));
             _ = startDateTime ?? throw new ArgumentNullException(nameof(startDateTime));
             if(string.IsNullOrEmpty(userId)) throw new ArgumentNullException(nameof(userId));
-            return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, userId, startDateTime, endDateTime, false);
+            return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, userId, startDateTime, endDateTime);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityCounts(period='{period}')
@@ -803,7 +816,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerActivityCountsWithPeriodRequestBuilder GetYammerActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityUserCounts(period='{period}')
@@ -811,7 +824,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerActivityUserCountsWithPeriodRequestBuilder GetYammerActivityUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerActivityUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerActivityUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityUserDetail(date={date})
@@ -819,7 +832,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerActivityUserDetailWithDateRequestBuilder GetYammerActivityUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetYammerActivityUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetYammerActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityUserDetail(period='{period}')
@@ -827,7 +840,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerActivityUserDetailWithPeriodRequestBuilder GetYammerActivityUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerActivityUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerActivityUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerDeviceUsageDistributionUserCounts(period='{period}')
@@ -835,7 +848,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder GetYammerDeviceUsageDistributionUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerDeviceUsageUserCounts(period='{period}')
@@ -843,7 +856,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder GetYammerDeviceUsageUserCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerDeviceUsageUserDetail(date={date})
@@ -851,7 +864,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerDeviceUsageUserDetailWithDateRequestBuilder GetYammerDeviceUsageUserDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerDeviceUsageUserDetail(period='{period}')
@@ -859,7 +872,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder GetYammerDeviceUsageUserDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerGroupsActivityCounts(period='{period}')
@@ -867,7 +880,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerGroupsActivityCountsWithPeriodRequestBuilder GetYammerGroupsActivityCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerGroupsActivityDetail(date={date})
@@ -875,7 +888,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerGroupsActivityDetailWithDateRequestBuilder GetYammerGroupsActivityDetailWithDate(string date) {
             if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
-            return new GetYammerGroupsActivityDetailWithDateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, date, false);
+            return new GetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerGroupsActivityDetail(period='{period}')
@@ -883,7 +896,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerGroupsActivityDetailWithPeriodRequestBuilder GetYammerGroupsActivityDetailWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerGroupsActivityGroupCounts(period='{period}')
@@ -891,13 +904,13 @@ namespace ApiSdk.Reports {
         /// </summary>
         public GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder GetYammerGroupsActivityGroupCountsWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.managedDeviceEnrollmentFailureDetails()
         /// </summary>
         public ManagedDeviceEnrollmentFailureDetailsRequestBuilder ManagedDeviceEnrollmentFailureDetails() {
-            return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')
@@ -911,13 +924,13 @@ namespace ApiSdk.Reports {
             _ = skip ?? throw new ArgumentNullException(nameof(skip));
             if(string.IsNullOrEmpty(skipToken)) throw new ArgumentNullException(nameof(skipToken));
             _ = top ?? throw new ArgumentNullException(nameof(top));
-            return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(CurrentPath + PathSegment , RequestAdapter, skip, top, filter, skipToken, false);
+            return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters, RequestAdapter, skip, top, filter, skipToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.managedDeviceEnrollmentTopFailures()
         /// </summary>
         public ManagedDeviceEnrollmentTopFailuresRequestBuilder ManagedDeviceEnrollmentTopFailures() {
-            return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \reports\microsoft.graph.managedDeviceEnrollmentTopFailures(period='{period}')
@@ -925,7 +938,7 @@ namespace ApiSdk.Reports {
         /// </summary>
         public ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder ManagedDeviceEnrollmentTopFailuresWithPeriod(string period) {
             if(string.IsNullOrEmpty(period)) throw new ArgumentNullException(nameof(period));
-            return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(CurrentPath + PathSegment , RequestAdapter, period, false);
+            return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(PathParameters, RequestAdapter, period);
         }
         /// <summary>
         /// Update reports

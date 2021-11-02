@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EntitlementManagement : Entity, IParsable {
-        public List<ApiSdk.Models.Microsoft.Graph.Approval> AccessPackageAssignmentApprovals { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.Approval> AccessPackageAssignmentApprovals { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
-                {"accessPackageAssignmentApprovals", (o,n) => { (o as EntitlementManagement).AccessPackageAssignmentApprovals = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Approval>().ToList(); } },
+                {"accessPackageAssignmentApprovals", (o,n) => { (o as EntitlementManagement).AccessPackageAssignmentApprovals = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Approval>().ToList(); } },
             };
         }
         /// <summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Approval>("accessPackageAssignmentApprovals", AccessPackageAssignmentApprovals);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Approval>("accessPackageAssignmentApprovals", AccessPackageAssignmentApprovals);
         }
     }
 }

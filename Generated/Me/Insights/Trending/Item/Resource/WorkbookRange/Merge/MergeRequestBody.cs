@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Me.Insights.Trending.Item.Resource.WorkbookRange.Merge {
+namespace GraphSdk.Me.Insights.Trending.Item.Resource.WorkbookRange.Merge {
     public class MergeRequestBody : IParsable {
         public bool? Across { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

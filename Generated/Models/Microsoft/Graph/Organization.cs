@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Organization : DirectoryObject, IParsable {
         /// <summary>The collection of service plans associated with the tenant. Not nullable.</summary>
         public List<AssignedPlan> AssignedPlans { get; set; }
         public OrganizationalBranding Branding { get; set; }
         /// <summary>Telephone number for the organization. Although this is a string collection, only one number can be set for this property.</summary>
         public List<string> BusinessPhones { get; set; }
-        /// <summary>Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.</summary>
-        public List<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration { get; set; }
+        /// <summary>Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.</summary>
+        public List<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration> CertificateBasedAuthConfiguration { get; set; }
         /// <summary>City name of the address for the organization.</summary>
         public string City { get; set; }
         /// <summary>Country/region name of the address for the organization.</summary>
@@ -22,19 +22,19 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The display name for the tenant.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The collection of open extensions defined for the organization resource. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
         public List<Extension> Extensions { get; set; }
         /// <summary>Not nullable.</summary>
         public List<string> MarketingNotificationEmails { get; set; }
         /// <summary>Mobile device management authority. Possible values are: unknown, intune, sccm, office365.</summary>
         public MdmAuthority? MobileDeviceManagementAuthority { get; set; }
-        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
-        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
         /// <summary>Postal code of the address for the organization.</summary>
         public string PostalCode { get; set; }
-        /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example en.</summary>
+        /// <summary>The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.</summary>
         public string PreferredLanguage { get; set; }
         /// <summary>The privacy profile of an organization.</summary>
         public PrivacyProfile PrivacyProfile { get; set; }
@@ -59,7 +59,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"assignedPlans", (o,n) => { (o as Organization).AssignedPlans = n.GetCollectionOfObjectValues<AssignedPlan>().ToList(); } },
                 {"branding", (o,n) => { (o as Organization).Branding = n.GetObjectValue<OrganizationalBranding>(); } },
                 {"businessPhones", (o,n) => { (o as Organization).BusinessPhones = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
-                {"certificateBasedAuthConfiguration", (o,n) => { (o as Organization).CertificateBasedAuthConfiguration = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>().ToList(); } },
+                {"certificateBasedAuthConfiguration", (o,n) => { (o as Organization).CertificateBasedAuthConfiguration = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>().ToList(); } },
                 {"city", (o,n) => { (o as Organization).City = n.GetStringValue(); } },
                 {"country", (o,n) => { (o as Organization).Country = n.GetStringValue(); } },
                 {"countryLetterCode", (o,n) => { (o as Organization).CountryLetterCode = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteCollectionOfObjectValues<AssignedPlan>("assignedPlans", AssignedPlans);
             writer.WriteObjectValue<OrganizationalBranding>("branding", Branding);
             writer.WriteCollectionOfPrimitiveValues<string>("businessPhones", BusinessPhones);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", CertificateBasedAuthConfiguration);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", CertificateBasedAuthConfiguration);
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("countryLetterCode", CountryLetterCode);

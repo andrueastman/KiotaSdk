@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Me.Insights.Shared.Item.Resource.PrintJob.Abort {
+namespace GraphSdk.Me.Insights.Shared.Item.Resource.PrintJob.Abort {
     public class AbortRequestBody : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

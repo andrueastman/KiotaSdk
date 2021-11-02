@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Organization.GetByIds {
+namespace GraphSdk.Organization.GetByIds {
     public class GetByIds : Entity, IParsable {
         public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>

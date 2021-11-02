@@ -1,69 +1,69 @@
-using ApiSdk.Me.Activities;
-using ApiSdk.Me.AgreementAcceptances;
-using ApiSdk.Me.AppRoleAssignments;
-using ApiSdk.Me.AssignLicense;
-using ApiSdk.Me.Authentication;
-using ApiSdk.Me.Calendar;
-using ApiSdk.Me.CalendarGroups;
-using ApiSdk.Me.Calendars;
-using ApiSdk.Me.CalendarView;
-using ApiSdk.Me.ChangePassword;
-using ApiSdk.Me.Chats;
-using ApiSdk.Me.CheckMemberGroups;
-using ApiSdk.Me.CheckMemberObjects;
-using ApiSdk.Me.ContactFolders;
-using ApiSdk.Me.Contacts;
-using ApiSdk.Me.CreatedObjects;
-using ApiSdk.Me.DeviceManagementTroubleshootingEvents;
-using ApiSdk.Me.DirectReports;
-using ApiSdk.Me.Drive;
-using ApiSdk.Me.Drives;
-using ApiSdk.Me.Events;
-using ApiSdk.Me.ExportPersonalData;
-using ApiSdk.Me.Extensions;
-using ApiSdk.Me.FindMeetingTimes;
-using ApiSdk.Me.FollowedSites;
-using ApiSdk.Me.GetMailTips;
-using ApiSdk.Me.GetManagedAppDiagnosticStatuses;
-using ApiSdk.Me.GetManagedAppPolicies;
-using ApiSdk.Me.GetMemberGroups;
-using ApiSdk.Me.GetMemberObjects;
-using ApiSdk.Me.InferenceClassification;
-using ApiSdk.Me.Insights;
-using ApiSdk.Me.JoinedTeams;
-using ApiSdk.Me.LicenseDetails;
-using ApiSdk.Me.MailFolders;
-using ApiSdk.Me.ManagedAppRegistrations;
-using ApiSdk.Me.ManagedDevices;
-using ApiSdk.Me.Manager;
-using ApiSdk.Me.MemberOf;
-using ApiSdk.Me.Messages;
-using ApiSdk.Me.Oauth2PermissionGrants;
-using ApiSdk.Me.Onenote;
-using ApiSdk.Me.OnlineMeetings;
-using ApiSdk.Me.Outlook;
-using ApiSdk.Me.OwnedDevices;
-using ApiSdk.Me.OwnedObjects;
-using ApiSdk.Me.People;
-using ApiSdk.Me.Photo;
-using ApiSdk.Me.Photos;
-using ApiSdk.Me.Planner;
-using ApiSdk.Me.Presence;
-using ApiSdk.Me.RegisteredDevices;
-using ApiSdk.Me.ReminderViewWithStartDateTimeWithEndDateTime;
-using ApiSdk.Me.RemoveAllDevicesFromManagement;
-using ApiSdk.Me.ReprocessLicenseAssignment;
-using ApiSdk.Me.Restore;
-using ApiSdk.Me.RevokeSignInSessions;
-using ApiSdk.Me.ScopedRoleMemberOf;
-using ApiSdk.Me.SendMail;
-using ApiSdk.Me.Settings;
-using ApiSdk.Me.Teamwork;
-using ApiSdk.Me.Todo;
-using ApiSdk.Me.TransitiveMemberOf;
-using ApiSdk.Me.TranslateExchangeIds;
-using ApiSdk.Me.WipeManagedAppRegistrationsByDeviceTag;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.Activities;
+using GraphSdk.Me.AgreementAcceptances;
+using GraphSdk.Me.AppRoleAssignments;
+using GraphSdk.Me.AssignLicense;
+using GraphSdk.Me.Authentication;
+using GraphSdk.Me.Calendar;
+using GraphSdk.Me.CalendarGroups;
+using GraphSdk.Me.Calendars;
+using GraphSdk.Me.CalendarView;
+using GraphSdk.Me.ChangePassword;
+using GraphSdk.Me.Chats;
+using GraphSdk.Me.CheckMemberGroups;
+using GraphSdk.Me.CheckMemberObjects;
+using GraphSdk.Me.ContactFolders;
+using GraphSdk.Me.Contacts;
+using GraphSdk.Me.CreatedObjects;
+using GraphSdk.Me.DeviceManagementTroubleshootingEvents;
+using GraphSdk.Me.DirectReports;
+using GraphSdk.Me.Drive;
+using GraphSdk.Me.Drives;
+using GraphSdk.Me.Events;
+using GraphSdk.Me.ExportPersonalData;
+using GraphSdk.Me.Extensions;
+using GraphSdk.Me.FindMeetingTimes;
+using GraphSdk.Me.FollowedSites;
+using GraphSdk.Me.GetMailTips;
+using GraphSdk.Me.GetManagedAppDiagnosticStatuses;
+using GraphSdk.Me.GetManagedAppPolicies;
+using GraphSdk.Me.GetMemberGroups;
+using GraphSdk.Me.GetMemberObjects;
+using GraphSdk.Me.InferenceClassification;
+using GraphSdk.Me.Insights;
+using GraphSdk.Me.JoinedTeams;
+using GraphSdk.Me.LicenseDetails;
+using GraphSdk.Me.MailFolders;
+using GraphSdk.Me.ManagedAppRegistrations;
+using GraphSdk.Me.ManagedDevices;
+using GraphSdk.Me.Manager;
+using GraphSdk.Me.MemberOf;
+using GraphSdk.Me.Messages;
+using GraphSdk.Me.Oauth2PermissionGrants;
+using GraphSdk.Me.Onenote;
+using GraphSdk.Me.OnlineMeetings;
+using GraphSdk.Me.Outlook;
+using GraphSdk.Me.OwnedDevices;
+using GraphSdk.Me.OwnedObjects;
+using GraphSdk.Me.People;
+using GraphSdk.Me.Photo;
+using GraphSdk.Me.Photos;
+using GraphSdk.Me.Planner;
+using GraphSdk.Me.Presence;
+using GraphSdk.Me.RegisteredDevices;
+using GraphSdk.Me.ReminderViewWithStartDateTimeWithEndDateTime;
+using GraphSdk.Me.RemoveAllDevicesFromManagement;
+using GraphSdk.Me.ReprocessLicenseAssignment;
+using GraphSdk.Me.Restore;
+using GraphSdk.Me.RevokeSignInSessions;
+using GraphSdk.Me.ScopedRoleMemberOf;
+using GraphSdk.Me.SendMail;
+using GraphSdk.Me.Settings;
+using GraphSdk.Me.Teamwork;
+using GraphSdk.Me.Todo;
+using GraphSdk.Me.TransitiveMemberOf;
+using GraphSdk.Me.TranslateExchangeIds;
+using GraphSdk.Me.WipeManagedAppRegistrationsByDeviceTag;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -71,216 +71,227 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Me {
+namespace GraphSdk.Me {
     /// <summary>Builds and executes requests for operations under \me</summary>
     public class MeRequestBuilder {
         public ActivitiesRequestBuilder Activities { get =>
-            new ActivitiesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ActivitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AgreementAcceptancesRequestBuilder AgreementAcceptances { get =>
-            new AgreementAcceptancesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AgreementAcceptancesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
-            new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignLicenseRequestBuilder AssignLicense { get =>
-            new AssignLicenseRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignLicenseRequestBuilder(PathParameters, RequestAdapter);
         }
         public AuthenticationRequestBuilder Authentication { get =>
-            new AuthenticationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AuthenticationRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarRequestBuilder Calendar { get =>
-            new CalendarRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarGroupsRequestBuilder CalendarGroups { get =>
-            new CalendarGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarsRequestBuilder Calendars { get =>
-            new CalendarsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CalendarViewRequestBuilder CalendarView { get =>
-            new CalendarViewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CalendarViewRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChangePasswordRequestBuilder ChangePassword { get =>
-            new ChangePasswordRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChangePasswordRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChatsRequestBuilder Chats { get =>
-            new ChatsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChatsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContactFoldersRequestBuilder ContactFolders { get =>
-            new ContactFoldersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContactFoldersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContactsRequestBuilder Contacts { get =>
-            new ContactsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreatedObjectsRequestBuilder CreatedObjects { get =>
-            new CreatedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreatedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DeviceManagementTroubleshootingEventsRequestBuilder DeviceManagementTroubleshootingEvents { get =>
-            new DeviceManagementTroubleshootingEventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceManagementTroubleshootingEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DirectReportsRequestBuilder DirectReports { get =>
-            new DirectReportsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DirectReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DrivesRequestBuilder(PathParameters, RequestAdapter);
         }
         public EventsRequestBuilder Events { get =>
-            new EventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new EventsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExportPersonalDataRequestBuilder ExportPersonalData { get =>
-            new ExportPersonalDataRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExportPersonalDataRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExtensionsRequestBuilder Extensions { get =>
-            new ExtensionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public FindMeetingTimesRequestBuilder FindMeetingTimes { get =>
-            new FindMeetingTimesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FindMeetingTimesRequestBuilder(PathParameters, RequestAdapter);
         }
         public FollowedSitesRequestBuilder FollowedSites { get =>
-            new FollowedSitesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FollowedSitesRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMailTipsRequestBuilder GetMailTips { get =>
-            new GetMailTipsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMailTipsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public InferenceClassificationRequestBuilder InferenceClassification { get =>
-            new InferenceClassificationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InferenceClassificationRequestBuilder(PathParameters, RequestAdapter);
         }
         public InsightsRequestBuilder Insights { get =>
-            new InsightsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InsightsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public JoinedTeamsRequestBuilder JoinedTeams { get =>
-            new JoinedTeamsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new JoinedTeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         public LicenseDetailsRequestBuilder LicenseDetails { get =>
-            new LicenseDetailsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new LicenseDetailsRequestBuilder(PathParameters, RequestAdapter);
         }
         public MailFoldersRequestBuilder MailFolders { get =>
-            new MailFoldersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MailFoldersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppRegistrationsRequestBuilder ManagedAppRegistrations { get =>
-            new ManagedAppRegistrationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedAppRegistrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedDevicesRequestBuilder ManagedDevices { get =>
-            new ManagedDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagerRequestBuilder Manager { get =>
-            new ManagerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagerRequestBuilder(PathParameters, RequestAdapter);
         }
         public MemberOfRequestBuilder MemberOf { get =>
-            new MemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public MessagesRequestBuilder Messages { get =>
-            new MessagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
-            new Oauth2PermissionGrantsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new Oauth2PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnenoteRequestBuilder Onenote { get =>
-            new OnenoteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnenoteRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnlineMeetingsRequestBuilder OnlineMeetings { get =>
-            new OnlineMeetingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnlineMeetingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OutlookRequestBuilder Outlook { get =>
-            new OutlookRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OutlookRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnedDevicesRequestBuilder OwnedDevices { get =>
-            new OwnedDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnedObjectsRequestBuilder OwnedObjects { get =>
-            new OwnedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PeopleRequestBuilder People { get =>
-            new PeopleRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PeopleRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotoRequestBuilder Photo { get =>
-            new PhotoRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotoRequestBuilder(PathParameters, RequestAdapter);
         }
         public PhotosRequestBuilder Photos { get =>
-            new PhotosRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PhotosRequestBuilder(PathParameters, RequestAdapter);
         }
         public PlannerRequestBuilder Planner { get =>
-            new PlannerRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PlannerRequestBuilder(PathParameters, RequestAdapter);
         }
         public PresenceRequestBuilder Presence { get =>
-            new PresenceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PresenceRequestBuilder(PathParameters, RequestAdapter);
         }
         public RegisteredDevicesRequestBuilder RegisteredDevices { get =>
-            new RegisteredDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RegisteredDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public RemoveAllDevicesFromManagementRequestBuilder RemoveAllDevicesFromManagement { get =>
-            new RemoveAllDevicesFromManagementRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoveAllDevicesFromManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         public ReprocessLicenseAssignmentRequestBuilder ReprocessLicenseAssignment { get =>
-            new ReprocessLicenseAssignmentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ReprocessLicenseAssignmentRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public RevokeSignInSessionsRequestBuilder RevokeSignInSessions { get =>
-            new RevokeSignInSessionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RevokeSignInSessionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ScopedRoleMemberOfRequestBuilder ScopedRoleMemberOf { get =>
-            new ScopedRoleMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ScopedRoleMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public SendMailRequestBuilder SendMail { get =>
-            new SendMailRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SendMailRequestBuilder(PathParameters, RequestAdapter);
         }
         public SettingsRequestBuilder Settings { get =>
-            new SettingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SettingsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeamworkRequestBuilder Teamwork { get =>
-            new TeamworkRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TeamworkRequestBuilder(PathParameters, RequestAdapter);
         }
         public TodoRequestBuilder Todo { get =>
-            new TodoRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TodoRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
-            new TransitiveMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public TranslateExchangeIdsRequestBuilder TranslateExchangeIds { get =>
-            new TranslateExchangeIdsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TranslateExchangeIdsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WipeManagedAppRegistrationsByDeviceTagRequestBuilder WipeManagedAppRegistrationsByDeviceTag { get =>
-            new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new MeRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public MeRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public MeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/me";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new MeRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public MeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Get me
@@ -291,8 +302,9 @@ namespace ApiSdk.Me {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -308,12 +320,13 @@ namespace ApiSdk.Me {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -326,21 +339,21 @@ namespace ApiSdk.Me {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\microsoft.graph.getManagedAppDiagnosticStatuses()
         /// </summary>
         public GetManagedAppDiagnosticStatusesRequestBuilder GetManagedAppDiagnosticStatuses() {
-            return new GetManagedAppDiagnosticStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetManagedAppDiagnosticStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\microsoft.graph.getManagedAppPolicies()
         /// </summary>
         public GetManagedAppPoliciesRequestBuilder GetManagedAppPolicies() {
-            return new GetManagedAppPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetManagedAppPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Update me
@@ -349,7 +362,7 @@ namespace ApiSdk.Me {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.User body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
@@ -359,10 +372,10 @@ namespace ApiSdk.Me {
         /// <param name="EndDateTime">Usage: EndDateTime={EndDateTime}</param>
         /// <param name="StartDateTime">Usage: StartDateTime={StartDateTime}</param>
         /// </summary>
-        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string StartDateTime, string EndDateTime) {
-            if(string.IsNullOrEmpty(EndDateTime)) throw new ArgumentNullException(nameof(EndDateTime));
-            if(string.IsNullOrEmpty(StartDateTime)) throw new ArgumentNullException(nameof(StartDateTime));
-            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, StartDateTime, EndDateTime, false);
+        public ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder ReminderViewWithStartDateTimeWithEndDateTime(string startDateTime, string endDateTime) {
+            if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
+            if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
+            return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters, RequestAdapter, startDateTime, endDateTime);
         }
         /// <summary>Get me</summary>
         public class GetQueryParameters : QueryParametersBase {

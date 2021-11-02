@@ -3,13 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Request : Entity, IParsable {
+        /// <summary>The identifier of the approval of the request.</summary>
         public string ApprovalId { get; set; }
+        /// <summary>The request completion date time.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
+        /// <summary>The user who created this request.</summary>
         public IdentitySet CreatedBy { get; set; }
+        /// <summary>The request creation date time.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>Free text field to define any custom data for the request. Not used.</summary>
         public string CustomData { get; set; }
+        /// <summary>The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.</summary>
         public string Status { get; set; }
         /// <summary>
         /// The deserialization information for the current model

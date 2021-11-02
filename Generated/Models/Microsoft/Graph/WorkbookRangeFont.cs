@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookRangeFont : Entity, IParsable {
         /// <summary>Represents the bold status of font.</summary>
         public bool? Bold { get; set; }
@@ -15,7 +15,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string Name { get; set; }
         /// <summary>Font size.</summary>
         public double? Size { get; set; }
-        /// <summary>Type of underline applied to the font. Possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.</summary>
+        /// <summary>Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.</summary>
         public string Underline { get; set; }
         /// <summary>
         /// The deserialization information for the current model

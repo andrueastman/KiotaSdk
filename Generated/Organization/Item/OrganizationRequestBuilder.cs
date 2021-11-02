@@ -1,13 +1,13 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Organization.Item.Branding;
-using ApiSdk.Organization.Item.CertificateBasedAuthConfiguration;
-using ApiSdk.Organization.Item.CheckMemberGroups;
-using ApiSdk.Organization.Item.CheckMemberObjects;
-using ApiSdk.Organization.Item.Extensions;
-using ApiSdk.Organization.Item.GetMemberGroups;
-using ApiSdk.Organization.Item.GetMemberObjects;
-using ApiSdk.Organization.Item.Restore;
-using ApiSdk.Organization.Item.SetMobileDeviceManagementAuthority;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Organization.Item.Branding;
+using GraphSdk.Organization.Item.CertificateBasedAuthConfiguration;
+using GraphSdk.Organization.Item.CheckMemberGroups;
+using GraphSdk.Organization.Item.CheckMemberObjects;
+using GraphSdk.Organization.Item.Extensions;
+using GraphSdk.Organization.Item.GetMemberGroups;
+using GraphSdk.Organization.Item.GetMemberObjects;
+using GraphSdk.Organization.Item.Restore;
+using GraphSdk.Organization.Item.SetMobileDeviceManagementAuthority;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -15,74 +15,86 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Organization.Item {
+namespace GraphSdk.Organization.Item {
     /// <summary>Builds and executes requests for operations under \organization\{organization-id}</summary>
     public class OrganizationRequestBuilder {
         public BrandingRequestBuilder Branding { get =>
-            new BrandingRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new BrandingRequestBuilder(PathParameters, RequestAdapter);
         }
         public CertificateBasedAuthConfigurationRequestBuilder CertificateBasedAuthConfiguration { get =>
-            new CertificateBasedAuthConfigurationRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CertificateBasedAuthConfigurationRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public ExtensionsRequestBuilder Extensions { get =>
-            new ExtensionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExtensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public SetMobileDeviceManagementAuthorityRequestBuilder SetMobileDeviceManagementAuthority { get =>
-            new SetMobileDeviceManagementAuthorityRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SetMobileDeviceManagementAuthorityRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new OrganizationRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public OrganizationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/organization/{organization_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new OrganizationRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public OrganizationRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public OrganizationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/organization/{organization_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Delete entity from organization
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Get entity from organization by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -90,8 +102,9 @@ namespace ApiSdk.Organization.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -102,24 +115,25 @@ namespace ApiSdk.Organization.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Update entity in organization
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Delete entity from organization
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -129,29 +143,29 @@ namespace ApiSdk.Organization.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Get entity from organization by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.Organization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.Organization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.Organization>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Organization>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
+        /// Update entity in organization
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.</summary>
+        /// <summary>Get entity from organization by key</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

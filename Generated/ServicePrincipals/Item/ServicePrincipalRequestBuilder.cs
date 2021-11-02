@@ -1,27 +1,27 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.ServicePrincipals.Item.AddKey;
-using ApiSdk.ServicePrincipals.Item.AddPassword;
-using ApiSdk.ServicePrincipals.Item.AppRoleAssignedTo;
-using ApiSdk.ServicePrincipals.Item.AppRoleAssignments;
-using ApiSdk.ServicePrincipals.Item.CheckMemberGroups;
-using ApiSdk.ServicePrincipals.Item.CheckMemberObjects;
-using ApiSdk.ServicePrincipals.Item.ClaimsMappingPolicies;
-using ApiSdk.ServicePrincipals.Item.CreatedObjects;
-using ApiSdk.ServicePrincipals.Item.DelegatedPermissionClassifications;
-using ApiSdk.ServicePrincipals.Item.Endpoints;
-using ApiSdk.ServicePrincipals.Item.GetMemberGroups;
-using ApiSdk.ServicePrincipals.Item.GetMemberObjects;
-using ApiSdk.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
-using ApiSdk.ServicePrincipals.Item.MemberOf;
-using ApiSdk.ServicePrincipals.Item.Oauth2PermissionGrants;
-using ApiSdk.ServicePrincipals.Item.OwnedObjects;
-using ApiSdk.ServicePrincipals.Item.Owners;
-using ApiSdk.ServicePrincipals.Item.RemoveKey;
-using ApiSdk.ServicePrincipals.Item.RemovePassword;
-using ApiSdk.ServicePrincipals.Item.Restore;
-using ApiSdk.ServicePrincipals.Item.TokenIssuancePolicies;
-using ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies;
-using ApiSdk.ServicePrincipals.Item.TransitiveMemberOf;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.ServicePrincipals.Item.AddKey;
+using GraphSdk.ServicePrincipals.Item.AddPassword;
+using GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo;
+using GraphSdk.ServicePrincipals.Item.AppRoleAssignments;
+using GraphSdk.ServicePrincipals.Item.CheckMemberGroups;
+using GraphSdk.ServicePrincipals.Item.CheckMemberObjects;
+using GraphSdk.ServicePrincipals.Item.ClaimsMappingPolicies;
+using GraphSdk.ServicePrincipals.Item.CreatedObjects;
+using GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications;
+using GraphSdk.ServicePrincipals.Item.Endpoints;
+using GraphSdk.ServicePrincipals.Item.GetMemberGroups;
+using GraphSdk.ServicePrincipals.Item.GetMemberObjects;
+using GraphSdk.ServicePrincipals.Item.HomeRealmDiscoveryPolicies;
+using GraphSdk.ServicePrincipals.Item.MemberOf;
+using GraphSdk.ServicePrincipals.Item.Oauth2PermissionGrants;
+using GraphSdk.ServicePrincipals.Item.OwnedObjects;
+using GraphSdk.ServicePrincipals.Item.Owners;
+using GraphSdk.ServicePrincipals.Item.RemoveKey;
+using GraphSdk.ServicePrincipals.Item.RemovePassword;
+using GraphSdk.ServicePrincipals.Item.Restore;
+using GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies;
+using GraphSdk.ServicePrincipals.Item.TokenLifetimePolicies;
+using GraphSdk.ServicePrincipals.Item.TransitiveMemberOf;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -29,116 +29,128 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.ServicePrincipals.Item {
+namespace GraphSdk.ServicePrincipals.Item {
     /// <summary>Builds and executes requests for operations under \servicePrincipals\{servicePrincipal-id}</summary>
     public class ServicePrincipalRequestBuilder {
         public AddKeyRequestBuilder AddKey { get =>
-            new AddKeyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AddKeyRequestBuilder(PathParameters, RequestAdapter);
         }
         public AddPasswordRequestBuilder AddPassword { get =>
-            new AddPasswordRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AddPasswordRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignedToRequestBuilder AppRoleAssignedTo { get =>
-            new AppRoleAssignedToRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AppRoleAssignedToRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignmentsRequestBuilder AppRoleAssignments { get =>
-            new AppRoleAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AppRoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberGroupsRequestBuilder CheckMemberGroups { get =>
-            new CheckMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckMemberObjectsRequestBuilder CheckMemberObjects { get =>
-            new CheckMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ClaimsMappingPoliciesRequestBuilder ClaimsMappingPolicies { get =>
-            new ClaimsMappingPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ClaimsMappingPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreatedObjectsRequestBuilder CreatedObjects { get =>
-            new CreatedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreatedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DelegatedPermissionClassificationsRequestBuilder DelegatedPermissionClassifications { get =>
-            new DelegatedPermissionClassificationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DelegatedPermissionClassificationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public EndpointsRequestBuilder Endpoints { get =>
-            new EndpointsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new EndpointsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberGroupsRequestBuilder GetMemberGroups { get =>
-            new GetMemberGroupsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberGroupsRequestBuilder(PathParameters, RequestAdapter);
         }
         public GetMemberObjectsRequestBuilder GetMemberObjects { get =>
-            new GetMemberObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GetMemberObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public HomeRealmDiscoveryPoliciesRequestBuilder HomeRealmDiscoveryPolicies { get =>
-            new HomeRealmDiscoveryPoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new HomeRealmDiscoveryPoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MemberOfRequestBuilder MemberOf { get =>
-            new MemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MemberOfRequestBuilder(PathParameters, RequestAdapter);
         }
         public Oauth2PermissionGrantsRequestBuilder Oauth2PermissionGrants { get =>
-            new Oauth2PermissionGrantsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new Oauth2PermissionGrantsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnedObjectsRequestBuilder OwnedObjects { get =>
-            new OwnedObjectsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnedObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OwnersRequestBuilder Owners { get =>
-            new OwnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OwnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public RemoveKeyRequestBuilder RemoveKey { get =>
-            new RemoveKeyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoveKeyRequestBuilder(PathParameters, RequestAdapter);
         }
         public RemovePasswordRequestBuilder RemovePassword { get =>
-            new RemovePasswordRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemovePasswordRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public TokenIssuancePoliciesRequestBuilder TokenIssuancePolicies { get =>
-            new TokenIssuancePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TokenIssuancePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public TokenLifetimePoliciesRequestBuilder TokenLifetimePolicies { get =>
-            new TokenLifetimePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TokenLifetimePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public TransitiveMemberOfRequestBuilder TransitiveMemberOf { get =>
-            new TransitiveMemberOfRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TransitiveMemberOfRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new ServicePrincipalRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public ServicePrincipalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new ServicePrincipalRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public ServicePrincipalRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public ServicePrincipalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Delete entity from servicePrincipals
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Get entity from servicePrincipals by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -146,8 +158,9 @@ namespace ApiSdk.ServicePrincipals.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -158,7 +171,7 @@ namespace ApiSdk.ServicePrincipals.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Update entity in servicePrincipals
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -167,15 +180,16 @@ namespace ApiSdk.ServicePrincipals.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Delete entity from servicePrincipals
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -185,7 +199,7 @@ namespace ApiSdk.ServicePrincipals.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Get entity from servicePrincipals by key
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -196,7 +210,7 @@ namespace ApiSdk.ServicePrincipals.Item {
             return await RequestAdapter.SendAsync<ServicePrincipal>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+        /// Update entity in servicePrincipals
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -207,7 +221,7 @@ namespace ApiSdk.ServicePrincipals.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.</summary>
+        /// <summary>Get entity from servicePrincipals by key</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

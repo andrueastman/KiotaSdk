@@ -1,12 +1,12 @@
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public enum PolicyPlatformType {
         Android,
+        AndroidForWork,
         IOS,
         MacOS,
         WindowsPhone81,
         Windows81AndLater,
         Windows10AndLater,
-        AndroidWorkProfile,
         All,
     }
 }

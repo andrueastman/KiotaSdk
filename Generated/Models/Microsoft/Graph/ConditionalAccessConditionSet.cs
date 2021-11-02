@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ConditionalAccessConditionSet : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,6 +11,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public ConditionalAccessApplications Applications { get; set; }
         /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.</summary>
         public List<ConditionalAccessClientApp?> ClientAppTypes { get; set; }
+        /// <summary>Devices in the policy.</summary>
+        public ConditionalAccessDevices Devices { get; set; }
         /// <summary>Locations included in and excluded from the policy.</summary>
         public ConditionalAccessLocations Locations { get; set; }
         /// <summary>Platforms included in and excluded from the policy.</summary>
@@ -33,6 +35,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"applications", (o,n) => { (o as ConditionalAccessConditionSet).Applications = n.GetObjectValue<ConditionalAccessApplications>(); } },
                 {"clientAppTypes", (o,n) => { (o as ConditionalAccessConditionSet).ClientAppTypes = n.GetCollectionOfEnumValues<ConditionalAccessClientApp>().ToList(); } },
+                {"devices", (o,n) => { (o as ConditionalAccessConditionSet).Devices = n.GetObjectValue<ConditionalAccessDevices>(); } },
                 {"locations", (o,n) => { (o as ConditionalAccessConditionSet).Locations = n.GetObjectValue<ConditionalAccessLocations>(); } },
                 {"platforms", (o,n) => { (o as ConditionalAccessConditionSet).Platforms = n.GetObjectValue<ConditionalAccessPlatforms>(); } },
                 {"signInRiskLevels", (o,n) => { (o as ConditionalAccessConditionSet).SignInRiskLevels = n.GetCollectionOfEnumValues<RiskLevel>().ToList(); } },
@@ -48,6 +51,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ConditionalAccessApplications>("applications", Applications);
             writer.WriteCollectionOfEnumValues<ConditionalAccessClientApp>("clientAppTypes", ClientAppTypes);
+            writer.WriteObjectValue<ConditionalAccessDevices>("devices", Devices);
             writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);
             writer.WriteObjectValue<ConditionalAccessPlatforms>("platforms", Platforms);
             writer.WriteCollectionOfEnumValues<RiskLevel>("signInRiskLevels", SignInRiskLevels);

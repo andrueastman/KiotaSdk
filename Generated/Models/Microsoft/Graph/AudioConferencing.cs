@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AudioConferencing : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,10 +11,12 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string ConferenceId { get; set; }
         /// <summary>A URL to the externally-accessible web page that contains dial-in information.</summary>
         public string DialinUrl { get; set; }
-        /// <summary>The toll-free number that connects to the Audio Conference Provider.</summary>
         public string TollFreeNumber { get; set; }
-        /// <summary>The toll number that connects to the Audio Conference Provider.</summary>
+        /// <summary>List of toll-free numbers that are displayed in the meeting invite.</summary>
+        public List<string> TollFreeNumbers { get; set; }
         public string TollNumber { get; set; }
+        /// <summary>List of toll numbers that are displayed in the meeting invite.</summary>
+        public List<string> TollNumbers { get; set; }
         /// <summary>
         /// Instantiates a new audioConferencing and sets the default values.
         /// </summary>
@@ -29,7 +31,9 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"conferenceId", (o,n) => { (o as AudioConferencing).ConferenceId = n.GetStringValue(); } },
                 {"dialinUrl", (o,n) => { (o as AudioConferencing).DialinUrl = n.GetStringValue(); } },
                 {"tollFreeNumber", (o,n) => { (o as AudioConferencing).TollFreeNumber = n.GetStringValue(); } },
+                {"tollFreeNumbers", (o,n) => { (o as AudioConferencing).TollFreeNumbers = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"tollNumber", (o,n) => { (o as AudioConferencing).TollNumber = n.GetStringValue(); } },
+                {"tollNumbers", (o,n) => { (o as AudioConferencing).TollNumbers = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
             };
         }
         /// <summary>
@@ -41,7 +45,9 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteStringValue("conferenceId", ConferenceId);
             writer.WriteStringValue("dialinUrl", DialinUrl);
             writer.WriteStringValue("tollFreeNumber", TollFreeNumber);
+            writer.WriteCollectionOfPrimitiveValues<string>("tollFreeNumbers", TollFreeNumbers);
             writer.WriteStringValue("tollNumber", TollNumber);
+            writer.WriteCollectionOfPrimitiveValues<string>("tollNumbers", TollNumbers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

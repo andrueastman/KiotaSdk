@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class DeviceCompliancePolicySettingStateSummary : Entity, IParsable {
         /// <summary>Number of compliant devices</summary>
         public int? CompliantDeviceCount { get; set; }
@@ -17,7 +17,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public int? NonCompliantDeviceCount { get; set; }
         /// <summary>Number of not applicable devices</summary>
         public int? NotApplicableDeviceCount { get; set; }
-        /// <summary>Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.</summary>
+        /// <summary>Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.</summary>
         public PolicyPlatformType? PlatformType { get; set; }
         /// <summary>Number of remediated devices</summary>
         public int? RemediatedDeviceCount { get; set; }

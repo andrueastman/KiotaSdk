@@ -1,6 +1,6 @@
-using ApiSdk.Me.Events.Item.Calendar.CalendarView.Delta;
-using ApiSdk.Me.Events.Item.Calendar.CalendarView.Item;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.Events.Item.Calendar.CalendarView.Delta;
+using GraphSdk.Me.Events.Item.Calendar.CalendarView.Item;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -8,34 +8,47 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Me.Events.Item.Calendar.CalendarView {
+namespace GraphSdk.Me.Events.Item.Calendar.CalendarView {
     /// <summary>Builds and executes requests for operations under \me\events\{event-id}\calendar\calendarView</summary>
     public class CalendarViewRequestBuilder {
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
-        /// <summary>Gets an item from the ApiSdk.me.events.item.calendar.calendarView.item collection</summary>
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>Gets an item from the GraphSdk.me.events.item.calendar.calendarView.item collection</summary>
         public EventRequestBuilder this[string position] { get {
-            return new EventRequestBuilder(CurrentPath + PathSegment  + "/" + position, RequestAdapter, false);
+            var urlTplParams = new Dictionary<string, object>(PathParameters);
+            urlTplParams.Add("event_id1", position);
+            return new EventRequestBuilder(urlTplParams, RequestAdapter);
         } }
         /// <summary>
         /// Instantiates a new CalendarViewRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public CalendarViewRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public CalendarViewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/calendarView";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me/events/{event_id}/calendar/calendarView{?top,skip,filter,count,orderby,select}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new CalendarViewRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public CalendarViewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me/events/{event_id}/calendar/calendarView{?top,skip,filter,count,orderby,select}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// The calendar view for the calendar. Navigation property. Read-only.
@@ -46,8 +59,9 @@ namespace ApiSdk.Me.Events.Item.Calendar.CalendarView {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -67,8 +81,9 @@ namespace ApiSdk.Me.Events.Item.Calendar.CalendarView {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.POST,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -78,7 +93,7 @@ namespace ApiSdk.Me.Events.Item.Calendar.CalendarView {
         /// Builds and executes requests for operations under \me\events\{event-id}\calendar\calendarView\microsoft.graph.delta()
         /// </summary>
         public DeltaRequestBuilder Delta() {
-            return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// The calendar view for the calendar. Navigation property. Read-only.
@@ -107,14 +122,10 @@ namespace ApiSdk.Me.Events.Item.Calendar.CalendarView {
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }
-            /// <summary>Expand related entities</summary>
-            public string[] Expand { get; set; }
             /// <summary>Filter items by property values</summary>
             public string Filter { get; set; }
             /// <summary>Order items by property values</summary>
             public string[] Orderby { get; set; }
-            /// <summary>Search items by search phrases</summary>
-            public string Search { get; set; }
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }
             /// <summary>Skip the first n items</summary>

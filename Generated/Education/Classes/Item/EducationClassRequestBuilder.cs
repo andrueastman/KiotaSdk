@@ -1,12 +1,12 @@
-using ApiSdk.Education.Classes.Item.AssignmentCategories;
-using ApiSdk.Education.Classes.Item.AssignmentDefaults;
-using ApiSdk.Education.Classes.Item.Assignments;
-using ApiSdk.Education.Classes.Item.AssignmentSettings;
-using ApiSdk.Education.Classes.Item.Group;
-using ApiSdk.Education.Classes.Item.Members;
-using ApiSdk.Education.Classes.Item.Schools;
-using ApiSdk.Education.Classes.Item.Teachers;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Education.Classes.Item.AssignmentCategories;
+using GraphSdk.Education.Classes.Item.AssignmentDefaults;
+using GraphSdk.Education.Classes.Item.Assignments;
+using GraphSdk.Education.Classes.Item.AssignmentSettings;
+using GraphSdk.Education.Classes.Item.Group;
+using GraphSdk.Education.Classes.Item.Members;
+using GraphSdk.Education.Classes.Item.Schools;
+using GraphSdk.Education.Classes.Item.Teachers;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -14,54 +14,65 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Education.Classes.Item {
+namespace GraphSdk.Education.Classes.Item {
     /// <summary>Builds and executes requests for operations under \education\classes\{educationClass-id}</summary>
     public class EducationClassRequestBuilder {
         public AssignmentCategoriesRequestBuilder AssignmentCategories { get =>
-            new AssignmentCategoriesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignmentCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignmentDefaultsRequestBuilder AssignmentDefaults { get =>
-            new AssignmentDefaultsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignmentDefaultsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignmentsRequestBuilder Assignments { get =>
-            new AssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public AssignmentSettingsRequestBuilder AssignmentSettings { get =>
-            new AssignmentSettingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignmentSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public GroupRequestBuilder Group { get =>
-            new GroupRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new GroupRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MembersRequestBuilder Members { get =>
-            new MembersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MembersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public SchoolsRequestBuilder Schools { get =>
-            new SchoolsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SchoolsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TeachersRequestBuilder Teachers { get =>
-            new TeachersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TeachersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new EducationClassRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public EducationClassRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new EducationClassRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public EducationClassRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public EducationClassRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Delete navigation property classes for education
@@ -71,8 +82,9 @@ namespace ApiSdk.Education.Classes.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -86,8 +98,9 @@ namespace ApiSdk.Education.Classes.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -107,8 +120,9 @@ namespace ApiSdk.Education.Classes.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

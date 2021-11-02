@@ -1,17 +1,21 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Sites.Item.Analytics;
-using ApiSdk.Sites.Item.Columns;
-using ApiSdk.Sites.Item.ContentTypes;
-using ApiSdk.Sites.Item.Drive;
-using ApiSdk.Sites.Item.Drives;
-using ApiSdk.Sites.Item.GetActivitiesByInterval;
-using ApiSdk.Sites.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
-using ApiSdk.Sites.Item.GetByPathWithPath;
-using ApiSdk.Sites.Item.Items;
-using ApiSdk.Sites.Item.Lists;
-using ApiSdk.Sites.Item.Onenote;
-using ApiSdk.Sites.Item.Permissions;
-using ApiSdk.Sites.Item.Sites;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Sites.Item.Analytics;
+using GraphSdk.Sites.Item.Columns;
+using GraphSdk.Sites.Item.ContentTypes;
+using GraphSdk.Sites.Item.Drive;
+using GraphSdk.Sites.Item.Drives;
+using GraphSdk.Sites.Item.ExternalColumns;
+using GraphSdk.Sites.Item.GetActivitiesByInterval;
+using GraphSdk.Sites.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using GraphSdk.Sites.Item.GetApplicableContentTypesForListWithListId;
+using GraphSdk.Sites.Item.GetByPathWithPath;
+using GraphSdk.Sites.Item.Items;
+using GraphSdk.Sites.Item.Lists;
+using GraphSdk.Sites.Item.Onenote;
+using GraphSdk.Sites.Item.Permissions;
+using GraphSdk.Sites.Item.Sites;
+using GraphSdk.Sites.Item.TermStore;
+using GraphSdk.Sites.Item.TermStores;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -19,60 +23,80 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Sites.Item {
+namespace GraphSdk.Sites.Item {
     /// <summary>Builds and executes requests for operations under \sites\{site-id}</summary>
     public class SiteRequestBuilder {
         public AnalyticsRequestBuilder Analytics { get =>
-            new AnalyticsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ColumnsRequestBuilder Columns { get =>
-            new ColumnsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ColumnsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContentTypesRequestBuilder ContentTypes { get =>
-            new ContentTypesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContentTypesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DriveRequestBuilder Drive { get =>
-            new DriveRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DriveRequestBuilder(PathParameters, RequestAdapter);
         }
         public DrivesRequestBuilder Drives { get =>
-            new DrivesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DrivesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
+        public ExternalColumnsRequestBuilder ExternalColumns { get =>
+            new ExternalColumnsRequestBuilder(PathParameters, RequestAdapter);
+        }
         public ItemsRequestBuilder Items { get =>
-            new ItemsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ItemsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ListsRequestBuilder Lists { get =>
-            new ListsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ListsRequestBuilder(PathParameters, RequestAdapter);
         }
         public OnenoteRequestBuilder Onenote { get =>
-            new OnenoteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new OnenoteRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PermissionsRequestBuilder Permissions { get =>
-            new PermissionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PermissionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public SitesRequestBuilder Sites { get =>
-            new SitesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SitesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public TermStoreRequestBuilder TermStore { get =>
+            new TermStoreRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public TermStoresRequestBuilder TermStores { get =>
+            new TermStoresRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new SiteRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public SiteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new SiteRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public SiteRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public SiteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// Delete entity from sites
@@ -82,8 +106,9 @@ namespace ApiSdk.Sites.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -97,8 +122,9 @@ namespace ApiSdk.Sites.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -114,12 +140,13 @@ namespace ApiSdk.Sites.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -139,7 +166,7 @@ namespace ApiSdk.Sites.Item {
         /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getActivitiesByInterval()
         /// </summary>
         public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval() {
-            return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
@@ -151,7 +178,15 @@ namespace ApiSdk.Sites.Item {
             if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
             if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
-            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, startDateTime, endDateTime, interval, false);
+            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, startDateTime, endDateTime, interval);
+        }
+        /// <summary>
+        /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getApplicableContentTypesForList(listId='{listId}')
+        /// <param name="listId">Usage: listId={listId}</param>
+        /// </summary>
+        public GetApplicableContentTypesForListWithListIdRequestBuilder GetApplicableContentTypesForListWithListId(string listId) {
+            if(string.IsNullOrEmpty(listId)) throw new ArgumentNullException(nameof(listId));
+            return new GetApplicableContentTypesForListWithListIdRequestBuilder(PathParameters, RequestAdapter, listId);
         }
         /// <summary>
         /// Get entity from sites by key
@@ -160,9 +195,9 @@ namespace ApiSdk.Sites.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.Site> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.Site> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.Site>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Site>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Builds and executes requests for operations under \sites\{site-id}\microsoft.graph.getByPath(path='{path}')
@@ -170,7 +205,7 @@ namespace ApiSdk.Sites.Item {
         /// </summary>
         public GetByPathWithPathRequestBuilder GetByPathWithPath(string path) {
             if(string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            return new GetByPathWithPathRequestBuilder(CurrentPath + PathSegment , RequestAdapter, path, false);
+            return new GetByPathWithPathRequestBuilder(PathParameters, RequestAdapter, path);
         }
         /// <summary>
         /// Update entity in sites
@@ -179,7 +214,7 @@ namespace ApiSdk.Sites.Item {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Site body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);

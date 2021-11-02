@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookTableSort : Entity, IParsable {
         /// <summary>Represents the current conditions used to last sort the table. Read-only.</summary>
         public List<WorkbookSortField> Fields { get; set; }
         /// <summary>Represents whether the casing impacted the last sort of the table. Read-only.</summary>
         public bool? MatchCase { get; set; }
-        /// <summary>Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.</summary>
+        /// <summary>Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.</summary>
         public string Method { get; set; }
         /// <summary>
         /// The deserialization information for the current model

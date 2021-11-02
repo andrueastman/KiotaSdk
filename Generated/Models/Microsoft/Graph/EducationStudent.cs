@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EducationStudent : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string BirthDate { get; set; }
         /// <summary>ID of the student in the source system.</summary>
         public string ExternalId { get; set; }
-        /// <summary>Possible values are: female, male, other.</summary>
+        /// <summary>The possible values are: female, male, other, unknownFutureValue.</summary>
         public EducationGender? Gender { get; set; }
         /// <summary>Current grade level of the student.</summary>
         public string Grade { get; set; }

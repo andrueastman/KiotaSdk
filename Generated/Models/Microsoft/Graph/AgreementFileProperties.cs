@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AgreementFileProperties : Entity, IParsable {
         public DateTimeOffset? CreatedDateTime { get; set; }
         public string DisplayName { get; set; }

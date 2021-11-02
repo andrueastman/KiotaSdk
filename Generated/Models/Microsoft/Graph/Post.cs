@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Post : OutlookItem, IParsable {
-        /// <summary>The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Supports $expand.</summary>
         public List<Attachment> Attachments { get; set; }
         /// <summary>The contents of the post. This is a default property. This property can be null.</summary>
         public ItemBody Body { get; set; }
@@ -13,12 +13,12 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string ConversationId { get; set; }
         /// <summary>Unique ID of the conversation thread. Read-only.</summary>
         public string ConversationThreadId { get; set; }
-        /// <summary>The collection of open extensions defined for the post. Read-only. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.</summary>
         public List<Extension> Extensions { get; set; }
         public Recipient From { get; set; }
         /// <summary>Indicates whether the post has at least one attachment. This is a default property.</summary>
         public bool? HasAttachments { get; set; }
-        /// <summary>The earlier post that this post is replying to in the conversationThread. Read-only.</summary>
+        /// <summary>Read-only. Supports $expand.</summary>
         public Post InReplyTo { get; set; }
         /// <summary>The collection of multi-value extended properties defined for the post. Read-only. Nullable.</summary>
         public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }

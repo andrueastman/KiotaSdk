@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class AuditLogRoot : Entity, IParsable {
         /// <summary>Read-only. Nullable.</summary>
         public List<DirectoryAudit> DirectoryAudits { get; set; }

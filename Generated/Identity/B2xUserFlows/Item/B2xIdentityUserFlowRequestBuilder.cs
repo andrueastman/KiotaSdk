@@ -1,8 +1,8 @@
-using ApiSdk.Identity.B2xUserFlows.Item.IdentityProviders;
-using ApiSdk.Identity.B2xUserFlows.Item.Languages;
-using ApiSdk.Identity.B2xUserFlows.Item.UserAttributeAssignments;
-using ApiSdk.Identity.B2xUserFlows.Item.UserFlowIdentityProviders;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Identity.B2xUserFlows.Item.IdentityProviders;
+using GraphSdk.Identity.B2xUserFlows.Item.Languages;
+using GraphSdk.Identity.B2xUserFlows.Item.UserAttributeAssignments;
+using GraphSdk.Identity.B2xUserFlows.Item.UserFlowIdentityProviders;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,59 +10,71 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Identity.B2xUserFlows.Item {
+namespace GraphSdk.Identity.B2xUserFlows.Item {
     /// <summary>Builds and executes requests for operations under \identity\b2xUserFlows\{b2xIdentityUserFlow-id}</summary>
     public class B2xIdentityUserFlowRequestBuilder {
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public IdentityProvidersRequestBuilder IdentityProviders { get =>
-            new IdentityProvidersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new IdentityProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public LanguagesRequestBuilder Languages { get =>
-            new LanguagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new LanguagesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public UserAttributeAssignmentsRequestBuilder UserAttributeAssignments { get =>
-            new UserAttributeAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UserAttributeAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public UserFlowIdentityProvidersRequestBuilder UserFlowIdentityProviders { get =>
-            new UserFlowIdentityProvidersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UserFlowIdentityProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new B2xIdentityUserFlowRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public B2xIdentityUserFlowRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public B2xIdentityUserFlowRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/identity/b2xUserFlows/{b2xIdentityUserFlow_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Delete navigation property b2xUserFlows for identity
+        /// Instantiates a new B2xIdentityUserFlowRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public B2xIdentityUserFlowRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/identity/b2xUserFlows/{b2xIdentityUserFlow_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Get b2xUserFlows from identity
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -70,8 +82,9 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -82,7 +95,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property b2xUserFlows in identity
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,15 +104,16 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property b2xUserFlows for identity
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -109,7 +123,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Get b2xUserFlows from identity
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -120,7 +134,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
             return await RequestAdapter.SendAsync<B2xIdentityUserFlow>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Update the navigation property b2xUserFlows in identity
+        /// Represents entry point for B2X/self-service sign-up identity userflows.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -131,7 +145,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>Get b2xUserFlows from identity</summary>
+        /// <summary>Represents entry point for B2X/self-service sign-up identity userflows.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

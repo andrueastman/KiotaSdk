@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ManagedDevice : Entity, IParsable {
         /// <summary>Code that allows the Activation Lock on a device to be bypassed. This property is read-only.</summary>
         public string ActivationLockBypassCode { get; set; }
@@ -22,14 +22,14 @@ namespace ApiSdk.Models.Microsoft.Graph {
         /// <summary>List of ComplexType deviceActionResult objects. This property is read-only.</summary>
         public List<DeviceActionResult> DeviceActionResults { get; set; }
         /// <summary>Device category</summary>
-        public ApiSdk.Models.Microsoft.Graph.DeviceCategory DeviceCategory { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.DeviceCategory DeviceCategory { get; set; }
         /// <summary>Device category display name. This property is read-only.</summary>
         public string DeviceCategoryDisplayName { get; set; }
         /// <summary>Device compliance policy states for this device.</summary>
         public List<DeviceCompliancePolicyState> DeviceCompliancePolicyStates { get; set; }
         /// <summary>Device configuration states for this device.</summary>
         public List<DeviceConfigurationState> DeviceConfigurationStates { get; set; }
-        /// <summary>Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.</summary>
+        /// <summary>Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.</summary>
         public DeviceEnrollmentType? DeviceEnrollmentType { get; set; }
         /// <summary>The device health attestation state. This property is read-only.</summary>
         public DeviceHealthAttestationState DeviceHealthAttestationState { get; set; }
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string ManagedDeviceName { get; set; }
         /// <summary>Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.</summary>
         public ManagedDeviceOwnerType? ManagedDeviceOwnerType { get; set; }
-        /// <summary>Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.</summary>
+        /// <summary>Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.</summary>
         public ManagementAgentType? ManagementAgent { get; set; }
         /// <summary>Manufacturer of the device. This property is read-only.</summary>
         public string Manufacturer { get; set; }
@@ -126,7 +126,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"complianceState", (o,n) => { (o as ManagedDevice).ComplianceState = n.GetEnumValue<ComplianceState>(); } },
                 {"configurationManagerClientEnabledFeatures", (o,n) => { (o as ManagedDevice).ConfigurationManagerClientEnabledFeatures = n.GetObjectValue<ConfigurationManagerClientEnabledFeatures>(); } },
                 {"deviceActionResults", (o,n) => { (o as ManagedDevice).DeviceActionResults = n.GetCollectionOfObjectValues<DeviceActionResult>().ToList(); } },
-                {"deviceCategory", (o,n) => { (o as ManagedDevice).DeviceCategory = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.DeviceCategory>(); } },
+                {"deviceCategory", (o,n) => { (o as ManagedDevice).DeviceCategory = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.DeviceCategory>(); } },
                 {"deviceCategoryDisplayName", (o,n) => { (o as ManagedDevice).DeviceCategoryDisplayName = n.GetStringValue(); } },
                 {"deviceCompliancePolicyStates", (o,n) => { (o as ManagedDevice).DeviceCompliancePolicyStates = n.GetCollectionOfObjectValues<DeviceCompliancePolicyState>().ToList(); } },
                 {"deviceConfigurationStates", (o,n) => { (o as ManagedDevice).DeviceConfigurationStates = n.GetCollectionOfObjectValues<DeviceConfigurationState>().ToList(); } },
@@ -189,7 +189,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteEnumValue<ComplianceState>("complianceState", ComplianceState);
             writer.WriteObjectValue<ConfigurationManagerClientEnabledFeatures>("configurationManagerClientEnabledFeatures", ConfigurationManagerClientEnabledFeatures);
             writer.WriteCollectionOfObjectValues<DeviceActionResult>("deviceActionResults", DeviceActionResults);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.DeviceCategory>("deviceCategory", DeviceCategory);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.DeviceCategory>("deviceCategory", DeviceCategory);
             writer.WriteStringValue("deviceCategoryDisplayName", DeviceCategoryDisplayName);
             writer.WriteCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", DeviceCompliancePolicyStates);
             writer.WriteCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", DeviceConfigurationStates);

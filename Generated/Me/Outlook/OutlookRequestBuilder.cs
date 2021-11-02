@@ -1,8 +1,8 @@
-using ApiSdk.Me.Outlook.MasterCategories;
-using ApiSdk.Me.Outlook.SupportedLanguages;
-using ApiSdk.Me.Outlook.SupportedTimeZones;
-using ApiSdk.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.Outlook.MasterCategories;
+using GraphSdk.Me.Outlook.SupportedLanguages;
+using GraphSdk.Me.Outlook.SupportedTimeZones;
+using GraphSdk.Me.Outlook.SupportedTimeZonesWithTimeZoneStandard;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,50 +10,62 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Me.Outlook {
+namespace GraphSdk.Me.Outlook {
     /// <summary>Builds and executes requests for operations under \me\outlook</summary>
     public class OutlookRequestBuilder {
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public MasterCategoriesRequestBuilder MasterCategories { get =>
-            new MasterCategoriesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MasterCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new OutlookRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public OutlookRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public OutlookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/outlook";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me/outlook{?select}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Instantiates a new OutlookRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public OutlookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/me/outlook{?select}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -61,8 +73,9 @@ namespace ApiSdk.Me.Outlook {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -73,7 +86,7 @@ namespace ApiSdk.Me.Outlook {
             return requestInfo;
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -82,15 +95,16 @@ namespace ApiSdk.Me.Outlook {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -100,7 +114,7 @@ namespace ApiSdk.Me.Outlook {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -111,7 +125,7 @@ namespace ApiSdk.Me.Outlook {
             return await RequestAdapter.SendAsync<OutlookUser>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Selective Outlook services available to the user. Read-only. Nullable.
+        /// Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -126,26 +140,24 @@ namespace ApiSdk.Me.Outlook {
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedLanguages()
         /// </summary>
         public SupportedLanguagesRequestBuilder SupportedLanguages() {
-            return new SupportedLanguagesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new SupportedLanguagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones()
         /// </summary>
         public SupportedTimeZonesRequestBuilder SupportedTimeZones() {
-            return new SupportedTimeZonesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new SupportedTimeZonesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \me\outlook\microsoft.graph.supportedTimeZones(TimeZoneStandard={TimeZoneStandard})
         /// <param name="TimeZoneStandard">Usage: TimeZoneStandard={TimeZoneStandard}</param>
         /// </summary>
-        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder SupportedTimeZonesWithTimeZoneStandard(string TimeZoneStandard) {
-            if(string.IsNullOrEmpty(TimeZoneStandard)) throw new ArgumentNullException(nameof(TimeZoneStandard));
-            return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(CurrentPath + PathSegment , RequestAdapter, TimeZoneStandard, false);
+        public SupportedTimeZonesWithTimeZoneStandardRequestBuilder SupportedTimeZonesWithTimeZoneStandard(string timeZoneStandard) {
+            if(string.IsNullOrEmpty(timeZoneStandard)) throw new ArgumentNullException(nameof(timeZoneStandard));
+            return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
         }
-        /// <summary>Selective Outlook services available to the user. Read-only. Nullable.</summary>
+        /// <summary>Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {
-            /// <summary>Expand related entities</summary>
-            public string[] Expand { get; set; }
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }
         }

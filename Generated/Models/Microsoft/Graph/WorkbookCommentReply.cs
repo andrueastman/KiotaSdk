@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookCommentReply : Entity, IParsable {
-        /// <summary>The content of replied comment.</summary>
+        /// <summary>The content of a comment reply.</summary>
         public string Content { get; set; }
-        /// <summary>Indicates the type for the replied comment.</summary>
+        /// <summary>Indicates the type for the comment reply.</summary>
         public string ContentType { get; set; }
         /// <summary>
         /// The deserialization information for the current model

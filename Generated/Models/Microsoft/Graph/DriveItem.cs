@@ -3,14 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class DriveItem : BaseItem, IParsable {
         /// <summary>Analytics about the view activities that took place on this item.</summary>
         public ItemAnalytics Analytics { get; set; }
         /// <summary>Audio metadata, if the item is an audio file. Read-only.</summary>
         public Audio Audio { get; set; }
+        public Bundle Bundle { get; set; }
         /// <summary>Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.</summary>
-        public List<ApiSdk.Models.Microsoft.Graph.DriveItem> Children { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.DriveItem> Children { get; set; }
         /// <summary>The content stream, if the item represents a file.</summary>
         public byte[] Content { get; set; }
         /// <summary>An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.</summary>
@@ -18,35 +19,37 @@ namespace ApiSdk.Models.Microsoft.Graph {
         /// <summary>Information about the deleted state of the item. Read-only.</summary>
         public Deleted Deleted { get; set; }
         /// <summary>File metadata, if the item is a file. Read-only.</summary>
-        public ApiSdk.Models.Microsoft.Graph.File File { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.File File { get; set; }
         /// <summary>File system information on client. Read-write.</summary>
         public FileSystemInfo FileSystemInfo { get; set; }
         /// <summary>Folder metadata, if the item is a folder. Read-only.</summary>
         public Folder Folder { get; set; }
         /// <summary>Image metadata, if the item is an image. Read-only.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Image Image { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Image Image { get; set; }
         /// <summary>For drives in SharePoint, the associated document library list item. Read-only. Nullable.</summary>
-        public ApiSdk.Models.Microsoft.Graph.ListItem ListItem { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.ListItem ListItem { get; set; }
         /// <summary>Location metadata, if the item has location data. Read-only.</summary>
         public GeoCoordinates Location { get; set; }
+        /// <summary>Malware metadata, if the item was detected to contain malware. Read-only.</summary>
+        public Malware Malware { get; set; }
         /// <summary>If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.</summary>
         public Package Package { get; set; }
-        /// <summary>If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.</summary>
+        /// <summary>If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.</summary>
         public PendingOperations PendingOperations { get; set; }
         /// <summary>The set of permissions for the item. Read-only. Nullable.</summary>
-        public List<ApiSdk.Models.Microsoft.Graph.Permission> Permissions { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.Permission> Permissions { get; set; }
         /// <summary>Photo metadata, if the item is a photo. Read-only.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Photo Photo { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Photo Photo { get; set; }
         /// <summary>Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.</summary>
         public PublicationFacet Publication { get; set; }
         /// <summary>Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.</summary>
         public RemoteItem RemoteItem { get; set; }
         /// <summary>If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Root Root { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Root Root { get; set; }
         /// <summary>Search metadata, if the item is from a search result. Read-only.</summary>
         public SearchResult SearchResult { get; set; }
         /// <summary>Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Shared Shared { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Shared Shared { get; set; }
         /// <summary>Returns identifiers useful for SharePoint REST compatibility. Read-only.</summary>
         public SharepointIds SharepointIds { get; set; }
         /// <summary>Size of the item in bytes. Read-only.</summary>
@@ -64,7 +67,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         /// <summary>WebDAV compatible URL for the item.</summary>
         public string WebDavUrl { get; set; }
         /// <summary>For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Workbook Workbook { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Workbook Workbook { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
@@ -72,25 +75,27 @@ namespace ApiSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
                 {"analytics", (o,n) => { (o as DriveItem).Analytics = n.GetObjectValue<ItemAnalytics>(); } },
                 {"audio", (o,n) => { (o as DriveItem).Audio = n.GetObjectValue<Audio>(); } },
-                {"children", (o,n) => { (o as DriveItem).Children = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.DriveItem>().ToList(); } },
+                {"bundle", (o,n) => { (o as DriveItem).Bundle = n.GetObjectValue<Bundle>(); } },
+                {"children", (o,n) => { (o as DriveItem).Children = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.DriveItem>().ToList(); } },
                 {"content", (o,n) => { (o as DriveItem).Content = n.GetByteArrayValue(); } },
                 {"cTag", (o,n) => { (o as DriveItem).CTag = n.GetStringValue(); } },
                 {"deleted", (o,n) => { (o as DriveItem).Deleted = n.GetObjectValue<Deleted>(); } },
-                {"file", (o,n) => { (o as DriveItem).File = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.File>(); } },
+                {"file", (o,n) => { (o as DriveItem).File = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.File>(); } },
                 {"fileSystemInfo", (o,n) => { (o as DriveItem).FileSystemInfo = n.GetObjectValue<FileSystemInfo>(); } },
                 {"folder", (o,n) => { (o as DriveItem).Folder = n.GetObjectValue<Folder>(); } },
-                {"image", (o,n) => { (o as DriveItem).Image = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Image>(); } },
-                {"listItem", (o,n) => { (o as DriveItem).ListItem = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.ListItem>(); } },
+                {"image", (o,n) => { (o as DriveItem).Image = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Image>(); } },
+                {"listItem", (o,n) => { (o as DriveItem).ListItem = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.ListItem>(); } },
                 {"location", (o,n) => { (o as DriveItem).Location = n.GetObjectValue<GeoCoordinates>(); } },
+                {"malware", (o,n) => { (o as DriveItem).Malware = n.GetObjectValue<Malware>(); } },
                 {"package", (o,n) => { (o as DriveItem).Package = n.GetObjectValue<Package>(); } },
                 {"pendingOperations", (o,n) => { (o as DriveItem).PendingOperations = n.GetObjectValue<PendingOperations>(); } },
-                {"permissions", (o,n) => { (o as DriveItem).Permissions = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Permission>().ToList(); } },
-                {"photo", (o,n) => { (o as DriveItem).Photo = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Photo>(); } },
+                {"permissions", (o,n) => { (o as DriveItem).Permissions = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Permission>().ToList(); } },
+                {"photo", (o,n) => { (o as DriveItem).Photo = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Photo>(); } },
                 {"publication", (o,n) => { (o as DriveItem).Publication = n.GetObjectValue<PublicationFacet>(); } },
                 {"remoteItem", (o,n) => { (o as DriveItem).RemoteItem = n.GetObjectValue<RemoteItem>(); } },
-                {"root", (o,n) => { (o as DriveItem).Root = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Root>(); } },
+                {"root", (o,n) => { (o as DriveItem).Root = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Root>(); } },
                 {"searchResult", (o,n) => { (o as DriveItem).SearchResult = n.GetObjectValue<SearchResult>(); } },
-                {"shared", (o,n) => { (o as DriveItem).Shared = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Shared>(); } },
+                {"shared", (o,n) => { (o as DriveItem).Shared = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Shared>(); } },
                 {"sharepointIds", (o,n) => { (o as DriveItem).SharepointIds = n.GetObjectValue<SharepointIds>(); } },
                 {"size", (o,n) => { (o as DriveItem).Size = n.GetLongValue(); } },
                 {"specialFolder", (o,n) => { (o as DriveItem).SpecialFolder = n.GetObjectValue<SpecialFolder>(); } },
@@ -99,7 +104,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"versions", (o,n) => { (o as DriveItem).Versions = n.GetCollectionOfObjectValues<DriveItemVersion>().ToList(); } },
                 {"video", (o,n) => { (o as DriveItem).Video = n.GetObjectValue<Video>(); } },
                 {"webDavUrl", (o,n) => { (o as DriveItem).WebDavUrl = n.GetStringValue(); } },
-                {"workbook", (o,n) => { (o as DriveItem).Workbook = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Workbook>(); } },
+                {"workbook", (o,n) => { (o as DriveItem).Workbook = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Workbook>(); } },
             };
         }
         /// <summary>
@@ -111,25 +116,27 @@ namespace ApiSdk.Models.Microsoft.Graph {
             base.Serialize(writer);
             writer.WriteObjectValue<ItemAnalytics>("analytics", Analytics);
             writer.WriteObjectValue<Audio>("audio", Audio);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.DriveItem>("children", Children);
+            writer.WriteObjectValue<Bundle>("bundle", Bundle);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.DriveItem>("children", Children);
             writer.WriteByteArrayValue("content", Content);
             writer.WriteStringValue("cTag", CTag);
             writer.WriteObjectValue<Deleted>("deleted", Deleted);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.File>("file", File);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.File>("file", File);
             writer.WriteObjectValue<FileSystemInfo>("fileSystemInfo", FileSystemInfo);
             writer.WriteObjectValue<Folder>("folder", Folder);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Image>("image", Image);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.ListItem>("listItem", ListItem);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Image>("image", Image);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.ListItem>("listItem", ListItem);
             writer.WriteObjectValue<GeoCoordinates>("location", Location);
+            writer.WriteObjectValue<Malware>("malware", Malware);
             writer.WriteObjectValue<Package>("package", Package);
             writer.WriteObjectValue<PendingOperations>("pendingOperations", PendingOperations);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Permission>("permissions", Permissions);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Photo>("photo", Photo);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Permission>("permissions", Permissions);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Photo>("photo", Photo);
             writer.WriteObjectValue<PublicationFacet>("publication", Publication);
             writer.WriteObjectValue<RemoteItem>("remoteItem", RemoteItem);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Root>("root", Root);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Root>("root", Root);
             writer.WriteObjectValue<SearchResult>("searchResult", SearchResult);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Shared>("shared", Shared);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Shared>("shared", Shared);
             writer.WriteObjectValue<SharepointIds>("sharepointIds", SharepointIds);
             writer.WriteLongValue("size", Size);
             writer.WriteObjectValue<SpecialFolder>("specialFolder", SpecialFolder);
@@ -138,7 +145,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteCollectionOfObjectValues<DriveItemVersion>("versions", Versions);
             writer.WriteObjectValue<Video>("video", Video);
             writer.WriteStringValue("webDavUrl", WebDavUrl);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Workbook>("workbook", Workbook);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Workbook>("workbook", Workbook);
         }
     }
 }

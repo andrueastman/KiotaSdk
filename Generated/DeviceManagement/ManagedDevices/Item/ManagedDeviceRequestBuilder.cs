@@ -1,25 +1,25 @@
-using ApiSdk.DeviceManagement.ManagedDevices.Item.BypassActivationLock;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.CleanWindowsDevice;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceCategory;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceCompliancePolicyStates;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.DeviceConfigurationStates;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.DisableLostMode;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.LocateDevice;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.RebootNow;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.RecoverPasscode;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.RemoteLock;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.RequestRemoteAssistance;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.ResetPasscode;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.Retire;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.ShutDown;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.SyncDevice;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.UpdateWindowsDeviceAccount;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderScan;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
-using ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.BypassActivationLock;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.CleanWindowsDevice;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.DeleteUserFromSharedAppleDevice;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.DeviceCategory;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.DeviceCompliancePolicyStates;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.DeviceConfigurationStates;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.DisableLostMode;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.LocateDevice;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.LogoutSharedAppleDeviceActiveUser;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.RebootNow;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.RecoverPasscode;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.RemoteLock;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.RequestRemoteAssistance;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.ResetPasscode;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.Retire;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.ShutDown;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.SyncDevice;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.UpdateWindowsDeviceAccount;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderScan;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.WindowsDefenderUpdateSignatures;
+using GraphSdk.DeviceManagement.ManagedDevices.Item.Wipe;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -27,93 +27,104 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item {
+namespace GraphSdk.DeviceManagement.ManagedDevices.Item {
     /// <summary>Builds and executes requests for operations under \deviceManagement\managedDevices\{managedDevice-id}</summary>
     public class ManagedDeviceRequestBuilder {
         public BypassActivationLockRequestBuilder BypassActivationLock { get =>
-            new BypassActivationLockRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new BypassActivationLockRequestBuilder(PathParameters, RequestAdapter);
         }
         public CleanWindowsDeviceRequestBuilder CleanWindowsDevice { get =>
-            new CleanWindowsDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CleanWindowsDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DeleteUserFromSharedAppleDeviceRequestBuilder DeleteUserFromSharedAppleDevice { get =>
-            new DeleteUserFromSharedAppleDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeleteUserFromSharedAppleDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCategoryRequestBuilder DeviceCategory { get =>
-            new DeviceCategoryRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCategoryRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCompliancePolicyStatesRequestBuilder DeviceCompliancePolicyStates { get =>
-            new DeviceCompliancePolicyStatesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCompliancePolicyStatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceConfigurationStatesRequestBuilder DeviceConfigurationStates { get =>
-            new DeviceConfigurationStatesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceConfigurationStatesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DisableLostModeRequestBuilder DisableLostMode { get =>
-            new DisableLostModeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DisableLostModeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public LocateDeviceRequestBuilder LocateDevice { get =>
-            new LocateDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new LocateDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         public LogoutSharedAppleDeviceActiveUserRequestBuilder LogoutSharedAppleDeviceActiveUser { get =>
-            new LogoutSharedAppleDeviceActiveUserRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new LogoutSharedAppleDeviceActiveUserRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public RebootNowRequestBuilder RebootNow { get =>
-            new RebootNowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RebootNowRequestBuilder(PathParameters, RequestAdapter);
         }
         public RecoverPasscodeRequestBuilder RecoverPasscode { get =>
-            new RecoverPasscodeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RecoverPasscodeRequestBuilder(PathParameters, RequestAdapter);
         }
         public RemoteLockRequestBuilder RemoteLock { get =>
-            new RemoteLockRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoteLockRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RequestRemoteAssistanceRequestBuilder RequestRemoteAssistance { get =>
-            new RequestRemoteAssistanceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RequestRemoteAssistanceRequestBuilder(PathParameters, RequestAdapter);
         }
         public ResetPasscodeRequestBuilder ResetPasscode { get =>
-            new ResetPasscodeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ResetPasscodeRequestBuilder(PathParameters, RequestAdapter);
         }
         public RetireRequestBuilder Retire { get =>
-            new RetireRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RetireRequestBuilder(PathParameters, RequestAdapter);
         }
         public ShutDownRequestBuilder ShutDown { get =>
-            new ShutDownRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ShutDownRequestBuilder(PathParameters, RequestAdapter);
         }
         public SyncDeviceRequestBuilder SyncDevice { get =>
-            new SyncDeviceRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SyncDeviceRequestBuilder(PathParameters, RequestAdapter);
         }
         public UpdateWindowsDeviceAccountRequestBuilder UpdateWindowsDeviceAccount { get =>
-            new UpdateWindowsDeviceAccountRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UpdateWindowsDeviceAccountRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WindowsDefenderScanRequestBuilder WindowsDefenderScan { get =>
-            new WindowsDefenderScanRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsDefenderScanRequestBuilder(PathParameters, RequestAdapter);
         }
         public WindowsDefenderUpdateSignaturesRequestBuilder WindowsDefenderUpdateSignatures { get =>
-            new WindowsDefenderUpdateSignaturesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsDefenderUpdateSignaturesRequestBuilder(PathParameters, RequestAdapter);
         }
         public WipeRequestBuilder Wipe { get =>
-            new WipeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WipeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new ManagedDeviceRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public ManagedDeviceRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public ManagedDeviceRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/{managedDevice_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new ManagedDeviceRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public ManagedDeviceRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/{managedDevice_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// The list of managed devices.
@@ -123,8 +134,9 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -138,8 +150,9 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -159,8 +172,9 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());

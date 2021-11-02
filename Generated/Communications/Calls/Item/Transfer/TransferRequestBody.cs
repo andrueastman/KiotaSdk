@@ -1,13 +1,14 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Communications.Calls.Item.Transfer {
+namespace GraphSdk.Communications.Calls.Item.Transfer {
     public class TransferRequestBody : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        public ParticipantInfo Transferee { get; set; }
         public InvitationParticipantInfo TransferTarget { get; set; }
         /// <summary>
         /// Instantiates a new transferRequestBody and sets the default values.
@@ -20,6 +21,7 @@ namespace ApiSdk.Communications.Calls.Item.Transfer {
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
+                {"transferee", (o,n) => { (o as TransferRequestBody).Transferee = n.GetObjectValue<ParticipantInfo>(); } },
                 {"transferTarget", (o,n) => { (o as TransferRequestBody).TransferTarget = n.GetObjectValue<InvitationParticipantInfo>(); } },
             };
         }
@@ -29,6 +31,7 @@ namespace ApiSdk.Communications.Calls.Item.Transfer {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<ParticipantInfo>("transferee", Transferee);
             writer.WriteObjectValue<InvitationParticipantInfo>("transferTarget", TransferTarget);
             writer.WriteAdditionalData(AdditionalData);
         }

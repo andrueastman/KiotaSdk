@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Workbooks.Item.GetActivitiesByInterval {
+namespace GraphSdk.Workbooks.Item.GetActivitiesByInterval {
     public class GetActivitiesByInterval : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

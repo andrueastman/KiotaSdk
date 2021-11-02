@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class MediaStream : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -13,7 +13,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string Label { get; set; }
         /// <summary>The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.</summary>
         public Modality? MediaType { get; set; }
-        /// <summary>Indicates whether the media is muted by the server.</summary>
+        /// <summary>If the media is muted by the server.</summary>
         public bool? ServerMuted { get; set; }
         /// <summary>The source ID.</summary>
         public string SourceId { get; set; }

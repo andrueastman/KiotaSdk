@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class SettingValue : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Name of the setting (as defined by the directorySettingTemplate).</summary>
+        /// <summary>Name of the setting (as defined by the groupSettingTemplate).</summary>
         public string Name { get; set; }
         /// <summary>Value of the setting.</summary>
         public string Value { get; set; }

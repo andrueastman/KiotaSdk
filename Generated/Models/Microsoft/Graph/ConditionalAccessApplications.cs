@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ConditionalAccessApplications : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -11,6 +11,8 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public List<string> ExcludeApplications { get; set; }
         /// <summary>The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.</summary>
         public List<string> IncludeApplications { get; set; }
+        /// <summary>Authentication context class references include. Supported values are c1 through c25.</summary>
+        public List<string> IncludeAuthenticationContextClassReferences { get; set; }
         /// <summary>User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice</summary>
         public List<string> IncludeUserActions { get; set; }
         /// <summary>
@@ -26,6 +28,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"excludeApplications", (o,n) => { (o as ConditionalAccessApplications).ExcludeApplications = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"includeApplications", (o,n) => { (o as ConditionalAccessApplications).IncludeApplications = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
+                {"includeAuthenticationContextClassReferences", (o,n) => { (o as ConditionalAccessApplications).IncludeAuthenticationContextClassReferences = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"includeUserActions", (o,n) => { (o as ConditionalAccessApplications).IncludeUserActions = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
             };
         }
@@ -37,6 +40,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("excludeApplications", ExcludeApplications);
             writer.WriteCollectionOfPrimitiveValues<string>("includeApplications", IncludeApplications);
+            writer.WriteCollectionOfPrimitiveValues<string>("includeAuthenticationContextClassReferences", IncludeAuthenticationContextClassReferences);
             writer.WriteCollectionOfPrimitiveValues<string>("includeUserActions", IncludeUserActions);
             writer.WriteAdditionalData(AdditionalData);
         }

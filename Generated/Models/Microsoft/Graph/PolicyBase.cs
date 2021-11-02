@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PolicyBase : DirectoryObject, IParsable {
-        /// <summary>Description for this policy.</summary>
+        /// <summary>Description for this policy. Required.</summary>
         public string Description { get; set; }
-        /// <summary>Display name for this policy.</summary>
+        /// <summary>Display name for this policy. Required.</summary>
         public string DisplayName { get; set; }
         /// <summary>
         /// The deserialization information for the current model

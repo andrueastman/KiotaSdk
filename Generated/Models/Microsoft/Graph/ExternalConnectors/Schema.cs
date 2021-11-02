@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph.ExternalConnectors {
+namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
     public class Schema : Entity, IParsable {
+        /// <summary>Must be set to microsoft.graph.externalConnector.externalItem. Required.</summary>
         public string BaseType { get; set; }
+        /// <summary>The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.</summary>
         public List<Property> Properties { get; set; }
         /// <summary>
         /// The deserialization information for the current model

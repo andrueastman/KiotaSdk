@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EducationCategory : Entity, IParsable {
         /// <summary>Unique identifier for the category.</summary>
         public string DisplayName { get; set; }

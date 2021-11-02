@@ -1,10 +1,10 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Workbooks.Item.Workbook.Functions.Beta_Dist {
+namespace GraphSdk.Workbooks.Item.Workbook.Functions.Beta_Dist {
     public class Beta_DistRequestBody : IParsable {
         public Json A { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

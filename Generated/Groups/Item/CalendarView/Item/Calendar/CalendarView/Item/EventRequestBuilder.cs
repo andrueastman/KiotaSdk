@@ -1,11 +1,11 @@
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Accept;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Cancel;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Decline;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.DismissReminder;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Forward;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.SnoozeReminder;
-using ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.TentativelyAccept;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Accept;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Cancel;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Decline;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.DismissReminder;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Forward;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.SnoozeReminder;
+using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.TentativelyAccept;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -13,51 +13,62 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
+namespace GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}\calendarView\{event-id}\calendar\calendarView\{event-id1}</summary>
     public class EventRequestBuilder {
         public AcceptRequestBuilder Accept { get =>
-            new AcceptRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AcceptRequestBuilder(PathParameters, RequestAdapter);
         }
         public CancelRequestBuilder Cancel { get =>
-            new CancelRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CancelRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DeclineRequestBuilder Decline { get =>
-            new DeclineRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeclineRequestBuilder(PathParameters, RequestAdapter);
         }
         public DismissReminderRequestBuilder DismissReminder { get =>
-            new DismissReminderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DismissReminderRequestBuilder(PathParameters, RequestAdapter);
         }
         public ForwardRequestBuilder Forward { get =>
-            new ForwardRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ForwardRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public SnoozeReminderRequestBuilder SnoozeReminder { get =>
-            new SnoozeReminderRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SnoozeReminderRequestBuilder(PathParameters, RequestAdapter);
         }
         public TentativelyAcceptRequestBuilder TentativelyAccept { get =>
-            new TentativelyAcceptRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TentativelyAcceptRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
+        /// <summary>
+        /// Instantiates a new EventRequestBuilder and sets the default values.
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public EventRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/calendarView/{event_id}/calendar/calendarView/{event_id1}{?select}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Instantiates a new EventRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public EventRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public EventRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/calendarView/{event_id}/calendar/calendarView/{event_id1}{?select}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
         /// The calendar view for the calendar. Navigation property. Read-only.
@@ -67,8 +78,9 @@ namespace ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -82,8 +94,9 @@ namespace ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -103,8 +116,9 @@ namespace ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -145,8 +159,6 @@ namespace ApiSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item {
         }
         /// <summary>The calendar view for the calendar. Navigation property. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {
-            /// <summary>Expand related entities</summary>
-            public string[] Expand { get; set; }
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }
         }

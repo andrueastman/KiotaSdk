@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ChatMessage : Entity, IParsable {
-        /// <summary>Attached files. Attachments are currently read-only – sending attachments is not supported.</summary>
+        /// <summary>References to attached objects like files, tabs, meetings etc.</summary>
         public List<ChatMessageAttachment> Attachments { get; set; }
         public ItemBody Body { get; set; }
         /// <summary>If the message was sent in a channel, represents identity of the channel.</summary>
@@ -18,7 +18,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>Read-only. Version number of the chat message.</summary>
         public string Etag { get; set; }
-        /// <summary>Read only. Details of the sender of the chat message.</summary>
+        /// <summary>Details of the sender of the chat message. Can only be set during migration.</summary>
         public ChatMessageFromIdentitySet From { get; set; }
         /// <summary>Content in a message hosted by Microsoft Teams - for example, images or code snippets.</summary>
         public List<ChatMessageHostedContent> HostedContents { get; set; }
@@ -30,9 +30,9 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Locale of the chat message set by the client. Always set to en-us.</summary>
         public string Locale { get; set; }
-        /// <summary>List of entities mentioned in the chat message. Currently supports user, bot, team, channel.</summary>
+        /// <summary>List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.</summary>
         public List<ChatMessageMention> Mentions { get; set; }
-        /// <summary>The type of chat message. The possible value is: message.</summary>
+        /// <summary>The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.</summary>
         public ChatMessageType? MessageType { get; set; }
         /// <summary>Defines the properties of a policy violation set by a data loss prevention (DLP) application.</summary>
         public ChatMessagePolicyViolation PolicyViolation { get; set; }

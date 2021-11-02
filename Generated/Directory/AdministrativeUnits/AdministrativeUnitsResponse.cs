@@ -1,15 +1,15 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Directory.AdministrativeUnits {
+namespace GraphSdk.Directory.AdministrativeUnits {
     public class AdministrativeUnitsResponse : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit> Value { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit> Value { get; set; }
         /// <summary>
         /// Instantiates a new administrativeUnitsResponse and sets the default values.
         /// </summary>
@@ -22,7 +22,7 @@ namespace ApiSdk.Directory.AdministrativeUnits {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as AdministrativeUnitsResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as AdministrativeUnitsResponse).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit>().ToList(); } },
+                {"value", (o,n) => { (o as AdministrativeUnitsResponse).Value = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>().ToList(); } },
             };
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace ApiSdk.Directory.AdministrativeUnits {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.AdministrativeUnit>("value", Value);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

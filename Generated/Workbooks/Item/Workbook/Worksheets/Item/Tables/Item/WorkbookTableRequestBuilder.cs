@@ -1,15 +1,15 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ClearFilters;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Columns;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ConvertToRange;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.DataBodyRange;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.HeaderRowRange;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Range;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ReapplyFilters;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Rows;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Sort;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.TotalRowRange;
-using ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Worksheet;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ClearFilters;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Columns;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ConvertToRange;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.DataBodyRange;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.HeaderRowRange;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Range;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.ReapplyFilters;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Rows;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Sort;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.TotalRowRange;
+using GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Worksheet;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -17,51 +17,62 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
+namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}</summary>
     public class WorkbookTableRequestBuilder {
         public ClearFiltersRequestBuilder ClearFilters { get =>
-            new ClearFiltersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ClearFiltersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ColumnsRequestBuilder Columns { get =>
-            new ColumnsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ColumnsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ConvertToRangeRequestBuilder ConvertToRange { get =>
-            new ConvertToRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ConvertToRangeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public ReapplyFiltersRequestBuilder ReapplyFilters { get =>
-            new ReapplyFiltersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ReapplyFiltersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RowsRequestBuilder Rows { get =>
-            new RowsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RowsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SortRequestBuilder Sort { get =>
-            new SortRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SortRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WorksheetRequestBuilder Worksheet { get =>
-            new WorksheetRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorksheetRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new WorkbookTableRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public WorkbookTableRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public WorkbookTableRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/tables/{workbookTable_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new WorkbookTableRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public WorkbookTableRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/tables/{workbookTable_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Collection of tables that are part of the worksheet. Read-only.
@@ -71,8 +82,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -86,8 +98,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -107,8 +120,9 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -118,7 +132,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.dataBodyRange()
         /// </summary>
         public DataBodyRangeRequestBuilder DataBodyRange() {
-            return new DataBodyRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new DataBodyRangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Collection of tables that are part of the worksheet. Read-only.
@@ -145,7 +159,7 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.headerRowRange()
         /// </summary>
         public HeaderRowRangeRequestBuilder HeaderRowRange() {
-            return new HeaderRowRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new HeaderRowRangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Collection of tables that are part of the worksheet. Read-only.
@@ -163,13 +177,13 @@ namespace ApiSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.range()
         /// </summary>
         public RangeRequestBuilder Range() {
-            return new RangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new RangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\microsoft.graph.totalRowRange()
         /// </summary>
         public TotalRowRangeRequestBuilder TotalRowRange() {
-            return new TotalRowRangeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new TotalRowRangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Collection of tables that are part of the worksheet. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

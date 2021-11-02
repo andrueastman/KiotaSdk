@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class EducationClass : Entity, IParsable {
         public List<EducationCategory> AssignmentCategories { get; set; }
         public EducationAssignmentDefaults AssignmentDefaults { get; set; }
@@ -24,14 +24,14 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string ExternalId { get; set; }
         /// <summary>Name of the class in the syncing system.</summary>
         public string ExternalName { get; set; }
-        /// <summary>The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.</summary>
+        /// <summary>How this class was created. Possible values are: sis, manual.</summary>
         public EducationExternalSource? ExternalSource { get; set; }
         /// <summary>The name of the external source this resources was generated from.</summary>
         public string ExternalSourceDetail { get; set; }
         /// <summary>Grade level of the class.</summary>
         public string Grade { get; set; }
         /// <summary>The underlying Microsoft 365 group object.</summary>
-        public ApiSdk.Models.Microsoft.Graph.Group Group { get; set; }
+        public GraphSdk.Models.Microsoft.Graph.Group Group { get; set; }
         /// <summary>Mail name for sending email to all members, if this is enabled.</summary>
         public string MailNickname { get; set; }
         /// <summary>All users in the class. Nullable.</summary>
@@ -40,7 +40,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public List<EducationSchool> Schools { get; set; }
         /// <summary>All teachers in the class. Nullable.</summary>
         public List<EducationUser> Teachers { get; set; }
-        /// <summary>Term for the class.</summary>
+        /// <summary>Term for this class.</summary>
         public EducationTerm Term { get; set; }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"externalSource", (o,n) => { (o as EducationClass).ExternalSource = n.GetEnumValue<EducationExternalSource>(); } },
                 {"externalSourceDetail", (o,n) => { (o as EducationClass).ExternalSourceDetail = n.GetStringValue(); } },
                 {"grade", (o,n) => { (o as EducationClass).Grade = n.GetStringValue(); } },
-                {"group", (o,n) => { (o as EducationClass).Group = n.GetObjectValue<ApiSdk.Models.Microsoft.Graph.Group>(); } },
+                {"group", (o,n) => { (o as EducationClass).Group = n.GetObjectValue<GraphSdk.Models.Microsoft.Graph.Group>(); } },
                 {"mailNickname", (o,n) => { (o as EducationClass).MailNickname = n.GetStringValue(); } },
                 {"members", (o,n) => { (o as EducationClass).Members = n.GetCollectionOfObjectValues<EducationUser>().ToList(); } },
                 {"schools", (o,n) => { (o as EducationClass).Schools = n.GetCollectionOfObjectValues<EducationSchool>().ToList(); } },
@@ -90,7 +90,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteEnumValue<EducationExternalSource>("externalSource", ExternalSource);
             writer.WriteStringValue("externalSourceDetail", ExternalSourceDetail);
             writer.WriteStringValue("grade", Grade);
-            writer.WriteObjectValue<ApiSdk.Models.Microsoft.Graph.Group>("group", Group);
+            writer.WriteObjectValue<GraphSdk.Models.Microsoft.Graph.Group>("group", Group);
             writer.WriteStringValue("mailNickname", MailNickname);
             writer.WriteCollectionOfObjectValues<EducationUser>("members", Members);
             writer.WriteCollectionOfObjectValues<EducationSchool>("schools", Schools);

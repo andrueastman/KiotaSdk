@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ParticipantInfo : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -14,7 +14,9 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public IdentitySet Identity { get; set; }
         /// <summary>The language culture string. Read-only.</summary>
         public string LanguageId { get; set; }
-        /// <summary>The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.</summary>
+        /// <summary>The participant ID of the participant. Read-only.</summary>
+        public string ParticipantId { get; set; }
+        /// <summary>The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.</summary>
         public string Region { get; set; }
         /// <summary>
         /// Instantiates a new participantInfo and sets the default values.
@@ -31,6 +33,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
                 {"endpointType", (o,n) => { (o as ParticipantInfo).EndpointType = n.GetEnumValue<EndpointType>(); } },
                 {"identity", (o,n) => { (o as ParticipantInfo).Identity = n.GetObjectValue<IdentitySet>(); } },
                 {"languageId", (o,n) => { (o as ParticipantInfo).LanguageId = n.GetStringValue(); } },
+                {"participantId", (o,n) => { (o as ParticipantInfo).ParticipantId = n.GetStringValue(); } },
                 {"region", (o,n) => { (o as ParticipantInfo).Region = n.GetStringValue(); } },
             };
         }
@@ -44,6 +47,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
             writer.WriteEnumValue<EndpointType>("endpointType", EndpointType);
             writer.WriteObjectValue<IdentitySet>("identity", Identity);
             writer.WriteStringValue("languageId", LanguageId);
+            writer.WriteStringValue("participantId", ParticipantId);
             writer.WriteStringValue("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }

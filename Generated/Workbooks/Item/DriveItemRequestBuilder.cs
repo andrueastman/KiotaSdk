@@ -1,29 +1,29 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Workbooks.Item.Analytics;
-using ApiSdk.Workbooks.Item.Checkin;
-using ApiSdk.Workbooks.Item.Checkout;
-using ApiSdk.Workbooks.Item.Children;
-using ApiSdk.Workbooks.Item.Content;
-using ApiSdk.Workbooks.Item.Copy;
-using ApiSdk.Workbooks.Item.CreateLink;
-using ApiSdk.Workbooks.Item.CreateUploadSession;
-using ApiSdk.Workbooks.Item.Delta;
-using ApiSdk.Workbooks.Item.DeltaWithToken;
-using ApiSdk.Workbooks.Item.Follow;
-using ApiSdk.Workbooks.Item.GetActivitiesByInterval;
-using ApiSdk.Workbooks.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
-using ApiSdk.Workbooks.Item.Invite;
-using ApiSdk.Workbooks.Item.ListItem;
-using ApiSdk.Workbooks.Item.Permissions;
-using ApiSdk.Workbooks.Item.Preview;
-using ApiSdk.Workbooks.Item.Restore;
-using ApiSdk.Workbooks.Item.SearchWithQ;
-using ApiSdk.Workbooks.Item.Subscriptions;
-using ApiSdk.Workbooks.Item.Thumbnails;
-using ApiSdk.Workbooks.Item.Unfollow;
-using ApiSdk.Workbooks.Item.ValidatePermission;
-using ApiSdk.Workbooks.Item.Versions;
-using ApiSdk.Workbooks.Item.Workbook;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Workbooks.Item.Analytics;
+using GraphSdk.Workbooks.Item.Checkin;
+using GraphSdk.Workbooks.Item.Checkout;
+using GraphSdk.Workbooks.Item.Children;
+using GraphSdk.Workbooks.Item.Content;
+using GraphSdk.Workbooks.Item.Copy;
+using GraphSdk.Workbooks.Item.CreateLink;
+using GraphSdk.Workbooks.Item.CreateUploadSession;
+using GraphSdk.Workbooks.Item.Delta;
+using GraphSdk.Workbooks.Item.DeltaWithToken;
+using GraphSdk.Workbooks.Item.Follow;
+using GraphSdk.Workbooks.Item.GetActivitiesByInterval;
+using GraphSdk.Workbooks.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval;
+using GraphSdk.Workbooks.Item.Invite;
+using GraphSdk.Workbooks.Item.ListItem;
+using GraphSdk.Workbooks.Item.Permissions;
+using GraphSdk.Workbooks.Item.Preview;
+using GraphSdk.Workbooks.Item.Restore;
+using GraphSdk.Workbooks.Item.SearchWithQ;
+using GraphSdk.Workbooks.Item.Subscriptions;
+using GraphSdk.Workbooks.Item.Thumbnails;
+using GraphSdk.Workbooks.Item.Unfollow;
+using GraphSdk.Workbooks.Item.ValidatePermission;
+using GraphSdk.Workbooks.Item.Versions;
+using GraphSdk.Workbooks.Item.Workbook;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -31,90 +31,101 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Workbooks.Item {
+namespace GraphSdk.Workbooks.Item {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}</summary>
     public class DriveItemRequestBuilder {
         public AnalyticsRequestBuilder Analytics { get =>
-            new AnalyticsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckinRequestBuilder Checkin { get =>
-            new CheckinRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckinRequestBuilder(PathParameters, RequestAdapter);
         }
         public CheckoutRequestBuilder Checkout { get =>
-            new CheckoutRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CheckoutRequestBuilder(PathParameters, RequestAdapter);
         }
         public ChildrenRequestBuilder Children { get =>
-            new ChildrenRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ChildrenRequestBuilder(PathParameters, RequestAdapter);
         }
         public ContentRequestBuilder Content { get =>
-            new ContentRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ContentRequestBuilder(PathParameters, RequestAdapter);
         }
         public CopyRequestBuilder Copy { get =>
-            new CopyRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CopyRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreateLinkRequestBuilder CreateLink { get =>
-            new CreateLinkRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreateLinkRequestBuilder(PathParameters, RequestAdapter);
         }
         public CreateUploadSessionRequestBuilder CreateUploadSession { get =>
-            new CreateUploadSessionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new CreateUploadSessionRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public FollowRequestBuilder Follow { get =>
-            new FollowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new FollowRequestBuilder(PathParameters, RequestAdapter);
         }
         public InviteRequestBuilder Invite { get =>
-            new InviteRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new InviteRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public ListItemRequestBuilder ListItem { get =>
-            new ListItemRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ListItemRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public PermissionsRequestBuilder Permissions { get =>
-            new PermissionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PermissionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public PreviewRequestBuilder Preview { get =>
-            new PreviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new PreviewRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public RestoreRequestBuilder Restore { get =>
-            new RestoreRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubscriptionsRequestBuilder Subscriptions { get =>
-            new SubscriptionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SubscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ThumbnailsRequestBuilder Thumbnails { get =>
-            new ThumbnailsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ThumbnailsRequestBuilder(PathParameters, RequestAdapter);
         }
         public UnfollowRequestBuilder Unfollow { get =>
-            new UnfollowRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new UnfollowRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public ValidatePermissionRequestBuilder ValidatePermission { get =>
-            new ValidatePermissionRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ValidatePermissionRequestBuilder(PathParameters, RequestAdapter);
         }
         public VersionsRequestBuilder Versions { get =>
-            new VersionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new VersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public WorkbookRequestBuilder Workbook { get =>
-            new WorkbookRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WorkbookRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DriveItemRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public DriveItemRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public DriveItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new DriveItemRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public DriveItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Delete entity from workbooks
@@ -124,8 +135,9 @@ namespace ApiSdk.Workbooks.Item {
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
@@ -139,8 +151,9 @@ namespace ApiSdk.Workbooks.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -156,12 +169,13 @@ namespace ApiSdk.Workbooks.Item {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -181,7 +195,7 @@ namespace ApiSdk.Workbooks.Item {
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.delta()
         /// </summary>
         public DeltaRequestBuilder Delta() {
-            return new DeltaRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.delta(token='{token}')
@@ -189,13 +203,13 @@ namespace ApiSdk.Workbooks.Item {
         /// </summary>
         public DeltaWithTokenRequestBuilder DeltaWithToken(string token) {
             if(string.IsNullOrEmpty(token)) throw new ArgumentNullException(nameof(token));
-            return new DeltaWithTokenRequestBuilder(CurrentPath + PathSegment , RequestAdapter, token, false);
+            return new DeltaWithTokenRequestBuilder(PathParameters, RequestAdapter, token);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.getActivitiesByInterval()
         /// </summary>
         public GetActivitiesByIntervalRequestBuilder GetActivitiesByInterval() {
-            return new GetActivitiesByIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            return new GetActivitiesByIntervalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
@@ -207,7 +221,7 @@ namespace ApiSdk.Workbooks.Item {
             if(string.IsNullOrEmpty(endDateTime)) throw new ArgumentNullException(nameof(endDateTime));
             if(string.IsNullOrEmpty(interval)) throw new ArgumentNullException(nameof(interval));
             if(string.IsNullOrEmpty(startDateTime)) throw new ArgumentNullException(nameof(startDateTime));
-            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(CurrentPath + PathSegment , RequestAdapter, startDateTime, endDateTime, interval, false);
+            return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters, RequestAdapter, startDateTime, endDateTime, interval);
         }
         /// <summary>
         /// Get entity from workbooks by key
@@ -216,9 +230,9 @@ namespace ApiSdk.Workbooks.Item {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.DriveItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Update entity in workbooks
@@ -227,7 +241,7 @@ namespace ApiSdk.Workbooks.Item {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
@@ -238,7 +252,7 @@ namespace ApiSdk.Workbooks.Item {
         /// </summary>
         public SearchWithQRequestBuilder SearchWithQ(string q) {
             if(string.IsNullOrEmpty(q)) throw new ArgumentNullException(nameof(q));
-            return new SearchWithQRequestBuilder(CurrentPath + PathSegment , RequestAdapter, q, false);
+            return new SearchWithQRequestBuilder(PathParameters, RequestAdapter, q);
         }
         /// <summary>Get entity from workbooks by key</summary>
         public class GetQueryParameters : QueryParametersBase {

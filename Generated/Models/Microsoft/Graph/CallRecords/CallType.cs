@@ -1,4 +1,4 @@
-namespace ApiSdk.Models.Microsoft.Graph.CallRecords {
+namespace GraphSdk.Models.Microsoft.Graph.CallRecords {
     public enum CallType {
         Unknown,
         GroupCall,

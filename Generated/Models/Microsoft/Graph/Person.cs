@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class Person : Entity, IParsable {
         /// <summary>The person's birthday.</summary>
         public string Birthday { get; set; }
@@ -25,7 +25,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string OfficeLocation { get; set; }
         /// <summary>Free-form notes that the user has taken about this person.</summary>
         public string PersonNotes { get; set; }
-        /// <summary>The type of person, for example distribution list.</summary>
+        /// <summary>The type of person.</summary>
         public PersonType PersonType { get; set; }
         /// <summary>The person's phone numbers.</summary>
         public List<Phone> Phones { get; set; }

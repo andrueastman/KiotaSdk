@@ -1,14 +1,14 @@
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Sites.Remove {
+namespace GraphSdk.Sites.Remove {
     public class RemoveRequestBody : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        public List<ApiSdk.Models.Microsoft.Graph.Site> Value { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.Site> Value { get; set; }
         /// <summary>
         /// Instantiates a new removeRequestBody and sets the default values.
         /// </summary>
@@ -20,7 +20,7 @@ namespace ApiSdk.Sites.Remove {
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
-                {"value", (o,n) => { (o as RemoveRequestBody).Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Site>().ToList(); } },
+                {"value", (o,n) => { (o as RemoveRequestBody).Value = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Site>().ToList(); } },
             };
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace ApiSdk.Sites.Remove {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Microsoft.Graph.Site>("value", Value);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Site>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

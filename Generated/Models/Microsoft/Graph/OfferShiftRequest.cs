@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class OfferShiftRequest : ScheduleChangeRequest, IParsable {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? RecipientActionDateTime { get; set; }
         /// <summary>Custom message sent by recipient of the offer shift request.</summary>
         public string RecipientActionMessage { get; set; }
-        /// <summary>User id of the recipient of the offer shift request.</summary>
+        /// <summary>User ID of the recipient of the offer shift request.</summary>
         public string RecipientUserId { get; set; }
-        /// <summary>User id of the sender of the offer shift request.</summary>
+        /// <summary>User ID of the sender of the offer shift request.</summary>
         public string SenderShiftId { get; set; }
         /// <summary>
         /// The deserialization information for the current model

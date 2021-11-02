@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class MessageRuleActions : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -25,7 +25,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string MoveToFolder { get; set; }
         /// <summary>Indicates whether a message should be permanently deleted and not saved to the Deleted Items folder.</summary>
         public bool? PermanentDelete { get; set; }
-        /// <summary>The email address to which a message should be redirected.</summary>
+        /// <summary>The email addresses to which a message should be redirected.</summary>
         public List<Recipient> RedirectTo { get; set; }
         /// <summary>Indicates whether subsequent rules should be evaluated.</summary>
         public bool? StopProcessingRules { get; set; }

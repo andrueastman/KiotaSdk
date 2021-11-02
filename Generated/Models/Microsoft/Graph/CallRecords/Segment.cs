@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph.CallRecords {
+namespace GraphSdk.Models.Microsoft.Graph.CallRecords {
     public class Segment : Entity, IParsable {
         /// <summary>Endpoint that answered this segment.</summary>
         public Endpoint Callee { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Users.Item.Outlook.SupportedLanguages {
+namespace GraphSdk.Users.Item.Outlook.SupportedLanguages {
     public class SupportedLanguages : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

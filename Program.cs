@@ -1,27 +1,47 @@
 ﻿using System;
 using Microsoft.Kiota.Http.HttpClientLibrary;
-using ApiSdk;
+using GraphSdk;
 using Azure.Identity;
 using Microsoft.Kiota.Authentication.Azure;
 using System.Threading.Tasks;
+using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;
+using Microsoft.Kiota.Abstractions;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static async Task Main()
         {
-            string[] scopes = new[] { "User.Read", "User.ReadWrite" };
-            InteractiveBrowserCredentialOptions interactiveBrowserCredentialOptions = new InteractiveBrowserCredentialOptions()
+            string[] scopes = new[] { "User.Read", "Mail.ReadWrite", "User.ReadWrite.All" };
+            var interactiveBrowserCredentialOptions = new InteractiveBrowserCredentialOptions()
             {
-                ClientId = "INSERT_CLIENT_ID"
+                ClientId = "Insert_Client_Id"
             };
             var interactiveBrowserCredential = new InteractiveBrowserCredential(interactiveBrowserCredentialOptions);
             var httpClientRequestAdapter = new HttpClientRequestAdapter(new AzureIdentityAuthenticationProvider(interactiveBrowserCredential, scopes));
             var graphClient = new GraphClient(httpClientRequestAdapter);
-            var user = await graphClient.Me.GetAsync();
 
-            Console.WriteLine(user.DisplayName);
+            // Setting headers and query parameters
+            // var usersRequestInformation = graphClient.Users.CreateGetRequestInformation();
+            // usersRequestInformation.QueryParameters.Add("custom","customValue");
+            // await httpClientRequestAdapter.SendAsync<User>(usersRequestInformation);
+
+            var requestOptions = new IRequestOption[] 
+            {
+                new RedirectHandlerOption
+                {
+                    MaxRedirect = 1
+                }
+            };
+
+            // Get users with query parameters
+            var usersList = await graphClient.Me.Messages.GetAsync(
+                parameters => { parameters.Select = new string[] { "id"}; parameters.Count = true; }, // set parameters
+                headers => headers.Add("ConsistencyLevel", "eventual"),                                           // set headers
+                requestOptions);                                                                                  // set per request options
+
+            Console.WriteLine(usersList.Value.Count);
         }
     }
 }

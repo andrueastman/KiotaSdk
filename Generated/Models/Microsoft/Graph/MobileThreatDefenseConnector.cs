@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class MobileThreatDefenseConnector : Entity, IParsable {
         /// <summary>For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant</summary>
         public bool? AndroidDeviceBlockedOnMissingPartnerData { get; set; }

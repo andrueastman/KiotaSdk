@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class PlannerTask : Entity, IParsable {
         /// <summary>Number of checklist items with value set to false, representing incomplete items.</summary>
         public int? ActiveChecklistItemCount { get; set; }
@@ -43,7 +43,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public int? PercentComplete { get; set; }
         /// <summary>Plan ID to which the task belongs.</summary>
         public string PlanId { get; set; }
-        /// <summary>This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.</summary>
+        /// <summary>This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.</summary>
         public PlannerPreviewType? PreviewType { get; set; }
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.</summary>
         public PlannerProgressTaskBoardTaskFormat ProgressTaskBoardFormat { get; set; }

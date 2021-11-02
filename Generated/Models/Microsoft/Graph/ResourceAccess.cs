@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class ResourceAccess : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.</summary>
         public string Id { get; set; }
-        /// <summary>Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.</summary>
+        /// <summary>Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).</summary>
         public string Type { get; set; }
         /// <summary>
         /// Instantiates a new resourceAccess and sets the default values.

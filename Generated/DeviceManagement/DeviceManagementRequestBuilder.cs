@@ -1,36 +1,37 @@
-using ApiSdk.DeviceManagement.ApplePushNotificationCertificate;
-using ApiSdk.DeviceManagement.ComplianceManagementPartners;
-using ApiSdk.DeviceManagement.ConditionalAccessSettings;
-using ApiSdk.DeviceManagement.DetectedApps;
-using ApiSdk.DeviceManagement.DeviceCategories;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicies;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
-using ApiSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
-using ApiSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
-using ApiSdk.DeviceManagement.DeviceConfigurations;
-using ApiSdk.DeviceManagement.DeviceEnrollmentConfigurations;
-using ApiSdk.DeviceManagement.DeviceManagementPartners;
-using ApiSdk.DeviceManagement.ExchangeConnectors;
-using ApiSdk.DeviceManagement.GetEffectivePermissionsWithScope;
-using ApiSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
-using ApiSdk.DeviceManagement.IosUpdateStatuses;
-using ApiSdk.DeviceManagement.ManagedDeviceOverview;
-using ApiSdk.DeviceManagement.ManagedDevices;
-using ApiSdk.DeviceManagement.MobileThreatDefenseConnectors;
-using ApiSdk.DeviceManagement.NotificationMessageTemplates;
-using ApiSdk.DeviceManagement.RemoteAssistancePartners;
-using ApiSdk.DeviceManagement.ResourceOperations;
-using ApiSdk.DeviceManagement.RoleAssignments;
-using ApiSdk.DeviceManagement.RoleDefinitions;
-using ApiSdk.DeviceManagement.SoftwareUpdateStatusSummary;
-using ApiSdk.DeviceManagement.TelecomExpenseManagementPartners;
-using ApiSdk.DeviceManagement.TermsAndConditions;
-using ApiSdk.DeviceManagement.TroubleshootingEvents;
-using ApiSdk.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
-using ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities;
-using ApiSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
-using ApiSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
-using ApiSdk.Models.Microsoft.Graph;
+using GraphSdk.DeviceManagement.ApplePushNotificationCertificate;
+using GraphSdk.DeviceManagement.ComplianceManagementPartners;
+using GraphSdk.DeviceManagement.ConditionalAccessSettings;
+using GraphSdk.DeviceManagement.DetectedApps;
+using GraphSdk.DeviceManagement.DeviceCategories;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicies;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicyDeviceStateSummary;
+using GraphSdk.DeviceManagement.DeviceCompliancePolicySettingStateSummaries;
+using GraphSdk.DeviceManagement.DeviceConfigurationDeviceStateSummaries;
+using GraphSdk.DeviceManagement.DeviceConfigurations;
+using GraphSdk.DeviceManagement.DeviceEnrollmentConfigurations;
+using GraphSdk.DeviceManagement.DeviceManagementPartners;
+using GraphSdk.DeviceManagement.ExchangeConnectors;
+using GraphSdk.DeviceManagement.GetEffectivePermissionsWithScope;
+using GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities;
+using GraphSdk.DeviceManagement.IosUpdateStatuses;
+using GraphSdk.DeviceManagement.ManagedDeviceOverview;
+using GraphSdk.DeviceManagement.ManagedDevices;
+using GraphSdk.DeviceManagement.MobileThreatDefenseConnectors;
+using GraphSdk.DeviceManagement.NotificationMessageTemplates;
+using GraphSdk.DeviceManagement.RemoteAssistancePartners;
+using GraphSdk.DeviceManagement.Reports;
+using GraphSdk.DeviceManagement.ResourceOperations;
+using GraphSdk.DeviceManagement.RoleAssignments;
+using GraphSdk.DeviceManagement.RoleDefinitions;
+using GraphSdk.DeviceManagement.SoftwareUpdateStatusSummary;
+using GraphSdk.DeviceManagement.TelecomExpenseManagementPartners;
+using GraphSdk.DeviceManagement.TermsAndConditions;
+using GraphSdk.DeviceManagement.TroubleshootingEvents;
+using GraphSdk.DeviceManagement.VerifyWindowsEnrollmentAutoDiscoveryWithDomainName;
+using GraphSdk.DeviceManagement.WindowsAutopilotDeviceIdentities;
+using GraphSdk.DeviceManagement.WindowsInformationProtectionAppLearningSummaries;
+using GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningSummaries;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -38,120 +39,134 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.DeviceManagement {
+namespace GraphSdk.DeviceManagement {
     /// <summary>Builds and executes requests for operations under \deviceManagement</summary>
     public class DeviceManagementRequestBuilder {
         public ApplePushNotificationCertificateRequestBuilder ApplePushNotificationCertificate { get =>
-            new ApplePushNotificationCertificateRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ApplePushNotificationCertificateRequestBuilder(PathParameters, RequestAdapter);
         }
         public ComplianceManagementPartnersRequestBuilder ComplianceManagementPartners { get =>
-            new ComplianceManagementPartnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ComplianceManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ConditionalAccessSettingsRequestBuilder ConditionalAccessSettings { get =>
-            new ConditionalAccessSettingsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ConditionalAccessSettingsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DetectedAppsRequestBuilder DetectedApps { get =>
-            new DetectedAppsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DetectedAppsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCategoriesRequestBuilder DeviceCategories { get =>
-            new DeviceCategoriesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCategoriesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCompliancePoliciesRequestBuilder DeviceCompliancePolicies { get =>
-            new DeviceCompliancePoliciesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCompliancePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCompliancePolicyDeviceStateSummaryRequestBuilder DeviceCompliancePolicyDeviceStateSummary { get =>
-            new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceCompliancePolicySettingStateSummariesRequestBuilder DeviceCompliancePolicySettingStateSummaries { get =>
-            new DeviceCompliancePolicySettingStateSummariesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceCompliancePolicySettingStateSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceConfigurationDeviceStateSummariesRequestBuilder DeviceConfigurationDeviceStateSummaries { get =>
-            new DeviceConfigurationDeviceStateSummariesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceConfigurationDeviceStateSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceConfigurationsRequestBuilder DeviceConfigurations { get =>
-            new DeviceConfigurationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceEnrollmentConfigurationsRequestBuilder DeviceEnrollmentConfigurations { get =>
-            new DeviceEnrollmentConfigurationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceEnrollmentConfigurationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public DeviceManagementPartnersRequestBuilder DeviceManagementPartners { get =>
-            new DeviceManagementPartnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DeviceManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
         public ExchangeConnectorsRequestBuilder ExchangeConnectors { get =>
-            new ExchangeConnectorsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ExchangeConnectorsRequestBuilder(PathParameters, RequestAdapter);
         }
         public ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder ImportedWindowsAutopilotDeviceIdentities { get =>
-            new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         public IosUpdateStatusesRequestBuilder IosUpdateStatuses { get =>
-            new IosUpdateStatusesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new IosUpdateStatusesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
         public ManagedDeviceOverviewRequestBuilder ManagedDeviceOverview { get =>
-            new ManagedDeviceOverviewRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedDeviceOverviewRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedDevicesRequestBuilder ManagedDevices { get =>
-            new ManagedDevicesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ManagedDevicesRequestBuilder(PathParameters, RequestAdapter);
         }
         public MobileThreatDefenseConnectorsRequestBuilder MobileThreatDefenseConnectors { get =>
-            new MobileThreatDefenseConnectorsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new MobileThreatDefenseConnectorsRequestBuilder(PathParameters, RequestAdapter);
         }
         public NotificationMessageTemplatesRequestBuilder NotificationMessageTemplates { get =>
-            new NotificationMessageTemplatesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new NotificationMessageTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public RemoteAssistancePartnersRequestBuilder RemoteAssistancePartners { get =>
-            new RemoteAssistancePartnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RemoteAssistancePartnersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        public ReportsRequestBuilder Reports { get =>
+            new ReportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ResourceOperationsRequestBuilder ResourceOperations { get =>
-            new ResourceOperationsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ResourceOperationsRequestBuilder(PathParameters, RequestAdapter);
         }
         public RoleAssignmentsRequestBuilder RoleAssignments { get =>
-            new RoleAssignmentsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RoleAssignmentsRequestBuilder(PathParameters, RequestAdapter);
         }
         public RoleDefinitionsRequestBuilder RoleDefinitions { get =>
-            new RoleDefinitionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new RoleDefinitionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SoftwareUpdateStatusSummaryRequestBuilder SoftwareUpdateStatusSummary { get =>
-            new SoftwareUpdateStatusSummaryRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new SoftwareUpdateStatusSummaryRequestBuilder(PathParameters, RequestAdapter);
         }
         public TelecomExpenseManagementPartnersRequestBuilder TelecomExpenseManagementPartners { get =>
-            new TelecomExpenseManagementPartnersRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TelecomExpenseManagementPartnersRequestBuilder(PathParameters, RequestAdapter);
         }
         public TermsAndConditionsRequestBuilder TermsAndConditions { get =>
-            new TermsAndConditionsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TermsAndConditionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public TroubleshootingEventsRequestBuilder TroubleshootingEvents { get =>
-            new TroubleshootingEventsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new TroubleshootingEventsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         public WindowsAutopilotDeviceIdentitiesRequestBuilder WindowsAutopilotDeviceIdentities { get =>
-            new WindowsAutopilotDeviceIdentitiesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsAutopilotDeviceIdentitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         public WindowsInformationProtectionAppLearningSummariesRequestBuilder WindowsInformationProtectionAppLearningSummaries { get =>
-            new WindowsInformationProtectionAppLearningSummariesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsInformationProtectionAppLearningSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         public WindowsInformationProtectionNetworkLearningSummariesRequestBuilder WindowsInformationProtectionNetworkLearningSummaries { get =>
-            new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new DeviceManagementRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public DeviceManagementRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public DeviceManagementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "/deviceManagement";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
+        }
+        /// <summary>
+        /// Instantiates a new DeviceManagementRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public DeviceManagementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
         }
         /// <summary>
         /// Get deviceManagement
@@ -162,8 +177,9 @@ namespace ApiSdk.DeviceManagement {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -179,12 +195,13 @@ namespace ApiSdk.DeviceManagement {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(ApiSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
@@ -197,9 +214,9 @@ namespace ApiSdk.DeviceManagement {
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ApiSdk.Models.Microsoft.Graph.DeviceManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.DeviceManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ApiSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DeviceManagement>(requestInfo, responseHandler);
         }
         /// <summary>
         /// Builds and executes requests for operations under \deviceManagement\microsoft.graph.getEffectivePermissions(scope='{scope}')
@@ -207,7 +224,7 @@ namespace ApiSdk.DeviceManagement {
         /// </summary>
         public GetEffectivePermissionsWithScopeRequestBuilder GetEffectivePermissionsWithScope(string scope) {
             if(string.IsNullOrEmpty(scope)) throw new ArgumentNullException(nameof(scope));
-            return new GetEffectivePermissionsWithScopeRequestBuilder(CurrentPath + PathSegment , RequestAdapter, scope, false);
+            return new GetEffectivePermissionsWithScopeRequestBuilder(PathParameters, RequestAdapter, scope);
         }
         /// <summary>
         /// Update deviceManagement
@@ -216,7 +233,7 @@ namespace ApiSdk.DeviceManagement {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(ApiSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.DeviceManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
@@ -227,7 +244,7 @@ namespace ApiSdk.DeviceManagement {
         /// </summary>
         public VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder VerifyWindowsEnrollmentAutoDiscoveryWithDomainName(string domainName) {
             if(string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
-            return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(CurrentPath + PathSegment , RequestAdapter, domainName, false);
+            return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(PathParameters, RequestAdapter, domainName);
         }
         /// <summary>Get deviceManagement</summary>
         public class GetQueryParameters : QueryParametersBase {

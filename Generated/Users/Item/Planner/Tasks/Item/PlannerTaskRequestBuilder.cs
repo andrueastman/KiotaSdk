@@ -1,8 +1,8 @@
-using ApiSdk.Models.Microsoft.Graph;
-using ApiSdk.Users.Item.Planner.Tasks.Item.AssignedToTaskBoardFormat;
-using ApiSdk.Users.Item.Planner.Tasks.Item.BucketTaskBoardFormat;
-using ApiSdk.Users.Item.Planner.Tasks.Item.Details;
-using ApiSdk.Users.Item.Planner.Tasks.Item.ProgressTaskBoardFormat;
+using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Planner.Tasks.Item.AssignedToTaskBoardFormat;
+using GraphSdk.Users.Item.Planner.Tasks.Item.BucketTaskBoardFormat;
+using GraphSdk.Users.Item.Planner.Tasks.Item.Details;
+using GraphSdk.Users.Item.Planner.Tasks.Item.ProgressTaskBoardFormat;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -10,59 +10,71 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-namespace ApiSdk.Users.Item.Planner.Tasks.Item {
+namespace GraphSdk.Users.Item.Planner.Tasks.Item {
     /// <summary>Builds and executes requests for operations under \users\{user-id}\planner\tasks\{plannerTask-id}</summary>
     public class PlannerTaskRequestBuilder {
         public AssignedToTaskBoardFormatRequestBuilder AssignedToTaskBoardFormat { get =>
-            new AssignedToTaskBoardFormatRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new AssignedToTaskBoardFormatRequestBuilder(PathParameters, RequestAdapter);
         }
         public BucketTaskBoardFormatRequestBuilder BucketTaskBoardFormat { get =>
-            new BucketTaskBoardFormatRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new BucketTaskBoardFormatRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Current path for the request</summary>
-        private string CurrentPath { get; set; }
         public DetailsRequestBuilder Details { get =>
-            new DetailsRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new DetailsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Whether the current path is a raw URL</summary>
-        private bool IsRawUrl { get; set; }
-        /// <summary>Path segment to use to build the URL for the current request builder</summary>
-        private string PathSegment { get; set; }
+        /// <summary>Path parameters for the request</summary>
+        private Dictionary<string, object> PathParameters { get; set; }
         public ProgressTaskBoardFormatRequestBuilder ProgressTaskBoardFormat { get =>
-            new ProgressTaskBoardFormatRequestBuilder(CurrentPath + PathSegment , RequestAdapter, false);
+            new ProgressTaskBoardFormatRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The http core service to use to execute the requests.</summary>
+        /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
+        /// <summary>Url template to use to build the URL for the current request builder</summary>
+        private string UrlTemplate { get; set; }
         /// <summary>
         /// Instantiates a new PlannerTaskRequestBuilder and sets the default values.
-        /// <param name="currentPath">Current path for the request</param>
-        /// <param name="isRawUrl">Whether the current path is a raw URL</param>
-        /// <param name="requestAdapter">The http core service to use to execute the requests.</param>
+        /// <param name="pathParameters">Path parameters for the request</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         /// </summary>
-        public PlannerTaskRequestBuilder(string currentPath, IRequestAdapter requestAdapter, bool isRawUrl = true) {
-            if(string.IsNullOrEmpty(currentPath)) throw new ArgumentNullException(nameof(currentPath));
+        public PlannerTaskRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
+            _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            PathSegment = "";
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}/planner/tasks/{plannerTask_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>(pathParameters);
+            PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
-            CurrentPath = currentPath;
-            IsRawUrl = isRawUrl;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Instantiates a new PlannerTaskRequestBuilder and sets the default values.
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
+        /// </summary>
+        public PlannerTaskRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
+            if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
+            _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
+            UrlTemplate = "https://graph.microsoft.com/v1.0/users/{user_id}/planner/tasks/{plannerTask_id}{?select,expand}";
+            var urlTplParams = new Dictionary<string, object>();
+            urlTplParams.Add("request-raw-url", rawUrl);
+            PathParameters = urlTplParams;
+            RequestAdapter = requestAdapter;
+        }
+        /// <summary>
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.DELETE,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -70,8 +82,9 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.GET,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             if (q != null) {
                 var qParams = new GetQueryParameters();
                 q.Invoke(qParams);
@@ -82,7 +95,7 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,15 +104,16 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = HttpMethod.PATCH,
+                UrlTemplate = UrlTemplate,
+                PathParameters = PathParameters,
             };
-            requestInfo.SetURI(CurrentPath, PathSegment, IsRawUrl);
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             h?.Invoke(requestInfo.Headers);
             requestInfo.AddRequestOptions(o?.ToArray());
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
@@ -109,7 +123,7 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -120,7 +134,7 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
             return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, responseHandler);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
+        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -131,7 +145,7 @@ namespace ApiSdk.Users.Item.Planner.Tasks.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
         }
-        /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerPlans shared with the user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

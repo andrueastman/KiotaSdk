@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class RecurrenceRange : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -15,7 +15,7 @@ namespace ApiSdk.Models.Microsoft.Graph {
         public string RecurrenceTimeZone { get; set; }
         /// <summary>The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.</summary>
         public string StartDate { get; set; }
-        /// <summary>The recurrence range. Possible values are: endDate, noEnd, numbered. Required.</summary>
+        /// <summary>The recurrence range. The possible values are: endDate, noEnd, numbered. Required.</summary>
         public RecurrenceRangeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new recurrenceRange and sets the default values.

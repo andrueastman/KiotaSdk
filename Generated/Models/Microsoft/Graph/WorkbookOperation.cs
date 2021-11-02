@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class WorkbookOperation : Entity, IParsable {
         /// <summary>The error returned by the operation.</summary>
         public WorkbookOperationError Error { get; set; }
         /// <summary>The resource URI for the result.</summary>
         public string ResourceLocation { get; set; }
-        /// <summary>The current status of the operation. Possible values are: notStarted, running, succeeded, failed.</summary>
+        /// <summary>The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.</summary>
         public WorkbookOperationStatus? Status { get; set; }
         /// <summary>
         /// The deserialization information for the current model

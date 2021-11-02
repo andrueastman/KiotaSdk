@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class TodoTask : Entity, IParsable {
         /// <summary>The task body that typically contains information about the task.</summary>
         public ItemBody Body { get; set; }

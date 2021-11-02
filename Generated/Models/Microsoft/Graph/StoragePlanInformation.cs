@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace ApiSdk.Models.Microsoft.Graph {
+namespace GraphSdk.Models.Microsoft.Graph {
     public class StoragePlanInformation : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Indicates if there are higher storage quota plans available. Read-only.</summary>
+        /// <summary>Indicates whether there are higher storage quota plans available. Read-only.</summary>
         public bool? UpgradeAvailable { get; set; }
         /// <summary>
         /// Instantiates a new storagePlanInformation and sets the default values.
