@@ -73,7 +73,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace GraphSdk {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
-    public class GraphClient {
+    public partial class GraphClient {
         public AdminRequestBuilder Admin { get =>
             new AdminRequestBuilder(PathParameters, RequestAdapter);
         }
