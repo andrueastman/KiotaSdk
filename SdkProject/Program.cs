@@ -16,7 +16,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             string[] scopes = new[] { "User.Read", "Mail.ReadWrite", "User.ReadWrite.All" };
             var interactiveBrowserCredentialOptions = new InteractiveBrowserCredentialOptions()
             {
-                ClientId = "Insert_Client_Id"
+                ClientId = "d662ac70-7482-45af-9dc3-c3cde8eeede4"
             };
             var interactiveBrowserCredential = new InteractiveBrowserCredential(interactiveBrowserCredentialOptions);
             var httpClientRequestAdapter = new HttpClientRequestAdapter(new AzureIdentityAuthenticationProvider(interactiveBrowserCredential, scopes));
