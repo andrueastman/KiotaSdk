@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiotaSdk", "KiotaSdk.csproj", "{680B7DE2-1F25-4398-BC52-E0D69A902014}"
 EndProject
@@ -9,6 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Graph.Core", "..\msgraph-sdk-dotnet-core\src\Microsoft.Graph.Core\Microsoft.Graph.Core.csproj", "{65F61E91-75AD-4ECB-AE3B-003143DDFFBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Abstractions", "..\kiota\abstractions\dotnet\src\Microsoft.Kiota.Abstractions.csproj", "{06C6EF4F-4679-4078-8CB8-1B89ACFB4C8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Authentication.Azure", "..\kiota\authentication\dotnet\azure\src\Microsoft.Kiota.Authentication.Azure.csproj", "{E23BB28F-6D95-433A-90BB-9D09345D9BF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Http.HttpClientLibrary", "..\kiota\http\dotnet\httpclient\src\Microsoft.Kiota.Http.HttpClientLibrary.csproj", "{3455695F-4C2F-474E-9DA5-D3E513739221}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Kiota.Serialization.Json", "..\kiota\serialization\dotnet\json\src\Microsoft.Kiota.Serialization.Json.csproj", "{5CDD0B69-4AF3-42F6-A90D-4B24CD9BC0A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +30,26 @@ Global
 		{680B7DE2-1F25-4398-BC52-E0D69A902014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{680B7DE2-1F25-4398-BC52-E0D69A902014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{680B7DE2-1F25-4398-BC52-E0D69A902014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F61E91-75AD-4ECB-AE3B-003143DDFFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F61E91-75AD-4ECB-AE3B-003143DDFFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F61E91-75AD-4ECB-AE3B-003143DDFFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F61E91-75AD-4ECB-AE3B-003143DDFFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C6EF4F-4679-4078-8CB8-1B89ACFB4C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C6EF4F-4679-4078-8CB8-1B89ACFB4C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C6EF4F-4679-4078-8CB8-1B89ACFB4C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C6EF4F-4679-4078-8CB8-1B89ACFB4C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E23BB28F-6D95-433A-90BB-9D09345D9BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23BB28F-6D95-433A-90BB-9D09345D9BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E23BB28F-6D95-433A-90BB-9D09345D9BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E23BB28F-6D95-433A-90BB-9D09345D9BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3455695F-4C2F-474E-9DA5-D3E513739221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3455695F-4C2F-474E-9DA5-D3E513739221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3455695F-4C2F-474E-9DA5-D3E513739221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3455695F-4C2F-474E-9DA5-D3E513739221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CDD0B69-4AF3-42F6-A90D-4B24CD9BC0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDD0B69-4AF3-42F6-A90D-4B24CD9BC0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDD0B69-4AF3-42F6-A90D-4B24CD9BC0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDD0B69-4AF3-42F6-A90D-4B24CD9BC0A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
