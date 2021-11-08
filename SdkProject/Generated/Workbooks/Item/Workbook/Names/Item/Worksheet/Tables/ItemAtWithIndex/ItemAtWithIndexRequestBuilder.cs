@@ -24,7 +24,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.ItemAtWit
         public ItemAtWithIndexRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, int? index = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/tables/microsoft.graph.itemAt(index={index})";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/tables/microsoft.graph.itemAt(index={index})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("index", index);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.ItemAtWit
         public ItemAtWithIndexRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/tables/microsoft.graph.itemAt(index={index})";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/tables/microsoft.graph.itemAt(index={index})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

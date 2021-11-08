@@ -27,7 +27,7 @@ namespace GraphSdk.Me.Activities.Item.HistoryItems.Item.Activity {
         public ActivityRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/activities/{userActivity_id}/historyItems/{activityHistoryItem_id}/activity{?select,expand}";
+            UrlTemplate = "{+baseurl}/me/activities/{userActivity_id}/historyItems/{activityHistoryItem_id}/activity{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -40,7 +40,7 @@ namespace GraphSdk.Me.Activities.Item.HistoryItems.Item.Activity {
         public ActivityRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/activities/{userActivity_id}/historyItems/{activityHistoryItem_id}/activity{?select,expand}";
+            UrlTemplate = "{+baseurl}/me/activities/{userActivity_id}/historyItems/{activityHistoryItem_id}/activity{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

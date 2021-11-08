@@ -24,7 +24,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.ItemWithName {
         public ItemWithNameRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string name = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/charts/microsoft.graph.item(name='{name}')";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/charts/microsoft.graph.item(name='{name}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("name", name);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.ItemWithName {
         public ItemWithNameRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/charts/microsoft.graph.item(name='{name}')";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/worksheets/{workbookWorksheet_id}/charts/microsoft.graph.item(name='{name}')";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -22,7 +22,7 @@ namespace GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Imp
         public ImportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/importedWindowsAutopilotDeviceIdentities/microsoft.graph.import";
+            UrlTemplate = "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/microsoft.graph.import";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Imp
         public ImportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/importedWindowsAutopilotDeviceIdentities/microsoft.graph.import";
+            UrlTemplate = "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/microsoft.graph.import";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

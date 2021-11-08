@@ -23,7 +23,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Categories.Item {
         public EducationCategoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}/assignments/{educationAssignment_id}/categories/{educationCategory_id}{?select,expand}";
+            UrlTemplate = "{+baseurl}/education/classes/{educationClass_id}/assignments/{educationAssignment_id}/categories/{educationCategory_id}{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Categories.Item {
         public EducationCategoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/education/classes/{educationClass_id}/assignments/{educationAssignment_id}/categories/{educationCategory_id}{?select,expand}";
+            UrlTemplate = "{+baseurl}/education/classes/{educationClass_id}/assignments/{educationAssignment_id}/categories/{educationCategory_id}{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -23,7 +23,7 @@ namespace GraphSdk.Reports.GetOffice365ActivationsUserCounts {
         public GetOffice365ActivationsUserCountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getOffice365ActivationsUserCounts()";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getOffice365ActivationsUserCounts()";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Reports.GetOffice365ActivationsUserCounts {
         public GetOffice365ActivationsUserCountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getOffice365ActivationsUserCounts()";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getOffice365ActivationsUserCounts()";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

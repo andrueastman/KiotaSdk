@@ -23,7 +23,7 @@ namespace GraphSdk.Me.Onenote.Pages.Item.ParentSection.Pages.Item.Preview {
         public PreviewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/onenote/pages/{onenotePage_id}/parentSection/pages/{onenotePage_id1}/microsoft.graph.preview()";
+            UrlTemplate = "{+baseurl}/me/onenote/pages/{onenotePage_id}/parentSection/pages/{onenotePage_id1}/microsoft.graph.preview()";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Me.Onenote.Pages.Item.ParentSection.Pages.Item.Preview {
         public PreviewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/onenote/pages/{onenotePage_id}/parentSection/pages/{onenotePage_id1}/microsoft.graph.preview()";
+            UrlTemplate = "{+baseurl}/me/onenote/pages/{onenotePage_id}/parentSection/pages/{onenotePage_id1}/microsoft.graph.preview()";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

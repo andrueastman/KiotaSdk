@@ -22,7 +22,7 @@ namespace GraphSdk.Sites.Item.ContentTypes.Item.Base.IsPublished {
         public IsPublishedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/contentTypes/{contentType_id}/base/microsoft.graph.isPublished()";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/contentTypes/{contentType_id}/base/microsoft.graph.isPublished()";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Sites.Item.ContentTypes.Item.Base.IsPublished {
         public IsPublishedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/contentTypes/{contentType_id}/base/microsoft.graph.isPublished()";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/contentTypes/{contentType_id}/base/microsoft.graph.isPublished()";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

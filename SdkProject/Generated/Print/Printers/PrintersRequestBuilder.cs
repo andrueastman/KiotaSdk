@@ -34,7 +34,7 @@ namespace GraphSdk.Print.Printers {
         public PrintersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/print/printers{?top,skip,search,filter,count,orderby,select,expand}";
+            UrlTemplate = "{+baseurl}/print/printers{?top,skip,search,filter,count,orderby,select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -47,7 +47,7 @@ namespace GraphSdk.Print.Printers {
         public PrintersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/print/printers{?top,skip,search,filter,count,orderby,select,expand}";
+            UrlTemplate = "{+baseurl}/print/printers{?top,skip,search,filter,count,orderby,select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

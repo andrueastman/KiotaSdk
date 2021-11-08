@@ -22,7 +22,7 @@ namespace GraphSdk.Workbooks.Item.ValidatePermission {
         public ValidatePermissionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/microsoft.graph.validatePermission";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/microsoft.graph.validatePermission";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Workbooks.Item.ValidatePermission {
         public ValidatePermissionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/microsoft.graph.validatePermission";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/microsoft.graph.validatePermission";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

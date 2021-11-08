@@ -25,7 +25,7 @@ namespace GraphSdk.Me.Insights.Shared.Item.Resource.WorkbookRange.CellWithRowWit
         public CellWithRowWithColumnRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, int? row = default, int? column = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/insights/shared/{sharedInsight_id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})";
+            UrlTemplate = "{+baseurl}/me/insights/shared/{sharedInsight_id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("row", row);
             urlTplParams.Add("column", column);
@@ -40,7 +40,7 @@ namespace GraphSdk.Me.Insights.Shared.Item.Resource.WorkbookRange.CellWithRowWit
         public CellWithRowWithColumnRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/insights/shared/{sharedInsight_id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})";
+            UrlTemplate = "{+baseurl}/me/insights/shared/{sharedInsight_id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

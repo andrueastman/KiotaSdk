@@ -22,7 +22,7 @@ namespace GraphSdk.Groups.Item.Onenote.Sections.Item.Pages.Item.OnenotePatchCont
         public OnenotePatchContentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/onenote/sections/{onenoteSection_id}/pages/{onenotePage_id}/microsoft.graph.onenotePatchContent";
+            UrlTemplate = "{+baseurl}/groups/{group_id}/onenote/sections/{onenoteSection_id}/pages/{onenotePage_id}/microsoft.graph.onenotePatchContent";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Groups.Item.Onenote.Sections.Item.Pages.Item.OnenotePatchCont
         public OnenotePatchContentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/onenote/sections/{onenoteSection_id}/pages/{onenotePage_id}/microsoft.graph.onenotePatchContent";
+            UrlTemplate = "{+baseurl}/groups/{group_id}/onenote/sections/{onenoteSection_id}/pages/{onenotePage_id}/microsoft.graph.onenotePatchContent";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

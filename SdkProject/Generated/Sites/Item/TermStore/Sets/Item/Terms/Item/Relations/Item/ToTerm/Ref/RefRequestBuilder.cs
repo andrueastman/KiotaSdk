@@ -22,7 +22,7 @@ namespace GraphSdk.Sites.Item.TermStore.Sets.Item.Terms.Item.Relations.Item.ToTe
         public RefRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/termStore/sets/{set_id}/terms/{term_id}/relations/{relation_id}/toTerm/$ref";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/termStore/sets/{set_id}/terms/{term_id}/relations/{relation_id}/toTerm/$ref";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Sites.Item.TermStore.Sets.Item.Terms.Item.Relations.Item.ToTe
         public RefRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/termStore/sets/{set_id}/terms/{term_id}/relations/{relation_id}/toTerm/$ref";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/termStore/sets/{set_id}/terms/{term_id}/relations/{relation_id}/toTerm/$ref";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

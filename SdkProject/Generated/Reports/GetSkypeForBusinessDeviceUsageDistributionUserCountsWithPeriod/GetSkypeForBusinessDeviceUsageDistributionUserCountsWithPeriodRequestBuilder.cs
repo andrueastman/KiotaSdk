@@ -24,7 +24,7 @@ namespace GraphSdk.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsW
         public GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("period", period);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsW
         public GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -23,7 +23,7 @@ namespace GraphSdk.Sites.Item.Onenote.Pages.Item.ParentSection.ParentNotebook.Se
         public CopyToNotebookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/onenote/pages/{onenotePage_id}/parentSection/parentNotebook/sections/{onenoteSection_id}/microsoft.graph.copyToNotebook";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/onenote/pages/{onenotePage_id}/parentSection/parentNotebook/sections/{onenoteSection_id}/microsoft.graph.copyToNotebook";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Sites.Item.Onenote.Pages.Item.ParentSection.ParentNotebook.Se
         public CopyToNotebookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/sites/{site_id}/onenote/pages/{onenotePage_id}/parentSection/parentNotebook/sections/{onenoteSection_id}/microsoft.graph.copyToNotebook";
+            UrlTemplate = "{+baseurl}/sites/{site_id}/onenote/pages/{onenotePage_id}/parentSection/parentNotebook/sections/{onenoteSection_id}/microsoft.graph.copyToNotebook";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

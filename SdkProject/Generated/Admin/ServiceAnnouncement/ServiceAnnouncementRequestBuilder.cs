@@ -35,7 +35,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement {
         public ServiceAnnouncementRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement{?select,expand}";
+            UrlTemplate = "{+baseurl}/admin/serviceAnnouncement{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -48,7 +48,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement {
         public ServiceAnnouncementRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement{?select,expand}";
+            UrlTemplate = "{+baseurl}/admin/serviceAnnouncement{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

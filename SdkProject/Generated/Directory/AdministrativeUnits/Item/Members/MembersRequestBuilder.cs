@@ -26,7 +26,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members {
         public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/directory/administrativeUnits/{administrativeUnit_id}/members{?top,skip,search,filter,count,orderby,select,expand}";
+            UrlTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit_id}/members{?top,skip,search,filter,count,orderby,select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -39,7 +39,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members {
         public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/directory/administrativeUnits/{administrativeUnit_id}/members{?top,skip,search,filter,count,orderby,select,expand}";
+            UrlTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit_id}/members{?top,skip,search,filter,count,orderby,select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -24,7 +24,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.RangeWithAddress
         public RangeWithAddressRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string address = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/microsoft.graph.range(address='{address}')";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/microsoft.graph.range(address='{address}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("address", address);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.RangeWithAddress
         public RangeWithAddressRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/microsoft.graph.range(address='{address}')";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/microsoft.graph.range(address='{address}')";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

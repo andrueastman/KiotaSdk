@@ -22,7 +22,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.IdentityProviders.Ref {
         public RefRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/identity/b2xUserFlows/{b2xIdentityUserFlow_id}/identityProviders/$ref{?top,skip,search,filter,count,orderby}";
+            UrlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow_id}/identityProviders/$ref{?top,skip,search,filter,count,orderby}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.IdentityProviders.Ref {
         public RefRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/identity/b2xUserFlows/{b2xIdentityUserFlow_id}/identityProviders/$ref{?top,skip,search,filter,count,orderby}";
+            UrlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow_id}/identityProviders/$ref{?top,skip,search,filter,count,orderby}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

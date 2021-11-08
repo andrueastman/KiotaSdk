@@ -23,7 +23,7 @@ namespace GraphSdk.Communications.CallRecords.Item.Sessions.Item.Segments.Item {
         public SegmentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/communications/callRecords/{callRecord_id}/sessions/{session_id}/segments/{segment_id}{?select,expand}";
+            UrlTemplate = "{+baseurl}/communications/callRecords/{callRecord_id}/sessions/{session_id}/segments/{segment_id}{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Communications.CallRecords.Item.Sessions.Item.Segments.Item {
         public SegmentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/communications/callRecords/{callRecord_id}/sessions/{session_id}/segments/{segment_id}{?select,expand}";
+            UrlTemplate = "{+baseurl}/communications/callRecords/{callRecord_id}/sessions/{session_id}/segments/{segment_id}{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

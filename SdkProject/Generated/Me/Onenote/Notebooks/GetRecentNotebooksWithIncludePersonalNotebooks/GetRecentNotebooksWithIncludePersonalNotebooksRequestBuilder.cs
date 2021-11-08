@@ -23,7 +23,7 @@ namespace GraphSdk.Me.Onenote.Notebooks.GetRecentNotebooksWithIncludePersonalNot
         public GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, bool? includePersonalNotebooks = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})";
+            UrlTemplate = "{+baseurl}/me/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("includePersonalNotebooks", includePersonalNotebooks);
             PathParameters = urlTplParams;
@@ -37,7 +37,7 @@ namespace GraphSdk.Me.Onenote.Notebooks.GetRecentNotebooksWithIncludePersonalNot
         public GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})";
+            UrlTemplate = "{+baseurl}/me/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

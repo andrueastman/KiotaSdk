@@ -25,7 +25,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.PivotTables.Item
         public CellWithRowWithColumnRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, int? row = default, int? column = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/pivotTables/{workbookPivotTable_id}/worksheet/microsoft.graph.cell(row={row},column={column})";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/pivotTables/{workbookPivotTable_id}/worksheet/microsoft.graph.cell(row={row},column={column})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("row", row);
             urlTplParams.Add("column", column);
@@ -40,7 +40,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.PivotTables.Item
         public CellWithRowWithColumnRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/pivotTables/{workbookPivotTable_id}/worksheet/microsoft.graph.cell(row={row},column={column})";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/names/{workbookNamedItem_id}/worksheet/pivotTables/{workbookPivotTable_id}/worksheet/microsoft.graph.cell(row={row},column={column})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -27,7 +27,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserCon
         public ApprovalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/identityGovernance/appConsent/appConsentRequests/{appConsentRequest_id}/userConsentRequests/{userConsentRequest_id}/approval{?select,expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/appConsent/appConsentRequests/{appConsentRequest_id}/userConsentRequests/{userConsentRequest_id}/approval{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -40,7 +40,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserCon
         public ApprovalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/identityGovernance/appConsent/appConsentRequests/{appConsentRequest_id}/userConsentRequests/{userConsentRequest_id}/approval{?select,expand}";
+            UrlTemplate = "{+baseurl}/identityGovernance/appConsent/appConsentRequests/{appConsentRequest_id}/userConsentRequests/{userConsentRequest_id}/approval{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

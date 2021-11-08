@@ -23,7 +23,7 @@ namespace GraphSdk.DeviceManagement.GetEffectivePermissionsWithScope {
         public GetEffectivePermissionsWithScopeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string scope = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
+            UrlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("scope", scope);
             PathParameters = urlTplParams;
@@ -37,7 +37,7 @@ namespace GraphSdk.DeviceManagement.GetEffectivePermissionsWithScope {
         public GetEffectivePermissionsWithScopeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
+            UrlTemplate = "{+baseurl}/deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

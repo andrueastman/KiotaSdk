@@ -23,7 +23,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Binom_Dist_Range {
         public Binom_Dist_RangeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/functions/microsoft.graph.binom_Dist_Range";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/functions/microsoft.graph.binom_Dist_Range";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Binom_Dist_Range {
         public Binom_Dist_RangeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/workbooks/{driveItem_id}/workbook/functions/microsoft.graph.binom_Dist_Range";
+            UrlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/functions/microsoft.graph.binom_Dist_Range";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

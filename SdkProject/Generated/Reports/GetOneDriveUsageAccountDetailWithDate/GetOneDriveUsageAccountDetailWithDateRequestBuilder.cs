@@ -24,7 +24,7 @@ namespace GraphSdk.Reports.GetOneDriveUsageAccountDetailWithDate {
         public GetOneDriveUsageAccountDetailWithDateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string date = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getOneDriveUsageAccountDetail(date={date})";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getOneDriveUsageAccountDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("date", date);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Reports.GetOneDriveUsageAccountDetailWithDate {
         public GetOneDriveUsageAccountDetailWithDateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getOneDriveUsageAccountDetail(date={date})";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getOneDriveUsageAccountDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

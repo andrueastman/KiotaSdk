@@ -27,7 +27,7 @@ namespace GraphSdk.Chats.Item.InstalledApps.Item.TeamsAppDefinition {
         public TeamsAppDefinitionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/chats/{chat_id}/installedApps/{teamsAppInstallation_id}/teamsAppDefinition{?select,expand}";
+            UrlTemplate = "{+baseurl}/chats/{chat_id}/installedApps/{teamsAppInstallation_id}/teamsAppDefinition{?select,expand}";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -40,7 +40,7 @@ namespace GraphSdk.Chats.Item.InstalledApps.Item.TeamsAppDefinition {
         public TeamsAppDefinitionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/chats/{chat_id}/installedApps/{teamsAppInstallation_id}/teamsAppDefinition{?select,expand}";
+            UrlTemplate = "{+baseurl}/chats/{chat_id}/installedApps/{teamsAppInstallation_id}/teamsAppDefinition{?select,expand}";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

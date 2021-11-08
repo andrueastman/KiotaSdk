@@ -23,7 +23,7 @@ namespace GraphSdk.ApplicationTemplates.Item.Instantiate {
         public InstantiateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/applicationTemplates/{applicationTemplate_id}/microsoft.graph.instantiate";
+            UrlTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate_id}/microsoft.graph.instantiate";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -36,7 +36,7 @@ namespace GraphSdk.ApplicationTemplates.Item.Instantiate {
         public InstantiateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/applicationTemplates/{applicationTemplate_id}/microsoft.graph.instantiate";
+            UrlTemplate = "{+baseurl}/applicationTemplates/{applicationTemplate_id}/microsoft.graph.instantiate";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

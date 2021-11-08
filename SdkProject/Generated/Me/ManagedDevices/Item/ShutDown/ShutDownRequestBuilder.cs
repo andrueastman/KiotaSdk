@@ -22,7 +22,7 @@ namespace GraphSdk.Me.ManagedDevices.Item.ShutDown {
         public ShutDownRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/managedDevices/{managedDevice_id}/microsoft.graph.shutDown";
+            UrlTemplate = "{+baseurl}/me/managedDevices/{managedDevice_id}/microsoft.graph.shutDown";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Me.ManagedDevices.Item.ShutDown {
         public ShutDownRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/me/managedDevices/{managedDevice_id}/microsoft.graph.shutDown";
+            UrlTemplate = "{+baseurl}/me/managedDevices/{managedDevice_id}/microsoft.graph.shutDown";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

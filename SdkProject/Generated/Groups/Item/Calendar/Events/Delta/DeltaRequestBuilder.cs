@@ -22,7 +22,7 @@ namespace GraphSdk.Groups.Item.Calendar.Events.Delta {
         public DeltaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/calendar/events/microsoft.graph.delta()";
+            UrlTemplate = "{+baseurl}/groups/{group_id}/calendar/events/microsoft.graph.delta()";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.Groups.Item.Calendar.Events.Delta {
         public DeltaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/groups/{group_id}/calendar/events/microsoft.graph.delta()";
+            UrlTemplate = "{+baseurl}/groups/{group_id}/calendar/events/microsoft.graph.delta()";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

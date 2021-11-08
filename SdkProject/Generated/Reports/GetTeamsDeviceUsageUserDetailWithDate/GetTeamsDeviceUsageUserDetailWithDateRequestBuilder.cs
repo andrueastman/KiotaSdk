@@ -24,7 +24,7 @@ namespace GraphSdk.Reports.GetTeamsDeviceUsageUserDetailWithDate {
         public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string date = default) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             urlTplParams.Add("date", date);
             PathParameters = urlTplParams;
@@ -38,7 +38,7 @@ namespace GraphSdk.Reports.GetTeamsDeviceUsageUserDetailWithDate {
         public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})";
+            UrlTemplate = "{+baseurl}/reports/microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

@@ -22,7 +22,7 @@ namespace GraphSdk.DirectoryRoleTemplates.ValidateProperties {
         public ValidatePropertiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) {
             _ = pathParameters ?? throw new ArgumentNullException(nameof(pathParameters));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/directoryRoleTemplates/microsoft.graph.validateProperties";
+            UrlTemplate = "{+baseurl}/directoryRoleTemplates/microsoft.graph.validateProperties";
             var urlTplParams = new Dictionary<string, object>(pathParameters);
             PathParameters = urlTplParams;
             RequestAdapter = requestAdapter;
@@ -35,7 +35,7 @@ namespace GraphSdk.DirectoryRoleTemplates.ValidateProperties {
         public ValidatePropertiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) {
             if(string.IsNullOrEmpty(rawUrl)) throw new ArgumentNullException(nameof(rawUrl));
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
-            UrlTemplate = "https://graph.microsoft.com/v1.0/directoryRoleTemplates/microsoft.graph.validateProperties";
+            UrlTemplate = "{+baseurl}/directoryRoleTemplates/microsoft.graph.validateProperties";
             var urlTplParams = new Dictionary<string, object>();
             urlTplParams.Add("request-raw-url", rawUrl);
             PathParameters = urlTplParams;

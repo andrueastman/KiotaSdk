@@ -282,10 +282,11 @@ namespace GraphSdk {
         public GraphClient(IRequestAdapter requestAdapter) {
             _ = requestAdapter ?? throw new ArgumentNullException(nameof(requestAdapter));
             PathParameters = new Dictionary<string, object>();
-            UrlTemplate = "https://graph.microsoft.com/v1.0";
+            UrlTemplate = "{+baseurl}";
             RequestAdapter = requestAdapter;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
+            RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
         }
         public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
