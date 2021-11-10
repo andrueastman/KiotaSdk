@@ -47,6 +47,7 @@ using GraphSdk.Places;
 using GraphSdk.Planner;
 using GraphSdk.Policies;
 using GraphSdk.Print;
+using GraphSdk.Privacy;
 using GraphSdk.Reports;
 using GraphSdk.RoleManagement;
 using GraphSdk.SchemaExtensions;
@@ -222,6 +223,9 @@ namespace GraphSdk {
         }
         public PrintRequestBuilder Print { get =>
             new PrintRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public PrivacyRequestBuilder Privacy { get =>
+            new PrivacyRequestBuilder(PathParameters, RequestAdapter);
         }
         public ReportsRequestBuilder Reports { get =>
             new ReportsRequestBuilder(PathParameters, RequestAdapter);

@@ -13,6 +13,5 @@ namespace GraphSdk.Models.Microsoft.Graph {
         GoogleCloudDevicePolicyController,
         Microsoft365ManagedMdm,
         MsSense,
-        IntuneAosp,
     }
 }

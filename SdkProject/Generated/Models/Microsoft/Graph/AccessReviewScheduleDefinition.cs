@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class AccessReviewScheduleDefinition : Entity, IParsable {
+        /// <summary>Defines the list of additional users or group members to be notified of the access review progress.</summary>
+        public List<AccessReviewNotificationRecipientItem> AdditionalNotificationRecipients { get; set; }
         /// <summary>User who created this review. Read-only.</summary>
         public UserIdentity CreatedBy { get; set; }
         /// <summary>Timestamp when the access review series was created. Supports $select and $orderBy. Read-only.</summary>
@@ -36,6 +38,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
+                {"additionalNotificationRecipients", (o,n) => { (o as AccessReviewScheduleDefinition).AdditionalNotificationRecipients = n.GetCollectionOfObjectValues<AccessReviewNotificationRecipientItem>().ToList(); } },
                 {"createdBy", (o,n) => { (o as AccessReviewScheduleDefinition).CreatedBy = n.GetObjectValue<UserIdentity>(); } },
                 {"createdDateTime", (o,n) => { (o as AccessReviewScheduleDefinition).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"descriptionForAdmins", (o,n) => { (o as AccessReviewScheduleDefinition).DescriptionForAdmins = n.GetStringValue(); } },
@@ -58,6 +61,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<AccessReviewNotificationRecipientItem>("additionalNotificationRecipients", AdditionalNotificationRecipients);
             writer.WriteObjectValue<UserIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("descriptionForAdmins", DescriptionForAdmins);

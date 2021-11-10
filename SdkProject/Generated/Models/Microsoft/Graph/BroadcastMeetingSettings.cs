@@ -7,15 +7,15 @@ namespace GraphSdk.Models.Microsoft.Graph {
     public class BroadcastMeetingSettings : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Defines who can join the live event. Possible values are listed in the following table.</summary>
+        /// <summary>Defines who can join the Teams live event. Possible values are listed in the following table.</summary>
         public BroadcastMeetingAudience? AllowedAudience { get; set; }
-        /// <summary>Indicates whether attendee report is enabled for this live event. Default value is false.</summary>
+        /// <summary>Indicates whether attendee report is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsAttendeeReportEnabled { get; set; }
-        /// <summary>Indicates whether Q&A is enabled for this live event. Default value is false.</summary>
+        /// <summary>Indicates whether Q&A is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsQuestionAndAnswerEnabled { get; set; }
-        /// <summary>Indicates whether recording is enabled for this live event. Default value is false.</summary>
+        /// <summary>Indicates whether recording is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsRecordingEnabled { get; set; }
-        /// <summary>Indicates whether video on demand is enabled for this live event. Default value is false.</summary>
+        /// <summary>Indicates whether video on demand is enabled for this Teams live event. Default value is false.</summary>
         public bool? IsVideoOnDemandEnabled { get; set; }
         /// <summary>
         /// Instantiates a new broadcastMeetingSettings and sets the default values.

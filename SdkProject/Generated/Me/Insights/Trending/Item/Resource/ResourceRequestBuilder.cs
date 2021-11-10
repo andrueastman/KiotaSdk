@@ -1,4 +1,5 @@
 using GraphSdk.Me.Insights.Trending.Item.Resource.CalendarSharingMessage;
+using GraphSdk.Me.Insights.Trending.Item.Resource.CaseExportOperation;
 using GraphSdk.Me.Insights.Trending.Item.Resource.ManagedAppProtection;
 using GraphSdk.Me.Insights.Trending.Item.Resource.MobileAppContentFile;
 using GraphSdk.Me.Insights.Trending.Item.Resource.PrintDocument;
@@ -25,6 +26,9 @@ namespace GraphSdk.Me.Insights.Trending.Item.Resource {
     public class ResourceRequestBuilder {
         public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
             new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public CaseExportOperationRequestBuilder CaseExportOperation { get =>
+            new CaseExportOperationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
             new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);

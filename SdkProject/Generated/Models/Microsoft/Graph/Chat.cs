@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class Chat : Entity, IParsable {
-        /// <summary>Specifies the type of chat. Possible values are:group, oneOnOne and meeting.</summary>
+        /// <summary>Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.</summary>
         public ChatType? ChatType { get; set; }
         /// <summary>Date and time at which the chat was created. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

@@ -1,3 +1,4 @@
+using GraphSdk.Compliance.Ediscovery;
 using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -9,6 +10,9 @@ using System.Threading.Tasks;
 namespace GraphSdk.Compliance {
     /// <summary>Builds and executes requests for operations under \compliance</summary>
     public class ComplianceRequestBuilder {
+        public EdiscoveryRequestBuilder Ediscovery { get =>
+            new EdiscoveryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>

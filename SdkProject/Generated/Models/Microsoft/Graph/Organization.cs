@@ -16,7 +16,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string City { get; set; }
         /// <summary>Country/region name of the address for the organization.</summary>
         public string Country { get; set; }
-        /// <summary>Country/region abbreviation for the organization.</summary>
+        /// <summary>Country or region abbreviation for the organization in ISO 3166-2 format.</summary>
         public string CountryLetterCode { get; set; }
         /// <summary>Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }

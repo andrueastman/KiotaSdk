@@ -1,5 +1,6 @@
 using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.Insights.Used.Item.Resource.CalendarSharingMessage;
+using GraphSdk.Users.Item.Insights.Used.Item.Resource.CaseExportOperation;
 using GraphSdk.Users.Item.Insights.Used.Item.Resource.ManagedAppProtection;
 using GraphSdk.Users.Item.Insights.Used.Item.Resource.MobileAppContentFile;
 using GraphSdk.Users.Item.Insights.Used.Item.Resource.PrintDocument;
@@ -25,6 +26,9 @@ namespace GraphSdk.Users.Item.Insights.Used.Item.Resource {
     public class ResourceRequestBuilder {
         public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
             new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public CaseExportOperationRequestBuilder CaseExportOperation { get =>
+            new CaseExportOperationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
             new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);

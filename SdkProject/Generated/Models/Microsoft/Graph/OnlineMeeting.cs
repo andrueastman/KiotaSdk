@@ -15,7 +15,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public MeetingChatMode? AllowMeetingChat { get; set; }
         /// <summary>Indicates whether Teams reactions are enabled for the meeting.</summary>
         public bool? AllowTeamworkReactions { get; set; }
-        /// <summary>The content stream of the attendee report of a live event. Read-only.</summary>
+        /// <summary>The content stream of the attendee report of a Microsoft Teams live event. Read-only.</summary>
         public byte[] AttendeeReport { get; set; }
         /// <summary>The phone access (dial-in) information for an online meeting. Read-only.</summary>
         public AudioConferencing AudioConferencing { get; set; }
@@ -29,7 +29,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The external ID. A custom ID. Optional.</summary>
         public string ExternalId { get; set; }
-        /// <summary>Indicates if this is a live event.</summary>
+        /// <summary>Indicates if this is a Teams live event.</summary>
         public bool? IsBroadcast { get; set; }
         /// <summary>Indicates whether to announce when callers join or leave.</summary>
         public bool? IsEntryExitAnnounced { get; set; }

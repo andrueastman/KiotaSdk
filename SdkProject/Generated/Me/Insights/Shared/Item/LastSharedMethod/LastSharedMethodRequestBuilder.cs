@@ -1,4 +1,5 @@
 using GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.CalendarSharingMessage;
+using GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.CaseExportOperation;
 using GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.ManagedAppProtection;
 using GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.MobileAppContentFile;
 using GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.PrintDocument;
@@ -25,6 +26,9 @@ namespace GraphSdk.Me.Insights.Shared.Item.LastSharedMethod {
     public class LastSharedMethodRequestBuilder {
         public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
             new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public CaseExportOperationRequestBuilder CaseExportOperation { get =>
+            new CaseExportOperationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
             new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
