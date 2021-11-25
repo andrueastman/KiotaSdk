@@ -14,13 +14,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         public static async Task Main()
         {
-            string[] scopes = new[] { "User.Read", "Mail.ReadWrite", "User.ReadWrite.All" };
+            string[] scopes = new[] { "Mail.Read", "Mail.ReadWrite", "Mail.ReadBasic" };
             var interactiveBrowserCredentialOptions = new InteractiveBrowserCredentialOptions()
             {
                 ClientId = "d662ac70-7482-45af-9dc3-c3cde8eeede4"
             };
             var interactiveBrowserCredential = new InteractiveBrowserCredential(interactiveBrowserCredentialOptions);
-            //var httpClientRequestAdapter = new HttpClientRequestAdapter(new AzureIdentityAuthenticationProvider(interactiveBrowserCredential, scopes));
             var graphClient = new GraphClient(interactiveBrowserCredential, scopes);
 
             // Setting headers and query parameters
@@ -37,17 +36,18 @@ namespace MyApp // Note: actual namespace depends on the project name.
             };
 
             // Get users with query parameters
-            var messages = await graphClient.Me.Messages.GetAsync(
-                parameters => { parameters.Select = new string[] { "id"}; parameters.Top = 1; }, // set parameters
+            var users = await graphClient.Users.GetAsync(
+                parameters => { parameters.Select = new string[] { "id"}; parameters.Top = 8; }, // set parameters
                 headers => headers.Add("ConsistencyLevel", "eventual"),                                           // set headers
                 requestOptions);                                                                                  // set per request options
 
-            Console.WriteLine(messages.Value.Count);
+            Console.WriteLine(users.Value.Count);
 
+            List<User> userList = new List<User>();
+            var pageIterator = PageIterator<User>.CreatePageIterator(graphClient, users, (user) => { userList.Add(user); return true; });
+            await pageIterator.IterateAsync();
 
-            List<Message> messagesList = new List<Message>();
-            //var pageIterator = PageIterator<Message>.CreatePageIterator(graphClient, messages, (message) => { messagesList.Add(message); return true; });
-            //await pageIterator.IterateAsync();
+            Console.WriteLine(userList.Count);
         }
     }
 }

@@ -19,6 +19,7 @@ namespace GraphSdk
             TokenCredential tokenCredential,
             IEnumerable<string> scopes = null): this(new HttpClientRequestAdapter(new AzureIdentityAuthenticationProvider(tokenCredential, scopes?.ToArray() ?? new[] { "https://graph.microsoft.com/.default" })))
         {
+            base.RequestAdapter = this.RequestAdapter;
         }
     }
 }

@@ -291,7 +291,7 @@ namespace GraphSdk {
             RequestAdapter = requestAdapter;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
-            RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
+            RequestAdapter.BaseUrl = "https://graph.microsoft.com/beta";
         }
         public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
