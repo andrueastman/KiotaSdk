@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Identity.UserFlowAttributes {
     /// <summary>Builds and executes requests for operations under \identity\userFlowAttributes</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Identity.UserFlowAttributes {
         }
         /// <summary>
         /// Represents entry point for identity userflow attributes.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UserFlowAttributesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UserFlowAttributesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UserFlowAttributesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UserFlowAttributesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Represents entry point for identity userflow attributes.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IdentityUserFlowAttribute> PostAsync(IdentityUserFlowAttribute body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<IdentityUserFlowAttribute> PostAsync(IdentityUserFlowAttribute body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<IdentityUserFlowAttribute>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<IdentityUserFlowAttribute>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Represents entry point for identity userflow attributes.</summary>
         public class GetQueryParameters : QueryParametersBase {

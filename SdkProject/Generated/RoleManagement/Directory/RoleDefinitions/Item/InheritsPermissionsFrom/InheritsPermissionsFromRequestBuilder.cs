@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermissionsFrom {
     /// <summary>Builds and executes requests for operations under \roleManagement\directory\roleDefinitions\{unifiedRoleDefinition-id}\inheritsPermissionsFrom</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
         }
         /// <summary>
         /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<InheritsPermissionsFromResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<InheritsPermissionsFromResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<InheritsPermissionsFromResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<InheritsPermissionsFromResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UnifiedRoleDefinition> PostAsync(UnifiedRoleDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UnifiedRoleDefinition> PostAsync(UnifiedRoleDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

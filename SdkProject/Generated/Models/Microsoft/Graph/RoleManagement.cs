@@ -9,6 +9,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public RbacApplication Directory { get; set; }
+        /// <summary>The RbacApplication for Entitlement Management</summary>
+        public RbacApplication EntitlementManagement { get; set; }
         /// <summary>
         /// Instantiates a new RoleManagement and sets the default values.
         /// </summary>
@@ -21,6 +23,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"directory", (o,n) => { (o as RoleManagement).Directory = n.GetObjectValue<RbacApplication>(); } },
+                {"entitlementManagement", (o,n) => { (o as RoleManagement).EntitlementManagement = n.GetObjectValue<RbacApplication>(); } },
             };
         }
         /// <summary>
@@ -30,6 +33,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<RbacApplication>("directory", Directory);
+            writer.WriteObjectValue<RbacApplication>("entitlementManagement", EntitlementManagement);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

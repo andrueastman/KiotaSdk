@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Applications.Item.ExtensionProperties {
     /// <summary>Builds and executes requests for operations under \applications\{application-id}\extensionProperties</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Applications.Item.ExtensionProperties {
         }
         /// <summary>
         /// Read-only. Nullable.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ExtensionPropertiesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ExtensionPropertiesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ExtensionPropertiesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ExtensionPropertiesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ExtensionProperty> PostAsync(ExtensionProperty body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ExtensionProperty> PostAsync(ExtensionProperty body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ExtensionProperty>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ExtensionProperty>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

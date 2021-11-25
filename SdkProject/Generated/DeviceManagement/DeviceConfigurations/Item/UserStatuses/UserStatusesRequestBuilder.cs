@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.DeviceManagement.DeviceConfigurations.Item.UserStatuses {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceConfigurations\{deviceConfiguration-id}\userStatuses</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.DeviceManagement.DeviceConfigurations.Item.UserStatuses {
         }
         /// <summary>
         /// Device configuration installation status by user.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UserStatusesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UserStatusesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UserStatusesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UserStatusesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Device configuration installation status by user.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceConfigurationUserStatus> PostAsync(DeviceConfigurationUserStatus body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<DeviceConfigurationUserStatus> PostAsync(DeviceConfigurationUserStatus body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DeviceConfigurationUserStatus>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<DeviceConfigurationUserStatus>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Device configuration installation status by user.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -31,7 +31,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DirectoryObject CreatedOnBehalfOf { get; set; }
         /// <summary>An optional description for the group. Returned by default. Supports $filter (eq, ne, NOT, ge, le, startsWith) and $search.</summary>
         public string Description { get; set; }
-        /// <summary>The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.</summary>
+        /// <summary>The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>The group's default drive. Read-only.</summary>
         public GraphSdk.Models.Microsoft.Graph.Drive Drive { get; set; }
@@ -60,11 +60,11 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public bool? IsSubscribedByMail { get; set; }
         /// <summary>Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.</summary>
         public LicenseProcessingState LicenseProcessingState { get; set; }
-        /// <summary>The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).</summary>
+        /// <summary>The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).</summary>
         public string Mail { get; set; }
         /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, NOT).</summary>
         public bool? MailEnabled { get; set; }
-        /// <summary>The mail alias for the group, unique in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Required. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).</summary>
+        /// <summary>The mail alias for the group, unique in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Required. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).</summary>
         public string MailNickname { get; set; }
         /// <summary>Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.</summary>
         public List<DirectoryObject> MemberOf { get; set; }
@@ -90,7 +90,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string OnPremisesSamAccountName { get; set; }
         /// <summary>Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Supports $filter on null values. Read-only.</summary>
         public string OnPremisesSecurityIdentifier { get; set; }
-        /// <summary>true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, NOT, in).</summary>
+        /// <summary>true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
         /// <summary>The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.</summary>
         public List<DirectoryObject> Owners { get; set; }
@@ -104,7 +104,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public PlannerGroup Planner { get; set; }
         /// <summary>The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see  OneDrive Online Multi-Geo. Nullable. Returned by default.</summary>
         public string PreferredDataLocation { get; set; }
-        /// <summary>The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).</summary>
+        /// <summary>The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).</summary>
         public string PreferredLanguage { get; set; }
         /// <summary>Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
         public List<string> ProxyAddresses { get; set; }

@@ -16,6 +16,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>The version of the policy in use. Read-only.</summary>
         public string PolicyVersion { get; set; }
         public int? ReconfirmationInDays { get; set; }
+        /// <summary>Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.</summary>
+        public RegistrationEnforcement RegistrationEnforcement { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
@@ -27,6 +29,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
                 {"lastModifiedDateTime", (o,n) => { (o as AuthenticationMethodsPolicy).LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"policyVersion", (o,n) => { (o as AuthenticationMethodsPolicy).PolicyVersion = n.GetStringValue(); } },
                 {"reconfirmationInDays", (o,n) => { (o as AuthenticationMethodsPolicy).ReconfirmationInDays = n.GetIntValue(); } },
+                {"registrationEnforcement", (o,n) => { (o as AuthenticationMethodsPolicy).RegistrationEnforcement = n.GetObjectValue<RegistrationEnforcement>(); } },
             };
         }
         /// <summary>
@@ -42,6 +45,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("policyVersion", PolicyVersion);
             writer.WriteIntValue("reconfirmationInDays", ReconfirmationInDays);
+            writer.WriteObjectValue<RegistrationEnforcement>("registrationEnforcement", RegistrationEnforcement);
         }
     }
 }

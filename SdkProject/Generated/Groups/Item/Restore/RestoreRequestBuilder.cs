@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Groups.Item.Restore {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}\microsoft.graph.restore</summary>
@@ -59,13 +60,14 @@ namespace GraphSdk.Groups.Item.Restore {
         }
         /// <summary>
         /// Invoke action restore
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<RestoreResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<RestoreResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RestoreResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<RestoreResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes directoryObject</summary>
         public class RestoreResponse : IParsable {

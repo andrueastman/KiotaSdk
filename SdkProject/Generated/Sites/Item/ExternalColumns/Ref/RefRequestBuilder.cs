@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Sites.Item.ExternalColumns.Ref {
     /// <summary>Builds and executes requests for operations under \sites\{site-id}\externalColumns\$ref</summary>
@@ -82,26 +83,28 @@ namespace GraphSdk.Sites.Item.ExternalColumns.Ref {
         }
         /// <summary>
         /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref> PostAsync(GraphSdk.Sites.Item.ExternalColumns.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref> PostAsync(GraphSdk.Sites.Item.ExternalColumns.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
         public class GetQueryParameters : QueryParametersBase {

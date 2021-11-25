@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Privacy.SubjectRightsRequests {
     /// <summary>Builds and executes requests for operations under \privacy\subjectRightsRequests</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Privacy.SubjectRightsRequests {
         }
         /// <summary>
         /// Get subjectRightsRequests from privacy
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SubjectRightsRequestsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<SubjectRightsRequestsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SubjectRightsRequestsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<SubjectRightsRequestsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to subjectRightsRequests for privacy
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SubjectRightsRequest> PostAsync(SubjectRightsRequest body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<SubjectRightsRequest> PostAsync(SubjectRightsRequest body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<SubjectRightsRequest>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<SubjectRightsRequest>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get subjectRightsRequests from privacy</summary>
         public class GetQueryParameters : QueryParametersBase {

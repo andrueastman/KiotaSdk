@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Teams.Item.PrimaryChannel.Messages.Item.Replies {
     /// <summary>Builds and executes requests for operations under \teams\{team-id}\primaryChannel\messages\{chatMessage-id}\replies</summary>
@@ -97,26 +98,28 @@ namespace GraphSdk.Teams.Item.PrimaryChannel.Messages.Item.Replies {
         }
         /// <summary>
         /// Replies for a specified message.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<RepliesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<RepliesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RepliesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<RepliesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Replies for a specified message.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ChatMessage> PostAsync(ChatMessage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ChatMessage> PostAsync(ChatMessage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ChatMessage>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ChatMessage>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Replies for a specified message.</summary>
         public class GetQueryParameters : QueryParametersBase {

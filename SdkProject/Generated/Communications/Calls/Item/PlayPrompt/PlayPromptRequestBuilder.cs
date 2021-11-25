@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Communications.Calls.Item.PlayPrompt {
     /// <summary>Builds and executes requests for operations under \communications\calls\{call-id}\microsoft.graph.playPrompt</summary>
@@ -63,14 +64,15 @@ namespace GraphSdk.Communications.Calls.Item.PlayPrompt {
         /// <summary>
         /// Invoke action playPrompt
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<PlayPromptResponse> PostAsync(PlayPromptRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<PlayPromptResponse> PostAsync(PlayPromptRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PlayPromptResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<PlayPromptResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes playPromptOperation</summary>
         public class PlayPromptResponse : IParsable {

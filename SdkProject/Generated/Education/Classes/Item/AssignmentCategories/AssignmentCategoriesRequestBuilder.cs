@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Education.Classes.Item.AssignmentCategories {
     /// <summary>Builds and executes requests for operations under \education\classes\{educationClass-id}\assignmentCategories</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Education.Classes.Item.AssignmentCategories {
         }
         /// <summary>
         /// Get assignmentCategories from education
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<AssignmentCategoriesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<AssignmentCategoriesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AssignmentCategoriesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<AssignmentCategoriesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to assignmentCategories for education
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<EducationCategory> PostAsync(EducationCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<EducationCategory> PostAsync(EducationCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<EducationCategory>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<EducationCategory>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get assignmentCategories from education</summary>
         public class GetQueryParameters : QueryParametersBase {

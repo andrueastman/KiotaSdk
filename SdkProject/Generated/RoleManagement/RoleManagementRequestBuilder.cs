@@ -1,17 +1,22 @@
 using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.RoleManagement.Directory;
+using GraphSdk.RoleManagement.EntitlementManagement;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.RoleManagement {
     /// <summary>Builds and executes requests for operations under \roleManagement</summary>
     public class RoleManagementRequestBuilder {
         public DirectoryRequestBuilder Directory { get =>
             new DirectoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public EntitlementManagementRequestBuilder EntitlementManagement { get =>
+            new EntitlementManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -87,26 +92,28 @@ namespace GraphSdk.RoleManagement {
         }
         /// <summary>
         /// Get roleManagement
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GraphSdk.Models.Microsoft.Graph.RoleManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.RoleManagement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.RoleManagement>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.RoleManagement>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Update roleManagement
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.RoleManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.RoleManagement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get roleManagement</summary>
         public class GetQueryParameters : QueryParametersBase {

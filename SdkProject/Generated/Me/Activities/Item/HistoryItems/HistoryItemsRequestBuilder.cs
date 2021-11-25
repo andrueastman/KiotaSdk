@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Me.Activities.Item.HistoryItems {
     /// <summary>Builds and executes requests for operations under \me\activities\{userActivity-id}\historyItems</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Me.Activities.Item.HistoryItems {
         }
         /// <summary>
         /// Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<HistoryItemsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<HistoryItemsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<HistoryItemsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<HistoryItemsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ActivityHistoryItem> PostAsync(ActivityHistoryItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ActivityHistoryItem> PostAsync(ActivityHistoryItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ActivityHistoryItem>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ActivityHistoryItem>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.</summary>
         public class GetQueryParameters : QueryParametersBase {

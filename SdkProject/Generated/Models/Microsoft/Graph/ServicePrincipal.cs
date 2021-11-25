@@ -39,7 +39,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string Description { get; set; }
         /// <summary>Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, NOT).</summary>
         public string DisabledByMicrosoftStatus { get; set; }
-        /// <summary>The display name for the service principal. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.</summary>
+        /// <summary>The display name for the service principal. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.</summary>
         public List<Endpoint> Endpoints { get; set; }
@@ -47,7 +47,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string Homepage { get; set; }
         /// <summary>The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.</summary>
         public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
-        /// <summary>Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, NOT, ge, le).</summary>
+        /// <summary>Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, NOT, ge, le, and eq on null values).</summary>
         public InformationalUrl Info { get; set; }
         /// <summary>The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
         public List<KeyCredential> KeyCredentials { get; set; }

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.Item.Columns {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\tables\{workbookTable-id}\columns</summary>
@@ -102,14 +103,15 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.Item.Colu
         }
         /// <summary>
         /// Represents a collection of all the columns in the table. Read-only.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ColumnsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ColumnsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ColumnsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ColumnsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\tables\{workbookTable-id}\columns\microsoft.graph.itemAt(index={index})
@@ -122,14 +124,15 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Tables.Item.Colu
         /// <summary>
         /// Represents a collection of all the columns in the table. Read-only.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<WorkbookTableColumn> PostAsync(WorkbookTableColumn body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<WorkbookTableColumn> PostAsync(WorkbookTableColumn body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<WorkbookTableColumn>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<WorkbookTableColumn>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Represents a collection of all the columns in the table. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

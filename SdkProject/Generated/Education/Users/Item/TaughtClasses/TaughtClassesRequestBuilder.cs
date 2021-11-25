@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Education.Users.Item.TaughtClasses {
     /// <summary>Builds and executes requests for operations under \education\users\{educationUser-id}\taughtClasses</summary>
@@ -75,14 +76,15 @@ namespace GraphSdk.Education.Users.Item.TaughtClasses {
         }
         /// <summary>
         /// Classes for which the user is a teacher.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TaughtClassesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<TaughtClassesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TaughtClassesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<TaughtClassesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Classes for which the user is a teacher.</summary>
         public class GetQueryParameters : QueryParametersBase {

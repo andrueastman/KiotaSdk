@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Identity.ConditionalAccess.NamedLocations {
     /// <summary>Builds and executes requests for operations under \identity\conditionalAccess\namedLocations</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Identity.ConditionalAccess.NamedLocations {
         }
         /// <summary>
         /// Read-only. Nullable. Returns a collection of the specified named locations.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<NamedLocationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<NamedLocationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<NamedLocationsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<NamedLocationsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable. Returns a collection of the specified named locations.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<NamedLocation> PostAsync(NamedLocation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<NamedLocation> PostAsync(NamedLocation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<NamedLocation>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<NamedLocation>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Read-only. Nullable. Returns a collection of the specified named locations.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Groups.Item.TransitiveMembers {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}\transitiveMembers</summary>
@@ -68,14 +69,15 @@ namespace GraphSdk.Groups.Item.TransitiveMembers {
         }
         /// <summary>
         /// Get transitiveMembers from groups
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TransitiveMembersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<TransitiveMembersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TransitiveMembersResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<TransitiveMembersResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get transitiveMembers from groups</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,4 +1,3 @@
-using GraphSdk.Models.Microsoft.Graph.Ediscovery;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ namespace GraphSdk.Models.Microsoft.Graph {
     public class Compliance : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        public Ediscoveryroot Ediscovery { get; set; }
         /// <summary>
         /// Instantiates a new Compliance and sets the default values.
         /// </summary>
@@ -20,7 +18,6 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
-                {"ediscovery", (o,n) => { (o as Compliance).Ediscovery = n.GetObjectValue<Ediscoveryroot>(); } },
             };
         }
         /// <summary>
@@ -29,7 +26,6 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<Ediscoveryroot>("ediscovery", Ediscovery);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

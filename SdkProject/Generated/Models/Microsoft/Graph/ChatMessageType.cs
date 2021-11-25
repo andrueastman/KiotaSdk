@@ -4,5 +4,6 @@ namespace GraphSdk.Models.Microsoft.Graph {
         ChatEvent,
         Typing,
         UnknownFutureValue,
+        SystemEventMessage,
     }
 }

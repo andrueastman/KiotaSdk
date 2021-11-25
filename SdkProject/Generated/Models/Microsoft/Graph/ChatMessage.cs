@@ -18,6 +18,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>Read-only. Version number of the chat message.</summary>
         public string Etag { get; set; }
+        /// <summary>Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.</summary>
+        public EventMessageDetail EventDetail { get; set; }
         /// <summary>Details of the sender of the chat message. Can only be set during migration.</summary>
         public ChatMessageFromIdentitySet From { get; set; }
         /// <summary>Content in a message hosted by Microsoft Teams - for example, images or code snippets.</summary>
@@ -60,6 +62,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
                 {"createdDateTime", (o,n) => { (o as ChatMessage).CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"deletedDateTime", (o,n) => { (o as ChatMessage).DeletedDateTime = n.GetDateTimeOffsetValue(); } },
                 {"etag", (o,n) => { (o as ChatMessage).Etag = n.GetStringValue(); } },
+                {"eventDetail", (o,n) => { (o as ChatMessage).EventDetail = n.GetObjectValue<EventMessageDetail>(); } },
                 {"from", (o,n) => { (o as ChatMessage).From = n.GetObjectValue<ChatMessageFromIdentitySet>(); } },
                 {"hostedContents", (o,n) => { (o as ChatMessage).HostedContents = n.GetCollectionOfObjectValues<ChatMessageHostedContent>().ToList(); } },
                 {"importance", (o,n) => { (o as ChatMessage).Importance = n.GetEnumValue<ChatMessageImportance>(); } },
@@ -91,6 +94,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);
             writer.WriteStringValue("etag", Etag);
+            writer.WriteObjectValue<EventMessageDetail>("eventDetail", EventDetail);
             writer.WriteObjectValue<ChatMessageFromIdentitySet>("from", From);
             writer.WriteCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", HostedContents);
             writer.WriteEnumValue<ChatMessageImportance>("importance", Importance);

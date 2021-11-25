@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Oauth2PermissionGrants {
     /// <summary>Builds and executes requests for operations under \oauth2PermissionGrants</summary>
@@ -97,26 +98,28 @@ namespace GraphSdk.Oauth2PermissionGrants {
         }
         /// <summary>
         /// Get entities from oauth2PermissionGrants
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Oauth2PermissionGrantsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<Oauth2PermissionGrantsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Oauth2PermissionGrantsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<Oauth2PermissionGrantsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Add new entity to oauth2PermissionGrants
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<OAuth2PermissionGrant> PostAsync(OAuth2PermissionGrant body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<OAuth2PermissionGrant> PostAsync(OAuth2PermissionGrant body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<OAuth2PermissionGrant>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<OAuth2PermissionGrant>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get entities from oauth2PermissionGrants</summary>
         public class GetQueryParameters : QueryParametersBase {

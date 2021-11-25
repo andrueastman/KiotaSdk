@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActionsForRule.Item.ScheduledActionConfigurations {
     /// <summary>Builds and executes requests for operations under \deviceManagement\deviceCompliancePolicies\{deviceCompliancePolicy-id}\scheduledActionsForRule\{deviceComplianceScheduledActionForRule-id}\scheduledActionConfigurations</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
         }
         /// <summary>
         /// The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ScheduledActionConfigurationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ScheduledActionConfigurationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ScheduledActionConfigurationsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ScheduledActionConfigurationsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DeviceComplianceActionItem> PostAsync(DeviceComplianceActionItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<DeviceComplianceActionItem> PostAsync(DeviceComplianceActionItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DeviceComplianceActionItem>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<DeviceComplianceActionItem>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.</summary>
         public class GetQueryParameters : QueryParametersBase {

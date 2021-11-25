@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public bool? AccountEnabled { get; set; }
         /// <summary>For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
         public List<AlternativeSecurityId> AlternativeSecurityIds { get; set; }
-        /// <summary>The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.</summary>
+        /// <summary>The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? ApproximateLastSignInDateTime { get; set; }
         /// <summary>The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? ComplianceExpirationDateTime { get; set; }
@@ -19,7 +19,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string DeviceMetadata { get; set; }
         /// <summary>For internal use only.</summary>
         public int? DeviceVersion { get; set; }
-        /// <summary>The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.</summary>
+        /// <summary>The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>The collection of open extensions defined for the device. Read-only. Nullable.</summary>
         public List<Extension> Extensions { get; set; }
@@ -33,11 +33,11 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<DirectoryObject> MemberOf { get; set; }
         /// <summary>The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, NOT, ge, le, in).</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
-        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
-        /// <summary>The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).</summary>
+        /// <summary>The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).</summary>
         public string OperatingSystem { get; set; }
-        /// <summary>The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).</summary>
+        /// <summary>The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).</summary>
         public string OperatingSystemVersion { get; set; }
         /// <summary>For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
         public List<string> PhysicalIds { get; set; }

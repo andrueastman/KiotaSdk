@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Groups.Item.Onenote.Pages.Item.ParentNotebook.SectionGroups.Item.Sections.Item.Pages.Item.Preview {
     /// <summary>Builds and executes requests for operations under \groups\{group-id}\onenote\pages\{onenotePage-id}\parentNotebook\sectionGroups\{sectionGroup-id}\sections\{onenoteSection-id}\pages\{onenotePage-id1}\microsoft.graph.preview()</summary>
@@ -59,13 +60,14 @@ namespace GraphSdk.Groups.Item.Onenote.Pages.Item.ParentNotebook.SectionGroups.I
         }
         /// <summary>
         /// Invoke function preview
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<PreviewResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<PreviewResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<PreviewResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<PreviewResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes onenotePagePreview</summary>
         public class PreviewResponse : IParsable {

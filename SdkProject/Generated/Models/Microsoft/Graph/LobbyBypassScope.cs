@@ -5,5 +5,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         OrganizationAndFederated,
         Everyone,
         UnknownFutureValue,
+        Invited,
+        OrganizationExcludingGuests,
     }
 }

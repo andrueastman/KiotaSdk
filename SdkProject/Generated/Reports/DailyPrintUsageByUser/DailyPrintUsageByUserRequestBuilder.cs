@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Reports.DailyPrintUsageByUser {
     /// <summary>Builds and executes requests for operations under \reports\dailyPrintUsageByUser</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Reports.DailyPrintUsageByUser {
         }
         /// <summary>
         /// Get dailyPrintUsageByUser from reports
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<DailyPrintUsageByUserResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<DailyPrintUsageByUserResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DailyPrintUsageByUserResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<DailyPrintUsageByUserResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to dailyPrintUsageByUser for reports
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<PrintUsageByUser> PostAsync(PrintUsageByUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<PrintUsageByUser> PostAsync(PrintUsageByUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PrintUsageByUser>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<PrintUsageByUser>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get dailyPrintUsageByUser from reports</summary>
         public class GetQueryParameters : QueryParametersBase {

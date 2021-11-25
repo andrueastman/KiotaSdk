@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Workbooks.Item.Workbook.TableRowOperationResultWithKey {
     /// <summary>Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\microsoft.graph.tableRowOperationResult(key='{key}')</summary>
@@ -61,13 +62,14 @@ namespace GraphSdk.Workbooks.Item.Workbook.TableRowOperationResultWithKey {
         }
         /// <summary>
         /// Invoke function tableRowOperationResult
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<TableRowOperationResultWithKeyResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<TableRowOperationResultWithKeyResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<TableRowOperationResultWithKeyResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<TableRowOperationResultWithKeyResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookTableRow</summary>
         public class TableRowOperationResultWithKeyResponse : IParsable {

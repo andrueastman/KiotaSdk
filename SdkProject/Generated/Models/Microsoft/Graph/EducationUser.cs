@@ -51,6 +51,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>The plans that are provisioned for the user. Read-only. Not nullable.</summary>
         public List<ProvisionedPlan> ProvisionedPlans { get; set; }
         public DateTimeOffset? RefreshTokensValidFromDateTime { get; set; }
+        /// <summary>Related records related to the user. Possible relationships are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue</summary>
+        public List<RelatedContact> RelatedContacts { get; set; }
         /// <summary>Address where user lives.</summary>
         public PhysicalAddress ResidenceAddress { get; set; }
         public List<EducationRubric> Rubrics { get; set; }
@@ -103,6 +105,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
                 {"primaryRole", (o,n) => { (o as EducationUser).PrimaryRole = n.GetEnumValue<EducationUserRole>(); } },
                 {"provisionedPlans", (o,n) => { (o as EducationUser).ProvisionedPlans = n.GetCollectionOfObjectValues<ProvisionedPlan>().ToList(); } },
                 {"refreshTokensValidFromDateTime", (o,n) => { (o as EducationUser).RefreshTokensValidFromDateTime = n.GetDateTimeOffsetValue(); } },
+                {"relatedContacts", (o,n) => { (o as EducationUser).RelatedContacts = n.GetCollectionOfObjectValues<RelatedContact>().ToList(); } },
                 {"residenceAddress", (o,n) => { (o as EducationUser).ResidenceAddress = n.GetObjectValue<PhysicalAddress>(); } },
                 {"rubrics", (o,n) => { (o as EducationUser).Rubrics = n.GetCollectionOfObjectValues<EducationRubric>().ToList(); } },
                 {"schools", (o,n) => { (o as EducationUser).Schools = n.GetCollectionOfObjectValues<EducationSchool>().ToList(); } },
@@ -148,6 +151,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
             writer.WriteEnumValue<EducationUserRole>("primaryRole", PrimaryRole);
             writer.WriteCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", ProvisionedPlans);
             writer.WriteDateTimeOffsetValue("refreshTokensValidFromDateTime", RefreshTokensValidFromDateTime);
+            writer.WriteCollectionOfObjectValues<RelatedContact>("relatedContacts", RelatedContacts);
             writer.WriteObjectValue<PhysicalAddress>("residenceAddress", ResidenceAddress);
             writer.WriteCollectionOfObjectValues<EducationRubric>("rubrics", Rubrics);
             writer.WriteCollectionOfObjectValues<EducationSchool>("schools", Schools);

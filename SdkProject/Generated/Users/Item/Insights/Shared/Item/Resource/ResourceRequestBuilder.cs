@@ -1,6 +1,5 @@
 using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.Insights.Shared.Item.Resource.CalendarSharingMessage;
-using GraphSdk.Users.Item.Insights.Shared.Item.Resource.CaseExportOperation;
 using GraphSdk.Users.Item.Insights.Shared.Item.Resource.ManagedAppProtection;
 using GraphSdk.Users.Item.Insights.Shared.Item.Resource.MobileAppContentFile;
 using GraphSdk.Users.Item.Insights.Shared.Item.Resource.PrintDocument;
@@ -20,15 +19,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Users.Item.Insights.Shared.Item.Resource {
     /// <summary>Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource</summary>
     public class ResourceRequestBuilder {
         public CalendarSharingMessageRequestBuilder CalendarSharingMessage { get =>
             new CalendarSharingMessageRequestBuilder(PathParameters, RequestAdapter);
-        }
-        public CaseExportOperationRequestBuilder CaseExportOperation { get =>
-            new CaseExportOperationRequestBuilder(PathParameters, RequestAdapter);
         }
         public ManagedAppProtectionRequestBuilder ManagedAppProtection { get =>
             new ManagedAppProtectionRequestBuilder(PathParameters, RequestAdapter);
@@ -125,14 +122,15 @@ namespace GraphSdk.Users.Item.Insights.Shared.Item.Resource {
         }
         /// <summary>
         /// Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Entity> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<Entity> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Entity>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<Entity>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.</summary>
         public class GetQueryParameters : QueryParametersBase {

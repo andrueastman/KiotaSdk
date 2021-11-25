@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.AuditLogs.RestrictedSignIns {
     /// <summary>Builds and executes requests for operations under \auditLogs\restrictedSignIns</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.AuditLogs.RestrictedSignIns {
         }
         /// <summary>
         /// Get restrictedSignIns from auditLogs
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<RestrictedSignInsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<RestrictedSignInsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RestrictedSignInsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<RestrictedSignInsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to restrictedSignIns for auditLogs
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<RestrictedSignIn> PostAsync(RestrictedSignIn body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<RestrictedSignIn> PostAsync(RestrictedSignIn body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<RestrictedSignIn>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<RestrictedSignIn>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get restrictedSignIns from auditLogs</summary>
         public class GetQueryParameters : QueryParametersBase {

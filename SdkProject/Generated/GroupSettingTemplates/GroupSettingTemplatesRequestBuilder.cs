@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.GroupSettingTemplates {
     /// <summary>Builds and executes requests for operations under \groupSettingTemplates</summary>
@@ -102,26 +103,28 @@ namespace GraphSdk.GroupSettingTemplates {
         }
         /// <summary>
         /// Get entities from groupSettingTemplates
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GroupSettingTemplatesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GroupSettingTemplatesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingTemplatesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GroupSettingTemplatesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Add new entity to groupSettingTemplates
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GroupSettingTemplate> PostAsync(GroupSettingTemplate body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GroupSettingTemplate> PostAsync(GroupSettingTemplate body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GroupSettingTemplate>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get entities from groupSettingTemplates</summary>
         public class GetQueryParameters : QueryParametersBase {

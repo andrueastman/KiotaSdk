@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange.ColumnsBeforeWithCount {
     /// <summary>Builds and executes requests for operations under \users\{user-id}\insights\shared\{sharedInsight-id}\resource\microsoft.graph.workbookRange\microsoft.graph.columnsBefore(count={count})</summary>
@@ -61,13 +62,14 @@ namespace GraphSdk.Users.Item.Insights.Shared.Item.Resource.WorkbookRange.Column
         }
         /// <summary>
         /// Invoke function columnsBefore
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<ColumnsBeforeWithCountResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<ColumnsBeforeWithCountResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ColumnsBeforeWithCountResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<ColumnsBeforeWithCountResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class ColumnsBeforeWithCountResponse : IParsable {

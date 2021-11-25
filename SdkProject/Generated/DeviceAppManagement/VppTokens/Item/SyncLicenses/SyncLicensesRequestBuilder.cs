@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.DeviceAppManagement.VppTokens.Item.SyncLicenses {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\vppTokens\{vppToken-id}\microsoft.graph.syncLicenses</summary>
@@ -59,13 +60,14 @@ namespace GraphSdk.DeviceAppManagement.VppTokens.Item.SyncLicenses {
         }
         /// <summary>
         /// Syncs licenses associated with a specific appleVolumePurchaseProgramToken
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SyncLicensesResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<SyncLicensesResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<SyncLicensesResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<SyncLicensesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes vppToken</summary>
         public class SyncLicensesResponse : IParsable {

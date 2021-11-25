@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Reports.MonthlyPrintUsageByPrinter {
     /// <summary>Builds and executes requests for operations under \reports\monthlyPrintUsageByPrinter</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Reports.MonthlyPrintUsageByPrinter {
         }
         /// <summary>
         /// Get monthlyPrintUsageByPrinter from reports
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<MonthlyPrintUsageByPrinterResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<MonthlyPrintUsageByPrinterResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MonthlyPrintUsageByPrinterResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<MonthlyPrintUsageByPrinterResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to monthlyPrintUsageByPrinter for reports
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<PrintUsageByPrinter> PostAsync(PrintUsageByPrinter body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<PrintUsageByPrinter> PostAsync(PrintUsageByPrinter body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PrintUsageByPrinter>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<PrintUsageByPrinter>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Get monthlyPrintUsageByPrinter from reports</summary>
         public class GetQueryParameters : QueryParametersBase {

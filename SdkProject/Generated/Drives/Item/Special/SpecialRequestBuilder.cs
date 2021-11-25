@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Drives.Item.Special {
     /// <summary>Builds and executes requests for operations under \drives\{drive-id}\special</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.Drives.Item.Special {
         }
         /// <summary>
         /// Collection of common folders available in OneDrive. Read-only. Nullable.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<SpecialResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<SpecialResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SpecialResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<SpecialResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// Collection of common folders available in OneDrive. Read-only. Nullable.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> PostAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> PostAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Collection of common folders available in OneDrive. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

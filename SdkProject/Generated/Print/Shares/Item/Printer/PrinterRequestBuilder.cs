@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Print.Shares.Item.Printer {
     /// <summary>Builds and executes requests for operations under \print\shares\{printerShare-id}\printer</summary>
@@ -73,14 +74,15 @@ namespace GraphSdk.Print.Shares.Item.Printer {
         }
         /// <summary>
         /// The printer that this printer share is related to.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GraphSdk.Models.Microsoft.Graph.Printer> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.Printer> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The printer that this printer share is related to.</summary>
         public class GetQueryParameters : QueryParametersBase {

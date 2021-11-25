@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Identity.ApiConnectors.Item.UploadClientCertificate {
     /// <summary>Builds and executes requests for operations under \identity\apiConnectors\{identityApiConnector-id}\microsoft.graph.uploadClientCertificate</summary>
@@ -63,14 +64,15 @@ namespace GraphSdk.Identity.ApiConnectors.Item.UploadClientCertificate {
         /// <summary>
         /// Invoke action uploadClientCertificate
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UploadClientCertificateResponse> PostAsync(UploadClientCertificateRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UploadClientCertificateResponse> PostAsync(UploadClientCertificateRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<UploadClientCertificateResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UploadClientCertificateResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>Union type wrapper for classes identityApiConnector</summary>
         public class UploadClientCertificateResponse : IParsable {

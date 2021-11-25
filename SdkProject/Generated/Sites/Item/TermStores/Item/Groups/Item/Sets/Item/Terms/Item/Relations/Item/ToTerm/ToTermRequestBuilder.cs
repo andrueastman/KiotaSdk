@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Terms.Item.Relations.Item.ToTerm {
     /// <summary>Builds and executes requests for operations under \sites\{site-id}\termStores\{store-id}\groups\{group-id}\sets\{set-id}\terms\{term-id}\relations\{relation-id}\toTerm</summary>
@@ -69,14 +70,15 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Terms.Item.R
         }
         /// <summary>
         /// The to [term] of the relation. The term to which the relationship is defined.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<Term> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<Term> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The to [term] of the relation. The term to which the relationship is defined.</summary>
         public class GetQueryParameters : QueryParametersBase {

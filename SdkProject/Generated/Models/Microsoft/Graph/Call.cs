@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class Call : Entity, IParsable {
+        /// <summary>Read-only. Nullable.</summary>
+        public List<AudioRoutingGroup> AudioRoutingGroups { get; set; }
         /// <summary>The callback URL on which callbacks will be delivered. Must be https.</summary>
         public string CallbackUri { get; set; }
         /// <summary>A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId.</summary>
@@ -44,6 +46,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// </summary>
         public new IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
+                {"audioRoutingGroups", (o,n) => { (o as Call).AudioRoutingGroups = n.GetCollectionOfObjectValues<AudioRoutingGroup>().ToList(); } },
                 {"callbackUri", (o,n) => { (o as Call).CallbackUri = n.GetStringValue(); } },
                 {"callChainId", (o,n) => { (o as Call).CallChainId = n.GetStringValue(); } },
                 {"callOptions", (o,n) => { (o as Call).CallOptions = n.GetObjectValue<CallOptions>(); } },
@@ -75,6 +78,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public new void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", AudioRoutingGroups);
             writer.WriteStringValue("callbackUri", CallbackUri);
             writer.WriteStringValue("callChainId", CallChainId);
             writer.WriteObjectValue<CallOptions>("callOptions", CallOptions);

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary {
     /// <summary>Builds and executes requests for operations under \deviceAppManagement\managedEBooks\{managedEBook-id}\userStateSummary</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary {
         }
         /// <summary>
         /// The list of installation states for this eBook.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UserStateSummaryResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UserStateSummaryResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UserStateSummaryResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UserStateSummaryResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// The list of installation states for this eBook.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<UserInstallStateSummary> PostAsync(UserInstallStateSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<UserInstallStateSummary> PostAsync(UserInstallStateSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<UserInstallStateSummary>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<UserInstallStateSummary>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The list of installation states for this eBook.</summary>
         public class GetQueryParameters : QueryParametersBase {

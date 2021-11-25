@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
     /// <summary>Builds and executes requests for operations under \appCatalogs\teamsApps\{teamsApp-id}\appDefinitions</summary>
@@ -90,26 +91,28 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions {
         }
         /// <summary>
         /// The details for each version of the app.
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<AppDefinitionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<AppDefinitionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppDefinitionsResponse>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<AppDefinitionsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
         /// The details for each version of the app.
         /// <param name="body"></param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition> PostAsync(GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default) {
+        public async Task<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition> PostAsync(GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition>(requestInfo, responseHandler);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>The details for each version of the app.</summary>
         public class GetQueryParameters : QueryParametersBase {
