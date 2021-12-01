@@ -7,6 +7,8 @@ using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Graph;
 using GraphSdk.Models.Microsoft.Graph;
+using System.Text.Json;
+using GraphSdk.Users;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -44,10 +46,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine(users.Value.Count);
 
             List<User> userList = new List<User>();
-            var pageIterator = PageIterator<User>.CreatePageIterator(graphClient, users, (user) => { userList.Add(user); return true; });
+            var pageIterator = PageIterator<User,UsersResponse>.CreatePageIterator(graphClient, users, (user) => { userList.Add(user); return true; });
             await pageIterator.IterateAsync();
 
             Console.WriteLine(userList.Count);
+
         }
     }
 }
