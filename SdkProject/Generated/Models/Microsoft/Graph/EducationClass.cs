@@ -12,7 +12,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public EducationAssignmentSettings AssignmentSettings { get; set; }
         /// <summary>Class code used by the school to identify the class.</summary>
         public string ClassCode { get; set; }
-        /// <summary>Course information for the class</summary>
+        /// <summary>Course information for the class.</summary>
         public EducationCourse Course { get; set; }
         /// <summary>Entity who created the class</summary>
         public IdentitySet CreatedBy { get; set; }

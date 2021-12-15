@@ -43,7 +43,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete ref of navigation property catalog for identityGovernance
+        /// Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// Get ref of catalog from identityGovernance
+        /// Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// Update the ref of navigation property catalog in identityGovernance
+        /// Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property catalog for identityGovernance
+        /// Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get ref of catalog from identityGovernance
+        /// Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the ref of navigation property catalog in identityGovernance
+        /// Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

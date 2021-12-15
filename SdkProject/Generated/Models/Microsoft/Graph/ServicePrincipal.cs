@@ -5,17 +5,17 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class ServicePrincipal : DirectoryObject, IParsable {
-        /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, NOT, in).</summary>
+        /// <summary>true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).</summary>
         public bool? AccountEnabled { get; set; }
         /// <summary>Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.</summary>
         public List<AddIn> AddIns { get; set; }
-        /// <summary>Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
+        /// <summary>Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> AlternativeNames { get; set; }
         /// <summary>The description exposed by the associated application.</summary>
         public string AppDescription { get; set; }
         /// <summary>The display name exposed by the associated application.</summary>
         public string AppDisplayName { get; set; }
-        /// <summary>The unique identifier for the associated application (its appId property).</summary>
+        /// <summary>The unique identifier for the associated application (its appId property). Supports $filter (eq, ne, not, in, startsWith).</summary>
         public string AppId { get; set; }
         /// <summary>Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith).</summary>
         public string ApplicationTemplateId { get; set; }
@@ -35,11 +35,11 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<DirectoryObject> CreatedObjects { get; set; }
         /// <summary>The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.</summary>
         public List<DelegatedPermissionClassification> DelegatedPermissionClassifications { get; set; }
-        /// <summary>Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, NOT, ge, le, startsWith) and $search.</summary>
+        /// <summary>Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
         public string Description { get; set; }
-        /// <summary>Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, NOT).</summary>
+        /// <summary>Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).</summary>
         public string DisabledByMicrosoftStatus { get; set; }
-        /// <summary>The display name for the service principal. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
+        /// <summary>The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>Endpoints available for discovery. Services like Sharepoint populate this property with a tenant specific SharePoint endpoints that other applications can discover and use in their experiences.</summary>
         public List<Endpoint> Endpoints { get; set; }
@@ -47,9 +47,9 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string Homepage { get; set; }
         /// <summary>The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.</summary>
         public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
-        /// <summary>Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, NOT, ge, le, and eq on null values).</summary>
+        /// <summary>Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
         public InformationalUrl Info { get; set; }
-        /// <summary>The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
+        /// <summary>The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<KeyCredential> KeyCredentials { get; set; }
         /// <summary>Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL.</summary>
         public string LoginUrl { get; set; }
@@ -79,13 +79,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<string> ReplyUrls { get; set; }
         /// <summary>The collection for settings related to saml single sign-on.</summary>
         public SamlSingleSignOnSettings SamlSingleSignOnSettings { get; set; }
-        /// <summary>Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, NOT, ge, le, startsWith).</summary>
+        /// <summary>Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> ServicePrincipalNames { get; set; }
         /// <summary>Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.</summary>
         public string ServicePrincipalType { get; set; }
         /// <summary>Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.</summary>
         public string SignInAudience { get; set; }
-        /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
+        /// <summary>Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> Tags { get; set; }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
         public string TokenEncryptionKeyId { get; set; }

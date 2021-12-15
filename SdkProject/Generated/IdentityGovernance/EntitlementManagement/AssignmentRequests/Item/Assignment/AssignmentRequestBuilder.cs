@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get assignment from identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Get assignment from identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<AccessPackageAssignment>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get assignment from identityGovernance</summary>
+        /// <summary>For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -44,7 +44,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
+        /// Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.ScopedRoleMembers.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Scoped-role members of this Administrative Unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).</summary>
+        /// <summary>Scoped-role members of this administrative unit.  HTTP Methods: GET (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove scopedRoleMembership).</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

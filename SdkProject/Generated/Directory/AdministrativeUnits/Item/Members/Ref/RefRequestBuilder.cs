@@ -43,7 +43,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
+        /// Users and groups that are members of this administrative unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -64,7 +64,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
+        /// Users and groups that are members of this administrative unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -82,7 +82,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
+        /// Users and groups that are members of this administrative unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -94,7 +94,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref {
             return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
+        /// Users and groups that are members of this administrative unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Directory.AdministrativeUnits.Item.Members.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).</summary>
+        /// <summary>Users and groups that are members of this administrative unit. HTTP Methods: GET (list members), POST (add members), DELETE (remove members).</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -44,7 +44,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property settings for identityGovernance
+        /// Entitlement management settings.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Get settings from identityGovernance
+        /// Entitlement management settings.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property settings in identityGovernance
+        /// Entitlement management settings.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property settings for identityGovernance
+        /// Entitlement management settings.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get settings from identityGovernance
+        /// Entitlement management settings.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             return await RequestAdapter.SendAsync<EntitlementManagementSettings>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property settings in identityGovernance
+        /// Entitlement management settings.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get settings from identityGovernance</summary>
+        /// <summary>Entitlement management settings.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -18,7 +18,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>Read-only. Version number of the chat message.</summary>
         public string Etag { get; set; }
-        /// <summary>Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.</summary>
+        /// <summary>Read-only. If present, represents details of an event that happened in a chat, a channel, or a team, for example, adding new members. For event messages, the messageType property will be set to systemEventMessage.</summary>
         public EventMessageDetail EventDetail { get; set; }
         /// <summary>Details of the sender of the chat message. Can only be set during migration.</summary>
         public ChatMessageFromIdentitySet From { get; set; }

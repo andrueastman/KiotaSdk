@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property assignments for identityGovernance
+        /// Access package assignments.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get assignments from identityGovernance
+        /// Access package assignments.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property assignments in identityGovernance
+        /// Access package assignments.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property assignments for identityGovernance
+        /// Access package assignments.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get assignments from identityGovernance
+        /// Access package assignments.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             return await RequestAdapter.SendAsync<AccessPackageAssignment>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property assignments in identityGovernance
+        /// Access package assignments.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get assignments from identityGovernance</summary>
+        /// <summary>Access package assignments.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

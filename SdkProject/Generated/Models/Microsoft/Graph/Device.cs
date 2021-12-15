@@ -5,41 +5,41 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class Device : DirectoryObject, IParsable {
-        /// <summary>true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, NOT, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.</summary>
+        /// <summary>true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.</summary>
         public bool? AccountEnabled { get; set; }
-        /// <summary>For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
+        /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<AlternativeSecurityId> AlternativeSecurityIds { get; set; }
-        /// <summary>The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le, and eq on null values) and $orderBy.</summary>
+        /// <summary>The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? ApproximateLastSignInDateTime { get; set; }
         /// <summary>The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? ComplianceExpirationDateTime { get; set; }
-        /// <summary>Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).</summary>
+        /// <summary>Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).</summary>
         public string DeviceId { get; set; }
         /// <summary>For internal use only. Set to null.</summary>
         public string DeviceMetadata { get; set; }
         /// <summary>For internal use only.</summary>
         public int? DeviceVersion { get; set; }
-        /// <summary>The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
+        /// <summary>The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>The collection of open extensions defined for the device. Read-only. Nullable.</summary>
         public List<Extension> Extensions { get; set; }
-        /// <summary>true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).</summary>
+        /// <summary>true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).</summary>
         public bool? IsCompliant { get; set; }
-        /// <summary>true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, NOT).</summary>
+        /// <summary>true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).</summary>
         public bool? IsManaged { get; set; }
-        /// <summary>Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, NOT, startsWith).</summary>
+        /// <summary>Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith).</summary>
         public string MdmAppId { get; set; }
         /// <summary>Groups that this device is a member of. Read-only. Nullable. Supports $expand.</summary>
         public List<DirectoryObject> MemberOf { get; set; }
-        /// <summary>The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, NOT, ge, le, in).</summary>
+        /// <summary>The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, not, ge, le, in).</summary>
         public DateTimeOffset? OnPremisesLastSyncDateTime { get; set; }
-        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).</summary>
+        /// <summary>true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).</summary>
         public bool? OnPremisesSyncEnabled { get; set; }
-        /// <summary>The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).</summary>
+        /// <summary>The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).</summary>
         public string OperatingSystem { get; set; }
-        /// <summary>The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).</summary>
+        /// <summary>The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).</summary>
         public string OperatingSystemVersion { get; set; }
-        /// <summary>For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
+        /// <summary>For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> PhysicalIds { get; set; }
         /// <summary>The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.</summary>
         public string ProfileType { get; set; }

@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property accessPackages for identityGovernance
+        /// Access packages.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Get accessPackages from identityGovernance
+        /// Access packages.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property accessPackages in identityGovernance
+        /// Access packages.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property accessPackages for identityGovernance
+        /// Access packages.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get accessPackages from identityGovernance
+        /// Access packages.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property accessPackages in identityGovernance
+        /// Access packages.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item 
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get accessPackages from identityGovernance</summary>
+        /// <summary>Access packages.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

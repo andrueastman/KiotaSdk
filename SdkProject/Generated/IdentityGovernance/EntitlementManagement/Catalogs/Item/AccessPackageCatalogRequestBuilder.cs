@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property catalogs for identityGovernance
+        /// Access package catalogs.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get catalogs from identityGovernance
+        /// Access package catalogs.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property catalogs in identityGovernance
+        /// Access package catalogs.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property catalogs for identityGovernance
+        /// Access package catalogs.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get catalogs from identityGovernance
+        /// Access package catalogs.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property catalogs in identityGovernance
+        /// Access package catalogs.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get catalogs from identityGovernance</summary>
+        /// <summary>Access package catalogs.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

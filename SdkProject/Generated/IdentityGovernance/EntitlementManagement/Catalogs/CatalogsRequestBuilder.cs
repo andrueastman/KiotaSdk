@@ -51,7 +51,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get catalogs from identityGovernance
+        /// Access package catalogs.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to catalogs for identityGovernance
+        /// Access package catalogs.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Get catalogs from identityGovernance
+        /// Access package catalogs.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return await RequestAdapter.SendAsync<CatalogsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to catalogs for identityGovernance
+        /// Access package catalogs.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get catalogs from identityGovernance</summary>
+        /// <summary>Access package catalogs.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

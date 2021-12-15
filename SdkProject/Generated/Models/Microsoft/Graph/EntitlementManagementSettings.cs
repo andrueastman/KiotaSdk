@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class EntitlementManagementSettings : Entity, IParsable {
+        /// <summary>If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.</summary>
         public string DurationUntilExternalUserDeletedAfterBlocked { get; set; }
-        /// <summary>One of None, BlockSignIn, or BlockSignInAndDelete.</summary>
+        /// <summary>Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.</summary>
         public AccessPackageExternalUserLifecycleAction? ExternalUserLifecycleAction { get; set; }
         /// <summary>
         /// The deserialization information for the current model

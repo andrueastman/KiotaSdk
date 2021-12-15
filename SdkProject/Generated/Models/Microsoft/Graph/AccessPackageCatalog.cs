@@ -7,7 +7,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
     public class AccessPackageCatalog : Entity, IParsable {
         /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
         public List<GraphSdk.Models.Microsoft.Graph.AccessPackage> AccessPackages { get; set; }
-        /// <summary>One of UserManaged or ServiceDefault.</summary>
+        /// <summary>Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.</summary>
         public AccessPackageCatalogType? CatalogType { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -19,6 +19,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public bool? IsExternallyVisible { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? ModifiedDateTime { get; set; }
+        /// <summary>Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.</summary>
         public AccessPackageCatalogState? State { get; set; }
         /// <summary>
         /// The deserialization information for the current model

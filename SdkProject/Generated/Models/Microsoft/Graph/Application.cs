@@ -11,19 +11,19 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public ApiApplication Api { get; set; }
         /// <summary>The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.</summary>
         public string AppId { get; set; }
-        /// <summary>Unique identifier of the applicationTemplate.</summary>
+        /// <summary>Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne).</summary>
         public string ApplicationTemplateId { get; set; }
         /// <summary>The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.</summary>
         public List<AppRole> AppRoles { get; set; }
-        /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, NOT, ge, le, in, and eq on null values) and $orderBy.</summary>
+        /// <summary>The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Read-only.</summary>
         public DirectoryObject CreatedOnBehalfOf { get; set; }
-        /// <summary>An optional description of the application. Supports $filter (eq, ne, NOT, ge, le, startsWith) and $search.</summary>
+        /// <summary>Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.</summary>
         public string Description { get; set; }
-        /// <summary>Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, NOT).</summary>
+        /// <summary>Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).</summary>
         public string DisabledByMicrosoftStatus { get; set; }
-        /// <summary>The display name for the application. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
+        /// <summary>The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.</summary>
         public string DisplayName { get; set; }
         /// <summary>Read-only. Nullable.</summary>
         public List<ExtensionProperty> ExtensionProperties { get; set; }
@@ -32,13 +32,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
         /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public List<string> IdentifierUris { get; set; }
-        /// <summary>Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, NOT, ge, le, and eq on null values).</summary>
+        /// <summary>Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
         public InformationalUrl Info { get; set; }
         /// <summary>Specifies whether this application supports device authentication without a user. The default is false.</summary>
         public bool? IsDeviceOnlyAuthSupported { get; set; }
         /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.</summary>
         public bool? IsFallbackPublicClient { get; set; }
-        /// <summary>The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
+        /// <summary>The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<KeyCredential> KeyCredentials { get; set; }
         /// <summary>The main logo for the application. Not nullable.</summary>
         public byte[] Logo { get; set; }
@@ -57,13 +57,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public PublicClientApplication PublicClient { get; set; }
         /// <summary>The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).</summary>
         public string PublisherDomain { get; set; }
-        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, NOT, ge, le).</summary>
+        /// <summary>Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).</summary>
         public List<RequiredResourceAccess> RequiredResourceAccess { get; set; }
-        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, NOT).</summary>
+        /// <summary>Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).</summary>
         public string SignInAudience { get; set; }
         /// <summary>Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.</summary>
         public SpaApplication Spa { get; set; }
-        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).</summary>
+        /// <summary>Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).</summary>
         public List<string> Tags { get; set; }
         /// <summary>Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.</summary>
         public string TokenEncryptionKeyId { get; set; }

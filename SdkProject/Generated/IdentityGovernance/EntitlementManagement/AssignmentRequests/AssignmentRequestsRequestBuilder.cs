@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get assignmentRequests from identityGovernance
+        /// Access package assignment requests.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to assignmentRequests for identityGovernance
+        /// Access package assignment requests.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Get assignmentRequests from identityGovernance
+        /// Access package assignment requests.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
             return await RequestAdapter.SendAsync<AssignmentRequestsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to assignmentRequests for identityGovernance
+        /// Access package assignment requests.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessPackageAssignmentRequest>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get assignmentRequests from identityGovernance</summary>
+        /// <summary>Access package assignment requests.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

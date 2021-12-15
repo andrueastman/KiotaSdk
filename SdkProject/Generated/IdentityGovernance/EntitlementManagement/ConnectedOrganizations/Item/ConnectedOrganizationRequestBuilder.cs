@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property connectedOrganizations for identityGovernance
+        /// Connected organizations.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return requestInfo;
         }
         /// <summary>
-        /// Get connectedOrganizations from identityGovernance
+        /// Connected organizations.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property connectedOrganizations in identityGovernance
+        /// Connected organizations.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property connectedOrganizations for identityGovernance
+        /// Connected organizations.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get connectedOrganizations from identityGovernance
+        /// Connected organizations.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return await RequestAdapter.SendAsync<ConnectedOrganization>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property connectedOrganizations in identityGovernance
+        /// Connected organizations.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get connectedOrganizations from identityGovernance</summary>
+        /// <summary>Connected organizations.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

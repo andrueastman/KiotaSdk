@@ -6,11 +6,17 @@ using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class EntitlementManagement : Entity, IParsable {
         public List<GraphSdk.Models.Microsoft.Graph.Approval> AccessPackageAssignmentApprovals { get; set; }
+        /// <summary>Access packages.</summary>
         public List<GraphSdk.Models.Microsoft.Graph.AccessPackage> AccessPackages { get; set; }
+        /// <summary>Access package assignment requests.</summary>
         public List<AccessPackageAssignmentRequest> AssignmentRequests { get; set; }
+        /// <summary>Access package assignments.</summary>
         public List<AccessPackageAssignment> Assignments { get; set; }
+        /// <summary>Access package catalogs.</summary>
         public List<AccessPackageCatalog> Catalogs { get; set; }
+        /// <summary>Connected organizations.</summary>
         public List<ConnectedOrganization> ConnectedOrganizations { get; set; }
+        /// <summary>Entitlement management settings.</summary>
         public EntitlementManagementSettings Settings { get; set; }
         /// <summary>
         /// The deserialization information for the current model

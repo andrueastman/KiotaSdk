@@ -5,8 +5,11 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class SharePointIdentitySet : IdentitySet, IParsable {
+        /// <summary>The group associated with this action. Optional.</summary>
         public GraphSdk.Models.Microsoft.Graph.Identity Group { get; set; }
+        /// <summary>The SharePoint group associated with this action. Optional.</summary>
         public SharePointIdentity SiteGroup { get; set; }
+        /// <summary>The SharePoint user associated with this action. Optional.</summary>
         public SharePointIdentity SiteUser { get; set; }
         /// <summary>
         /// The deserialization information for the current model

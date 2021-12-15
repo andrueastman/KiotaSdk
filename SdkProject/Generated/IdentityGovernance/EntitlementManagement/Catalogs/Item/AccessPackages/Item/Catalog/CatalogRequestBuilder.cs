@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get catalog from identityGovernance
+        /// Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// Get catalog from identityGovernance
+        /// Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get catalog from identityGovernance</summary>
+        /// <summary>Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

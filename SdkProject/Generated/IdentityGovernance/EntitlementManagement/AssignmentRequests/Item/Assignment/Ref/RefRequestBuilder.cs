@@ -43,7 +43,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete ref of navigation property assignment for identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Get ref of assignment from identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Update the ref of navigation property assignment in identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property assignment for identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get ref of assignment from identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the ref of navigation property assignment in identityGovernance
+        /// For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

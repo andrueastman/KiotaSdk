@@ -52,7 +52,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             return requestInfo;
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             return requestInfo;
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             return requestInfo;
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             return await RequestAdapter.SendAsync<RbacApplication>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The RbacApplication for Entitlement Management
+        /// Container for all entitlement management resources in Azure AD identity governance.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The RbacApplication for Entitlement Management</summary>
+        /// <summary>Container for all entitlement management resources in Azure AD identity governance.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

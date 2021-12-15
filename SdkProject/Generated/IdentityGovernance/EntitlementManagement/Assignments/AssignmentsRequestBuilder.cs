@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get assignments from identityGovernance
+        /// Access package assignments.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to assignments for identityGovernance
+        /// Access package assignments.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Get assignments from identityGovernance
+        /// Access package assignments.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to assignments for identityGovernance
+        /// Access package assignments.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessPackageAssignment>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get assignments from identityGovernance</summary>
+        /// <summary>Access package assignments.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }
