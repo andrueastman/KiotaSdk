@@ -51,7 +51,7 @@ namespace GraphSdk.Users.Item.Insights.Used.Item.Resource.MobileAppContentFile.C
         public RequestInformation CreatePostRequestInformation(CommitRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

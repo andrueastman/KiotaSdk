@@ -52,7 +52,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.CountIfs {
         public RequestInformation CreatePostRequestInformation(CountIfsRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

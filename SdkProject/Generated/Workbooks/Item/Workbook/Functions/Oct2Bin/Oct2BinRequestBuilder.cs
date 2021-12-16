@@ -52,7 +52,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Oct2Bin {
         public RequestInformation CreatePostRequestInformation(Oct2BinRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

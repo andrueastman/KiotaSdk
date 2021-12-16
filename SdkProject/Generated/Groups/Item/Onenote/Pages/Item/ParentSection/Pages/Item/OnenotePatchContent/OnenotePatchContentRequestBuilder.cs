@@ -51,7 +51,7 @@ namespace GraphSdk.Groups.Item.Onenote.Pages.Item.ParentSection.Pages.Item.Oneno
         public RequestInformation CreatePostRequestInformation(OnenotePatchContentRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

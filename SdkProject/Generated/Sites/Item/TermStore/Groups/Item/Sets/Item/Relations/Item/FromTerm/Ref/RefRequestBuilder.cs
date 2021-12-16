@@ -49,7 +49,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item.Fro
         /// </summary>
         public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.DELETE,
+                HttpMethod = Method.DELETE,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
@@ -64,7 +64,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item.Fro
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.GET,
+                HttpMethod = Method.GET,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
@@ -81,7 +81,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item.Fro
         public RequestInformation CreatePutRequestInformation(GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item.FromTerm.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.PUT,
+                HttpMethod = Method.PUT,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

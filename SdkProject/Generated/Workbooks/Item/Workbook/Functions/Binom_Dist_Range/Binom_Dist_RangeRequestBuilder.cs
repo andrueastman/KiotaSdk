@@ -52,7 +52,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Binom_Dist_Range {
         public RequestInformation CreatePostRequestInformation(Binom_Dist_RangeRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

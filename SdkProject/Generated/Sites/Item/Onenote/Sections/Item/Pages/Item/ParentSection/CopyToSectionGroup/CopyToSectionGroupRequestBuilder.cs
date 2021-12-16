@@ -52,7 +52,7 @@ namespace GraphSdk.Sites.Item.Onenote.Sections.Item.Pages.Item.ParentSection.Cop
         public RequestInformation CreatePostRequestInformation(CopyToSectionGroupRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };

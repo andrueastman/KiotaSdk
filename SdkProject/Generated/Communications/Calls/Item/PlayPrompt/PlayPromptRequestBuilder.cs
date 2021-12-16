@@ -52,7 +52,7 @@ namespace GraphSdk.Communications.Calls.Item.PlayPrompt {
         public RequestInformation CreatePostRequestInformation(PlayPromptRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
-                HttpMethod = HttpMethod.POST,
+                HttpMethod = Method.POST,
                 UrlTemplate = UrlTemplate,
                 PathParameters = PathParameters,
             };
