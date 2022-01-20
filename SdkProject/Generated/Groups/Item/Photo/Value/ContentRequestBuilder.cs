@@ -43,7 +43,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="body">Binary request body</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -76,7 +76,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -87,7 +87,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

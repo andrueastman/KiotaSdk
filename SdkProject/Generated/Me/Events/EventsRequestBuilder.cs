@@ -52,7 +52,7 @@ namespace GraphSdk.Me.Events {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.Me.Events {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -97,7 +97,7 @@ namespace GraphSdk.Me.Events {
             return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Me.Events {
             return await RequestAdapter.SendAsync<EventsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Me.Events {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.</summary>
+        /// <summary>The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

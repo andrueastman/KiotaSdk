@@ -48,7 +48,7 @@ namespace GraphSdk.Groups.Item.Planner {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Groups.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Groups.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Groups.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Groups.Item.Planner {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Groups.Item.Planner {
             return await RequestAdapter.SendAsync<PlannerGroup>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Entry-point to Planner resource that might exist for a Unified Group.
+        /// Selective Planner services available to the group. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Groups.Item.Planner {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Entry-point to Planner resource that might exist for a Unified Group.</summary>
+        /// <summary>Selective Planner services available to the group. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

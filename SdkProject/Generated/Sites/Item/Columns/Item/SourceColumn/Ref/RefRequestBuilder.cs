@@ -43,7 +43,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Sites.Item.Columns.Item.SourceColumn.Ref {
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

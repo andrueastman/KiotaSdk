@@ -48,7 +48,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property localizations for agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get localizations from agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property localizations in agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property localizations for agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get localizations from agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property localizations in agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get localizations from agreements</summary>
+        /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

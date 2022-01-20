@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable.
+        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
+        /// <summary>The access packages in this catalog. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

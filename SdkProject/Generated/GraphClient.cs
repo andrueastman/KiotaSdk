@@ -35,6 +35,7 @@ using GraphSdk.GroupSettings;
 using GraphSdk.GroupSettingTemplates;
 using GraphSdk.Identity;
 using GraphSdk.IdentityGovernance;
+using GraphSdk.IdentityProtection;
 using GraphSdk.IdentityProviders;
 using GraphSdk.InformationProtection;
 using GraphSdk.Invitations;
@@ -57,6 +58,7 @@ using GraphSdk.Security;
 using GraphSdk.ServicePrincipals;
 using GraphSdk.Shares;
 using GraphSdk.Sites;
+using GraphSdk.Solutions;
 using GraphSdk.SubscribedSkus;
 using GraphSdk.Subscriptions;
 using GraphSdk.Teams;
@@ -187,6 +189,9 @@ namespace GraphSdk {
         public IdentityGovernanceRequestBuilder IdentityGovernance { get =>
             new IdentityGovernanceRequestBuilder(PathParameters, RequestAdapter);
         }
+        public IdentityProtectionRequestBuilder IdentityProtection { get =>
+            new IdentityProtectionRequestBuilder(PathParameters, RequestAdapter);
+        }
         public IdentityProvidersRequestBuilder IdentityProviders { get =>
             new IdentityProvidersRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -256,6 +261,9 @@ namespace GraphSdk {
         }
         public SitesRequestBuilder Sites { get =>
             new SitesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public SolutionsRequestBuilder Solutions { get =>
+            new SolutionsRequestBuilder(PathParameters, RequestAdapter);
         }
         public SubscribedSkusRequestBuilder SubscribedSkus { get =>
             new SubscribedSkusRequestBuilder(PathParameters, RequestAdapter);

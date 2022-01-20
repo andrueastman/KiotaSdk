@@ -1,4 +1,5 @@
 using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.Outcomes;
+using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.Reassign;
 using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.Resources;
 using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.Return;
 using GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item.SetUpResourcesFolder;
@@ -22,6 +23,9 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Submissions.Item {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public ReassignRequestBuilder Reassign { get =>
+            new ReassignRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         public ResourcesRequestBuilder Resources { get =>

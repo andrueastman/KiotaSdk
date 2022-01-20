@@ -1,6 +1,7 @@
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.AcceptRecommendations;
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ApplyDecisions;
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.BatchRecordDecisions;
+using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ContactedReviewers;
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions;
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.ResetDecisions;
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.SendReminder;
@@ -25,6 +26,9 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
         }
         public BatchRecordDecisionsRequestBuilder BatchRecordDecisions { get =>
             new BatchRecordDecisionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public ContactedReviewersRequestBuilder ContactedReviewers { get =>
+            new ContactedReviewersRequestBuilder(PathParameters, RequestAdapter);
         }
         public DecisionsRequestBuilder Decisions { get =>
             new DecisionsRequestBuilder(PathParameters, RequestAdapter);
@@ -72,7 +76,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -87,7 +91,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return requestInfo;
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -108,7 +112,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return requestInfo;
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -126,7 +130,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return requestInfo;
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -137,7 +141,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -149,7 +153,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return await RequestAdapter.SendAsync<AccessReviewInstance>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
+        /// Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -161,7 +165,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.</summary>
+        /// <summary>Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

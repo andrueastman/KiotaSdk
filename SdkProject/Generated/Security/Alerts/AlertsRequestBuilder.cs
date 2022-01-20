@@ -51,7 +51,7 @@ namespace GraphSdk.Security.Alerts {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Security.Alerts {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Security.Alerts {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Security.Alerts {
             return await RequestAdapter.SendAsync<AlertsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Security.Alerts {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Alert>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>Notifications for suspicious or potential security issues in a customer’s tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

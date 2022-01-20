@@ -47,7 +47,7 @@ namespace GraphSdk.Groups.Item.Owners {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
+        /// The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.Groups.Item.Owners {
             return requestInfo;
         }
         /// <summary>
-        /// The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
+        /// The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -79,7 +79,7 @@ namespace GraphSdk.Groups.Item.Owners {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<OwnersResponse>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.</summary>
+        /// <summary>The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

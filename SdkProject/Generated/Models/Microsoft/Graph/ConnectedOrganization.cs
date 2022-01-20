@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the connected organization.</summary>
         public string Description { get; set; }
-        /// <summary>The display name of the connected organization.</summary>
+        /// <summary>The display name of the connected organization. Supports $filter (eq).</summary>
         public string DisplayName { get; set; }
         /// <summary>Nullable.</summary>
         public List<DirectoryObject> ExternalSponsors { get; set; }
@@ -19,7 +19,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<DirectoryObject> InternalSponsors { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? ModifiedDateTime { get; set; }
-        /// <summary>The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.</summary>
+        /// <summary>The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.</summary>
         public ConnectedOrganizationState? State { get; set; }
         /// <summary>
         /// The deserialization information for the current model

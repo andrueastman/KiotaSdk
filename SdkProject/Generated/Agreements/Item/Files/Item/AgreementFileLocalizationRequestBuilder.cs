@@ -48,7 +48,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

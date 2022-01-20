@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             return requestInfo;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<AccessPackageSubject>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The subject of the access package assignment. Read-only. Nullable.</summary>
+        /// <summary>The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

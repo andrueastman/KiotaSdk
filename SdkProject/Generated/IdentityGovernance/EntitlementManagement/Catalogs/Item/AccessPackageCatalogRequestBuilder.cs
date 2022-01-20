@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Access package catalogs.</summary>
+        /// <summary>Represents a group of access packages.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

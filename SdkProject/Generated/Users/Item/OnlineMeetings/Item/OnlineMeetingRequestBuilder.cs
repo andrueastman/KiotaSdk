@@ -1,4 +1,5 @@
 using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.OnlineMeetings.Item.AttendanceReports;
 using GraphSdk.Users.Item.OnlineMeetings.Item.AttendeeReport;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -11,6 +12,9 @@ using System.Threading.Tasks;
 namespace GraphSdk.Users.Item.OnlineMeetings.Item {
     /// <summary>Builds and executes requests for operations under \users\{user-id}\onlineMeetings\{onlineMeeting-id}</summary>
     public class OnlineMeetingRequestBuilder {
+        public AttendanceReportsRequestBuilder AttendanceReports { get =>
+            new AttendanceReportsRequestBuilder(PathParameters, RequestAdapter);
+        }
         public AttendeeReportRequestBuilder AttendeeReport { get =>
             new AttendeeReportRequestBuilder(PathParameters, RequestAdapter);
         }

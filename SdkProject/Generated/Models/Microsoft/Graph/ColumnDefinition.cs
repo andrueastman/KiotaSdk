@@ -33,7 +33,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public bool? Hidden { get; set; }
         /// <summary>This column stores hyperlink or picture values.</summary>
         public HyperlinkOrPictureColumn HyperlinkOrPicture { get; set; }
-        /// <summary>Specifies whether the column values can be used for sorting and searching.</summary>
+        /// <summary>Specifies whether the column values can used for sorting and searching.</summary>
         public bool? Indexed { get; set; }
         /// <summary>Indicates whether this column can be deleted.</summary>
         public bool? IsDeletable { get; set; }
@@ -49,13 +49,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public NumberColumn Number { get; set; }
         /// <summary>This column stores Person or Group values.</summary>
         public PersonOrGroupColumn PersonOrGroup { get; set; }
-        /// <summary>If 'true', changes to this column will be propagated to lists that implement the column.</summary>
+        /// <summary>If true, changes to this column will be propagated to lists that implement the column.</summary>
         public bool? PropagateChanges { get; set; }
         /// <summary>Specifies whether the column values can be modified.</summary>
         public bool? ReadOnly { get; set; }
         /// <summary>Specifies whether the column value isn't optional.</summary>
         public bool? Required { get; set; }
-        /// <summary>The source column for the content type column.</summary>
+        /// <summary>The source column for content type column.</summary>
         public ColumnDefinition SourceColumn { get; set; }
         /// <summary>This column stores taxonomy terms.</summary>
         public TermColumn Term { get; set; }

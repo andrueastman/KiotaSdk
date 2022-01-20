@@ -52,7 +52,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             return requestInfo;
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             return await RequestAdapter.SendAsync<Store>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The default termStore under this site.
+        /// The termStore under this site.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.Sites.Item.TermStore {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The default termStore under this site.</summary>
+        /// <summary>The termStore under this site.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -1,3 +1,5 @@
+using GraphSdk.Admin.ServiceAnnouncement.Messages.Item.Attachments;
+using GraphSdk.Admin.ServiceAnnouncement.Messages.Item.AttachmentsArchive;
 using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -10,6 +12,12 @@ using System.Threading.Tasks;
 namespace GraphSdk.Admin.ServiceAnnouncement.Messages.Item {
     /// <summary>Builds and executes requests for operations under \admin\serviceAnnouncement\messages\{serviceUpdateMessage-id}</summary>
     public class ServiceUpdateMessageRequestBuilder {
+        public AttachmentsRequestBuilder Attachments { get =>
+            new AttachmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public AttachmentsArchiveRequestBuilder AttachmentsArchive { get =>
+            new AttachmentsArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
         /// <summary>The request adapter to use to execute the requests.</summary>

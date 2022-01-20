@@ -51,7 +51,7 @@ namespace GraphSdk.Agreements.Item.Files {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.Files {
             return await RequestAdapter.SendAsync<FilesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Agreements.Item.Files {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

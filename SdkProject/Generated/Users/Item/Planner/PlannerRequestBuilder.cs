@@ -52,7 +52,7 @@ namespace GraphSdk.Users.Item.Planner {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.Users.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.Users.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.Users.Item.Planner {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.Users.Item.Planner {
             return await RequestAdapter.SendAsync<PlannerUser>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Entry-point to the Planner resource that might exist for a user. Read-only.
+        /// Selective Planner services available to the user. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.Users.Item.Planner {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Entry-point to the Planner resource that might exist for a user. Read-only.</summary>
+        /// <summary>Selective Planner services available to the user. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

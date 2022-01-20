@@ -44,7 +44,7 @@ namespace GraphSdk.Me.People.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Me.People.Item {
             return requestInfo;
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Me.People.Item {
             return requestInfo;
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Me.People.Item {
             return requestInfo;
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Me.People.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Me.People.Item {
             return await RequestAdapter.SendAsync<Person>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// People that are relevant to the user. Read-only. Nullable.
+        /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Me.People.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>People that are relevant to the user. Read-only. Nullable.</summary>
+        /// <summary>Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user's communication, collaboration and business relationships. A person is an aggregation of information from across mail, contacts and social networks.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

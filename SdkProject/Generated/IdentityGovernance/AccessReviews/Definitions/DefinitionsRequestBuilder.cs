@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get definitions from identityGovernance
+        /// Represents the template and scheduling for an access review.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to definitions for identityGovernance
+        /// Represents the template and scheduling for an access review.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Get definitions from identityGovernance
+        /// Represents the template and scheduling for an access review.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions {
             return await RequestAdapter.SendAsync<DefinitionsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to definitions for identityGovernance
+        /// Represents the template and scheduling for an access review.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessReviewScheduleDefinition>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get definitions from identityGovernance</summary>
+        /// <summary>Represents the template and scheduling for an access review.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

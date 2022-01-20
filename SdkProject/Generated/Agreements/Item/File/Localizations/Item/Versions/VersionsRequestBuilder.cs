@@ -51,7 +51,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item.Versions {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get versions from agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item.Versions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to versions for agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item.Versions {
             return requestInfo;
         }
         /// <summary>
-        /// Get versions from agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item.Versions {
             return await RequestAdapter.SendAsync<VersionsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to versions for agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item.Versions {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AgreementFileVersion>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get versions from agreements</summary>
+        /// <summary>Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

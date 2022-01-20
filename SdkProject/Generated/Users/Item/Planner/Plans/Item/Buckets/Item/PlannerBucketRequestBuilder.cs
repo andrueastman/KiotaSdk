@@ -48,7 +48,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             return await RequestAdapter.SendAsync<PlannerBucket>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Collection of buckets in the plan.
+        /// Collection of buckets in the plan. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Buckets.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Collection of buckets in the plan.</summary>
+        /// <summary>Collection of buckets in the plan. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

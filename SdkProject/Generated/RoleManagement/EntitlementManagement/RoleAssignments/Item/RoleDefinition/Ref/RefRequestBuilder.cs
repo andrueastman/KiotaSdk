@@ -43,7 +43,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             return requestInfo;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             return requestInfo;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             return requestInfo;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

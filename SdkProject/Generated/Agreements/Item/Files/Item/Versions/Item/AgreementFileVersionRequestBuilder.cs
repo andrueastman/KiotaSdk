@@ -44,7 +44,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property versions for agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get versions from agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property versions in agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property versions for agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get versions from agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             return await RequestAdapter.SendAsync<AgreementFileVersion>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property versions in agreements
+        /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get versions from agreements</summary>
+        /// <summary>Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

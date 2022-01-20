@@ -47,7 +47,7 @@ namespace GraphSdk.Devices.Item.TransitiveMemberOf {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Groups that the device is a member of. This operation is transitive. Supports $expand.
+        /// Groups that this device is a member of. This operation is transitive. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.Devices.Item.TransitiveMemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// Groups that the device is a member of. This operation is transitive. Supports $expand.
+        /// Groups that this device is a member of. This operation is transitive. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -79,7 +79,7 @@ namespace GraphSdk.Devices.Item.TransitiveMemberOf {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<TransitiveMemberOfResponse>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Groups that the device is a member of. This operation is transitive. Supports $expand.</summary>
+        /// <summary>Groups that this device is a member of. This operation is transitive. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -11,7 +11,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The description of the access package.</summary>
         public string Description { get; set; }
-        /// <summary>The display name of the access package.</summary>
+        /// <summary>The display name of the access package. Supports $filter (eq, contains).</summary>
         public string DisplayName { get; set; }
         /// <summary>Whether the access package is hidden from the requestor.</summary>
         public bool? IsHidden { get; set; }

@@ -1,3 +1,4 @@
+using GraphSdk.Education.Users.Item.Assignments;
 using GraphSdk.Education.Users.Item.Classes;
 using GraphSdk.Education.Users.Item.Rubrics;
 using GraphSdk.Education.Users.Item.Schools;
@@ -15,6 +16,9 @@ using System.Threading.Tasks;
 namespace GraphSdk.Education.Users.Item {
     /// <summary>Builds and executes requests for operations under \education\users\{educationUser-id}</summary>
     public class EducationUserRequestBuilder {
+        public AssignmentsRequestBuilder Assignments { get =>
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         public ClassesRequestBuilder Classes { get =>
             new ClassesRequestBuilder(PathParameters, RequestAdapter);
         }

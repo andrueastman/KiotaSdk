@@ -43,7 +43,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp.Ref {
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

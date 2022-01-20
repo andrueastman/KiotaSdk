@@ -44,7 +44,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.</summary>
+        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access policies.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -48,7 +48,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             return requestInfo;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Referencing the assigned principal. Read-only. Supports $expand.</summary>
+        /// <summary>The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

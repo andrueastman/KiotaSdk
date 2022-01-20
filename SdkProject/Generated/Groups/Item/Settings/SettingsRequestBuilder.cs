@@ -51,7 +51,7 @@ namespace GraphSdk.Groups.Item.Settings {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Groups.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Groups.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Groups.Item.Settings {
             return await RequestAdapter.SendAsync<SettingsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Groups.Item.Settings {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<GroupSetting>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

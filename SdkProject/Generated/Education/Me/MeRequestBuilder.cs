@@ -1,3 +1,4 @@
+using GraphSdk.Education.Me.Assignments;
 using GraphSdk.Education.Me.Classes;
 using GraphSdk.Education.Me.Rubrics;
 using GraphSdk.Education.Me.Schools;
@@ -15,6 +16,9 @@ using System.Threading.Tasks;
 namespace GraphSdk.Education.Me {
     /// <summary>Builds and executes requests for operations under \education\me</summary>
     public class MeRequestBuilder {
+        public AssignmentsRequestBuilder Assignments { get =>
+            new AssignmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         public ClassesRequestBuilder Classes { get =>
             new ClassesRequestBuilder(PathParameters, RequestAdapter);
         }

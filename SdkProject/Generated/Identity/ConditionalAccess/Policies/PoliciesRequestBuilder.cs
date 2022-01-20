@@ -51,7 +51,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies {
             return await RequestAdapter.SendAsync<PoliciesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+        /// Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Identity.ConditionalAccess.Policies {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.</summary>
+        /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access policies.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

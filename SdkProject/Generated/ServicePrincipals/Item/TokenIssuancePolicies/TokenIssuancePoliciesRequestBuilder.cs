@@ -47,7 +47,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal.
+        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal.
+        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -79,7 +79,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<TokenIssuancePoliciesResponse>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
+        /// <summary>The tokenIssuancePolicies assigned to this service principal. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

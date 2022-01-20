@@ -48,7 +48,7 @@ namespace GraphSdk.Teams.Item.PrimaryChannel.Tabs.Item.TeamsApp {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.Teams.Item.PrimaryChannel.Tabs.Item.TeamsApp {
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab. This cannot be changed after tab creation.
+        /// The application that is linked to the tab.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Teams.Item.PrimaryChannel.Tabs.Item.TeamsApp {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The application that is linked to the tab. This cannot be changed after tab creation.</summary>
+        /// <summary>The application that is linked to the tab.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

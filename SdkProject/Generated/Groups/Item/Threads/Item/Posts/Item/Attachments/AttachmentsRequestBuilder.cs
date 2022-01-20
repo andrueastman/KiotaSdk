@@ -55,7 +55,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Attachments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand.
+        /// The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -76,7 +76,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Attachments {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand.
+        /// The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -94,7 +94,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Attachments {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand.
+        /// The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Attachments {
             return await RequestAdapter.SendAsync<AttachmentsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Supports $expand.
+        /// The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -118,7 +118,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Attachments {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Attachment>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

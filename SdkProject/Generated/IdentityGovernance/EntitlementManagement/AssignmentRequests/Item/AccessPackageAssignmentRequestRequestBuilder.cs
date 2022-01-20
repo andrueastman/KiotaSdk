@@ -60,7 +60,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -75,7 +75,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -96,7 +96,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return requestInfo;
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             return await RequestAdapter.SendAsync<AccessPackageAssignmentRequest>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package assignment requests.
+        /// Represents access package assignment requests created by or on behalf of a user.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -149,7 +149,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.I
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Access package assignment requests.</summary>
+        /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

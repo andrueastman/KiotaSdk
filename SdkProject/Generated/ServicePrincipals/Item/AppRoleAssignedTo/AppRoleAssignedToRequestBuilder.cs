@@ -51,7 +51,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return await RequestAdapter.SendAsync<AppRoleAssignedToResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
+        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

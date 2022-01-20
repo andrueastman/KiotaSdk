@@ -47,7 +47,7 @@ namespace GraphSdk.Users.Item.MemberOf {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.Users.Item.MemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -79,7 +79,7 @@ namespace GraphSdk.Users.Item.MemberOf {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<MemberOfResponse>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

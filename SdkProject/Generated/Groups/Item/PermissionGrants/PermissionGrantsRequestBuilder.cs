@@ -51,7 +51,7 @@ namespace GraphSdk.Groups.Item.PermissionGrants {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The permission that has been granted for a group to a specific application. Supports $expand.
+        /// The permissions that have been granted for a group to a specific application. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Groups.Item.PermissionGrants {
             return requestInfo;
         }
         /// <summary>
-        /// The permission that has been granted for a group to a specific application. Supports $expand.
+        /// The permissions that have been granted for a group to a specific application. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Groups.Item.PermissionGrants {
             return requestInfo;
         }
         /// <summary>
-        /// The permission that has been granted for a group to a specific application. Supports $expand.
+        /// The permissions that have been granted for a group to a specific application. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Groups.Item.PermissionGrants {
             return await RequestAdapter.SendAsync<PermissionGrantsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The permission that has been granted for a group to a specific application. Supports $expand.
+        /// The permissions that have been granted for a group to a specific application. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Groups.Item.PermissionGrants {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<ResourceSpecificPermissionGrant>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The permission that has been granted for a group to a specific application. Supports $expand.</summary>
+        /// <summary>The permissions that have been granted for a group to a specific application. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

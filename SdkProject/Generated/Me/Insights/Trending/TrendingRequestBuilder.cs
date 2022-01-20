@@ -50,7 +50,7 @@ namespace GraphSdk.Me.Insights.Trending {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
+        /// Access this property from the derived type itemInsights.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -71,7 +71,7 @@ namespace GraphSdk.Me.Insights.Trending {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
+        /// Access this property from the derived type itemInsights.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -89,7 +89,7 @@ namespace GraphSdk.Me.Insights.Trending {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
+        /// Access this property from the derived type itemInsights.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -101,7 +101,7 @@ namespace GraphSdk.Me.Insights.Trending {
             return await RequestAdapter.SendAsync<TrendingResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.
+        /// Access this property from the derived type itemInsights.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Me.Insights.Trending {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Trending>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.</summary>
+        /// <summary>Access this property from the derived type itemInsights.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

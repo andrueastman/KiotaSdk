@@ -44,7 +44,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property agreements for identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get agreements from identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property agreements in identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property agreements for identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get agreements from identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             return await RequestAdapter.SendAsync<Agreement>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property agreements in identityGovernance
+        /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get agreements from identityGovernance</summary>
+        /// <summary>Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

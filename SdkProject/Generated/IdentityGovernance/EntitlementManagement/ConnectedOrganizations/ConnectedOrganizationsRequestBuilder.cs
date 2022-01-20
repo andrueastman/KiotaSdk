@@ -51,7 +51,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Connected organizations.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return requestInfo;
         }
         /// <summary>
-        /// Connected organizations.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return requestInfo;
         }
         /// <summary>
-        /// Connected organizations.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             return await RequestAdapter.SendAsync<ConnectedOrganizationsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Connected organizations.
+        /// Represents references to a directory or domain of another organization whose users can request access.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<ConnectedOrganization>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Connected organizations.</summary>
+        /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

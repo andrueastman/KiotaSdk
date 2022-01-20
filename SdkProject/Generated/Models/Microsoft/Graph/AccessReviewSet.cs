@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class AccessReviewSet : Entity, IParsable {
+        /// <summary>Represents the template and scheduling for an access review.</summary>
         public List<AccessReviewScheduleDefinition> Definitions { get; set; }
         /// <summary>
         /// The deserialization information for the current model

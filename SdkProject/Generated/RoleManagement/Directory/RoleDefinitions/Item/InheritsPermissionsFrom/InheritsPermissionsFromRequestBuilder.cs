@@ -51,7 +51,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return requestInfo;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return requestInfo;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return await RequestAdapter.SendAsync<InheritsPermissionsFromResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.</summary>
+        /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

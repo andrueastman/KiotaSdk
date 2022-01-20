@@ -51,7 +51,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get localizations from agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to localizations for agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations {
             return requestInfo;
         }
         /// <summary>
-        /// Get localizations from agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations {
             return await RequestAdapter.SendAsync<LocalizationsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to localizations for agreements
+        /// The localized version of the terms of use agreement files attached to the agreement.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get localizations from agreements</summary>
+        /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -5,5 +5,6 @@ namespace GraphSdk.Models.Microsoft.Graph {
         Released,
         Returned,
         UnknownFutureValue,
+        Reassigned,
     }
 }

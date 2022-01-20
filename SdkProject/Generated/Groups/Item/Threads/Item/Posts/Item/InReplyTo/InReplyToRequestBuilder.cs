@@ -52,7 +52,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -67,7 +67,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -88,7 +88,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,7 +106,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -117,7 +117,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -129,7 +129,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             return await RequestAdapter.SendAsync<Post>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Supports $expand.
+        /// The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -141,7 +141,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.InReplyTo {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Supports $expand.</summary>
+        /// <summary>The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

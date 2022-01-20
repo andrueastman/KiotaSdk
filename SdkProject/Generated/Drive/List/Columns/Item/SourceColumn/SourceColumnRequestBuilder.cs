@@ -48,7 +48,7 @@ namespace GraphSdk.Drive.List.Columns.Item.SourceColumn {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.Drive.List.Columns.Item.SourceColumn {
             return requestInfo;
         }
         /// <summary>
-        /// The source column for the content type column.
+        /// The source column for content type column.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Drive.List.Columns.Item.SourceColumn {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<ColumnDefinition>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The source column for the content type column.</summary>
+        /// <summary>The source column for content type column.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

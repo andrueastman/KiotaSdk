@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Access packages.
+        /// Represents access package objects.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return requestInfo;
         }
         /// <summary>
-        /// Access packages.
+        /// Represents access package objects.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Access packages.
+        /// Represents access package objects.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             return await RequestAdapter.SendAsync<AccessPackagesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access packages.
+        /// Represents access package objects.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackages {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Access packages.</summary>
+        /// <summary>Represents access package objects.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

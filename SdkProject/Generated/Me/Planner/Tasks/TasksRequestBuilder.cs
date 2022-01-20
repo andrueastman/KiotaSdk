@@ -51,7 +51,7 @@ namespace GraphSdk.Me.Planner.Tasks {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Me.Planner.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Me.Planner.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Me.Planner.Tasks {
             return await RequestAdapter.SendAsync<TasksResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Me.Planner.Tasks {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Returns the plannerPlans shared with the user.</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

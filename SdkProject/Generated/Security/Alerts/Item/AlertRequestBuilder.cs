@@ -44,7 +44,7 @@ namespace GraphSdk.Security.Alerts.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Security.Alerts.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Security.Alerts.Item {
             return await RequestAdapter.SendAsync<Alert>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Notifications for suspicious or potential security issues in a customer’s tenant.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Security.Alerts.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>Notifications for suspicious or potential security issues in a customer’s tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

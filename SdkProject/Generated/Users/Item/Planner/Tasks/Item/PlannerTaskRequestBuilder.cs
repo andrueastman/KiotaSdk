@@ -60,7 +60,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -75,7 +75,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -96,7 +96,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable. Returns the plannerPlans shared with the user.
+        /// Read-only. Nullable. Returns the plannerTasks assigned to the user.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -149,7 +149,7 @@ namespace GraphSdk.Users.Item.Planner.Tasks.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable. Returns the plannerPlans shared with the user.</summary>
+        /// <summary>Read-only. Nullable. Returns the plannerTasks assigned to the user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

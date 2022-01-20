@@ -51,7 +51,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return requestInfo;
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             return await RequestAdapter.SendAsync<CatalogsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package catalogs.
+        /// Represents a group of access packages.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Access package catalogs.</summary>
+        /// <summary>Represents a group of access packages.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -51,7 +51,7 @@ namespace GraphSdk.Me.Outlook {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -66,7 +66,7 @@ namespace GraphSdk.Me.Outlook {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -87,7 +87,7 @@ namespace GraphSdk.Me.Outlook {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -105,7 +105,7 @@ namespace GraphSdk.Me.Outlook {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -116,7 +116,7 @@ namespace GraphSdk.Me.Outlook {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -128,7 +128,7 @@ namespace GraphSdk.Me.Outlook {
             return await RequestAdapter.SendAsync<OutlookUser>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only.
+        /// Selective Outlook services available to the user. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -160,7 +160,7 @@ namespace GraphSdk.Me.Outlook {
             if(string.IsNullOrEmpty(timeZoneStandard)) throw new ArgumentNullException(nameof(timeZoneStandard));
             return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(PathParameters, RequestAdapter, timeZoneStandard);
         }
-        /// <summary>Read-only.</summary>
+        /// <summary>Selective Outlook services available to the user. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

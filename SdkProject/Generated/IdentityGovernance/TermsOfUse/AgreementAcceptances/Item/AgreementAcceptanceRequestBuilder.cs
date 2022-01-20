@@ -44,7 +44,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property agreementAcceptances for identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get agreementAcceptances from identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property agreementAcceptances in identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property agreementAcceptances for identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get agreementAcceptances from identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             return await RequestAdapter.SendAsync<AgreementAcceptance>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property agreementAcceptances in identityGovernance
+        /// Represents the current status of a user's response to a company's customizable terms of use agreement.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get agreementAcceptances from identityGovernance</summary>
+        /// <summary>Represents the current status of a user's response to a company's customizable terms of use agreement.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

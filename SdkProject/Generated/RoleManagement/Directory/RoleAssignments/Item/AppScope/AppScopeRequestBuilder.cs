@@ -44,7 +44,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AppScope>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+        /// Details of the app specific scope when the assignment scope is app specific. Containment entity.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.AppScope {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.</summary>
+        /// <summary>Details of the app specific scope when the assignment scope is app specific. Containment entity.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

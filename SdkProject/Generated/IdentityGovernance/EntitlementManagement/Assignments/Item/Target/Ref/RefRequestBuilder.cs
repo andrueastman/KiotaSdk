@@ -43,7 +43,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             return requestInfo;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             return requestInfo;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             return requestInfo;
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The subject of the access package assignment. Read-only. Nullable.
+        /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

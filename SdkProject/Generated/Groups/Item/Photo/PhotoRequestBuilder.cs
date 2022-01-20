@@ -48,7 +48,7 @@ namespace GraphSdk.Groups.Item.Photo {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.Groups.Item.Photo {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return await RequestAdapter.SendAsync<ProfilePhoto>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo
+        /// The group's profile photo.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Groups.Item.Photo {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The group's profile photo</summary>
+        /// <summary>The group's profile photo.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

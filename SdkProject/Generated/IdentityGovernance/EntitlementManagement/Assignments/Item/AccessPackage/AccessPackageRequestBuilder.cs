@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

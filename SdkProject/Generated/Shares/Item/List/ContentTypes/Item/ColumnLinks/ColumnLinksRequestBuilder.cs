@@ -51,7 +51,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnLinks {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnLinks {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnLinks {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnLinks {
             return await RequestAdapter.SendAsync<ColumnLinksResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnLinks {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<ColumnLink>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The collection of columns that are required by this content type.</summary>
+        /// <summary>The collection of columns that are required by this content type</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

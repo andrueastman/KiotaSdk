@@ -51,7 +51,7 @@ namespace GraphSdk.Me.Insights.Used {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Access this property from the derived type itemInsights.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Me.Insights.Used {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Access this property from the derived type itemInsights.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Me.Insights.Used {
             return requestInfo;
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Access this property from the derived type itemInsights.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Me.Insights.Used {
             return await RequestAdapter.SendAsync<UsedResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+        /// Access this property from the derived type itemInsights.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Me.Insights.Used {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<UsedInsight>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.</summary>
+        /// <summary>Access this property from the derived type itemInsights.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

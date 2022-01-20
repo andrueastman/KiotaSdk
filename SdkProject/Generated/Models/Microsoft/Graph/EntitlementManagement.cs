@@ -6,17 +6,17 @@ using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class EntitlementManagement : Entity, IParsable {
         public List<GraphSdk.Models.Microsoft.Graph.Approval> AccessPackageAssignmentApprovals { get; set; }
-        /// <summary>Access packages.</summary>
+        /// <summary>Represents access package objects.</summary>
         public List<GraphSdk.Models.Microsoft.Graph.AccessPackage> AccessPackages { get; set; }
-        /// <summary>Access package assignment requests.</summary>
+        /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
         public List<AccessPackageAssignmentRequest> AssignmentRequests { get; set; }
-        /// <summary>Access package assignments.</summary>
+        /// <summary>Represents the grant of an access package to a subject (user or group).</summary>
         public List<AccessPackageAssignment> Assignments { get; set; }
-        /// <summary>Access package catalogs.</summary>
+        /// <summary>Represents a group of access packages.</summary>
         public List<AccessPackageCatalog> Catalogs { get; set; }
-        /// <summary>Connected organizations.</summary>
+        /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
         public List<ConnectedOrganization> ConnectedOrganizations { get; set; }
-        /// <summary>Entitlement management settings.</summary>
+        /// <summary>Represents the settings that control the behavior of Azure AD entitlement management.</summary>
         public EntitlementManagementSettings Settings { get; set; }
         /// <summary>
         /// The deserialization information for the current model

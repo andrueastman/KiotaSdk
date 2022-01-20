@@ -48,7 +48,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.RoleDefinition 
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.RoleDefinition 
             return requestInfo;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
+        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.RoleDefinition 
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.</summary>
+        /// <summary>The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

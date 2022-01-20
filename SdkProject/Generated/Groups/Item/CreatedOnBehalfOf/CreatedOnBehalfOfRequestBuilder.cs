@@ -48,7 +48,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf {
             return requestInfo;
         }
         /// <summary>
-        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.</summary>
+        /// <summary>The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

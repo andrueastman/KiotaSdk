@@ -44,7 +44,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             return await RequestAdapter.SendAsync<ColumnLink>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The collection of columns that are required by this content type.
+        /// The collection of columns that are required by this content type
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -133,7 +133,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The collection of columns that are required by this content type.</summary>
+        /// <summary>The collection of columns that are required by this content type</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

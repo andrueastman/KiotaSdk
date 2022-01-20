@@ -43,7 +43,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             return requestInfo;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             return requestInfo;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             return requestInfo;
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Pri
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Referencing the assigned principal. Read-only. Supports $expand.
+        /// The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>

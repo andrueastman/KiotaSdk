@@ -96,7 +96,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -111,7 +111,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -132,7 +132,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -150,7 +150,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -161,7 +161,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -173,7 +173,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -185,7 +185,7 @@ namespace GraphSdk.Users.Item.Events.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.</summary>
+        /// <summary>The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

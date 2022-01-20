@@ -51,7 +51,7 @@ namespace GraphSdk.Organization.Item.Extensions {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of open extensions defined for the organization. Read-only. Nullable.
+        /// The collection of open extensions defined for the organization resource. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Organization.Item.Extensions {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the organization. Read-only. Nullable.
+        /// The collection of open extensions defined for the organization resource. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Organization.Item.Extensions {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the organization. Read-only. Nullable.
+        /// The collection of open extensions defined for the organization resource. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Organization.Item.Extensions {
             return await RequestAdapter.SendAsync<ExtensionsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The collection of open extensions defined for the organization. Read-only. Nullable.
+        /// The collection of open extensions defined for the organization resource. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Organization.Item.Extensions {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Extension>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The collection of open extensions defined for the organization. Read-only. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the organization resource. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

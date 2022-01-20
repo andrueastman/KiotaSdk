@@ -51,7 +51,7 @@ namespace GraphSdk.Sites.Item.Items {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Sites.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Sites.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Sites.Item.Items {
             return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
+        /// Used to address any item contained in this site. This collection cannot be enumerated.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.Sites.Item.Items {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<BaseItem>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Used to address any item contained in this site. This collection can't be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

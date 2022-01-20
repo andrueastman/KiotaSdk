@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Access package assignments.
+        /// Represents the grant of an access package to a subject (user or group).
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// Access package assignments.
+        /// Represents the grant of an access package to a subject (user or group).
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Access package assignments.
+        /// Represents the grant of an access package to a subject (user or group).
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Access package assignments.
+        /// Represents the grant of an access package to a subject (user or group).
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AccessPackageAssignment>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Access package assignments.</summary>
+        /// <summary>Represents the grant of an access package to a subject (user or group).</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property appConsentRequests for identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get appConsentRequests from identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property appConsentRequests in identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property appConsentRequests for identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Get appConsentRequests from identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             return await RequestAdapter.SendAsync<AppConsentRequest>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property appConsentRequests in identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get appConsentRequests from identityGovernance</summary>
+        /// <summary>A collection of userConsentRequest objects for a specific application.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

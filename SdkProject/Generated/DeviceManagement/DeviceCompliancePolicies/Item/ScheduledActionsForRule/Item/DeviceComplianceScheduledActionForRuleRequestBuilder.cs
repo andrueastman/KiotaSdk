@@ -48,7 +48,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -125,7 +125,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return await RequestAdapter.SendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+        /// The list of scheduled action for this rule
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
+        /// <summary>The list of scheduled action for this rule</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -51,7 +51,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// A collection of stages in the approval decision.
+        /// Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
             return requestInfo;
         }
         /// <summary>
-        /// A collection of stages in the approval decision.
+        /// Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
             return requestInfo;
         }
         /// <summary>
-        /// A collection of stages in the approval decision.
+        /// Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
             return await RequestAdapter.SendAsync<StagesResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// A collection of stages in the approval decision.
+        /// Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -114,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<ApprovalStage>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>A collection of stages in the approval decision.</summary>
+        /// <summary>Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -52,7 +52,7 @@ namespace GraphSdk.Groups.Item.Events {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The group's calendar events.
+        /// The group's events.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.Groups.Item.Events {
             return requestInfo;
         }
         /// <summary>
-        /// The group's calendar events.
+        /// The group's events.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -97,7 +97,7 @@ namespace GraphSdk.Groups.Item.Events {
             return new DeltaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// The group's calendar events.
+        /// The group's events.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Groups.Item.Events {
             return await RequestAdapter.SendAsync<EventsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// The group's calendar events.
+        /// The group's events.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Groups.Item.Events {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>The group's calendar events.</summary>
+        /// <summary>The group's events.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

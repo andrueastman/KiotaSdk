@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get appConsentRequests from identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to appConsentRequests for identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Get appConsentRequests from identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -111,7 +111,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
             return await RequestAdapter.SendAsync<AppConsentRequestsResponse>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to appConsentRequests for identityGovernance
+        /// A collection of userConsentRequest objects for a specific application.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<AppConsentRequest>(requestInfo, responseHandler, cancellationToken);
         }
-        /// <summary>Get appConsentRequests from identityGovernance</summary>
+        /// <summary>A collection of userConsentRequest objects for a specific application.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

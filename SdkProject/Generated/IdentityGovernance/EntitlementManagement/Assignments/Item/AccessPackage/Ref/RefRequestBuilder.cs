@@ -43,7 +43,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -113,7 +113,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
         }
         /// <summary>
-        /// Read-only. Nullable.
+        /// Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
