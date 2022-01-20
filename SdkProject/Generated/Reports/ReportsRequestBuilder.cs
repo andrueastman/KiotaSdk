@@ -234,8 +234,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetEmailActivityUserDetailWithDateRequestBuilder GetEmailActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetEmailActivityUserDetailWithDateRequestBuilder GetEmailActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetEmailActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -266,8 +266,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getEmailAppUsageUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetEmailAppUsageUserDetailWithDateRequestBuilder GetEmailAppUsageUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetEmailAppUsageUserDetailWithDateRequestBuilder GetEmailAppUsageUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -360,8 +360,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365ActiveUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetOffice365ActiveUserDetailWithDateRequestBuilder GetOffice365ActiveUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetOffice365ActiveUserDetailWithDateRequestBuilder GetOffice365ActiveUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -384,8 +384,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOffice365GroupsActivityDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetOffice365GroupsActivityDetailWithDateRequestBuilder GetOffice365GroupsActivityDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetOffice365GroupsActivityDetailWithDateRequestBuilder GetOffice365GroupsActivityDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -448,8 +448,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetOneDriveActivityUserDetailWithDateRequestBuilder GetOneDriveActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetOneDriveActivityUserDetailWithDateRequestBuilder GetOneDriveActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -472,8 +472,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getOneDriveUsageAccountDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetOneDriveUsageAccountDetailWithDateRequestBuilder GetOneDriveUsageAccountDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetOneDriveUsageAccountDetailWithDateRequestBuilder GetOneDriveUsageAccountDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -540,8 +540,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetSharePointActivityUserDetailWithDateRequestBuilder GetSharePointActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetSharePointActivityUserDetailWithDateRequestBuilder GetSharePointActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -556,8 +556,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSharePointSiteUsageDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetSharePointSiteUsageDetailWithDateRequestBuilder GetSharePointSiteUsageDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetSharePointSiteUsageDetailWithDateRequestBuilder GetSharePointSiteUsageDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -620,8 +620,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder GetSkypeForBusinessActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder GetSkypeForBusinessActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -652,8 +652,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder GetSkypeForBusinessDeviceUsageUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -756,8 +756,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder GetTeamsDeviceUsageUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetTeamsDeviceUsageUserDetailWithDateRequestBuilder GetTeamsDeviceUsageUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -788,8 +788,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getTeamsUserActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetTeamsUserActivityUserDetailWithDateRequestBuilder GetTeamsUserActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetTeamsUserActivityUserDetailWithDateRequestBuilder GetTeamsUserActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -832,8 +832,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerActivityUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetYammerActivityUserDetailWithDateRequestBuilder GetYammerActivityUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetYammerActivityUserDetailWithDateRequestBuilder GetYammerActivityUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetYammerActivityUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -864,8 +864,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerDeviceUsageUserDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetYammerDeviceUsageUserDetailWithDateRequestBuilder GetYammerDeviceUsageUserDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetYammerDeviceUsageUserDetailWithDateRequestBuilder GetYammerDeviceUsageUserDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>
@@ -888,8 +888,8 @@ namespace GraphSdk.Reports {
         /// Builds and executes requests for operations under \reports\microsoft.graph.getYammerGroupsActivityDetail(date={date})
         /// <param name="date">Usage: date={date}</param>
         /// </summary>
-        public GetYammerGroupsActivityDetailWithDateRequestBuilder GetYammerGroupsActivityDetailWithDate(string date) {
-            if(string.IsNullOrEmpty(date)) throw new ArgumentNullException(nameof(date));
+        public GetYammerGroupsActivityDetailWithDateRequestBuilder GetYammerGroupsActivityDetailWithDate(Date date) {
+            _ = date ?? throw new ArgumentNullException(nameof(date));
             return new GetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters, RequestAdapter, date);
         }
         /// <summary>

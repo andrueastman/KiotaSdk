@@ -31,21 +31,34 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
         public static async Task TestUpload(GraphClient graphClient)
         {
-            using var fileStream = System.IO.File.OpenRead("");
+            using var fileStream = System.IO.File.OpenRead("C:\\Users\\anomondi\\Downloads\\SWEBOKv3.pdf");
             // Use properties to specify the conflict behavior
             // in this case, replace
             var uploadSessionProps = new CreateUploadSessionRequestBody 
             {
-                AttachmentItem = new AttachmentItem { }
+                AttachmentItem = new AttachmentItem 
+                {
+                    AttachmentType = AttachmentType.File,
+                    Name = "SWEBOKv3(1).pdf",
+                    Size = fileStream.Length
+                }
             };
+
+            var calendarView = await graphClient.Me.CalendarView.GetAsync( (getParameters) => { getParameters.StartDateTime = "2020-01-01T19:00:00-08:00"; });
 
             // Create the upload session
             // itemPath does not need to be a path to an existing item
-            var uploadSession = await graphClient.Me.Messages[""].Attachments.CreateUploadSession.PostAsync(uploadSessionProps);
+            var uploadSession = await graphClient.Me.Messages["AAMkAGNkMTE3OTA0LTBiZmMtNDY0ZC1hN2ExLTE5MjkzOWEwYzU2ZQBGAAAAAACxDVk0EhYKQ7xKK9d20nvGBwCW53HRxZOBSp65YymlNYabAAAAAAEMAACW53HRxZOBSp65YymlNYabAAAbs26TAAA="].Attachments.CreateUploadSession.PostAsync(uploadSessionProps);
+
+        }
+
+        public static async Task TestUpload(IUploadSession uploadSession)
+        {
+            using var fileStream = System.IO.File.OpenRead("C:\\Users\\anomondi\\Downloads\\SWEBOKv3.pdf");
 
             // Max slice size must be a multiple of 320 KiB
             int maxSliceSize = 320 * 1024;
-            var fileUploadTask = new LargeFileUploadTask<DriveItem>(uploadSession, fileStream, maxSliceSize);
+            var fileUploadTask = new LargeFileUploadTask<Message>(uploadSession, fileStream, maxSliceSize);
 
             // Create a callback that is invoked after each slice is uploaded
             IProgress<long> progress = new Progress<long>(prog =>
@@ -62,7 +75,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 {
                     // The ItemResponse object in the result represents the
                     // created item.
-                    Console.WriteLine($"Upload complete, item ID: {uploadResult.ItemResponse.Id}");
+                    Console.WriteLine($"Upload complete, item ID: {uploadResult.ItemResponse?.Id}");
+                    Console.WriteLine($"Upload complete, item location: {uploadResult.Location}");
                 }
                 else
                 {
