@@ -9,9 +9,9 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>End time for the time range.</summary>
-        public Time EndTime { get; set; }
+        public Time? EndTime { get; set; }
         /// <summary>Start time for the time range.</summary>
-        public Time StartTime { get; set; }
+        public Time? StartTime { get; set; }
         /// <summary>
         /// Instantiates a new timeRange and sets the default values.
         /// </summary>

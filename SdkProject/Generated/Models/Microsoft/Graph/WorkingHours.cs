@@ -11,9 +11,9 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>The days of the week on which the user works.</summary>
         public List<DayOfWeek?> DaysOfWeek { get; set; }
         /// <summary>The time of the day that the user stops working.</summary>
-        public Time EndTime { get; set; }
+        public Time? EndTime { get; set; }
         /// <summary>The time of the day that the user starts working.</summary>
-        public Time StartTime { get; set; }
+        public Time? StartTime { get; set; }
         /// <summary>The time zone to which the working hours apply.</summary>
         public TimeZoneBase TimeZone { get; set; }
         /// <summary>

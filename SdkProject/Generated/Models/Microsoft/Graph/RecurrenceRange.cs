@@ -9,13 +9,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the event, the last occurrence of the meeting may not be this date. Required if type is endDate.</summary>
-        public Date EndDate { get; set; }
+        public Date? EndDate { get; set; }
         /// <summary>The number of times to repeat the event. Required and must be positive if type is numbered.</summary>
         public int? NumberOfOccurrences { get; set; }
         /// <summary>Time zone for the startDate and endDate properties. Optional. If not specified, the time zone of the event is used.</summary>
         public string RecurrenceTimeZone { get; set; }
         /// <summary>The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.</summary>
-        public Date StartDate { get; set; }
+        public Date? StartDate { get; set; }
         /// <summary>The recurrence range. Possible values are: endDate, noEnd, numbered. Required.</summary>
         public RecurrenceRangeType? Type { get; set; }
         /// <summary>

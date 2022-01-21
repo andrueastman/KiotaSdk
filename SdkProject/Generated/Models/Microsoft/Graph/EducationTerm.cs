@@ -11,11 +11,11 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Display name of the term.</summary>
         public string DisplayName { get; set; }
         /// <summary>End of the term.</summary>
-        public Date EndDate { get; set; }
+        public Date? EndDate { get; set; }
         /// <summary>ID of term in the syncing system.</summary>
         public string ExternalId { get; set; }
         /// <summary>Start of the term.</summary>
-        public Date StartDate { get; set; }
+        public Date? StartDate { get; set; }
         /// <summary>
         /// Instantiates a new educationTerm and sets the default values.
         /// </summary>

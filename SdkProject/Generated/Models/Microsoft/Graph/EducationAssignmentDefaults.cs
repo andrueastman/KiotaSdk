@@ -11,7 +11,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.</summary>
         public EducationAddToCalendarOptions? AddToCalendarAction { get; set; }
         /// <summary>Class-level default value for due time field. Default value is 23:59:00.</summary>
-        public Time DueTime { get; set; }
+        public Time? DueTime { get; set; }
         /// <summary>Default Teams channel to which notifications will be sent. Default value is null.</summary>
         public string NotificationChannelUrl { get; set; }
         /// <summary>

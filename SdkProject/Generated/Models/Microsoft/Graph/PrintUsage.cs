@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public long? CompletedBlackAndWhiteJobCount { get; set; }
         public long? CompletedColorJobCount { get; set; }
         public long? IncompleteJobCount { get; set; }
-        public Date UsageDate { get; set; }
+        public Date? UsageDate { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>

@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Birth date of the student.</summary>
-        public Date BirthDate { get; set; }
+        public Date? BirthDate { get; set; }
         /// <summary>ID of the student in the source system.</summary>
         public string ExternalId { get; set; }
         /// <summary>Possible values are: female, male, other.</summary>
