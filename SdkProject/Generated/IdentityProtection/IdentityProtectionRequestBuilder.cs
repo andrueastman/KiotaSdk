@@ -78,7 +78,7 @@ namespace GraphSdk.IdentityProtection {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.IdentityProtection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(IdentityProtectionRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -100,7 +100,7 @@ namespace GraphSdk.IdentityProtection {
         /// </summary>
         public async Task<IdentityProtectionRoot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<IdentityProtectionRoot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<IdentityProtectionRoot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update identityProtection
@@ -110,10 +110,10 @@ namespace GraphSdk.IdentityProtection {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.IdentityProtection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(IdentityProtectionRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get identityProtection</summary>
         public class GetQueryParameters : QueryParametersBase {

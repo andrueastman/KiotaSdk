@@ -110,7 +110,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The feature rollout policy associated with a directory object.
@@ -122,7 +122,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item {
         /// </summary>
         public async Task<FeatureRolloutPolicy> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<FeatureRolloutPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<FeatureRolloutPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The feature rollout policy associated with a directory object.
@@ -135,7 +135,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item {
         public async Task PatchAsync(FeatureRolloutPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The feature rollout policy associated with a directory object.</summary>
         public class GetQueryParameters : QueryParametersBase {

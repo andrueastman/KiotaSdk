@@ -67,7 +67,7 @@ namespace GraphSdk.DeviceAppManagement.VppTokens.Item.SyncLicenses {
         /// </summary>
         public async Task<SyncLicensesResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<SyncLicensesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SyncLicensesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes vppToken</summary>
         public class SyncLicensesResponse : IParsable {

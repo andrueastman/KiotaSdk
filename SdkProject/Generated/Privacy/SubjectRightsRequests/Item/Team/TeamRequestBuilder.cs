@@ -78,7 +78,7 @@ namespace GraphSdk.Privacy.SubjectRightsRequests.Item.Team {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Team> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Team>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Information about the Microsoft Teams team that was created for the request.</summary>
         public class GetQueryParameters : QueryParametersBase {

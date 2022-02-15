@@ -67,7 +67,7 @@ namespace GraphSdk.Users.Item.Insights.Used.Item.Resource.WorkbookRange.RowsAbov
         /// </summary>
         public async Task<RowsAboveResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RowsAboveResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RowsAboveResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class RowsAboveResponse : IParsable {

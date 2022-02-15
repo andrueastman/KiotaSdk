@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Floor_Precise {
         public async Task<Floor_PreciseResponse> PostAsync(Floor_PreciseRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Floor_PreciseResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Floor_PreciseResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class Floor_PreciseResponse : IParsable {

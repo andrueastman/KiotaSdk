@@ -99,7 +99,7 @@ namespace GraphSdk.Sites.Item.Lists.Item.Items {
         /// </summary>
         public async Task<ItemsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// All items contained in the list.
@@ -112,7 +112,7 @@ namespace GraphSdk.Sites.Item.Lists.Item.Items {
         public async Task<GraphSdk.Models.Microsoft.Graph.ListItem> PostAsync(GraphSdk.Models.Microsoft.Graph.ListItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ListItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ListItem>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>All items contained in the list.</summary>
         public class GetQueryParameters : QueryParametersBase {

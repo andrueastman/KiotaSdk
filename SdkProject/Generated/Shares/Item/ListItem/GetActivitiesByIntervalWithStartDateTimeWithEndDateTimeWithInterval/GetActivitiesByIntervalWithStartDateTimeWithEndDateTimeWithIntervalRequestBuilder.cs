@@ -72,7 +72,7 @@ namespace GraphSdk.Shares.Item.ListItem.GetActivitiesByIntervalWithStartDateTime
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Shares.Item.ListItem.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Shares.Item.ListItem.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Shares.Item.ListItem.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

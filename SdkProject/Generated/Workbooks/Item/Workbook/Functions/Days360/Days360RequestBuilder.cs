@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Days360 {
         public async Task<Days360Response> PostAsync(Days360RequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Days360Response>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Days360Response>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class Days360Response : IParsable {

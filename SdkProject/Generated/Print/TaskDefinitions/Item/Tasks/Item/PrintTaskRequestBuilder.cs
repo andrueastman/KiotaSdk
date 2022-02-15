@@ -114,7 +114,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item.Tasks.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
@@ -126,7 +126,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item.Tasks.Item {
         /// </summary>
         public async Task<PrintTask> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PrintTask>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintTask>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
@@ -139,7 +139,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item.Tasks.Item {
         public async Task PatchAsync(PrintTask body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

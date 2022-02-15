@@ -106,7 +106,7 @@ namespace GraphSdk.Oauth2PermissionGrants {
         /// </summary>
         public async Task<Oauth2PermissionGrantsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Oauth2PermissionGrantsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Oauth2PermissionGrantsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to oauth2PermissionGrants
@@ -119,7 +119,7 @@ namespace GraphSdk.Oauth2PermissionGrants {
         public async Task<OAuth2PermissionGrant> PostAsync(OAuth2PermissionGrant body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<OAuth2PermissionGrant>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OAuth2PermissionGrant>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from oauth2PermissionGrants</summary>
         public class GetQueryParameters : QueryParametersBase {

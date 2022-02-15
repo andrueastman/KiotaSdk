@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.ResourceOperations {
         /// </summary>
         public async Task<ResourceOperationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ResourceOperationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ResourceOperationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Resource Operations.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.ResourceOperations {
         public async Task<ResourceOperation> PostAsync(ResourceOperation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ResourceOperation>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ResourceOperation>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The Resource Operations.</summary>
         public class GetQueryParameters : QueryParametersBase {

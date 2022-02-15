@@ -110,7 +110,7 @@ namespace GraphSdk.Organization {
         /// </summary>
         public async Task<OrganizationResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OrganizationResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OrganizationResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to organization
@@ -123,7 +123,7 @@ namespace GraphSdk.Organization {
         public async Task<GraphSdk.Models.Microsoft.Graph.Organization> PostAsync(GraphSdk.Models.Microsoft.Graph.Organization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Organization>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Organization>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from organization</summary>
         public class GetQueryParameters : QueryParametersBase {

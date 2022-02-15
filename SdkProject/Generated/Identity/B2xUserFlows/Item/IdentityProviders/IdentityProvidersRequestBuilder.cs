@@ -77,7 +77,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.IdentityProviders {
         /// </summary>
         public async Task<IdentityProvidersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<IdentityProvidersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<IdentityProvidersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The identity providers included in the user flow.</summary>
         public class GetQueryParameters : QueryParametersBase {

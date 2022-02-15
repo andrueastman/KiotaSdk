@@ -77,7 +77,7 @@ namespace GraphSdk.Me.CreatedObjects {
         /// </summary>
         public async Task<CreatedObjectsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CreatedObjectsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CreatedObjectsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Directory objects that were created by the user. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

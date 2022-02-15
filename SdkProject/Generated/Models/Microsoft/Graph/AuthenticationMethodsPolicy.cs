@@ -5,15 +5,15 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class AuthenticationMethodsPolicy : Entity, IParsable {
-        /// <summary>Represents the settings for each authentication method.</summary>
+        /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
         public List<AuthenticationMethodConfiguration> AuthenticationMethodConfigurations { get; set; }
-        /// <summary>A description of the policy.</summary>
+        /// <summary>A description of the policy. Read-only.</summary>
         public string Description { get; set; }
-        /// <summary>The name of the policy.</summary>
+        /// <summary>The name of the policy. Read-only.</summary>
         public string DisplayName { get; set; }
-        /// <summary>The date and time of the last update to the policy.</summary>
+        /// <summary>The date and time of the last update to the policy. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The version of the policy in use.</summary>
+        /// <summary>The version of the policy in use. Read-only.</summary>
         public string PolicyVersion { get; set; }
         public int? ReconfirmationInDays { get; set; }
         /// <summary>Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.</summary>

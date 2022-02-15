@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item.UserStatuses
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of ManagedDeviceMobileAppConfigurationUserStatus.
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item.UserStatuses
         /// </summary>
         public async Task<ManagedDeviceMobileAppConfigurationUserStatus> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of ManagedDeviceMobileAppConfigurationUserStatus.
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item.UserStatuses
         public async Task PatchAsync(ManagedDeviceMobileAppConfigurationUserStatus body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>List of ManagedDeviceMobileAppConfigurationUserStatus.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -48,7 +48,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
             return requestInfo;
         }
         /// <summary>
-        /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+        /// The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -78,9 +78,9 @@ namespace GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.Rol
         /// </summary>
         public async Task<UnifiedRoleDefinition> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.</summary>
+        /// <summary>The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

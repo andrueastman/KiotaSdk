@@ -144,7 +144,7 @@ namespace GraphSdk.Policies {
         /// </summary>
         public async Task<PolicyRoot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PolicyRoot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PolicyRoot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update policies
@@ -157,7 +157,7 @@ namespace GraphSdk.Policies {
         public async Task PatchAsync(PolicyRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get policies</summary>
         public class GetQueryParameters : QueryParametersBase {

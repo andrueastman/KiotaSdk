@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.CreateSession {
         public async Task<CreateSessionResponse> PostAsync(CreateSessionRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<CreateSessionResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CreateSessionResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookSessionInfo</summary>
         public class CreateSessionResponse : IParsable {

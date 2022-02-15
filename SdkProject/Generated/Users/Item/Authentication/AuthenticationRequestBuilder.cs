@@ -122,7 +122,7 @@ namespace GraphSdk.Users.Item.Authentication {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get authentication from users
@@ -134,7 +134,7 @@ namespace GraphSdk.Users.Item.Authentication {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Authentication> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Authentication>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Authentication>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property authentication in users
@@ -147,7 +147,7 @@ namespace GraphSdk.Users.Item.Authentication {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Authentication body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get authentication from users</summary>
         public class GetQueryParameters : QueryParametersBase {

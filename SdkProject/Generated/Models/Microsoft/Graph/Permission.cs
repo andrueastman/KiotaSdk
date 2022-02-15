@@ -13,7 +13,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<SharePointIdentitySet> GrantedToIdentitiesV2 { get; set; }
         /// <summary>For user type permissions, the details of the users and applications for this permission. Read-only.</summary>
         public SharePointIdentitySet GrantedToV2 { get; set; }
-        /// <summary>Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.</summary>
+        /// <summary>Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..</summary>
         public bool? HasPassword { get; set; }
         /// <summary>Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.</summary>
         public ItemReference InheritedFrom { get; set; }
@@ -23,7 +23,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public SharingLink Link { get; set; }
         /// <summary>The type of permission, for example, read. See below for the full list of roles. Read-only.</summary>
         public List<string> Roles { get; set; }
-        /// <summary>A unique token that can be used to access this shared item via the [shares API][]. Read-only.</summary>
+        /// <summary>A unique token that can be used to access this shared item via the **shares** API. Read-only.</summary>
         public string ShareId { get; set; }
         /// <summary>
         /// The deserialization information for the current model

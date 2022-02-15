@@ -135,7 +135,7 @@ namespace GraphSdk.DeviceManagement.DeviceConfigurations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The device configurations.
@@ -147,7 +147,7 @@ namespace GraphSdk.DeviceManagement.DeviceConfigurations.Item {
         /// </summary>
         public async Task<DeviceConfiguration> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \deviceManagement\deviceConfigurations\{deviceConfiguration-id}\microsoft.graph.getOmaSettingPlainTextValue(secretReferenceValueId='{secretReferenceValueId}')
@@ -168,7 +168,7 @@ namespace GraphSdk.DeviceManagement.DeviceConfigurations.Item {
         public async Task PatchAsync(DeviceConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The device configurations.</summary>
         public class GetQueryParameters : QueryParametersBase {

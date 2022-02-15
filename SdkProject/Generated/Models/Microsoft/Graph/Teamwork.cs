@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class Teamwork : Entity, IParsable {
+        /// <summary>A workforce integration with shifts.</summary>
         public List<WorkforceIntegration> WorkforceIntegrations { get; set; }
         /// <summary>
         /// The deserialization information for the current model

@@ -127,7 +127,7 @@ namespace GraphSdk.Groups.Item.Onenote.SectionGroups.Item.ParentNotebook.Section
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of pages in the section.  Read-only. Nullable.
@@ -139,7 +139,7 @@ namespace GraphSdk.Groups.Item.Onenote.SectionGroups.Item.ParentNotebook.Section
         /// </summary>
         public async Task<OnenotePage> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OnenotePage>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OnenotePage>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of pages in the section.  Read-only. Nullable.
@@ -152,7 +152,7 @@ namespace GraphSdk.Groups.Item.Onenote.SectionGroups.Item.ParentNotebook.Section
         public async Task PatchAsync(OnenotePage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \groups\{group-id}\onenote\sectionGroups\{sectionGroup-id}\parentNotebook\sections\{onenoteSection-id}\pages\{onenotePage-id}\microsoft.graph.preview()

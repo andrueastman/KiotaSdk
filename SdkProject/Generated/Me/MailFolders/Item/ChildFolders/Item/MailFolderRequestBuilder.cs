@@ -114,7 +114,7 @@ namespace GraphSdk.Me.MailFolders.Item.ChildFolders.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of child folders in the mailFolder.
@@ -126,7 +126,7 @@ namespace GraphSdk.Me.MailFolders.Item.ChildFolders.Item {
         /// </summary>
         public async Task<MailFolder> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of child folders in the mailFolder.
@@ -139,7 +139,7 @@ namespace GraphSdk.Me.MailFolders.Item.ChildFolders.Item {
         public async Task PatchAsync(MailFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of child folders in the mailFolder.</summary>
         public class GetQueryParameters : QueryParametersBase {

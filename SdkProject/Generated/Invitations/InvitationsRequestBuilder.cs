@@ -99,7 +99,7 @@ namespace GraphSdk.Invitations {
         /// </summary>
         public async Task<InvitationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<InvitationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<InvitationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to invitations
@@ -112,7 +112,7 @@ namespace GraphSdk.Invitations {
         public async Task<Invitation> PostAsync(Invitation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Invitation>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Invitation>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from invitations</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -106,7 +106,7 @@ namespace GraphSdk.Workbooks.Item.ListItem.Versions.Item.Fields {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of the fields and values for this version of the list item.
@@ -118,7 +118,7 @@ namespace GraphSdk.Workbooks.Item.ListItem.Versions.Item.Fields {
         /// </summary>
         public async Task<FieldValueSet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<FieldValueSet>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<FieldValueSet>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of the fields and values for this version of the list item.
@@ -131,7 +131,7 @@ namespace GraphSdk.Workbooks.Item.ListItem.Versions.Item.Fields {
         public async Task PatchAsync(FieldValueSet body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A collection of the fields and values for this version of the list item.</summary>
         public class GetQueryParameters : QueryParametersBase {

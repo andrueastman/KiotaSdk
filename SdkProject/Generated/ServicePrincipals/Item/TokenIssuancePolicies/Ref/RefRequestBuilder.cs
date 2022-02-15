@@ -43,7 +43,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -64,7 +64,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -82,7 +82,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,10 +91,10 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -104,9 +104,9 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref {
         public async Task<GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref.Ref> PostAsync(GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The tokenIssuancePolicies assigned to this service principal. Supports $expand.</summary>
+        /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

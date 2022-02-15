@@ -99,7 +99,7 @@ namespace GraphSdk.Users.Item.Onenote.Pages.Item.ParentNotebook.SectionGroups.It
         /// </summary>
         public async Task<SectionGroupsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SectionGroupsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SectionGroupsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The section groups in the section. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Users.Item.Onenote.Pages.Item.ParentNotebook.SectionGroups.It
         public async Task<SectionGroup> PostAsync(SectionGroup body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<SectionGroup>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SectionGroup>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The section groups in the section. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

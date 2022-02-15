@@ -71,7 +71,7 @@ namespace GraphSdk.Workbooks.Item.Permissions.Item.Grant {
         public async Task<IEnumerable<GraphSdk.Workbooks.Item.Permissions.Item.Grant.Grant>> PostAsync(GrantRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Workbooks.Item.Permissions.Item.Grant.Grant>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Workbooks.Item.Permissions.Item.Grant.Grant>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

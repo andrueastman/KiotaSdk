@@ -99,7 +99,7 @@ namespace GraphSdk.Policies.HomeRealmDiscoveryPolicies {
         /// </summary>
         public async Task<HomeRealmDiscoveryPoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<HomeRealmDiscoveryPoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<HomeRealmDiscoveryPoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The policy to control Azure AD authentication behavior for federated users.
@@ -112,7 +112,7 @@ namespace GraphSdk.Policies.HomeRealmDiscoveryPolicies {
         public async Task<HomeRealmDiscoveryPolicy> PostAsync(HomeRealmDiscoveryPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<HomeRealmDiscoveryPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<HomeRealmDiscoveryPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The policy to control Azure AD authentication behavior for federated users.</summary>
         public class GetQueryParameters : QueryParametersBase {

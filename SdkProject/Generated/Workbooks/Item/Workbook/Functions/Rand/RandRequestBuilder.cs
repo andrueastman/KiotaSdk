@@ -67,7 +67,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Rand {
         /// </summary>
         public async Task<RandResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RandResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RandResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class RandResponse : IParsable {

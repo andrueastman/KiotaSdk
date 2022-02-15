@@ -68,7 +68,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.FilterBy
         /// </summary>
         public async Task<IEnumerable<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppPolicies {
         /// </summary>
         public async Task<ManagedAppPoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppPoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppPoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Managed app policies.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppPolicies {
         public async Task<ManagedAppPolicy> PostAsync(ManagedAppPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Managed app policies.</summary>
         public class GetQueryParameters : QueryParametersBase {

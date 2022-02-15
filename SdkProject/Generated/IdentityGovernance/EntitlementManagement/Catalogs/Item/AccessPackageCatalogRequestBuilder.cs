@@ -110,7 +110,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a group of access packages.
@@ -122,7 +122,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
         /// </summary>
         public async Task<AccessPackageCatalog> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a group of access packages.
@@ -135,7 +135,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item {
         public async Task PatchAsync(AccessPackageCatalog body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents a group of access packages.</summary>
         public class GetQueryParameters : QueryParametersBase {

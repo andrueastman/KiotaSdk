@@ -106,7 +106,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShiftChangeRequests.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get openShiftChangeRequests from teams
@@ -118,7 +118,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShiftChangeRequests.Item {
         /// </summary>
         public async Task<OpenShiftChangeRequest> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OpenShiftChangeRequest>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OpenShiftChangeRequest>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property openShiftChangeRequests in teams
@@ -131,7 +131,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShiftChangeRequests.Item {
         public async Task PatchAsync(OpenShiftChangeRequest body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get openShiftChangeRequests from teams</summary>
         public class GetQueryParameters : QueryParametersBase {

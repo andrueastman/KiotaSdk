@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Choose {
         public async Task<ChooseResponse> PostAsync(ChooseRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ChooseResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ChooseResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class ChooseResponse : IParsable {

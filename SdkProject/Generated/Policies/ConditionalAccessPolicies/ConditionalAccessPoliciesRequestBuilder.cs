@@ -99,7 +99,7 @@ namespace GraphSdk.Policies.ConditionalAccessPolicies {
         /// </summary>
         public async Task<ConditionalAccessPoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ConditionalAccessPoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessPoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The custom rules that define an access scenario.
@@ -112,7 +112,7 @@ namespace GraphSdk.Policies.ConditionalAccessPolicies {
         public async Task<ConditionalAccessPolicy> PostAsync(ConditionalAccessPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The custom rules that define an access scenario.</summary>
         public class GetQueryParameters : QueryParametersBase {

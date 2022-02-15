@@ -81,7 +81,7 @@ namespace GraphSdk.Drive.List.ContentTypes.Item.BaseTypes {
         /// </summary>
         public async Task<BaseTypesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<BaseTypesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<BaseTypesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of content types that are ancestors of this content type.</summary>
         public class GetQueryParameters : QueryParametersBase {

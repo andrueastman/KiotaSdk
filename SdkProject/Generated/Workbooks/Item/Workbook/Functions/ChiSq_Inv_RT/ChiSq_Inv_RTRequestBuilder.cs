@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.ChiSq_Inv_RT {
         public async Task<ChiSq_Inv_RTResponse> PostAsync(ChiSq_Inv_RTRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ChiSq_Inv_RTResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ChiSq_Inv_RTResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class ChiSq_Inv_RTResponse : IParsable {

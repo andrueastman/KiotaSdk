@@ -106,7 +106,7 @@ namespace GraphSdk.ScopedRoleMemberships.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get entity from scopedRoleMemberships by key
@@ -118,7 +118,7 @@ namespace GraphSdk.ScopedRoleMemberships.Item {
         /// </summary>
         public async Task<ScopedRoleMembership> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update entity in scopedRoleMemberships
@@ -131,7 +131,7 @@ namespace GraphSdk.ScopedRoleMemberships.Item {
         public async Task PatchAsync(ScopedRoleMembership body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entity from scopedRoleMemberships by key</summary>
         public class GetQueryParameters : QueryParametersBase {

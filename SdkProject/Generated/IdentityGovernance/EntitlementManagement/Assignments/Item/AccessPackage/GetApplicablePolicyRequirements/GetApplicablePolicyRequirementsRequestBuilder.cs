@@ -66,7 +66,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Acc
         /// </summary>
         public async Task<IEnumerable<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage.GetApplicablePolicyRequirements.GetApplicablePolicyRequirements>> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage.GetApplicablePolicyRequirements.GetApplicablePolicyRequirements>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.AccessPackage.GetApplicablePolicyRequirements.GetApplicablePolicyRequirements>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

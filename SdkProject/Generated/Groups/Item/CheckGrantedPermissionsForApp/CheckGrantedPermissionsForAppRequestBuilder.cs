@@ -66,7 +66,7 @@ namespace GraphSdk.Groups.Item.CheckGrantedPermissionsForApp {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Groups.Item.CheckGrantedPermissionsForApp.CheckGrantedPermissionsForApp>> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Groups.Item.CheckGrantedPermissionsForApp.CheckGrantedPermissionsForApp>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Groups.Item.CheckGrantedPermissionsForApp.CheckGrantedPermissionsForApp>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

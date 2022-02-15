@@ -67,7 +67,7 @@ namespace GraphSdk.Users.Item.Insights.Trending.Item.Resource.WorkbookRange.Colu
         /// </summary>
         public async Task<ColumnsBeforeResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ColumnsBeforeResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ColumnsBeforeResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class ColumnsBeforeResponse : IParsable {

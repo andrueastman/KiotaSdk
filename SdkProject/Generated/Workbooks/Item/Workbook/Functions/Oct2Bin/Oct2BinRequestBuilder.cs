@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Oct2Bin {
         public async Task<Oct2BinResponse> PostAsync(Oct2BinRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Oct2BinResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Oct2BinResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class Oct2BinResponse : IParsable {

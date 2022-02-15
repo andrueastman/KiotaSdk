@@ -7,11 +7,11 @@ namespace GraphSdk.Models.Microsoft.Graph {
     public class ModifiedProperty : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Name of property that was modified.</summary>
+        /// <summary>Indicates the property name of the target attribute that was changed.</summary>
         public string DisplayName { get; set; }
-        /// <summary>New property value.</summary>
+        /// <summary>Indicates the updated value for the propery.</summary>
         public string NewValue { get; set; }
-        /// <summary>Old property value.</summary>
+        /// <summary>Indicates the previous value (before the update) for the property.</summary>
         public string OldValue { get; set; }
         /// <summary>
         /// Instantiates a new modifiedProperty and sets the default values.

@@ -43,7 +43,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="body">Binary request body</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -76,7 +76,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -84,10 +84,10 @@ namespace GraphSdk.Groups.Item.Photo.Value {
         /// </summary>
         public async Task<Stream> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -97,7 +97,7 @@ namespace GraphSdk.Groups.Item.Photo.Value {
         public async Task PutAsync(Stream body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

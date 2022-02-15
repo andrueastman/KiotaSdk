@@ -72,7 +72,7 @@ namespace GraphSdk.Users.Item.OnlineMeetings.CreateOrGet {
         public async Task<CreateOrGetResponse> PostAsync(CreateOrGetRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<CreateOrGetResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CreateOrGetResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes onlineMeeting</summary>
         public class CreateOrGetResponse : IParsable {

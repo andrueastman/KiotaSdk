@@ -68,7 +68,7 @@ namespace GraphSdk.Users.Item.Calendars.Item.CalendarView.Item.Calendar.AllowedC
         /// </summary>
         public async Task<IEnumerable<string>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveCollectionAsync<string>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveCollectionAsync<string>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

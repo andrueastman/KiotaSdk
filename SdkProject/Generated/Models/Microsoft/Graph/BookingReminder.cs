@@ -11,7 +11,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string Message { get; set; }
         /// <summary>The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.</summary>
         public TimeSpan? Offset { get; set; }
-        /// <summary>The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.</summary>
+        /// <summary>The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.</summary>
         public BookingReminderRecipients? Recipients { get; set; }
         /// <summary>
         /// Instantiates a new bookingReminder and sets the default values.

@@ -77,7 +77,7 @@ namespace GraphSdk.Shares.Item.List.ContentTypes.Item.ColumnPositions {
         /// </summary>
         public async Task<ColumnPositionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ColumnPositionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ColumnPositionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Column order information in a content type.</summary>
         public class GetQueryParameters : QueryParametersBase {

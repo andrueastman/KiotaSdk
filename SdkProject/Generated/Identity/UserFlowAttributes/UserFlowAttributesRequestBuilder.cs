@@ -99,7 +99,7 @@ namespace GraphSdk.Identity.UserFlowAttributes {
         /// </summary>
         public async Task<UserFlowAttributesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UserFlowAttributesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UserFlowAttributesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents entry point for identity userflow attributes.
@@ -112,7 +112,7 @@ namespace GraphSdk.Identity.UserFlowAttributes {
         public async Task<IdentityUserFlowAttribute> PostAsync(IdentityUserFlowAttribute body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<IdentityUserFlowAttribute>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<IdentityUserFlowAttribute>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents entry point for identity userflow attributes.</summary>
         public class GetQueryParameters : QueryParametersBase {

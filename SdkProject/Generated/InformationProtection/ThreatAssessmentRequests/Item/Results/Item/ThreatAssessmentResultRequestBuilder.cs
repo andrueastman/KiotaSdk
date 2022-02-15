@@ -106,7 +106,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item.Results.I
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
@@ -118,7 +118,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item.Results.I
         /// </summary>
         public async Task<ThreatAssessmentResult> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ThreatAssessmentResult>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ThreatAssessmentResult>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
@@ -131,7 +131,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item.Results.I
         public async Task PatchAsync(ThreatAssessmentResult body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -110,7 +110,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.Item.Legend {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the legend for the chart. Read-only.
@@ -122,7 +122,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.Item.Legend {
         /// </summary>
         public async Task<WorkbookChartLegend> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookChartLegend>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookChartLegend>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the legend for the chart. Read-only.
@@ -135,7 +135,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.Item.Legend {
         public async Task PatchAsync(WorkbookChartLegend body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the legend for the chart. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

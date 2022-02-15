@@ -110,7 +110,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Application {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get application from workbooks
@@ -122,7 +122,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Application {
         /// </summary>
         public async Task<WorkbookApplication> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookApplication>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookApplication>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property application in workbooks
@@ -135,7 +135,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Application {
         public async Task PatchAsync(WorkbookApplication body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get application from workbooks</summary>
         public class GetQueryParameters : QueryParametersBase {

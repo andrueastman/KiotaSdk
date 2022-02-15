@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Devices.GetByIds;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -106,7 +106,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
@@ -118,7 +118,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item {
         /// </summary>
         public async Task<DirectoryObject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
@@ -131,7 +131,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item {
         public async Task PatchAsync(DirectoryObject body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Nullable. Specifies a list of directoryObjects that feature is enabled for.</summary>
         public class GetQueryParameters : QueryParametersBase {

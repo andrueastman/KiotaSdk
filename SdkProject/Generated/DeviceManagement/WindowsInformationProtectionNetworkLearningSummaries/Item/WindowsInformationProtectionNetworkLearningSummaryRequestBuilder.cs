@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningS
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The windows information protection network learning summaries.
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningS
         /// </summary>
         public async Task<WindowsInformationProtectionNetworkLearningSummary> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The windows information protection network learning summaries.
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningS
         public async Task PatchAsync(WindowsInformationProtectionNetworkLearningSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The windows information protection network learning summaries.</summary>
         public class GetQueryParameters : QueryParametersBase {

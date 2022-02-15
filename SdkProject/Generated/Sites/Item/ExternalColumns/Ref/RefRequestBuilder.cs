@@ -91,7 +91,7 @@ namespace GraphSdk.Sites.Item.ExternalColumns.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
@@ -104,7 +104,7 @@ namespace GraphSdk.Sites.Item.ExternalColumns.Ref {
         public async Task<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref> PostAsync(GraphSdk.Sites.Item.ExternalColumns.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Sites.Item.ExternalColumns.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.</summary>
         public class GetQueryParameters : QueryParametersBase {

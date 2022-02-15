@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceManagement.MobileThreatDefenseConnectors.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of Mobile threat Defense connectors configured by the tenant.
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceManagement.MobileThreatDefenseConnectors.Item {
         /// </summary>
         public async Task<MobileThreatDefenseConnector> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MobileThreatDefenseConnector>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileThreatDefenseConnector>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of Mobile threat Defense connectors configured by the tenant.
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceManagement.MobileThreatDefenseConnectors.Item {
         public async Task PatchAsync(MobileThreatDefenseConnector body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of Mobile threat Defense connectors configured by the tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

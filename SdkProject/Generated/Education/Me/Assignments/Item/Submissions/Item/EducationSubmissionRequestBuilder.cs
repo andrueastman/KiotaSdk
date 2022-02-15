@@ -138,7 +138,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
@@ -150,7 +150,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item {
         /// </summary>
         public async Task<EducationSubmission> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EducationSubmission>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationSubmission>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
@@ -163,7 +163,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item {
         public async Task PatchAsync(EducationSubmission body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

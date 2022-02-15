@@ -48,7 +48,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The application that is linked to the tab.
+        /// The application that is linked to the tab. This cannot be changed after tab creation.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp {
             return requestInfo;
         }
         /// <summary>
-        /// The application that is linked to the tab.
+        /// The application that is linked to the tab. This cannot be changed after tab creation.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -78,9 +78,9 @@ namespace GraphSdk.Teams.Item.Channels.Item.Tabs.Item.TeamsApp {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.TeamsApp> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The application that is linked to the tab.</summary>
+        /// <summary>The application that is linked to the tab. This cannot be changed after tab creation.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

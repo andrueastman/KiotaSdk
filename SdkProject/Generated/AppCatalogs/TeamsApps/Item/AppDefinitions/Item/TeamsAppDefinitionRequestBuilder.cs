@@ -110,7 +110,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The details for each version of the app.
@@ -122,7 +122,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The details for each version of the app.
@@ -135,7 +135,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.TeamsAppDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The details for each version of the app.</summary>
         public class GetQueryParameters : QueryParametersBase {

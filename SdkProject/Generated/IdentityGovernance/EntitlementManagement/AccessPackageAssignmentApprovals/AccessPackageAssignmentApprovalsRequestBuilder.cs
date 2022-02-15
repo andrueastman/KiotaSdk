@@ -108,7 +108,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
         /// </summary>
         public async Task<AccessPackageAssignmentApprovalsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageAssignmentApprovalsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageAssignmentApprovalsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to accessPackageAssignmentApprovals for identityGovernance
@@ -121,7 +121,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
         public async Task<GraphSdk.Models.Microsoft.Graph.Approval> PostAsync(GraphSdk.Models.Microsoft.Graph.Approval body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Approval>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Approval>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get accessPackageAssignmentApprovals from identityGovernance</summary>
         public class GetQueryParameters : QueryParametersBase {

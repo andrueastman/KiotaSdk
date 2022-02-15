@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
 using GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item.Accept;
 using GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item.Cancel;
 using GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item.Decline;
@@ -134,7 +134,7 @@ namespace GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The events in the calendar. Navigation property. Read-only.
@@ -146,7 +146,7 @@ namespace GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item {
         /// </summary>
         public async Task<Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The events in the calendar. Navigation property. Read-only.
@@ -159,7 +159,7 @@ namespace GraphSdk.Users.Item.CalendarView.Item.Calendar.Events.Item {
         public async Task PatchAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The events in the calendar. Navigation property. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

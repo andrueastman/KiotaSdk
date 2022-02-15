@@ -106,7 +106,7 @@ namespace GraphSdk.Me.Planner.Plans.Item.Tasks.Item.ProgressTaskBoardFormat {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
@@ -118,7 +118,7 @@ namespace GraphSdk.Me.Planner.Plans.Item.Tasks.Item.ProgressTaskBoardFormat {
         /// </summary>
         public async Task<PlannerProgressTaskBoardTaskFormat> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PlannerProgressTaskBoardTaskFormat>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerProgressTaskBoardTaskFormat>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
@@ -131,7 +131,7 @@ namespace GraphSdk.Me.Planner.Plans.Item.Tasks.Item.ProgressTaskBoardFormat {
         public async Task PatchAsync(PlannerProgressTaskBoardTaskFormat body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.</summary>
         public class GetQueryParameters : QueryParametersBase {

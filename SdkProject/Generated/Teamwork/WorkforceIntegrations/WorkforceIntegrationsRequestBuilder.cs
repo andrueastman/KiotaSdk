@@ -51,7 +51,7 @@ namespace GraphSdk.Teamwork.WorkforceIntegrations {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get workforceIntegrations from teamwork
+        /// A workforce integration with shifts.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Teamwork.WorkforceIntegrations {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to workforceIntegrations for teamwork
+        /// A workforce integration with shifts.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Teamwork.WorkforceIntegrations {
             return requestInfo;
         }
         /// <summary>
-        /// Get workforceIntegrations from teamwork
+        /// A workforce integration with shifts.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Teamwork.WorkforceIntegrations {
         /// </summary>
         public async Task<WorkforceIntegrationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkforceIntegrationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkforceIntegrationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to workforceIntegrations for teamwork
+        /// A workforce integration with shifts.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Teamwork.WorkforceIntegrations {
         public async Task<WorkforceIntegration> PostAsync(WorkforceIntegration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<WorkforceIntegration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkforceIntegration>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Get workforceIntegrations from teamwork</summary>
+        /// <summary>A workforce integration with shifts.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

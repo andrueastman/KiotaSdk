@@ -67,7 +67,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item.Submit {
         /// </summary>
         public async Task<SubmitResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<SubmitResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SubmitResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes educationSubmission</summary>
         public class SubmitResponse : IParsable {

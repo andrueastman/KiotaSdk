@@ -148,7 +148,7 @@ namespace GraphSdk.Workbooks.Item.Workbook {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
@@ -160,7 +160,7 @@ namespace GraphSdk.Workbooks.Item.Workbook {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Workbook> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Workbook>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Workbook>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
@@ -173,7 +173,7 @@ namespace GraphSdk.Workbooks.Item.Workbook {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Workbook body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\microsoft.graph.sessionInfoResource(key='{key}')

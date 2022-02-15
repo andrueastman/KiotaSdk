@@ -71,7 +71,7 @@ namespace GraphSdk.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceR
         public async Task<Stream> PostAsync(GetConfigurationPolicyNonComplianceReportRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

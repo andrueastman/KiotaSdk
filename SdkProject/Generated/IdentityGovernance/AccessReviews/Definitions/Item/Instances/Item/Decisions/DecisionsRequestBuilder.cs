@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+        /// Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return requestInfo;
         }
         /// <summary>
-        /// Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+        /// Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+        /// Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -108,10 +108,10 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
         /// </summary>
         public async Task<DecisionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DecisionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DecisionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+        /// Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -121,9 +121,9 @@ namespace GraphSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.I
         public async Task<AccessReviewInstanceDecisionItem> PostAsync(AccessReviewInstanceDecisionItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AccessReviewInstanceDecisionItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessReviewInstanceDecisionItem>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.</summary>
+        /// <summary>Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

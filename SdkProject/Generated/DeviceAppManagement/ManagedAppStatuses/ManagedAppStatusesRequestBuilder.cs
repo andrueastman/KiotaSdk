@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppStatuses {
         /// </summary>
         public async Task<ManagedAppStatusesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppStatusesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppStatusesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The managed app statuses.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppStatuses {
         public async Task<ManagedAppStatus> PostAsync(ManagedAppStatus body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppStatus>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The managed app statuses.</summary>
         public class GetQueryParameters : QueryParametersBase {

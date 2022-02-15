@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
         /// </summary>
         public async Task<MdmWindowsInformationProtectionPoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MdmWindowsInformationProtectionPoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MdmWindowsInformationProtectionPoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Windows information protection for apps running on devices which are MDM enrolled.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies {
         public async Task<MdmWindowsInformationProtectionPolicy> PostAsync(MdmWindowsInformationProtectionPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Windows information protection for apps running on devices which are MDM enrolled.</summary>
         public class GetQueryParameters : QueryParametersBase {

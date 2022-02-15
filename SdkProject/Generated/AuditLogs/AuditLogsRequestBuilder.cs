@@ -108,7 +108,7 @@ namespace GraphSdk.AuditLogs {
         /// </summary>
         public async Task<AuditLogRoot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AuditLogRoot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AuditLogRoot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update auditLogs
@@ -121,7 +121,7 @@ namespace GraphSdk.AuditLogs {
         public async Task PatchAsync(AuditLogRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get auditLogs</summary>
         public class GetQueryParameters : QueryParametersBase {

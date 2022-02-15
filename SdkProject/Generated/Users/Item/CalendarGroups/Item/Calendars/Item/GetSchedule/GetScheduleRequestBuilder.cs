@@ -71,7 +71,7 @@ namespace GraphSdk.Users.Item.CalendarGroups.Item.Calendars.Item.GetSchedule {
         public async Task<IEnumerable<GraphSdk.Users.Item.CalendarGroups.Item.Calendars.Item.GetSchedule.GetSchedule>> PostAsync(GetScheduleRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.CalendarGroups.Item.Calendars.Item.GetSchedule.GetSchedule>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.CalendarGroups.Item.Calendars.Item.GetSchedule.GetSchedule>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

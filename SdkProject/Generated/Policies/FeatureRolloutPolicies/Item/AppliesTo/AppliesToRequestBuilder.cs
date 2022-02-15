@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Devices.GetByIds;
 using GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -99,7 +99,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo {
         /// </summary>
         public async Task<AppliesToResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppliesToResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppliesToResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Nullable. Specifies a list of directoryObjects that feature is enabled for.
@@ -112,7 +112,7 @@ namespace GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo {
         public async Task<DirectoryObject> PostAsync(DirectoryObject body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Nullable. Specifies a list of directoryObjects that feature is enabled for.</summary>
         public class GetQueryParameters : QueryParametersBase {

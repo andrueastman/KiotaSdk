@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item.History.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The activity related to user risk level change
@@ -118,7 +118,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item.History.Item {
         /// </summary>
         public async Task<RiskyUserHistoryItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RiskyUserHistoryItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RiskyUserHistoryItem>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The activity related to user risk level change
@@ -131,7 +131,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item.History.Item {
         public async Task PatchAsync(RiskyUserHistoryItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The activity related to user risk level change</summary>
         public class GetQueryParameters : QueryParametersBase {

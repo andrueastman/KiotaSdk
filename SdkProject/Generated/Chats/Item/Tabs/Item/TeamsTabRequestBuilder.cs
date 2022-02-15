@@ -110,7 +110,7 @@ namespace GraphSdk.Chats.Item.Tabs.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get tabs from chats
@@ -122,7 +122,7 @@ namespace GraphSdk.Chats.Item.Tabs.Item {
         /// </summary>
         public async Task<TeamsTab> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property tabs in chats
@@ -135,7 +135,7 @@ namespace GraphSdk.Chats.Item.Tabs.Item {
         public async Task PatchAsync(TeamsTab body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get tabs from chats</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -103,7 +103,7 @@ namespace GraphSdk.Me.OnlineMeetings {
         /// </summary>
         public async Task<OnlineMeetingsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OnlineMeetingsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OnlineMeetingsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to onlineMeetings for me
@@ -116,7 +116,7 @@ namespace GraphSdk.Me.OnlineMeetings {
         public async Task<OnlineMeeting> PostAsync(OnlineMeeting body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OnlineMeeting>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get onlineMeetings from me</summary>
         public class GetQueryParameters : QueryParametersBase {

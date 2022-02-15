@@ -106,7 +106,7 @@ namespace GraphSdk.Me.OnlineMeetings.Item.AttendanceReports.Item.AttendanceRecor
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of attendance records of an attendance report. Read-only.
@@ -118,7 +118,7 @@ namespace GraphSdk.Me.OnlineMeetings.Item.AttendanceReports.Item.AttendanceRecor
         /// </summary>
         public async Task<AttendanceRecord> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AttendanceRecord>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AttendanceRecord>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of attendance records of an attendance report. Read-only.
@@ -131,7 +131,7 @@ namespace GraphSdk.Me.OnlineMeetings.Item.AttendanceReports.Item.AttendanceRecor
         public async Task PatchAsync(AttendanceRecord body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>List of attendance records of an attendance report. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

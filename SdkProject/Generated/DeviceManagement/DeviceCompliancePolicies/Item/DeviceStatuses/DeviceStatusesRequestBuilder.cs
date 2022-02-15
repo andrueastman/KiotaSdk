@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses
         /// </summary>
         public async Task<DeviceStatusesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceStatusesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceStatusesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of DeviceComplianceDeviceStatus.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceStatuses
         public async Task<DeviceComplianceDeviceStatus> PostAsync(DeviceComplianceDeviceStatus body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatus>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceDeviceStatus>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>List of DeviceComplianceDeviceStatus.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -70,7 +70,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Imag
         /// </summary>
         public async Task<string> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

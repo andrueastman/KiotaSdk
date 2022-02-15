@@ -67,7 +67,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.ProvisionEmail {
         /// </summary>
         public async Task<ProvisionEmailResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ProvisionEmailResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ProvisionEmailResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes provisionChannelEmailResult</summary>
         public class ProvisionEmailResponse : IParsable {

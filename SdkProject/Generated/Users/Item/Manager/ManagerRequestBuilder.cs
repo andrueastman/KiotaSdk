@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Devices.GetByIds;
 using GraphSdk.Users.Item.Manager.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -78,7 +78,7 @@ namespace GraphSdk.Users.Item.Manager {
         /// </summary>
         public async Task<DirectoryObject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The user or contact that is this user's manager. Read-only. (HTTP Methods: GET, PUT, DELETE.). Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

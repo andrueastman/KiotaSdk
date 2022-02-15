@@ -99,7 +99,7 @@ namespace GraphSdk.ScopedRoleMemberships {
         /// </summary>
         public async Task<ScopedRoleMembershipsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ScopedRoleMembershipsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ScopedRoleMembershipsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to scopedRoleMemberships
@@ -112,7 +112,7 @@ namespace GraphSdk.ScopedRoleMemberships {
         public async Task<ScopedRoleMembership> PostAsync(ScopedRoleMembership body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from scopedRoleMemberships</summary>
         public class GetQueryParameters : QueryParametersBase {

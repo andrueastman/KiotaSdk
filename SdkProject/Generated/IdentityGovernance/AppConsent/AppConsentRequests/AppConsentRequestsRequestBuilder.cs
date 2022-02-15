@@ -108,7 +108,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
         /// </summary>
         public async Task<AppConsentRequestsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppConsentRequestsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppConsentRequestsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of userConsentRequest objects for a specific application.
@@ -121,7 +121,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests {
         public async Task<AppConsentRequest> PostAsync(AppConsentRequest body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AppConsentRequest>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppConsentRequest>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A collection of userConsentRequest objects for a specific application.</summary>
         public class GetQueryParameters : QueryParametersBase {

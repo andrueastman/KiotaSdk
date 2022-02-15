@@ -106,7 +106,7 @@ namespace GraphSdk.Teams.Item.Schedule.SchedulingGroups.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The logical grouping of users in the schedule (usually by role).
@@ -118,7 +118,7 @@ namespace GraphSdk.Teams.Item.Schedule.SchedulingGroups.Item {
         /// </summary>
         public async Task<SchedulingGroup> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SchedulingGroup>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SchedulingGroup>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The logical grouping of users in the schedule (usually by role).
@@ -131,7 +131,7 @@ namespace GraphSdk.Teams.Item.Schedule.SchedulingGroups.Item {
         public async Task PatchAsync(SchedulingGroup body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The logical grouping of users in the schedule (usually by role).</summary>
         public class GetQueryParameters : QueryParametersBase {

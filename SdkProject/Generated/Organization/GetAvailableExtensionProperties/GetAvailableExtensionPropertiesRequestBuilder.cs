@@ -68,10 +68,10 @@ namespace GraphSdk.Organization.GetAvailableExtensionProperties {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<GraphSdk.Organization.GetAvailableExtensionProperties.GetAvailableExtensionProperties>> PostAsync(GetAvailableExtensionPropertiesRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<IEnumerable<ExtensionProperty>> PostAsync(GetAvailableExtensionPropertiesRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Organization.GetAvailableExtensionProperties.GetAvailableExtensionProperties>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<ExtensionProperty>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

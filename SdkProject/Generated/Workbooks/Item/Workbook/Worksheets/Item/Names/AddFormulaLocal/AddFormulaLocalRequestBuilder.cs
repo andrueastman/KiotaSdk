@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Names.AddFormulaLocal
         public async Task<AddFormulaLocalResponse> PostAsync(AddFormulaLocalRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AddFormulaLocalResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AddFormulaLocalResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookNamedItem</summary>
         public class AddFormulaLocalResponse : IParsable {

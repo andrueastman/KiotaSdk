@@ -91,7 +91,7 @@ namespace GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of categories for this app.
@@ -104,7 +104,7 @@ namespace GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref {
         public async Task<GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref.Ref> PostAsync(GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.DeviceAppManagement.MobileApps.Item.Categories.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of categories for this app.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -96,7 +96,7 @@ namespace GraphSdk.Branding {
         /// </summary>
         public async Task<OrganizationalBranding> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OrganizationalBranding>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OrganizationalBranding>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update branding
@@ -109,7 +109,7 @@ namespace GraphSdk.Branding {
         public async Task PatchAsync(OrganizationalBranding body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get branding</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -72,7 +72,7 @@ namespace GraphSdk.ApplicationTemplates.Item.Instantiate {
         public async Task<InstantiateResponse> PostAsync(InstantiateRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<InstantiateResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<InstantiateResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes applicationServicePrincipal</summary>
         public class InstantiateResponse : IParsable {

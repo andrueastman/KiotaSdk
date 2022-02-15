@@ -114,7 +114,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Data
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the format of chart data labels, which includes fill and font formatting. Read-only.
@@ -126,7 +126,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Data
         /// </summary>
         public async Task<WorkbookChartDataLabelFormat> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookChartDataLabelFormat>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookChartDataLabelFormat>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the format of chart data labels, which includes fill and font formatting. Read-only.
@@ -139,7 +139,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Data
         public async Task PatchAsync(WorkbookChartDataLabelFormat body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the format of chart data labels, which includes fill and font formatting. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

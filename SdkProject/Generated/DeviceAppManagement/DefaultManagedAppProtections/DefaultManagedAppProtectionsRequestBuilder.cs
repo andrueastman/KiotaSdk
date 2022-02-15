@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.DefaultManagedAppProtections {
         /// </summary>
         public async Task<DefaultManagedAppProtectionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DefaultManagedAppProtectionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DefaultManagedAppProtectionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Default managed app policies.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.DefaultManagedAppProtections {
         public async Task<DefaultManagedAppProtection> PostAsync(DefaultManagedAppProtection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DefaultManagedAppProtection>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DefaultManagedAppProtection>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Default managed app policies.</summary>
         public class GetQueryParameters : QueryParametersBase {

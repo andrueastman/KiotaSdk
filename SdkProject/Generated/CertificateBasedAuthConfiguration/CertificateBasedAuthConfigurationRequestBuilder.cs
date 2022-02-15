@@ -98,7 +98,7 @@ namespace GraphSdk.CertificateBasedAuthConfiguration {
         /// </summary>
         public async Task<CertificateBasedAuthConfigurationResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CertificateBasedAuthConfigurationResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CertificateBasedAuthConfigurationResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to certificateBasedAuthConfiguration
@@ -111,7 +111,7 @@ namespace GraphSdk.CertificateBasedAuthConfiguration {
         public async Task<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration> PostAsync(GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.CertificateBasedAuthConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from certificateBasedAuthConfiguration</summary>
         public class GetQueryParameters : QueryParametersBase {

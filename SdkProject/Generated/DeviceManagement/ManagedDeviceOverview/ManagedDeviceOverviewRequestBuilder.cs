@@ -78,7 +78,7 @@ namespace GraphSdk.DeviceManagement.ManagedDeviceOverview {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.ManagedDeviceOverview> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ManagedDeviceOverview>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ManagedDeviceOverview>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Device overview</summary>
         public class GetQueryParameters : QueryParametersBase {

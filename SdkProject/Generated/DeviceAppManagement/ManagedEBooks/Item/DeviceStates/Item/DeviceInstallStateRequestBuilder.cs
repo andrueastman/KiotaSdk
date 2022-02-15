@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.DeviceStates.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of installation states for this eBook.
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.DeviceStates.Item {
         /// </summary>
         public async Task<DeviceInstallState> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of installation states for this eBook.
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.DeviceStates.Item {
         public async Task PatchAsync(DeviceInstallState body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of installation states for this eBook.</summary>
         public class GetQueryParameters : QueryParametersBase {

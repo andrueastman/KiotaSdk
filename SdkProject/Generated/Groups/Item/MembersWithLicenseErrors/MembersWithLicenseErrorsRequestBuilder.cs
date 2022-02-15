@@ -77,7 +77,7 @@ namespace GraphSdk.Groups.Item.MembersWithLicenseErrors {
         /// </summary>
         public async Task<MembersWithLicenseErrorsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MembersWithLicenseErrorsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MembersWithLicenseErrorsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A list of group members with license errors from this group-based license assignment. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

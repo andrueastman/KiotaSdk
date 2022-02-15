@@ -99,7 +99,7 @@ namespace GraphSdk.Print.Shares {
         /// </summary>
         public async Task<SharesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SharesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SharesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of printer shares registered in the tenant.
@@ -112,7 +112,7 @@ namespace GraphSdk.Print.Shares {
         public async Task<PrinterShare> PostAsync(PrinterShare body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PrinterShare>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrinterShare>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of printer shares registered in the tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

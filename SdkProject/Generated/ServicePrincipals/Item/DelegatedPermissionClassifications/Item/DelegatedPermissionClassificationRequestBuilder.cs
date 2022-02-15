@@ -106,7 +106,7 @@ namespace GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Ite
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
@@ -118,7 +118,7 @@ namespace GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Ite
         /// </summary>
         public async Task<DelegatedPermissionClassification> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
@@ -131,7 +131,7 @@ namespace GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications.Ite
         public async Task PatchAsync(DelegatedPermissionClassification body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

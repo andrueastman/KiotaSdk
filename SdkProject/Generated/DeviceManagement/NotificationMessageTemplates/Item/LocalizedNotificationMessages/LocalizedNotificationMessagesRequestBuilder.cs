@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedN
         /// </summary>
         public async Task<LocalizedNotificationMessagesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<LocalizedNotificationMessagesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<LocalizedNotificationMessagesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of localized messages for this Notification Message Template.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.NotificationMessageTemplates.Item.LocalizedN
         public async Task<LocalizedNotificationMessage> PostAsync(LocalizedNotificationMessage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<LocalizedNotificationMessage>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of localized messages for this Notification Message Template.</summary>
         public class GetQueryParameters : QueryParametersBase {

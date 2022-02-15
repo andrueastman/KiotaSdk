@@ -51,7 +51,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Tasks {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Collection of tasks in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of tasks in the plan.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of tasks in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of tasks in the plan.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Tasks {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of tasks in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of tasks in the plan.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Tasks {
         /// </summary>
         public async Task<TasksResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TasksResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TasksResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Collection of tasks in the plan. Read-only. Nullable.
+        /// Read-only. Nullable. Collection of tasks in the plan.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Users.Item.Planner.Plans.Item.Tasks {
         public async Task<PlannerTask> PostAsync(PlannerTask body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PlannerTask>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Collection of tasks in the plan. Read-only. Nullable.</summary>
+        /// <summary>Read-only. Nullable. Collection of tasks in the plan.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

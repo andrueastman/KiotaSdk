@@ -91,7 +91,7 @@ namespace GraphSdk.Me.Oauth2PermissionGrants.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property ref to oauth2PermissionGrants for me
@@ -104,7 +104,7 @@ namespace GraphSdk.Me.Oauth2PermissionGrants.Ref {
         public async Task<GraphSdk.Me.Oauth2PermissionGrants.Ref.Ref> PostAsync(GraphSdk.Me.Oauth2PermissionGrants.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Me.Oauth2PermissionGrants.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Me.Oauth2PermissionGrants.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get ref of oauth2PermissionGrants from me</summary>
         public class GetQueryParameters : QueryParametersBase {

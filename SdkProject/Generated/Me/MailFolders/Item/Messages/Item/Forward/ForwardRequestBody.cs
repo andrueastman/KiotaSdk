@@ -1,3 +1,4 @@
+using GraphSdk.Me.Messages.Delta;
 using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

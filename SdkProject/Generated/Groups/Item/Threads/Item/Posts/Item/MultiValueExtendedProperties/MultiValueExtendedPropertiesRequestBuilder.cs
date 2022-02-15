@@ -99,7 +99,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.MultiValueExtendedPropert
         /// </summary>
         public async Task<MultiValueExtendedPropertiesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MultiValueExtendedPropertiesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MultiValueExtendedPropertiesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of multi-value extended properties defined for the post. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.MultiValueExtendedPropert
         public async Task<MultiValueLegacyExtendedProperty> PostAsync(MultiValueLegacyExtendedProperty body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MultiValueLegacyExtendedProperty>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MultiValueLegacyExtendedProperty>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of multi-value extended properties defined for the post. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

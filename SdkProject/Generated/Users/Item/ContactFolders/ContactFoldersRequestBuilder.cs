@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.ContactFolders.Delta;
 using GraphSdk.Users.Item.ContactFolders.Delta;
 using GraphSdk.Users.Item.ContactFolders.Item;
 using Microsoft.Kiota.Abstractions;
@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.ContactFolders {
         /// </summary>
         public async Task<ContactFoldersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ContactFoldersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFoldersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The user's contacts folders. Read-only. Nullable.
@@ -119,7 +119,7 @@ namespace GraphSdk.Users.Item.ContactFolders {
         public async Task<ContactFolder> PostAsync(ContactFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The user's contacts folders. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,3 +1,4 @@
+using GraphSdk.Me.ContactFolders.Delta;
 using GraphSdk.Me.ContactFolders.Item.ChildFolders.Delta;
 using GraphSdk.Me.ContactFolders.Item.ChildFolders.Item;
 using GraphSdk.Models.Microsoft.Graph;
@@ -106,7 +107,7 @@ namespace GraphSdk.Me.ContactFolders.Item.ChildFolders {
         /// </summary>
         public async Task<ChildFoldersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ChildFoldersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ChildFoldersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of child folders in the folder. Navigation property. Read-only. Nullable.
@@ -119,7 +120,7 @@ namespace GraphSdk.Me.ContactFolders.Item.ChildFolders {
         public async Task<ContactFolder> PostAsync(ContactFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

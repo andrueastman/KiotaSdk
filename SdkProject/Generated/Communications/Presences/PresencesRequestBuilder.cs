@@ -99,7 +99,7 @@ namespace GraphSdk.Communications.Presences {
         /// </summary>
         public async Task<PresencesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PresencesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PresencesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to presences for communications
@@ -112,7 +112,7 @@ namespace GraphSdk.Communications.Presences {
         public async Task<GraphSdk.Models.Microsoft.Graph.Presence> PostAsync(GraphSdk.Models.Microsoft.Graph.Presence body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Presence>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Presence>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get presences from communications</summary>
         public class GetQueryParameters : QueryParametersBase {

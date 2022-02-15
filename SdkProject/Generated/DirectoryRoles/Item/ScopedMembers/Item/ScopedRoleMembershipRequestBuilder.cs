@@ -106,7 +106,7 @@ namespace GraphSdk.DirectoryRoles.Item.ScopedMembers.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Members of this directory role that are scoped to administrative units. Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.DirectoryRoles.Item.ScopedMembers.Item {
         /// </summary>
         public async Task<ScopedRoleMembership> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ScopedRoleMembership>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Members of this directory role that are scoped to administrative units. Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.DirectoryRoles.Item.ScopedMembers.Item {
         public async Task PatchAsync(ScopedRoleMembership body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Members of this directory role that are scoped to administrative units. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

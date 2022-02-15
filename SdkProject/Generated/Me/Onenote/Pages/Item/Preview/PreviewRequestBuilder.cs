@@ -67,7 +67,7 @@ namespace GraphSdk.Me.Onenote.Pages.Item.Preview {
         /// </summary>
         public async Task<PreviewResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<PreviewResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PreviewResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes onenotePagePreview</summary>
         public class PreviewResponse : IParsable {

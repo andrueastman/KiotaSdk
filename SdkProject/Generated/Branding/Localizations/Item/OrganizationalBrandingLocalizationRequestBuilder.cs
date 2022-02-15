@@ -106,7 +106,7 @@ namespace GraphSdk.Branding.Localizations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add different branding based on a locale.
@@ -118,7 +118,7 @@ namespace GraphSdk.Branding.Localizations.Item {
         /// </summary>
         public async Task<OrganizationalBrandingLocalization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OrganizationalBrandingLocalization>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OrganizationalBrandingLocalization>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add different branding based on a locale.
@@ -131,7 +131,7 @@ namespace GraphSdk.Branding.Localizations.Item {
         public async Task PatchAsync(OrganizationalBrandingLocalization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Add different branding based on a locale.</summary>
         public class GetQueryParameters : QueryParametersBase {

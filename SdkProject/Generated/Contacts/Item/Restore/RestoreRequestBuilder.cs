@@ -67,7 +67,7 @@ namespace GraphSdk.Contacts.Item.Restore {
         /// </summary>
         public async Task<RestoreResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RestoreResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RestoreResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes directoryObject</summary>
         public class RestoreResponse : IParsable {

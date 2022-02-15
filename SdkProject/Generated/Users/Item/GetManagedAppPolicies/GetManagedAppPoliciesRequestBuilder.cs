@@ -66,7 +66,7 @@ namespace GraphSdk.Users.Item.GetManagedAppPolicies {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Users.Item.GetManagedAppPolicies.GetManagedAppPolicies>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.GetManagedAppPolicies.GetManagedAppPolicies>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.GetManagedAppPolicies.GetManagedAppPolicies>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

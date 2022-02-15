@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Display name of the resource</summary>
         public string DisplayName { get; set; }
-        /// <summary>Resource ID</summary>
+        /// <summary>Identifier of the resource</summary>
         public string Id { get; set; }
         /// <summary>Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.</summary>
         public string Type { get; set; }

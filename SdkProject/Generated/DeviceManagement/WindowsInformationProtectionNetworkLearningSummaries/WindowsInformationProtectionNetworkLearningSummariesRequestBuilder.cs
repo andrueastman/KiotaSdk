@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningS
         /// </summary>
         public async Task<WindowsInformationProtectionNetworkLearningSummariesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummariesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummariesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The windows information protection network learning summaries.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.WindowsInformationProtectionNetworkLearningS
         public async Task<WindowsInformationProtectionNetworkLearningSummary> PostAsync(WindowsInformationProtectionNetworkLearningSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The windows information protection network learning summaries.</summary>
         public class GetQueryParameters : QueryParametersBase {

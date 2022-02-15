@@ -110,7 +110,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of abstract definition for a task that can be triggered when various events occur within Universal Print.
@@ -122,7 +122,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item {
         /// </summary>
         public async Task<PrintTaskDefinition> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PrintTaskDefinition>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintTaskDefinition>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// List of abstract definition for a task that can be triggered when various events occur within Universal Print.
@@ -135,7 +135,7 @@ namespace GraphSdk.Print.TaskDefinitions.Item {
         public async Task PatchAsync(PrintTaskDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>List of abstract definition for a task that can be triggered when various events occur within Universal Print.</summary>
         public class GetQueryParameters : QueryParametersBase {

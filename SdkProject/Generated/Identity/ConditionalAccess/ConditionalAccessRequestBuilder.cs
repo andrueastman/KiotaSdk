@@ -114,7 +114,7 @@ namespace GraphSdk.Identity.ConditionalAccess {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// the entry point for the Conditional Access (CA) object model.
@@ -126,7 +126,7 @@ namespace GraphSdk.Identity.ConditionalAccess {
         /// </summary>
         public async Task<ConditionalAccessRoot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessRoot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// the entry point for the Conditional Access (CA) object model.
@@ -139,7 +139,7 @@ namespace GraphSdk.Identity.ConditionalAccess {
         public async Task PatchAsync(ConditionalAccessRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>the entry point for the Conditional Access (CA) object model.</summary>
         public class GetQueryParameters : QueryParametersBase {

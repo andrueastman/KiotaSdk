@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingS
         /// </summary>
         public async Task<DeviceSettingStateSummariesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceSettingStateSummariesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceSettingStateSummariesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Compliance Setting State Device Summary
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingS
         public async Task<SettingStateDeviceSummary> PostAsync(SettingStateDeviceSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Compliance Setting State Device Summary</summary>
         public class GetQueryParameters : QueryParametersBase {

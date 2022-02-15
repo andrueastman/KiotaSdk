@@ -99,7 +99,7 @@ namespace GraphSdk.AgreementAcceptances {
         /// </summary>
         public async Task<AgreementAcceptancesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AgreementAcceptancesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementAcceptancesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to agreementAcceptances
@@ -112,7 +112,7 @@ namespace GraphSdk.AgreementAcceptances {
         public async Task<AgreementAcceptance> PostAsync(AgreementAcceptance body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AgreementAcceptance>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementAcceptance>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from agreementAcceptances</summary>
         public class GetQueryParameters : QueryParametersBase {

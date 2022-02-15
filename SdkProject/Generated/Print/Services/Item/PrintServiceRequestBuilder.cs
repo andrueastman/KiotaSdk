@@ -110,7 +110,7 @@ namespace GraphSdk.Print.Services.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of available Universal Print service endpoints.
@@ -122,7 +122,7 @@ namespace GraphSdk.Print.Services.Item {
         /// </summary>
         public async Task<PrintService> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PrintService>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintService>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of available Universal Print service endpoints.
@@ -135,7 +135,7 @@ namespace GraphSdk.Print.Services.Item {
         public async Task PatchAsync(PrintService body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of available Universal Print service endpoints.</summary>
         public class GetQueryParameters : QueryParametersBase {

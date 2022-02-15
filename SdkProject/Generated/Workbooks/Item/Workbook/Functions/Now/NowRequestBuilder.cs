@@ -67,7 +67,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.Now {
         /// </summary>
         public async Task<NowResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<NowResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<NowResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class NowResponse : IParsable {

@@ -11,13 +11,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public string AssignedByGroup { get; set; }
         /// <summary>The service plans that are disabled in this assignment. Read-Only.</summary>
         public List<string> DisabledPlans { get; set; }
-        /// <summary>License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.</summary>
+        /// <summary>License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.</summary>
         public string Error { get; set; }
         /// <summary>The timestamp when the state of the license assignment was last updated.</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>The unique identifier for the SKU. Read-Only.</summary>
         public string SkuId { get; set; }
-        /// <summary>Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.</summary>
+        /// <summary>Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.</summary>
         public string State { get; set; }
         /// <summary>
         /// Instantiates a new licenseAssignmentState and sets the default values.

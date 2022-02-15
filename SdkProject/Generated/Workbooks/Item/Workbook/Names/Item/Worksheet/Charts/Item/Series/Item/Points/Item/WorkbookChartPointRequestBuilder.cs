@@ -110,7 +110,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Seri
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a collection of all points in the series. Read-only.
@@ -122,7 +122,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Seri
         /// </summary>
         public async Task<WorkbookChartPoint> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookChartPoint>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookChartPoint>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a collection of all points in the series. Read-only.
@@ -135,7 +135,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.Item.Seri
         public async Task PatchAsync(WorkbookChartPoint body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents a collection of all points in the series. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

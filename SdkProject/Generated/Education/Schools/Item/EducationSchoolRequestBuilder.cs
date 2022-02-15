@@ -118,7 +118,7 @@ namespace GraphSdk.Education.Schools.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get schools from education
@@ -130,7 +130,7 @@ namespace GraphSdk.Education.Schools.Item {
         /// </summary>
         public async Task<EducationSchool> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EducationSchool>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationSchool>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property schools in education
@@ -143,7 +143,7 @@ namespace GraphSdk.Education.Schools.Item {
         public async Task PatchAsync(EducationSchool body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get schools from education</summary>
         public class GetQueryParameters : QueryParametersBase {

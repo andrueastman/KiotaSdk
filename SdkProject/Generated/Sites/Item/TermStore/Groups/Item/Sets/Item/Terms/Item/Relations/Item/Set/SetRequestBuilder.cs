@@ -78,7 +78,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Terms.Item.Relatio
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.TermStore.Set> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermStore.Set>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermStore.Set>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The [set] in which the relation is relevant.</summary>
         public class GetQueryParameters : QueryParametersBase {

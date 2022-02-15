@@ -78,7 +78,7 @@ namespace GraphSdk.Education.Schools.Item.AdministrativeUnit {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AdministrativeUnit>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The underlying administrativeUnit for this school.</summary>
         public class GetQueryParameters : QueryParametersBase {

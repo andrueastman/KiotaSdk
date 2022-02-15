@@ -7,13 +7,13 @@ namespace GraphSdk.Models.Microsoft.Graph {
     public class SettingTemplateValue : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Default value for the setting. Read-only.</summary>
+        /// <summary>Default value for the setting.</summary>
         public string DefaultValue { get; set; }
-        /// <summary>Description of the setting. Read-only.</summary>
+        /// <summary>Description of the setting.</summary>
         public string Description { get; set; }
-        /// <summary>Name of the setting. Read-only.</summary>
+        /// <summary>Name of the setting.</summary>
         public string Name { get; set; }
-        /// <summary>Type of the setting. Read-only.</summary>
+        /// <summary>Type of the setting.</summary>
         public string Type { get; set; }
         /// <summary>
         /// Instantiates a new settingTemplateValue and sets the default values.

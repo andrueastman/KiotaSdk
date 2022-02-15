@@ -1,3 +1,4 @@
+using GraphSdk.Groups.Item.Calendar.CalendarView.Item.Instances.Delta;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.Accept;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.Attachments;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.Calendar;
@@ -11,7 +12,6 @@ using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.MultiValu
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.SingleValueExtendedProperties;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.SnoozeReminder;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item.TentativelyAccept;
-using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -158,7 +158,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The calendar view for the calendar. Navigation property. Read-only.
@@ -170,7 +170,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item {
         /// </summary>
         public async Task<Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The calendar view for the calendar. Navigation property. Read-only.
@@ -183,7 +183,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item {
         public async Task PatchAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The calendar view for the calendar. Navigation property. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

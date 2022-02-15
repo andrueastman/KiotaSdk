@@ -114,7 +114,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.Messages.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
@@ -126,7 +126,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.Messages.Item {
         /// </summary>
         public async Task<ServiceUpdateMessage> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ServiceUpdateMessage>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ServiceUpdateMessage>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
@@ -139,7 +139,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.Messages.Item {
         public async Task PatchAsync(ServiceUpdateMessage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.</summary>
         public class GetQueryParameters : QueryParametersBase {

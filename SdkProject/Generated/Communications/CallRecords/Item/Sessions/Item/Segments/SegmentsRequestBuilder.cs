@@ -99,7 +99,7 @@ namespace GraphSdk.Communications.CallRecords.Item.Sessions.Item.Segments {
         /// </summary>
         public async Task<SegmentsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SegmentsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SegmentsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of segments involved in the session. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Communications.CallRecords.Item.Sessions.Item.Segments {
         public async Task<Segment> PostAsync(Segment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Segment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Segment>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of segments involved in the session. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

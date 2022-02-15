@@ -99,7 +99,7 @@ namespace GraphSdk.Chats.Item.Tabs {
         /// </summary>
         public async Task<TabsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TabsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TabsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property to tabs for chats
@@ -112,7 +112,7 @@ namespace GraphSdk.Chats.Item.Tabs {
         public async Task<TeamsTab> PostAsync(TeamsTab body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TeamsTab>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get tabs from chats</summary>
         public class GetQueryParameters : QueryParametersBase {

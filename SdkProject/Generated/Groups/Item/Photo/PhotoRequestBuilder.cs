@@ -48,7 +48,7 @@ namespace GraphSdk.Groups.Item.Photo {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Groups.Item.Photo {
             return requestInfo;
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,10 +110,10 @@ namespace GraphSdk.Groups.Item.Photo {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -122,10 +122,10 @@ namespace GraphSdk.Groups.Item.Photo {
         /// </summary>
         public async Task<ProfilePhoto> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ProfilePhoto>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ProfilePhoto>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The group's profile photo.
+        /// The group's profile photo
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -135,9 +135,9 @@ namespace GraphSdk.Groups.Item.Photo {
         public async Task PatchAsync(ProfilePhoto body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The group's profile photo.</summary>
+        /// <summary>The group's profile photo</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

@@ -78,7 +78,7 @@ namespace GraphSdk.Users.Item.ManagedAppRegistrations {
         /// </summary>
         public async Task<ManagedAppRegistrationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppRegistrationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppRegistrationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \users\{user-id}\managedAppRegistrations\microsoft.graph.getUserIdsWithFlaggedAppRegistration()

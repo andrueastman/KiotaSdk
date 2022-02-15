@@ -118,7 +118,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Sort {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the sorting for the table. Read-only.
@@ -130,7 +130,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Sort {
         /// </summary>
         public async Task<WorkbookTableSort> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookTableSort>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookTableSort>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the sorting for the table. Read-only.
@@ -143,7 +143,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Sort {
         public async Task PatchAsync(WorkbookTableSort body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the sorting for the table. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

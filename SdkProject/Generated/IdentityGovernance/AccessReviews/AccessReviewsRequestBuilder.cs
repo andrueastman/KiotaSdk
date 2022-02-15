@@ -1,4 +1,5 @@
 using GraphSdk.IdentityGovernance.AccessReviews.Definitions;
+using GraphSdk.IdentityGovernance.AccessReviews.HistoryDefinitions;
 using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -13,6 +14,9 @@ namespace GraphSdk.IdentityGovernance.AccessReviews {
     public class AccessReviewsRequestBuilder {
         public DefinitionsRequestBuilder Definitions { get =>
             new DefinitionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public HistoryDefinitionsRequestBuilder HistoryDefinitions { get =>
+            new HistoryDefinitionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
@@ -110,7 +114,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get accessReviews from identityGovernance
@@ -122,7 +126,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews {
         /// </summary>
         public async Task<AccessReviewSet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessReviewSet>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessReviewSet>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property accessReviews in identityGovernance
@@ -135,7 +139,7 @@ namespace GraphSdk.IdentityGovernance.AccessReviews {
         public async Task PatchAsync(AccessReviewSet body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get accessReviews from identityGovernance</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
@@ -110,7 +110,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
         /// </summary>
         public async Task<string> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
@@ -123,7 +123,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Tar
         public async Task PutAsync(GraphSdk.IdentityGovernance.EntitlementManagement.Assignments.Item.Target.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

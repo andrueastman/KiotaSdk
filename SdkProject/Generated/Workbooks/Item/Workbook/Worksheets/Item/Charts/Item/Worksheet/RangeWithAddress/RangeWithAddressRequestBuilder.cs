@@ -69,7 +69,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Charts.Item.Worksheet
         /// </summary>
         public async Task<RangeWithAddressResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<RangeWithAddressResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RangeWithAddressResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class RangeWithAddressResponse : IParsable {

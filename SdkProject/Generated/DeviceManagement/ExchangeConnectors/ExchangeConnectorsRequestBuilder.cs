@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.ExchangeConnectors {
         /// </summary>
         public async Task<ExchangeConnectorsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ExchangeConnectorsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ExchangeConnectorsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of Exchange Connectors configured by the tenant.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.ExchangeConnectors {
         public async Task<DeviceManagementExchangeConnector> PostAsync(DeviceManagementExchangeConnector body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnector>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementExchangeConnector>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of Exchange Connectors configured by the tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -51,7 +51,7 @@ namespace GraphSdk.Education.Users.Item.Assignments {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// List of assignments for the user. Nullable.
+        /// Assignments belonging to the user.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Education.Users.Item.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// List of assignments for the user. Nullable.
+        /// Assignments belonging to the user.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Education.Users.Item.Assignments {
             return requestInfo;
         }
         /// <summary>
-        /// List of assignments for the user. Nullable.
+        /// Assignments belonging to the user.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Education.Users.Item.Assignments {
         /// </summary>
         public async Task<AssignmentsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// List of assignments for the user. Nullable.
+        /// Assignments belonging to the user.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Education.Users.Item.Assignments {
         public async Task<EducationAssignment> PostAsync(EducationAssignment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<EducationAssignment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationAssignment>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>List of assignments for the user. Nullable.</summary>
+        /// <summary>Assignments belonging to the user.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

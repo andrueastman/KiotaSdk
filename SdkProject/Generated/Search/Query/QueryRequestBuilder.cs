@@ -68,10 +68,10 @@ namespace GraphSdk.Search.Query {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<GraphSdk.Search.Query.Query>> PostAsync(QueryRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<IEnumerable<SearchResponse>> PostAsync(QueryRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Search.Query.Query>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<SearchResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

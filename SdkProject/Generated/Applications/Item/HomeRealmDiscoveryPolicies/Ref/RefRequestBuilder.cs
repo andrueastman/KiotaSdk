@@ -91,7 +91,7 @@ namespace GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Create new navigation property ref to homeRealmDiscoveryPolicies for applications
@@ -104,7 +104,7 @@ namespace GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref {
         public async Task<GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref.Ref> PostAsync(GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Applications.Item.HomeRealmDiscoveryPolicies.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get ref of homeRealmDiscoveryPolicies from applications</summary>
         public class GetQueryParameters : QueryParametersBase {

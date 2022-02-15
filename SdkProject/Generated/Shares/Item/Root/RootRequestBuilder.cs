@@ -110,7 +110,7 @@ namespace GraphSdk.Shares.Item.Root {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Used to access the underlying driveItem. Deprecated -- use driveItem instead.
@@ -122,7 +122,7 @@ namespace GraphSdk.Shares.Item.Root {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Used to access the underlying driveItem. Deprecated -- use driveItem instead.
@@ -135,7 +135,7 @@ namespace GraphSdk.Shares.Item.Root {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Used to access the underlying driveItem. Deprecated -- use driveItem instead.</summary>
         public class GetQueryParameters : QueryParametersBase {

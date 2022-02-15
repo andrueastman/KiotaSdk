@@ -106,7 +106,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         /// </summary>
         public async Task<EducationAssignmentResource> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EducationAssignmentResource>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationAssignmentResource>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.Resources.Item {
         public async Task PatchAsync(EducationAssignmentResource body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

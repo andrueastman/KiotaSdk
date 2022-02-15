@@ -99,7 +99,7 @@ namespace GraphSdk.Print.Services.Item.Endpoints {
         /// </summary>
         public async Task<EndpointsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EndpointsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EndpointsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Endpoints that can be used to access the service. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Print.Services.Item.Endpoints {
         public async Task<PrintServiceEndpoint> PostAsync(PrintServiceEndpoint body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PrintServiceEndpoint>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintServiceEndpoint>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Endpoints that can be used to access the service. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

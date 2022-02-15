@@ -1,6 +1,6 @@
+using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
 using GraphSdk.Me.CalendarView.Delta;
 using GraphSdk.Me.CalendarView.Item;
-using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -106,7 +106,7 @@ namespace GraphSdk.Me.CalendarView {
         /// </summary>
         public async Task<CalendarViewResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CalendarViewResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CalendarViewResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The calendar view for the calendar. Read-only. Nullable.
@@ -119,7 +119,7 @@ namespace GraphSdk.Me.CalendarView {
         public async Task<Event> PostAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The calendar view for the calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

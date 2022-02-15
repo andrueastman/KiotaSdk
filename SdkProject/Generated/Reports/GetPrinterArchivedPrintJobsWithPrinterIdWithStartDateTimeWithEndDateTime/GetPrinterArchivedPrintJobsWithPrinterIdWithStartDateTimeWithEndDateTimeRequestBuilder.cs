@@ -72,7 +72,7 @@ namespace GraphSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDate
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

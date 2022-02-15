@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Contracts.GetAvailableExtensionProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -106,7 +106,7 @@ namespace GraphSdk.Applications.Item.ExtensionProperties.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Applications.Item.ExtensionProperties.Item {
         /// </summary>
         public async Task<ExtensionProperty> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ExtensionProperty>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ExtensionProperty>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Applications.Item.ExtensionProperties.Item {
         public async Task PatchAsync(ExtensionProperty body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

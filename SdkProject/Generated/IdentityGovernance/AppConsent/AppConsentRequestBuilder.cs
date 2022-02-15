@@ -110,7 +110,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get appConsent from identityGovernance
@@ -122,7 +122,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent {
         /// </summary>
         public async Task<AppConsentApprovalRoute> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppConsentApprovalRoute>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppConsentApprovalRoute>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property appConsent in identityGovernance
@@ -135,7 +135,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent {
         public async Task PatchAsync(AppConsentApprovalRoute body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get appConsent from identityGovernance</summary>
         public class GetQueryParameters : QueryParametersBase {

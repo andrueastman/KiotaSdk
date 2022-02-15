@@ -1,3 +1,4 @@
+using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
 using GraphSdk.Me.Events.Item.Accept;
 using GraphSdk.Me.Events.Item.Attachments;
 using GraphSdk.Me.Events.Item.Calendar;
@@ -11,7 +12,6 @@ using GraphSdk.Me.Events.Item.MultiValueExtendedProperties;
 using GraphSdk.Me.Events.Item.SingleValueExtendedProperties;
 using GraphSdk.Me.Events.Item.SnoozeReminder;
 using GraphSdk.Me.Events.Item.TentativelyAccept;
-using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -96,7 +96,7 @@ namespace GraphSdk.Me.Events.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -111,7 +111,7 @@ namespace GraphSdk.Me.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -132,7 +132,7 @@ namespace GraphSdk.Me.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -150,7 +150,7 @@ namespace GraphSdk.Me.Events.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -158,10 +158,10 @@ namespace GraphSdk.Me.Events.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -170,10 +170,10 @@ namespace GraphSdk.Me.Events.Item {
         /// </summary>
         public async Task<Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
+        /// The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -183,9 +183,9 @@ namespace GraphSdk.Me.Events.Item {
         public async Task PatchAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.</summary>
+        /// <summary>The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Select properties to be returned</summary>
             public string[] Select { get; set; }

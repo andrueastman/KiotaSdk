@@ -110,7 +110,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get accessPackageAssignmentApprovals from identityGovernance
@@ -122,7 +122,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Approval> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Approval>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Approval>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property accessPackageAssignmentApprovals in identityGovernance
@@ -135,7 +135,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignm
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Approval body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get accessPackageAssignmentApprovals from identityGovernance</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -110,7 +110,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The localized version of the terms of use agreement files attached to the agreement.
@@ -122,7 +122,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
         /// </summary>
         public async Task<AgreementFileLocalization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The localized version of the terms of use agreement files attached to the agreement.
@@ -135,7 +135,7 @@ namespace GraphSdk.Agreements.Item.File.Localizations.Item {
         public async Task PatchAsync(AgreementFileLocalization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The localized version of the terms of use agreement files attached to the agreement.</summary>
         public class GetQueryParameters : QueryParametersBase {

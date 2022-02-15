@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class NotificationMessageTemplate : Entity, IParsable {
-        /// <summary>The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.</summary>
+        /// <summary>The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.</summary>
         public NotificationTemplateBrandingOptions? BrandingOptions { get; set; }
         /// <summary>The default locale to fallback onto when the requested locale is not available.</summary>
         public string DefaultLocale { get; set; }

@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceManagement.Reports.ExportJobs.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Entity representing a job to export a report
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceManagement.Reports.ExportJobs.Item {
         /// </summary>
         public async Task<DeviceManagementExportJob> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceManagementExportJob>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementExportJob>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Entity representing a job to export a report
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceManagement.Reports.ExportJobs.Item {
         public async Task PatchAsync(DeviceManagementExportJob body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Entity representing a job to export a report</summary>
         public class GetQueryParameters : QueryParametersBase {

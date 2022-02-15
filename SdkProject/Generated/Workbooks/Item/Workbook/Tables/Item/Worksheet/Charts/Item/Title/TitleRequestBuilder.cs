@@ -110,7 +110,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.Charts.Item.Tit
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
@@ -122,7 +122,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.Charts.Item.Tit
         /// </summary>
         public async Task<WorkbookChartTitle> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookChartTitle>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookChartTitle>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
@@ -135,7 +135,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.Charts.Item.Tit
         public async Task PatchAsync(WorkbookChartTitle body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

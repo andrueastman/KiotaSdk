@@ -1,5 +1,5 @@
+using GraphSdk.Devices.GetByIds;
 using GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item;
-using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
         /// </summary>
         public async Task<InternalSponsorsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<InternalSponsorsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<InternalSponsorsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizatio
         public async Task<DirectoryObject> PostAsync(DirectoryObject body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

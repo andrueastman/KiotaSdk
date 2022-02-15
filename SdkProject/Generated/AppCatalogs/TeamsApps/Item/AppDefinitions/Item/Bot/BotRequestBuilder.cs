@@ -106,7 +106,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.Bot {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The details of the bot specified in the Teams app manifest.
@@ -118,7 +118,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.Bot {
         /// </summary>
         public async Task<TeamworkBot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TeamworkBot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TeamworkBot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The details of the bot specified in the Teams app manifest.
@@ -131,7 +131,7 @@ namespace GraphSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.Bot {
         public async Task PatchAsync(TeamworkBot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The details of the bot specified in the Teams app manifest.</summary>
         public class GetQueryParameters : QueryParametersBase {

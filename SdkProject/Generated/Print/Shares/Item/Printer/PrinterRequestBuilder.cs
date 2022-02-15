@@ -82,7 +82,7 @@ namespace GraphSdk.Print.Shares.Item.Printer {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Printer> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Printer>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The printer that this printer share is related to.</summary>
         public class GetQueryParameters : QueryParametersBase {

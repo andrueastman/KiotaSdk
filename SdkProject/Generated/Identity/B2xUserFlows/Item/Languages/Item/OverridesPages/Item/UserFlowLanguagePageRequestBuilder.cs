@@ -110,7 +110,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.Languages.Item.OverridesPages.Item
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
@@ -122,7 +122,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.Languages.Item.OverridesPages.Item
         /// </summary>
         public async Task<UserFlowLanguagePage> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UserFlowLanguagePage>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UserFlowLanguagePage>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
@@ -135,7 +135,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.Languages.Item.OverridesPages.Item
         public async Task PatchAsync(UserFlowLanguagePage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).</summary>
         public class GetQueryParameters : QueryParametersBase {

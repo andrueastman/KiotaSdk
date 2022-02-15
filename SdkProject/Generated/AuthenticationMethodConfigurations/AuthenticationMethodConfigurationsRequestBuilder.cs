@@ -99,7 +99,7 @@ namespace GraphSdk.AuthenticationMethodConfigurations {
         /// </summary>
         public async Task<AuthenticationMethodConfigurationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AuthenticationMethodConfigurationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AuthenticationMethodConfigurationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to authenticationMethodConfigurations
@@ -112,7 +112,7 @@ namespace GraphSdk.AuthenticationMethodConfigurations {
         public async Task<AuthenticationMethodConfiguration> PostAsync(AuthenticationMethodConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AuthenticationMethodConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AuthenticationMethodConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from authenticationMethodConfigurations</summary>
         public class GetQueryParameters : QueryParametersBase {

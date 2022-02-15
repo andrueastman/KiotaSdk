@@ -52,7 +52,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
+        /// The access packages in this catalog. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return requestInfo;
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
+        /// The access packages in this catalog. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
             return new FilterByCurrentUserWithOnRequestBuilder(PathParameters, RequestAdapter, on);
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
+        /// The access packages in this catalog. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -108,10 +108,10 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
         /// </summary>
         public async Task<AccessPackagesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackagesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackagesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The access packages in this catalog. Read-only. Nullable. Supports $expand.
+        /// The access packages in this catalog. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -121,9 +121,9 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
         public async Task<GraphSdk.Models.Microsoft.Graph.AccessPackage> PostAsync(GraphSdk.Models.Microsoft.Graph.AccessPackage body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AccessPackage>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The access packages in this catalog. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The access packages in this catalog. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

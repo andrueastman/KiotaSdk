@@ -106,7 +106,7 @@ namespace GraphSdk.Print.Services.Item.Endpoints.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Endpoints that can be used to access the service. Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Print.Services.Item.Endpoints.Item {
         /// </summary>
         public async Task<PrintServiceEndpoint> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PrintServiceEndpoint>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintServiceEndpoint>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Endpoints that can be used to access the service. Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Print.Services.Item.Endpoints.Item {
         public async Task PatchAsync(PrintServiceEndpoint body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Endpoints that can be used to access the service. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

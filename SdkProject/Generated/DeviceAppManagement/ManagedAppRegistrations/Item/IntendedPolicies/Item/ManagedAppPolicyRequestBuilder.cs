@@ -122,7 +122,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPoli
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Zero or more policies admin intended for the app as of now.
@@ -134,7 +134,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPoli
         /// </summary>
         public async Task<ManagedAppPolicy> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Zero or more policies admin intended for the app as of now.
@@ -147,7 +147,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.IntendedPoli
         public async Task PatchAsync(ManagedAppPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Zero or more policies admin intended for the app as of now.</summary>
         public class GetQueryParameters : QueryParametersBase {

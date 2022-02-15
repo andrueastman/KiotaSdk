@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.CreateLink {
         public async Task<CreateLinkResponse> PostAsync(CreateLinkRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<CreateLinkResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CreateLinkResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes permission</summary>
         public class CreateLinkResponse : IParsable {

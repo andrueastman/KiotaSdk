@@ -64,9 +64,9 @@ namespace GraphSdk.Users.Item.MailFolders.Delta {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<GraphSdk.Users.Item.MailFolders.Delta.Delta>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<IEnumerable<MailFolder>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.MailFolders.Delta.Delta>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<MailFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

@@ -1,3 +1,4 @@
+using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Accept;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Cancel;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Decline;
@@ -5,7 +6,6 @@ using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Forward;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.SnoozeReminder;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.TentativelyAccept;
-using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -134,7 +134,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.I
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
@@ -146,7 +146,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.I
         /// </summary>
         public async Task<Event> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Event>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
@@ -159,7 +159,7 @@ namespace GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.I
         public async Task PatchAsync(Event body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

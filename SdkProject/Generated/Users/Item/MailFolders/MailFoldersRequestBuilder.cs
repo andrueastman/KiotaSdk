@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.MailFolders.Delta;
 using GraphSdk.Users.Item.MailFolders.Delta;
 using GraphSdk.Users.Item.MailFolders.Item;
 using Microsoft.Kiota.Abstractions;
@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.MailFolders {
         /// </summary>
         public async Task<MailFoldersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MailFoldersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MailFoldersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The user's mail folders. Read-only. Nullable.
@@ -119,7 +119,7 @@ namespace GraphSdk.Users.Item.MailFolders {
         public async Task<MailFolder> PostAsync(MailFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The user's mail folders. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

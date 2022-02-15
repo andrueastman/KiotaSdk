@@ -66,7 +66,7 @@ namespace GraphSdk.Users.Item.GetManagedAppDiagnosticStatuses {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Users.Item.GetManagedAppDiagnosticStatuses.GetManagedAppDiagnosticStatuses>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.GetManagedAppDiagnosticStatuses.GetManagedAppDiagnosticStatuses>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.GetManagedAppDiagnosticStatuses.GetManagedAppDiagnosticStatuses>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

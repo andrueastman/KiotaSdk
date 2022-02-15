@@ -66,7 +66,7 @@ namespace GraphSdk.Chats.GetAllMessages {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Chats.GetAllMessages.GetAllMessages>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Chats.GetAllMessages.GetAllMessages>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Chats.GetAllMessages.GetAllMessages>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

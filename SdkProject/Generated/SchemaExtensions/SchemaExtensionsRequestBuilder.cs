@@ -99,7 +99,7 @@ namespace GraphSdk.SchemaExtensions {
         /// </summary>
         public async Task<SchemaExtensionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SchemaExtensionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SchemaExtensionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to schemaExtensions
@@ -112,7 +112,7 @@ namespace GraphSdk.SchemaExtensions {
         public async Task<SchemaExtension> PostAsync(SchemaExtension body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<SchemaExtension>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SchemaExtension>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from schemaExtensions</summary>
         public class GetQueryParameters : QueryParametersBase {

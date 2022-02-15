@@ -47,7 +47,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+        /// The tokenIssuancePolicies assigned to this service principal.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -77,9 +77,9 @@ namespace GraphSdk.ServicePrincipals.Item.TokenIssuancePolicies {
         /// </summary>
         public async Task<TokenIssuancePoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TokenIssuancePoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TokenIssuancePoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The tokenIssuancePolicies assigned to this service principal. Supports $expand.</summary>
+        /// <summary>The tokenIssuancePolicies assigned to this service principal.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

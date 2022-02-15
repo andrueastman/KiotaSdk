@@ -96,7 +96,7 @@ namespace GraphSdk.AppCatalogs {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.AppCatalogs> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AppCatalogs>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.AppCatalogs>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update appCatalogs
@@ -109,7 +109,7 @@ namespace GraphSdk.AppCatalogs {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.AppCatalogs body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get appCatalogs</summary>
         public class GetQueryParameters : QueryParametersBase {

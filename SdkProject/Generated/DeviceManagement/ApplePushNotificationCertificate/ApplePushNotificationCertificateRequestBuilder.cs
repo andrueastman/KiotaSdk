@@ -107,7 +107,7 @@ namespace GraphSdk.DeviceManagement.ApplePushNotificationCertificate {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \deviceManagement\applePushNotificationCertificate\microsoft.graph.downloadApplePushNotificationCertificateSigningRequest()
@@ -125,7 +125,7 @@ namespace GraphSdk.DeviceManagement.ApplePushNotificationCertificate {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.ApplePushNotificationCertificate> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ApplePushNotificationCertificate>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.ApplePushNotificationCertificate>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Apple push notification certificate.
@@ -138,7 +138,7 @@ namespace GraphSdk.DeviceManagement.ApplePushNotificationCertificate {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.ApplePushNotificationCertificate body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Apple push notification certificate.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -99,7 +99,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item.SubmittedResou
         /// </summary>
         public async Task<SubmittedResourcesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SubmittedResourcesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SubmittedResourcesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Education.Me.Assignments.Item.Submissions.Item.SubmittedResou
         public async Task<EducationSubmissionResource> PostAsync(EducationSubmissionResource body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<EducationSubmissionResource>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationSubmissionResource>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

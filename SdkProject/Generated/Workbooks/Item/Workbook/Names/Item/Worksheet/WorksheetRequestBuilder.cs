@@ -141,7 +141,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
@@ -153,7 +153,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         /// </summary>
         public async Task<WorkbookWorksheet> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookWorksheet>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
@@ -166,7 +166,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet {
         public async Task PatchAsync(WorkbookWorksheet body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\names\{workbookNamedItem-id}\worksheet\microsoft.graph.range()

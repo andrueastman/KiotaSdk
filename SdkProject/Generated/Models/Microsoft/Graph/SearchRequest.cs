@@ -22,6 +22,10 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>Specifies the offset for the search results. Offset 0 returns the very first result. Optional.</summary>
         public int? From { get; set; }
         public SearchQuery Query { get; set; }
+        /// <summary>Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.</summary>
+        public SearchAlterationOptions QueryAlterationOptions { get; set; }
+        /// <summary>Provides the search result templates options for rendering connectors search results.</summary>
+        public ResultTemplateOption ResultTemplateOptions { get; set; }
         /// <summary>The size of the page to be retrieved. Optional.</summary>
         public int? Size { get; set; }
         /// <summary>Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.</summary>
@@ -45,6 +49,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
                 {"fields", (o,n) => { (o as SearchRequest).Fields = n.GetCollectionOfPrimitiveValues<string>().ToList(); } },
                 {"from", (o,n) => { (o as SearchRequest).From = n.GetIntValue(); } },
                 {"query", (o,n) => { (o as SearchRequest).Query = n.GetObjectValue<SearchQuery>(); } },
+                {"queryAlterationOptions", (o,n) => { (o as SearchRequest).QueryAlterationOptions = n.GetObjectValue<SearchAlterationOptions>(); } },
+                {"resultTemplateOptions", (o,n) => { (o as SearchRequest).ResultTemplateOptions = n.GetObjectValue<ResultTemplateOption>(); } },
                 {"size", (o,n) => { (o as SearchRequest).Size = n.GetIntValue(); } },
                 {"sortProperties", (o,n) => { (o as SearchRequest).SortProperties = n.GetCollectionOfObjectValues<SortProperty>().ToList(); } },
             };
@@ -63,6 +69,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteIntValue("from", From);
             writer.WriteObjectValue<SearchQuery>("query", Query);
+            writer.WriteObjectValue<SearchAlterationOptions>("queryAlterationOptions", QueryAlterationOptions);
+            writer.WriteObjectValue<ResultTemplateOption>("resultTemplateOptions", ResultTemplateOptions);
             writer.WriteIntValue("size", Size);
             writer.WriteCollectionOfObjectValues<SortProperty>("sortProperties", SortProperties);
             writer.WriteAdditionalData(AdditionalData);

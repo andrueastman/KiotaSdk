@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the settings that control the behavior of Azure AD entitlement management.
@@ -118,7 +118,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
         /// </summary>
         public async Task<EntitlementManagementSettings> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EntitlementManagementSettings>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EntitlementManagementSettings>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the settings that control the behavior of Azure AD entitlement management.
@@ -131,7 +131,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Settings {
         public async Task PatchAsync(EntitlementManagementSettings body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the settings that control the behavior of Azure AD entitlement management.</summary>
         public class GetQueryParameters : QueryParametersBase {

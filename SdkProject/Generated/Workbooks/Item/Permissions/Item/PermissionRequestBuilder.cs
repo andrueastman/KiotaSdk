@@ -110,7 +110,7 @@ namespace GraphSdk.Workbooks.Item.Permissions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The set of permissions for the item. Read-only. Nullable.
@@ -122,7 +122,7 @@ namespace GraphSdk.Workbooks.Item.Permissions.Item {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Permission> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Permission>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Permission>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The set of permissions for the item. Read-only. Nullable.
@@ -135,7 +135,7 @@ namespace GraphSdk.Workbooks.Item.Permissions.Item {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Permission body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The set of permissions for the item. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

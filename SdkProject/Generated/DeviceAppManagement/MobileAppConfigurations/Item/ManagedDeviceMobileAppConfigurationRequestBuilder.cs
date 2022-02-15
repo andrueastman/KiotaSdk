@@ -130,7 +130,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Managed Device Mobile Application Configurations.
@@ -142,7 +142,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item {
         /// </summary>
         public async Task<ManagedDeviceMobileAppConfiguration> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Managed Device Mobile Application Configurations.
@@ -155,7 +155,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations.Item {
         public async Task PatchAsync(ManagedDeviceMobileAppConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The Managed Device Mobile Application Configurations.</summary>
         public class GetQueryParameters : QueryParametersBase {

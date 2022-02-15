@@ -51,7 +51,7 @@ namespace GraphSdk.IdentityProtection.RiskDetections {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Get riskDetections from identityProtection
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.IdentityProtection.RiskDetections {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to riskDetections for identityProtection
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.IdentityProtection.RiskDetections {
             return requestInfo;
         }
         /// <summary>
-        /// Get riskDetections from identityProtection
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.IdentityProtection.RiskDetections {
         /// </summary>
         public async Task<RiskDetectionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RiskDetectionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RiskDetectionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Create new navigation property to riskDetections for identityProtection
+        /// Risk detection in Azure AD Identity Protection and the associated information about the detection.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.IdentityProtection.RiskDetections {
         public async Task<RiskDetection> PostAsync(RiskDetection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<RiskDetection>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RiskDetection>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Get riskDetections from identityProtection</summary>
+        /// <summary>Risk detection in Azure AD Identity Protection and the associated information about the detection.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

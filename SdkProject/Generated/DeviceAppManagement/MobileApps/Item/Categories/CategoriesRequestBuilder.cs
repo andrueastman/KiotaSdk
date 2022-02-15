@@ -77,7 +77,7 @@ namespace GraphSdk.DeviceAppManagement.MobileApps.Item.Categories {
         /// </summary>
         public async Task<CategoriesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CategoriesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CategoriesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of categories for this app.</summary>
         public class GetQueryParameters : QueryParametersBase {

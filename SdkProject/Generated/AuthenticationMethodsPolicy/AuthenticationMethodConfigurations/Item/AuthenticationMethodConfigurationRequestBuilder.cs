@@ -44,7 +44,7 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
             return requestInfo;
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
             return requestInfo;
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
             return requestInfo;
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,10 +106,10 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -118,10 +118,10 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
         /// </summary>
         public async Task<AuthenticationMethodConfiguration> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AuthenticationMethodConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AuthenticationMethodConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Represents the settings for each authentication method.
+        /// Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -131,9 +131,9 @@ namespace GraphSdk.AuthenticationMethodsPolicy.AuthenticationMethodConfiguration
         public async Task PatchAsync(AuthenticationMethodConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Represents the settings for each authentication method.</summary>
+        /// <summary>Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

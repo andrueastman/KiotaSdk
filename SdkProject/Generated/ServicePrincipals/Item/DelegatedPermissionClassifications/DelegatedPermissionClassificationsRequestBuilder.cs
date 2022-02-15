@@ -99,7 +99,7 @@ namespace GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications {
         /// </summary>
         public async Task<DelegatedPermissionClassificationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DelegatedPermissionClassificationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DelegatedPermissionClassificationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.
@@ -112,7 +112,7 @@ namespace GraphSdk.ServicePrincipals.Item.DelegatedPermissionClassifications {
         public async Task<DelegatedPermissionClassification> PostAsync(DelegatedPermissionClassification body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DelegatedPermissionClassification>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

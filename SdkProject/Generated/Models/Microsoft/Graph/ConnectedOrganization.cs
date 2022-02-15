@@ -1,3 +1,4 @@
+using GraphSdk.Devices.GetByIds;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public List<DirectoryObject> InternalSponsors { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? ModifiedDateTime { get; set; }
-        /// <summary>The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.</summary>
+        /// <summary>The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.</summary>
         public ConnectedOrganizationState? State { get; set; }
         /// <summary>
         /// The deserialization information for the current model

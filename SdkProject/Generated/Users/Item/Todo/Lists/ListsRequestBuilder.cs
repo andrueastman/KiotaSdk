@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.Todo.Lists {
         /// </summary>
         public async Task<ListsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ListsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ListsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The task lists in the users mailbox.
@@ -119,7 +119,7 @@ namespace GraphSdk.Users.Item.Todo.Lists {
         public async Task<TodoTaskList> PostAsync(TodoTaskList body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<TodoTaskList>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TodoTaskList>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The task lists in the users mailbox.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -1,6 +1,7 @@
 using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.ServicePrincipals.Item.AddKey;
 using GraphSdk.ServicePrincipals.Item.AddPassword;
+using GraphSdk.ServicePrincipals.Item.AddTokenSigningCertificate;
 using GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo;
 using GraphSdk.ServicePrincipals.Item.AppRoleAssignments;
 using GraphSdk.ServicePrincipals.Item.CheckMemberGroups;
@@ -38,6 +39,9 @@ namespace GraphSdk.ServicePrincipals.Item {
         }
         public AddPasswordRequestBuilder AddPassword { get =>
             new AddPasswordRequestBuilder(PathParameters, RequestAdapter);
+        }
+        public AddTokenSigningCertificateRequestBuilder AddTokenSigningCertificate { get =>
+            new AddTokenSigningCertificateRequestBuilder(PathParameters, RequestAdapter);
         }
         public AppRoleAssignedToRequestBuilder AppRoleAssignedTo { get =>
             new AppRoleAssignedToRequestBuilder(PathParameters, RequestAdapter);
@@ -198,7 +202,7 @@ namespace GraphSdk.ServicePrincipals.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get entity from servicePrincipals by key
@@ -210,7 +214,7 @@ namespace GraphSdk.ServicePrincipals.Item {
         /// </summary>
         public async Task<ServicePrincipal> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ServicePrincipal>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ServicePrincipal>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update entity in servicePrincipals
@@ -223,7 +227,7 @@ namespace GraphSdk.ServicePrincipals.Item {
         public async Task PatchAsync(ServicePrincipal body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entity from servicePrincipals by key</summary>
         public class GetQueryParameters : QueryParametersBase {

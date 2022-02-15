@@ -68,7 +68,7 @@ namespace GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserCon
         /// </summary>
         public async Task<IEnumerable<GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.FilterByCurrentUserWithOn.FilterByCurrentUserWithOn>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

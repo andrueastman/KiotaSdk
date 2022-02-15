@@ -43,7 +43,7 @@ namespace GraphSdk.Users.Item.MemberOf.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -64,7 +64,7 @@ namespace GraphSdk.Users.Item.MemberOf.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -82,7 +82,7 @@ namespace GraphSdk.Users.Item.MemberOf.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,10 +91,10 @@ namespace GraphSdk.Users.Item.MemberOf.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+        /// The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -104,9 +104,9 @@ namespace GraphSdk.Users.Item.MemberOf.Ref {
         public async Task<GraphSdk.Users.Item.MemberOf.Ref.Ref> PostAsync(GraphSdk.Users.Item.MemberOf.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Users.Item.MemberOf.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Users.Item.MemberOf.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
+        /// <summary>The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

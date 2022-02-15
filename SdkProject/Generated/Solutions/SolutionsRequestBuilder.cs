@@ -78,7 +78,7 @@ namespace GraphSdk.Solutions {
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
-        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Solutions body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
+        public RequestInformation CreatePatchRequestInformation(SolutionsRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation {
                 HttpMethod = Method.PATCH,
@@ -100,7 +100,7 @@ namespace GraphSdk.Solutions {
         /// </summary>
         public async Task<SolutionsRoot> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SolutionsRoot>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SolutionsRoot>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update solutions
@@ -110,10 +110,10 @@ namespace GraphSdk.Solutions {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Solutions body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task PatchAsync(SolutionsRoot body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get solutions</summary>
         public class GetQueryParameters : QueryParametersBase {

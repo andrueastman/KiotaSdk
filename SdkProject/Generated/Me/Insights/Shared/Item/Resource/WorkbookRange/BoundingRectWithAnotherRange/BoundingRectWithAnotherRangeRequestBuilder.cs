@@ -69,7 +69,7 @@ namespace GraphSdk.Me.Insights.Shared.Item.Resource.WorkbookRange.BoundingRectWi
         /// </summary>
         public async Task<BoundingRectWithAnotherRangeResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<BoundingRectWithAnotherRangeResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<BoundingRectWithAnotherRangeResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class BoundingRectWithAnotherRangeResponse : IParsable {

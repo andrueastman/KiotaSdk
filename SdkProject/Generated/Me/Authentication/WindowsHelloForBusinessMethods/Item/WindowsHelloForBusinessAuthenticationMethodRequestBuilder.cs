@@ -110,7 +110,7 @@ namespace GraphSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get windowsHelloForBusinessMethods from me
@@ -122,7 +122,7 @@ namespace GraphSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item {
         /// </summary>
         public async Task<WindowsHelloForBusinessAuthenticationMethod> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WindowsHelloForBusinessAuthenticationMethod>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsHelloForBusinessAuthenticationMethod>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property windowsHelloForBusinessMethods in me
@@ -135,7 +135,7 @@ namespace GraphSdk.Me.Authentication.WindowsHelloForBusinessMethods.Item {
         public async Task PatchAsync(WindowsHelloForBusinessAuthenticationMethod body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get windowsHelloForBusinessMethods from me</summary>
         public class GetQueryParameters : QueryParametersBase {

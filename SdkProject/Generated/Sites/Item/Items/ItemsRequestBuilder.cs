@@ -51,7 +51,7 @@ namespace GraphSdk.Sites.Item.Items {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can't be enumerated.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Sites.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can't be enumerated.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Sites.Item.Items {
             return requestInfo;
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can't be enumerated.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Sites.Item.Items {
         /// </summary>
         public async Task<ItemsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Used to address any item contained in this site. This collection cannot be enumerated.
+        /// Used to address any item contained in this site. This collection can't be enumerated.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Sites.Item.Items {
         public async Task<BaseItem> PostAsync(BaseItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<BaseItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<BaseItem>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Used to address any item contained in this site. This collection cannot be enumerated.</summary>
+        /// <summary>Used to address any item contained in this site. This collection can't be enumerated.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

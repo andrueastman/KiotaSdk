@@ -107,7 +107,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a collection of all the rows in the table. Read-only.
@@ -119,7 +119,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item
         /// </summary>
         public async Task<WorkbookTableRow> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WorkbookTableRow>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WorkbookTableRow>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a collection of all the rows in the table. Read-only.
@@ -132,7 +132,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Worksheets.Item.Tables.Item.Rows.Item
         public async Task PatchAsync(WorkbookTableRow body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \workbooks\{driveItem-id}\workbook\worksheets\{workbookWorksheet-id}\tables\{workbookTable-id}\rows\{workbookTableRow-id}\microsoft.graph.range()

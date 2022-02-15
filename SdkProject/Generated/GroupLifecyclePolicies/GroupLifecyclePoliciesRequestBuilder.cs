@@ -99,7 +99,7 @@ namespace GraphSdk.GroupLifecyclePolicies {
         /// </summary>
         public async Task<GroupLifecyclePoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GroupLifecyclePoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupLifecyclePoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to groupLifecyclePolicies
@@ -112,7 +112,7 @@ namespace GraphSdk.GroupLifecyclePolicies {
         public async Task<GroupLifecyclePolicy> PostAsync(GroupLifecyclePolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GroupLifecyclePolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GroupLifecyclePolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from groupLifecyclePolicies</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -14,6 +14,8 @@ namespace GraphSdk.Models.Microsoft.Graph {
         /// <summary>The rank or the order of the result.</summary>
         public int? Rank { get; set; }
         public Entity Resource { get; set; }
+        /// <summary>ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.</summary>
+        public string ResultTemplateId { get; set; }
         /// <summary>A summary of the result, if a summary is available.</summary>
         public string Summary { get; set; }
         /// <summary>
@@ -31,6 +33,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
                 {"hitId", (o,n) => { (o as SearchHit).HitId = n.GetStringValue(); } },
                 {"rank", (o,n) => { (o as SearchHit).Rank = n.GetIntValue(); } },
                 {"resource", (o,n) => { (o as SearchHit).Resource = n.GetObjectValue<Entity>(); } },
+                {"resultTemplateId", (o,n) => { (o as SearchHit).ResultTemplateId = n.GetStringValue(); } },
                 {"summary", (o,n) => { (o as SearchHit).Summary = n.GetStringValue(); } },
             };
         }
@@ -44,6 +47,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
             writer.WriteStringValue("hitId", HitId);
             writer.WriteIntValue("rank", Rank);
             writer.WriteObjectValue<Entity>("resource", Resource);
+            writer.WriteStringValue("resultTemplateId", ResultTemplateId);
             writer.WriteStringValue("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);
         }

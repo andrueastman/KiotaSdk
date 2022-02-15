@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingS
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Compliance Setting State Device Summary
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingS
         /// </summary>
         public async Task<SettingStateDeviceSummary> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SettingStateDeviceSummary>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Compliance Setting State Device Summary
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.DeviceSettingS
         public async Task PatchAsync(SettingStateDeviceSummary body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Compliance Setting State Device Summary</summary>
         public class GetQueryParameters : QueryParametersBase {

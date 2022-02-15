@@ -51,7 +51,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
             return requestInfo;
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
         /// </summary>
         public async Task<AppRoleAssignedToResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppRoleAssignedToResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppRoleAssignedToResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.
+        /// App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.ServicePrincipals.Item.AppRoleAssignedTo {
         public async Task<AppRoleAssignment> PostAsync(AppRoleAssignment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals.Supports $expand.</summary>
+        /// <summary>App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

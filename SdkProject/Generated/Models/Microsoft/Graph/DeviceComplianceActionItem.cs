@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class DeviceComplianceActionItem : Entity, IParsable {
-        /// <summary>What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.</summary>
+        /// <summary>What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.</summary>
         public DeviceComplianceActionType? ActionType { get; set; }
         /// <summary>Number of hours to wait till the action will be enforced. Valid values 0 to 8760</summary>
         public int? GracePeriodHours { get; set; }

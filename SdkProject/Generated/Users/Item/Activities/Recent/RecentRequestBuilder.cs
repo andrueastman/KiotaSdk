@@ -66,7 +66,7 @@ namespace GraphSdk.Users.Item.Activities.Recent {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Users.Item.Activities.Recent.Recent>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.Activities.Recent.Recent>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Users.Item.Activities.Recent.Recent>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

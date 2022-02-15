@@ -106,7 +106,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Extensions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
@@ -118,7 +118,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Extensions.Item {
         /// </summary>
         public async Task<Extension> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Extension>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Extension>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
@@ -131,7 +131,7 @@ namespace GraphSdk.Groups.Item.Threads.Item.Posts.Item.Extensions.Item {
         public async Task PatchAsync(Extension body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

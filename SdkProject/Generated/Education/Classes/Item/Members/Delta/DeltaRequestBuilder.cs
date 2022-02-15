@@ -66,7 +66,7 @@ namespace GraphSdk.Education.Classes.Item.Members.Delta {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Education.Classes.Item.Members.Delta.Delta>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Education.Classes.Item.Members.Delta.Delta>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Education.Classes.Item.Members.Delta.Delta>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

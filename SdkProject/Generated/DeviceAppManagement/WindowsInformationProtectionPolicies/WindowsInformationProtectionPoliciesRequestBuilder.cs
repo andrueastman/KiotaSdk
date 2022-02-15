@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.WindowsInformationProtectionPolicies {
         /// </summary>
         public async Task<WindowsInformationProtectionPoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Windows information protection for apps running on devices which are not MDM enrolled.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.WindowsInformationProtectionPolicies {
         public async Task<WindowsInformationProtectionPolicy> PostAsync(WindowsInformationProtectionPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<WindowsInformationProtectionPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Windows information protection for apps running on devices which are not MDM enrolled.</summary>
         public class GetQueryParameters : QueryParametersBase {

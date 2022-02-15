@@ -78,7 +78,7 @@ namespace GraphSdk.DeviceManagement.TermsAndConditions.Item.AcceptanceStatuses.I
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.TermsAndConditions> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermsAndConditions>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermsAndConditions>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Navigation link to the terms and conditions that are assigned.</summary>
         public class GetQueryParameters : QueryParametersBase {

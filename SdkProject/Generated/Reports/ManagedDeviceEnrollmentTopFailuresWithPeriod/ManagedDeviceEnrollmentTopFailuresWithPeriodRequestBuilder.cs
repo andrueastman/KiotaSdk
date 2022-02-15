@@ -69,7 +69,7 @@ namespace GraphSdk.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod {
         /// </summary>
         public async Task<ManagedDeviceEnrollmentTopFailuresWithPeriodResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ManagedDeviceEnrollmentTopFailuresWithPeriodResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceEnrollmentTopFailuresWithPeriodResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes report</summary>
         public class ManagedDeviceEnrollmentTopFailuresWithPeriodResponse : IParsable {

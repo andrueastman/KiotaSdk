@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item.
         /// </summary>
         public async Task<DeviceStatesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceStatesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceStatesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The install state of the eBook.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedEBooks.Item.UserStateSummary.Item.
         public async Task<DeviceInstallState> PostAsync(DeviceInstallState body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceInstallState>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The install state of the eBook.</summary>
         public class GetQueryParameters : QueryParametersBase {

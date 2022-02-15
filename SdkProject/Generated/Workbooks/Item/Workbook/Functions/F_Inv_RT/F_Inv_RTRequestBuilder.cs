@@ -72,7 +72,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Functions.F_Inv_RT {
         public async Task<F_Inv_RTResponse> PostAsync(F_Inv_RTRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<F_Inv_RTResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<F_Inv_RTResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookFunctionResult</summary>
         public class F_Inv_RTResponse : IParsable {

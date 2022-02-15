@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.MailFolders.Delta;
 using GraphSdk.Users.Item.MailFolders.Item.ChildFolders;
 using GraphSdk.Users.Item.MailFolders.Item.Copy;
 using GraphSdk.Users.Item.MailFolders.Item.MessageRules;
@@ -134,7 +134,7 @@ namespace GraphSdk.Users.Item.MailFolders.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The user's mail folders. Read-only. Nullable.
@@ -146,7 +146,7 @@ namespace GraphSdk.Users.Item.MailFolders.Item {
         /// </summary>
         public async Task<MailFolder> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MailFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The user's mail folders. Read-only. Nullable.
@@ -159,7 +159,7 @@ namespace GraphSdk.Users.Item.MailFolders.Item {
         public async Task PatchAsync(MailFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The user's mail folders. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

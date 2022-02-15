@@ -110,7 +110,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get threatAssessmentRequests from informationProtection
@@ -122,7 +122,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item {
         /// </summary>
         public async Task<ThreatAssessmentRequest> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ThreatAssessmentRequest>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ThreatAssessmentRequest>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property threatAssessmentRequests in informationProtection
@@ -135,7 +135,7 @@ namespace GraphSdk.InformationProtection.ThreatAssessmentRequests.Item {
         public async Task PatchAsync(ThreatAssessmentRequest body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get threatAssessmentRequests from informationProtection</summary>
         public class GetQueryParameters : QueryParametersBase {

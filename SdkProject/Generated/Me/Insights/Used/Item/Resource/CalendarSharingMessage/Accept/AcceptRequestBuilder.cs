@@ -67,7 +67,7 @@ namespace GraphSdk.Me.Insights.Used.Item.Resource.CalendarSharingMessage.Accept 
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.Calendar> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Calendar>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Calendar>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

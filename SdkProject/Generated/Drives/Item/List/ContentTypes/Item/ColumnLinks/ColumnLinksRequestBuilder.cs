@@ -51,7 +51,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type
+        /// The collection of columns that are required by this content type.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type
+        /// The collection of columns that are required by this content type.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of columns that are required by this content type
+        /// The collection of columns that are required by this content type.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks {
         /// </summary>
         public async Task<ColumnLinksResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ColumnLinksResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ColumnLinksResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of columns that are required by this content type
+        /// The collection of columns that are required by this content type.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item.ColumnLinks {
         public async Task<ColumnLink> PostAsync(ColumnLink body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ColumnLink>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ColumnLink>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The collection of columns that are required by this content type</summary>
+        /// <summary>The collection of columns that are required by this content type.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The time of the last action of the operation.</summary>
         public DateTimeOffset? LastActionDateTime { get; set; }
-        /// <summary>Possible values are: notStarted, running, completed, failed. Read-only.</summary>
+        /// <summary>The current status of the operation: notStarted, running, completed, failed</summary>
         public OperationStatus? Status { get; set; }
         /// <summary>
         /// The deserialization information for the current model

@@ -84,7 +84,7 @@ namespace GraphSdk.Education.Schools.Item.Users {
         /// </summary>
         public async Task<UsersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UsersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UsersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Users in the school. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

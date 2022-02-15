@@ -66,7 +66,7 @@ namespace GraphSdk.Drive.List.ContentTypes.Item.IsPublished {
         /// </summary>
         public async Task<bool?> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<bool?>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<bool?>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

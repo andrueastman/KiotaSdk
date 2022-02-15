@@ -106,7 +106,7 @@ namespace GraphSdk.Education.Users.Item.Assignments.Item.Categories.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Education.Users.Item.Assignments.Item.Categories.Item {
         /// </summary>
         public async Task<EducationCategory> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<EducationCategory>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EducationCategory>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Education.Users.Item.Assignments.Item.Categories.Item {
         public async Task PatchAsync(EducationCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>When set, enables users to easily find assignments of a given type.  Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

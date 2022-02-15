@@ -43,7 +43,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -58,7 +58,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -73,7 +73,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -91,7 +91,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,10 +110,10 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
         /// </summary>
         public async Task<string> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+        /// The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -123,7 +123,7 @@ namespace GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref {
         public async Task PutAsync(GraphSdk.Groups.Item.CreatedOnBehalfOf.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePutRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

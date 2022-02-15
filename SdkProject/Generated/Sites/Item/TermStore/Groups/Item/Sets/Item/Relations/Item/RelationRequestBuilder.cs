@@ -118,7 +118,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Indicates which terms have been pinned or reused directly under the set.
@@ -130,7 +130,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item {
         /// </summary>
         public async Task<Relation> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Relation>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Relation>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Indicates which terms have been pinned or reused directly under the set.
@@ -143,7 +143,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups.Item.Sets.Item.Relations.Item {
         public async Task PatchAsync(Relation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Indicates which terms have been pinned or reused directly under the set.</summary>
         public class GetQueryParameters : QueryParametersBase {

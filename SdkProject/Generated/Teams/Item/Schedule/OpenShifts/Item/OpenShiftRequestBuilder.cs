@@ -106,7 +106,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShifts.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get openShifts from teams
@@ -118,7 +118,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShifts.Item {
         /// </summary>
         public async Task<OpenShift> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<OpenShift>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<OpenShift>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update the navigation property openShifts in teams
@@ -131,7 +131,7 @@ namespace GraphSdk.Teams.Item.Schedule.OpenShifts.Item {
         public async Task PatchAsync(OpenShift body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get openShifts from teams</summary>
         public class GetQueryParameters : QueryParametersBase {

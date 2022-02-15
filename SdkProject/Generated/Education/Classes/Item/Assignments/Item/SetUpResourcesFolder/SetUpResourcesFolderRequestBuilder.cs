@@ -67,7 +67,7 @@ namespace GraphSdk.Education.Classes.Item.Assignments.Item.SetUpResourcesFolder 
         /// </summary>
         public async Task<SetUpResourcesFolderResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<SetUpResourcesFolderResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SetUpResourcesFolderResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes educationAssignment</summary>
         public class SetUpResourcesFolderResponse : IParsable {

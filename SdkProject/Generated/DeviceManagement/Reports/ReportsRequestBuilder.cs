@@ -174,7 +174,7 @@ namespace GraphSdk.DeviceManagement.Reports {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Reports singleton
@@ -186,7 +186,7 @@ namespace GraphSdk.DeviceManagement.Reports {
         /// </summary>
         public async Task<DeviceManagementReports> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceManagementReports>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceManagementReports>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Reports singleton
@@ -199,7 +199,7 @@ namespace GraphSdk.DeviceManagement.Reports {
         public async Task PatchAsync(DeviceManagementReports body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Reports singleton</summary>
         public class GetQueryParameters : QueryParametersBase {

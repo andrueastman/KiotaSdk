@@ -143,7 +143,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of content types present in this list.
@@ -155,7 +155,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item {
         /// </summary>
         public async Task<ContentType> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ContentType>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ContentType>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \drives\{drive-id}\list\contentTypes\{contentType-id}\microsoft.graph.isPublished()
@@ -174,7 +174,7 @@ namespace GraphSdk.Drives.Item.List.ContentTypes.Item {
         public async Task PatchAsync(ContentType body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of content types present in this list.</summary>
         public class GetQueryParameters : QueryParametersBase {

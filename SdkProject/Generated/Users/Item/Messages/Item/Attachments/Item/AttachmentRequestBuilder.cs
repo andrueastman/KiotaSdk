@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.Messages.Item.Attachments.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The fileAttachment and itemAttachment attachments for the message.
@@ -118,7 +118,7 @@ namespace GraphSdk.Users.Item.Messages.Item.Attachments.Item {
         /// </summary>
         public async Task<Attachment> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Attachment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Attachment>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The fileAttachment and itemAttachment attachments for the message.
@@ -131,7 +131,7 @@ namespace GraphSdk.Users.Item.Messages.Item.Attachments.Item {
         public async Task PatchAsync(Attachment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The fileAttachment and itemAttachment attachments for the message.</summary>
         public class GetQueryParameters : QueryParametersBase {

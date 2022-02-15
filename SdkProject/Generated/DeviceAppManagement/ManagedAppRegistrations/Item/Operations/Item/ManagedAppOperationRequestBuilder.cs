@@ -106,7 +106,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.Operations.I
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Zero or more long running operations triggered on the app registration.
@@ -118,7 +118,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.Operations.I
         /// </summary>
         public async Task<ManagedAppOperation> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ManagedAppOperation>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedAppOperation>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Zero or more long running operations triggered on the app registration.
@@ -131,7 +131,7 @@ namespace GraphSdk.DeviceAppManagement.ManagedAppRegistrations.Item.Operations.I
         public async Task PatchAsync(ManagedAppOperation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Zero or more long running operations triggered on the app registration.</summary>
         public class GetQueryParameters : QueryParametersBase {

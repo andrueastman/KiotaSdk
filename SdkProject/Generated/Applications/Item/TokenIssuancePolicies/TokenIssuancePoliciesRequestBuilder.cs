@@ -77,7 +77,7 @@ namespace GraphSdk.Applications.Item.TokenIssuancePolicies {
         /// </summary>
         public async Task<TokenIssuancePoliciesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TokenIssuancePoliciesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TokenIssuancePoliciesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get tokenIssuancePolicies from applications</summary>
         public class GetQueryParameters : QueryParametersBase {

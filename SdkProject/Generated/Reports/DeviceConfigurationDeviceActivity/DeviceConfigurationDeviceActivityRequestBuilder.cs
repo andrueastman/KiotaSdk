@@ -67,7 +67,7 @@ namespace GraphSdk.Reports.DeviceConfigurationDeviceActivity {
         /// </summary>
         public async Task<DeviceConfigurationDeviceActivityResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<DeviceConfigurationDeviceActivityResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceConfigurationDeviceActivityResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes report</summary>
         public class DeviceConfigurationDeviceActivityResponse : IParsable {

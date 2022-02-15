@@ -78,7 +78,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Sets.Item.Children.Item.Relations.
         /// </summary>
         public async Task<Term> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The to [term] of the relation. The term to which the relationship is defined.</summary>
         public class GetQueryParameters : QueryParametersBase {

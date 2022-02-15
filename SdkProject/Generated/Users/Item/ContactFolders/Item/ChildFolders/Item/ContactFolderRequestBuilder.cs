@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.ContactFolders.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -106,7 +106,7 @@ namespace GraphSdk.Users.Item.ContactFolders.Item.ChildFolders.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of child folders in the folder. Navigation property. Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Users.Item.ContactFolders.Item.ChildFolders.Item {
         /// </summary>
         public async Task<ContactFolder> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ContactFolder>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of child folders in the folder. Navigation property. Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Users.Item.ContactFolders.Item.ChildFolders.Item {
         public async Task PatchAsync(ContactFolder body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of child folders in the folder. Navigation property. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

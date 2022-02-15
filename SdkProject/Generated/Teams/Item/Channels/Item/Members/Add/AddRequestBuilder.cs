@@ -71,7 +71,7 @@ namespace GraphSdk.Teams.Item.Channels.Item.Members.Add {
         public async Task<IEnumerable<GraphSdk.Teams.Item.Channels.Item.Members.Add.Add>> PostAsync(AddRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Teams.Item.Channels.Item.Members.Add.Add>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Teams.Item.Channels.Item.Members.Add.Add>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

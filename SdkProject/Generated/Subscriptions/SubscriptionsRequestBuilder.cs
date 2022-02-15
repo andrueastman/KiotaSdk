@@ -99,7 +99,7 @@ namespace GraphSdk.Subscriptions {
         /// </summary>
         public async Task<SubscriptionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SubscriptionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SubscriptionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Add new entity to subscriptions
@@ -112,7 +112,7 @@ namespace GraphSdk.Subscriptions {
         public async Task<Subscription> PostAsync(Subscription body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Subscription>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Subscription>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entities from subscriptions</summary>
         public class GetQueryParameters : QueryParametersBase {

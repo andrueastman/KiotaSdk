@@ -106,7 +106,7 @@ namespace GraphSdk.Subscriptions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get entity from subscriptions by key
@@ -118,7 +118,7 @@ namespace GraphSdk.Subscriptions.Item {
         /// </summary>
         public async Task<Subscription> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Subscription>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Subscription>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update entity in subscriptions
@@ -131,7 +131,7 @@ namespace GraphSdk.Subscriptions.Item {
         public async Task PatchAsync(Subscription body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entity from subscriptions by key</summary>
         public class GetQueryParameters : QueryParametersBase {

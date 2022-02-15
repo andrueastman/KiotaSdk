@@ -91,7 +91,7 @@ namespace GraphSdk.Me.CreatedObjects.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Directory objects that were created by the user. Read-only. Nullable.
@@ -104,7 +104,7 @@ namespace GraphSdk.Me.CreatedObjects.Ref {
         public async Task<GraphSdk.Me.CreatedObjects.Ref.Ref> PostAsync(GraphSdk.Me.CreatedObjects.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Me.CreatedObjects.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Me.CreatedObjects.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Directory objects that were created by the user. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

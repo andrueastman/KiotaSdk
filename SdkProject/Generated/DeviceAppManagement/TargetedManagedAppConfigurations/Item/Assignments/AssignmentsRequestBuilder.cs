@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Ass
         /// </summary>
         public async Task<AssignmentsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AssignmentsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Ass
         public async Task<TargetedManagedAppPolicyAssignment> PostAsync(TargetedManagedAppPolicyAssignment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<TargetedManagedAppPolicyAssignment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TargetedManagedAppPolicyAssignment>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Navigation property to list of inclusion and exclusion groups to which the policy is deployed.</summary>
         public class GetQueryParameters : QueryParametersBase {

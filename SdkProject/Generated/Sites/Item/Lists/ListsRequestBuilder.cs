@@ -99,7 +99,7 @@ namespace GraphSdk.Sites.Item.Lists {
         /// </summary>
         public async Task<ListsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ListsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ListsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The collection of lists under this site.
@@ -112,7 +112,7 @@ namespace GraphSdk.Sites.Item.Lists {
         public async Task<GraphSdk.Models.Microsoft.Graph.List> PostAsync(GraphSdk.Models.Microsoft.Graph.List body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.List>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.List>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of lists under this site.</summary>
         public class GetQueryParameters : QueryParametersBase {

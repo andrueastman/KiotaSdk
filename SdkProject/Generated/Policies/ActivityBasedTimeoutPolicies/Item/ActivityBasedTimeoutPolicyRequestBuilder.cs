@@ -106,7 +106,7 @@ namespace GraphSdk.Policies.ActivityBasedTimeoutPolicies.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The policy that controls the idle time out for web sessions for applications.
@@ -118,7 +118,7 @@ namespace GraphSdk.Policies.ActivityBasedTimeoutPolicies.Item {
         /// </summary>
         public async Task<ActivityBasedTimeoutPolicy> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ActivityBasedTimeoutPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ActivityBasedTimeoutPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The policy that controls the idle time out for web sessions for applications.
@@ -131,7 +131,7 @@ namespace GraphSdk.Policies.ActivityBasedTimeoutPolicies.Item {
         public async Task PatchAsync(ActivityBasedTimeoutPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The policy that controls the idle time out for web sessions for applications.</summary>
         public class GetQueryParameters : QueryParametersBase {

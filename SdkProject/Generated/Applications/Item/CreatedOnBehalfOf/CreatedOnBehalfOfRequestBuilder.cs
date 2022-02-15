@@ -1,5 +1,5 @@
 using GraphSdk.Applications.Item.CreatedOnBehalfOf.Ref;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Contracts.GetByIds;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -78,7 +78,7 @@ namespace GraphSdk.Applications.Item.CreatedOnBehalfOf {
         /// </summary>
         public async Task<DirectoryObject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

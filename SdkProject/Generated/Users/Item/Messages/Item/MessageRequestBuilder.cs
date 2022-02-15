@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Me.MailFolders.Item.Messages.Delta;
 using GraphSdk.Users.Item.Messages.Item.Attachments;
 using GraphSdk.Users.Item.Messages.Item.CalendarSharingMessage;
 using GraphSdk.Users.Item.Messages.Item.Copy;
@@ -166,7 +166,7 @@ namespace GraphSdk.Users.Item.Messages.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
@@ -178,7 +178,7 @@ namespace GraphSdk.Users.Item.Messages.Item {
         /// </summary>
         public async Task<Message> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Message>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Message>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The messages in a mailbox or folder. Read-only. Nullable.
@@ -191,7 +191,7 @@ namespace GraphSdk.Users.Item.Messages.Item {
         public async Task PatchAsync(Message body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The messages in a mailbox or folder. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

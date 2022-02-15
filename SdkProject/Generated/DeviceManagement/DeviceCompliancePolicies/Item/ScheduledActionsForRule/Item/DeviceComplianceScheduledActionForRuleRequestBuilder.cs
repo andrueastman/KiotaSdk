@@ -48,7 +48,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
             return requestInfo;
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,10 +110,10 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -122,10 +122,10 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
         /// </summary>
         public async Task<DeviceComplianceScheduledActionForRule> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The list of scheduled action for this rule
+        /// The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -135,9 +135,9 @@ namespace GraphSdk.DeviceManagement.DeviceCompliancePolicies.Item.ScheduledActio
         public async Task PatchAsync(DeviceComplianceScheduledActionForRule body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The list of scheduled action for this rule</summary>
+        /// <summary>The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

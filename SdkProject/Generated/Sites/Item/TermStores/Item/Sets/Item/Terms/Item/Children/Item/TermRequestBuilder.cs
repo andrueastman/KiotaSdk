@@ -106,7 +106,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Sets.Item.Terms.Item.Children.Item
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Children of current term.
@@ -118,7 +118,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Sets.Item.Terms.Item.Children.Item
         /// </summary>
         public async Task<Term> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Children of current term.
@@ -131,7 +131,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Sets.Item.Terms.Item.Children.Item
         public async Task PatchAsync(Term body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Children of current term.</summary>
         public class GetQueryParameters : QueryParametersBase {

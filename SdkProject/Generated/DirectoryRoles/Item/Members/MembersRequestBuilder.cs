@@ -47,7 +47,7 @@ namespace GraphSdk.DirectoryRoles.Item.Members {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.
+        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -68,7 +68,7 @@ namespace GraphSdk.DirectoryRoles.Item.Members {
             return requestInfo;
         }
         /// <summary>
-        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.
+        /// Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -77,9 +77,9 @@ namespace GraphSdk.DirectoryRoles.Item.Members {
         /// </summary>
         public async Task<MembersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MembersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MembersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.</summary>
+        /// <summary>Users that are members of this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

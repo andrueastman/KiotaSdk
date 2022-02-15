@@ -45,7 +45,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -60,7 +60,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -81,7 +81,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,7 +99,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -107,10 +107,10 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -119,7 +119,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
         /// </summary>
         public async Task<ServiceHealthIssue> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ServiceHealthIssue>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ServiceHealthIssue>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Builds and executes requests for operations under \admin\serviceAnnouncement\healthOverviews\{serviceHealth-id}\issues\{serviceHealthIssue-id}\microsoft.graph.incidentReport()
@@ -128,7 +128,7 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
             return new IncidentReportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// A collection of issues happened on the service, with detailed information for each issue.
+        /// A collection of issues that happened on the service, with detailed information for each issue.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -138,9 +138,9 @@ namespace GraphSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item {
         public async Task PatchAsync(ServiceHealthIssue body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>A collection of issues happened on the service, with detailed information for each issue.</summary>
+        /// <summary>A collection of issues that happened on the service, with detailed information for each issue.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -78,7 +78,7 @@ namespace GraphSdk.IdentityGovernance.EntitlementManagement.Catalogs.Item.Access
         /// </summary>
         public async Task<AccessPackageCatalog> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AccessPackageCatalog>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

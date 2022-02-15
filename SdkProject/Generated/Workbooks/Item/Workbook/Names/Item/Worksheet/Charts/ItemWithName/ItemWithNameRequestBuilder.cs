@@ -69,7 +69,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Names.Item.Worksheet.Charts.ItemWithN
         /// </summary>
         public async Task<ItemWithNameResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ItemWithNameResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ItemWithNameResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookChart</summary>
         public class ItemWithNameResponse : IParsable {

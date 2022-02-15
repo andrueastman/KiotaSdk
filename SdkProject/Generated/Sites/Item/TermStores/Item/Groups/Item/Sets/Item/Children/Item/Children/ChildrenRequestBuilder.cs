@@ -99,7 +99,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Children.Ite
         /// </summary>
         public async Task<ChildrenResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ChildrenResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ChildrenResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Children of current term.
@@ -112,7 +112,7 @@ namespace GraphSdk.Sites.Item.TermStores.Item.Groups.Item.Sets.Item.Children.Ite
         public async Task<Term> PostAsync(Term body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Term>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Children of current term.</summary>
         public class GetQueryParameters : QueryParametersBase {

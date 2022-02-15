@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Devices.GetByIds;
 using GraphSdk.RoleManagement.Directory.RoleAssignments.Item.DirectoryScope.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -48,7 +48,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.DirectoryScope 
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+        /// The directory object that is the scope of the assignment. Read-only. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -69,7 +69,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.DirectoryScope 
             return requestInfo;
         }
         /// <summary>
-        /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+        /// The directory object that is the scope of the assignment. Read-only. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -78,9 +78,9 @@ namespace GraphSdk.RoleManagement.Directory.RoleAssignments.Item.DirectoryScope 
         /// </summary>
         public async Task<DirectoryObject> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.</summary>
+        /// <summary>The directory object that is the scope of the assignment. Read-only. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

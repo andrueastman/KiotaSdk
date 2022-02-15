@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations {
         /// </summary>
         public async Task<MobileAppConfigurationsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MobileAppConfigurationsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppConfigurationsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Managed Device Mobile Application Configurations.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppConfigurations {
         public async Task<ManagedDeviceMobileAppConfiguration> PostAsync(ManagedDeviceMobileAppConfiguration body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The Managed Device Mobile Application Configurations.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -66,7 +66,7 @@ namespace GraphSdk.Teams.Item.PrimaryChannel.Messages.Delta {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Teams.Item.PrimaryChannel.Messages.Delta.Delta>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Teams.Item.PrimaryChannel.Messages.Delta.Delta>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Teams.Item.PrimaryChannel.Messages.Delta.Delta>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

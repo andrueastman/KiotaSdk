@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
@@ -118,7 +118,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         /// </summary>
         public async Task<Agreement> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Agreement>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Agreement>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
@@ -131,7 +131,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.Agreements.Item {
         public async Task PatchAsync(Agreement body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).</summary>
         public class GetQueryParameters : QueryParametersBase {

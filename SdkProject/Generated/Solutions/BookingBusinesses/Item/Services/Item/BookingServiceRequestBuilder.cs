@@ -106,7 +106,7 @@ namespace GraphSdk.Solutions.BookingBusinesses.Item.Services.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// All the services offered by this business. Read-only. Nullable.
@@ -118,7 +118,7 @@ namespace GraphSdk.Solutions.BookingBusinesses.Item.Services.Item {
         /// </summary>
         public async Task<BookingService> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<BookingService>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<BookingService>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// All the services offered by this business. Read-only. Nullable.
@@ -131,7 +131,7 @@ namespace GraphSdk.Solutions.BookingBusinesses.Item.Services.Item {
         public async Task PatchAsync(BookingService body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>All the services offered by this business. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

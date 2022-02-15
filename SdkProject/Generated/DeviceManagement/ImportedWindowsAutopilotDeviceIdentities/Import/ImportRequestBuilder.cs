@@ -71,7 +71,7 @@ namespace GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Imp
         public async Task<IEnumerable<GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Import.Import>> PostAsync(ImportRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Import.Import>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.DeviceManagement.ImportedWindowsAutopilotDeviceIdentities.Import.Import>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

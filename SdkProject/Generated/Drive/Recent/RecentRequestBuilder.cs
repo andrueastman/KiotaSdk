@@ -66,7 +66,7 @@ namespace GraphSdk.Drive.Recent {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Drive.Recent.Recent>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Drive.Recent.Recent>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Drive.Recent.Recent>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

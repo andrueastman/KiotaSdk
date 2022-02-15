@@ -68,10 +68,10 @@ namespace GraphSdk.Contacts.GetByIds {
         /// <param name="o">Request options</param>
         /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
         /// </summary>
-        public async Task<IEnumerable<GraphSdk.Contacts.GetByIds.GetByIds>> PostAsync(GetByIdsRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
+        public async Task<IEnumerable<DirectoryObject>> PostAsync(GetByIdsRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Contacts.GetByIds.GetByIds>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<DirectoryObject>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

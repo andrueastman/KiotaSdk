@@ -110,7 +110,7 @@ namespace GraphSdk.DeviceManagement.RoleDefinitions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Role Definitions.
@@ -122,7 +122,7 @@ namespace GraphSdk.DeviceManagement.RoleDefinitions.Item {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.RoleDefinition> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.RoleDefinition>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.RoleDefinition>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The Role Definitions.
@@ -135,7 +135,7 @@ namespace GraphSdk.DeviceManagement.RoleDefinitions.Item {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.RoleDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The Role Definitions.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -68,7 +68,7 @@ namespace GraphSdk.Workbooks.Item.DeltaWithToken {
         /// </summary>
         public async Task<IEnumerable<GraphSdk.Workbooks.Item.DeltaWithToken.DeltaWithToken>> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendCollectionAsync<GraphSdk.Workbooks.Item.DeltaWithToken.DeltaWithToken>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendCollectionAsync<GraphSdk.Workbooks.Item.DeltaWithToken.DeltaWithToken>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

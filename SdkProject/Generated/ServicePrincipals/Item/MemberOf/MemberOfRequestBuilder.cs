@@ -77,7 +77,7 @@ namespace GraphSdk.ServicePrincipals.Item.MemberOf {
         /// </summary>
         public async Task<MemberOfResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MemberOfResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MemberOfResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

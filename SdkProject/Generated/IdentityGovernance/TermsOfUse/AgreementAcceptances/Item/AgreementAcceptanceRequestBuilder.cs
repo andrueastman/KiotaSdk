@@ -106,7 +106,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the current status of a user's response to a company's customizable terms of use agreement.
@@ -118,7 +118,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
         /// </summary>
         public async Task<AgreementAcceptance> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AgreementAcceptance>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementAcceptance>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the current status of a user's response to a company's customizable terms of use agreement.
@@ -131,7 +131,7 @@ namespace GraphSdk.IdentityGovernance.TermsOfUse.AgreementAcceptances.Item {
         public async Task PatchAsync(AgreementAcceptance body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the current status of a user's response to a company's customizable terms of use agreement.</summary>
         public class GetQueryParameters : QueryParametersBase {

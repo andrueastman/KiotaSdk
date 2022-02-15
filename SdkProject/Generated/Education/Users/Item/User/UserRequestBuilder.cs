@@ -78,7 +78,7 @@ namespace GraphSdk.Education.Users.Item.User {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.User> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.User>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The directory user corresponding to this user.</summary>
         public class GetQueryParameters : QueryParametersBase {

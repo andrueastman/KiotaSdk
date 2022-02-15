@@ -77,7 +77,7 @@ namespace GraphSdk.Groups.Item.TransitiveMembers {
         /// </summary>
         public async Task<TransitiveMembersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TransitiveMembersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TransitiveMembersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get transitiveMembers from groups</summary>
         public class GetQueryParameters : QueryParametersBase {

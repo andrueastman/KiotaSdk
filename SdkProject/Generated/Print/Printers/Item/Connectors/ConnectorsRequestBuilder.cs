@@ -77,7 +77,7 @@ namespace GraphSdk.Print.Printers.Item.Connectors {
         /// </summary>
         public async Task<ConnectorsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ConnectorsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConnectorsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The connectors that are associated with the printer.</summary>
         public class GetQueryParameters : QueryParametersBase {

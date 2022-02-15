@@ -106,7 +106,7 @@ namespace GraphSdk.Me.CalendarView.Item.Calendar.CalendarPermissions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The permissions of the users with whom the calendar is shared.
@@ -118,7 +118,7 @@ namespace GraphSdk.Me.CalendarView.Item.Calendar.CalendarPermissions.Item {
         /// </summary>
         public async Task<CalendarPermission> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<CalendarPermission>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<CalendarPermission>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The permissions of the users with whom the calendar is shared.
@@ -131,7 +131,7 @@ namespace GraphSdk.Me.CalendarView.Item.Calendar.CalendarPermissions.Item {
         public async Task PatchAsync(CalendarPermission body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The permissions of the users with whom the calendar is shared.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -99,7 +99,7 @@ namespace GraphSdk.Print.Printers.Item.TaskTriggers {
         /// </summary>
         public async Task<TaskTriggersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TaskTriggersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TaskTriggersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// A list of task triggers that are associated with the printer.
@@ -112,7 +112,7 @@ namespace GraphSdk.Print.Printers.Item.TaskTriggers {
         public async Task<PrintTaskTrigger> PostAsync(PrintTaskTrigger body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<PrintTaskTrigger>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintTaskTrigger>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>A list of task triggers that are associated with the printer.</summary>
         public class GetQueryParameters : QueryParametersBase {

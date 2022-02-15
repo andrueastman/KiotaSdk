@@ -7,7 +7,7 @@ namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
     public class ConnectionOperation : Entity, IParsable {
         /// <summary>If status is failed, provides more information about the error that caused the failure.</summary>
         public PublicError Error { get; set; }
-        /// <summary>Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed.</summary>
+        /// <summary>Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.</summary>
         public ConnectionOperationStatus? Status { get; set; }
         /// <summary>
         /// The deserialization information for the current model

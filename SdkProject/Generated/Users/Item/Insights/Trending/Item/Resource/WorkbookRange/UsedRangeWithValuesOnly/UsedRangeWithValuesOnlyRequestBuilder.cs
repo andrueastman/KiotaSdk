@@ -69,7 +69,7 @@ namespace GraphSdk.Users.Item.Insights.Trending.Item.Resource.WorkbookRange.Used
         /// </summary>
         public async Task<UsedRangeWithValuesOnlyResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<UsedRangeWithValuesOnlyResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UsedRangeWithValuesOnlyResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class UsedRangeWithValuesOnlyResponse : IParsable {

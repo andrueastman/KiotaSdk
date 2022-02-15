@@ -99,7 +99,7 @@ namespace GraphSdk.Drive.Following {
         /// </summary>
         public async Task<FollowingResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<FollowingResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<FollowingResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of items the user is following. Only in OneDrive for Business.
@@ -112,7 +112,7 @@ namespace GraphSdk.Drive.Following {
         public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> PostAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of items the user is following. Only in OneDrive for Business.</summary>
         public class GetQueryParameters : QueryParametersBase {

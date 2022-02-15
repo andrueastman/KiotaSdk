@@ -99,7 +99,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions {
         /// </summary>
         public async Task<VersionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<VersionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<VersionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
@@ -112,7 +112,7 @@ namespace GraphSdk.Agreements.Item.Files.Item.Versions {
         public async Task<AgreementFileVersion> PostAsync(AgreementFileVersion body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AgreementFileVersion>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementFileVersion>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.</summary>
         public class GetQueryParameters : QueryParametersBase {

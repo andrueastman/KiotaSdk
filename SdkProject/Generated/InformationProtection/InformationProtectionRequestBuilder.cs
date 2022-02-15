@@ -100,7 +100,7 @@ namespace GraphSdk.InformationProtection {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.InformationProtection> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.InformationProtection>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.InformationProtection>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update informationProtection
@@ -113,7 +113,7 @@ namespace GraphSdk.InformationProtection {
         public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.InformationProtection body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get informationProtection</summary>
         public class GetQueryParameters : QueryParametersBase {

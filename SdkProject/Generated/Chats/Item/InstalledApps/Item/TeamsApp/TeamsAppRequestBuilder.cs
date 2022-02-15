@@ -78,7 +78,7 @@ namespace GraphSdk.Chats.Item.InstalledApps.Item.TeamsApp {
         /// </summary>
         public async Task<GraphSdk.Models.Microsoft.Graph.TeamsApp> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TeamsApp>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The app that is installed.</summary>
         public class GetQueryParameters : QueryParametersBase {

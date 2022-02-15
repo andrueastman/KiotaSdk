@@ -71,7 +71,7 @@ namespace GraphSdk.Users.Item.GetMemberObjects {
         public async Task<IEnumerable<string>> PostAsync(GetMemberObjectsRequestBody body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendPrimitiveCollectionAsync<string>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveCollectionAsync<string>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

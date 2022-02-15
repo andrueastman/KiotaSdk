@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppCategories {
         /// </summary>
         public async Task<MobileAppCategoriesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<MobileAppCategoriesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppCategoriesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The mobile app categories.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceAppManagement.MobileAppCategories {
         public async Task<MobileAppCategory> PostAsync(MobileAppCategory body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<MobileAppCategory>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<MobileAppCategory>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The mobile app categories.</summary>
         public class GetQueryParameters : QueryParametersBase {

@@ -69,7 +69,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.TableRowOperationResultWithKey {
         /// </summary>
         public async Task<TableRowOperationResultWithKeyResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<TableRowOperationResultWithKeyResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TableRowOperationResultWithKeyResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookTableRow</summary>
         public class TableRowOperationResultWithKeyResponse : IParsable {

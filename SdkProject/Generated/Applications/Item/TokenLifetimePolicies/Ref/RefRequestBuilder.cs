@@ -91,7 +91,7 @@ namespace GraphSdk.Applications.Item.TokenLifetimePolicies.Ref {
         /// </summary>
         public async Task<RefResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RefResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The tokenLifetimePolicies assigned to this application. Supports $expand.
@@ -104,7 +104,7 @@ namespace GraphSdk.Applications.Item.TokenLifetimePolicies.Ref {
         public async Task<GraphSdk.Applications.Item.TokenLifetimePolicies.Ref.Ref> PostAsync(GraphSdk.Applications.Item.TokenLifetimePolicies.Ref.Ref body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Applications.Item.TokenLifetimePolicies.Ref.Ref>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Applications.Item.TokenLifetimePolicies.Ref.Ref>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The tokenLifetimePolicies assigned to this application. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

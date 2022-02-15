@@ -69,7 +69,7 @@ namespace GraphSdk.Reports.GetOneDriveActivityFileCountsWithPeriod {
         /// </summary>
         public async Task<Report> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<Report>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Report>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

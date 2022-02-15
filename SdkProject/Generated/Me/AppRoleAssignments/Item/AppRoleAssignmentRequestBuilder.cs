@@ -106,7 +106,7 @@ namespace GraphSdk.Me.AppRoleAssignments.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the app roles a user has been granted for an application. Supports $expand.
@@ -118,7 +118,7 @@ namespace GraphSdk.Me.AppRoleAssignments.Item {
         /// </summary>
         public async Task<AppRoleAssignment> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AppRoleAssignment>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Represents the app roles a user has been granted for an application. Supports $expand.
@@ -131,7 +131,7 @@ namespace GraphSdk.Me.AppRoleAssignments.Item {
         public async Task PatchAsync(AppRoleAssignment body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Represents the app roles a user has been granted for an application. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {

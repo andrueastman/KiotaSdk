@@ -67,7 +67,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.Worksheet.Tables.Item.Dat
         /// </summary>
         public async Task<DataBodyRangeResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<DataBodyRangeResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DataBodyRangeResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class DataBodyRangeResponse : IParsable {

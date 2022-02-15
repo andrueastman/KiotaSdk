@@ -110,7 +110,7 @@ namespace GraphSdk.Invitations.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Get entity from invitations by key
@@ -122,7 +122,7 @@ namespace GraphSdk.Invitations.Item {
         /// </summary>
         public async Task<Invitation> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Invitation>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Invitation>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Update entity in invitations
@@ -135,7 +135,7 @@ namespace GraphSdk.Invitations.Item {
         public async Task PatchAsync(Invitation body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Get entity from invitations by key</summary>
         public class GetQueryParameters : QueryParametersBase {

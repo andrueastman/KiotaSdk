@@ -66,7 +66,7 @@ namespace GraphSdk.Organization.Item.SetMobileDeviceManagementAuthority {
         /// </summary>
         public async Task<int?> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendPrimitiveAsync<int?>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<int?>(requestInfo, responseHandler, default, cancellationToken);
         }
     }
 }

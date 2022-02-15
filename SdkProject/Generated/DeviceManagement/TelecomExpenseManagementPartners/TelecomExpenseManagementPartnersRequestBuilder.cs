@@ -99,7 +99,7 @@ namespace GraphSdk.DeviceManagement.TelecomExpenseManagementPartners {
         /// </summary>
         public async Task<TelecomExpenseManagementPartnersResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartnersResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartnersResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The telecom expense management partners.
@@ -112,7 +112,7 @@ namespace GraphSdk.DeviceManagement.TelecomExpenseManagementPartners {
         public async Task<TelecomExpenseManagementPartner> PostAsync(TelecomExpenseManagementPartner body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<TelecomExpenseManagementPartner>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The telecom expense management partners.</summary>
         public class GetQueryParameters : QueryParametersBase {

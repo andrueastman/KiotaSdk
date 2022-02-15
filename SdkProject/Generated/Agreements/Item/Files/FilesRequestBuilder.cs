@@ -51,7 +51,7 @@ namespace GraphSdk.Agreements.Item.Files {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -72,7 +72,7 @@ namespace GraphSdk.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -90,7 +90,7 @@ namespace GraphSdk.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -99,10 +99,10 @@ namespace GraphSdk.Agreements.Item.Files {
         /// </summary>
         public async Task<FilesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<FilesResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<FilesResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -112,9 +112,9 @@ namespace GraphSdk.Agreements.Item.Files {
         public async Task<AgreementFileLocalization> PostAsync(AgreementFileLocalization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

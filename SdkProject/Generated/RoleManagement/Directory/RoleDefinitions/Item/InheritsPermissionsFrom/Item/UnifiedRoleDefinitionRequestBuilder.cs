@@ -44,7 +44,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return requestInfo;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return requestInfo;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
             return requestInfo;
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,10 +106,10 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -118,10 +118,10 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
         /// </summary>
         public async Task<UnifiedRoleDefinition> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<UnifiedRoleDefinition>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
+        /// Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -131,9 +131,9 @@ namespace GraphSdk.RoleManagement.Directory.RoleDefinitions.Item.InheritsPermiss
         public async Task PatchAsync(UnifiedRoleDefinition body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.</summary>
+        /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

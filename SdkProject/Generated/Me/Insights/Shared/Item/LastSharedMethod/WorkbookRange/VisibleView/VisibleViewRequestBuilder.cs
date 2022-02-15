@@ -67,7 +67,7 @@ namespace GraphSdk.Me.Insights.Shared.Item.LastSharedMethod.WorkbookRange.Visibl
         /// </summary>
         public async Task<VisibleViewResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<VisibleViewResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<VisibleViewResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRangeView</summary>
         public class VisibleViewResponse : IParsable {

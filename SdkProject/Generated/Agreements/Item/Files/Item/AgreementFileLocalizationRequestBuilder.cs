@@ -48,7 +48,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.Agreements.Item.Files.Item {
             return requestInfo;
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,10 +110,10 @@ namespace GraphSdk.Agreements.Item.Files.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -122,10 +122,10 @@ namespace GraphSdk.Agreements.Item.Files.Item {
         /// </summary>
         public async Task<AgreementFileLocalization> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<AgreementFileLocalization>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+        /// PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -135,9 +135,9 @@ namespace GraphSdk.Agreements.Item.Files.Item {
         public async Task PatchAsync(AgreementFileLocalization body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.</summary>
+        /// <summary>PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

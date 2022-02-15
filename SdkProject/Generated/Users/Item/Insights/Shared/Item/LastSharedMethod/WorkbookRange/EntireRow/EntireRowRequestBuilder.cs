@@ -67,7 +67,7 @@ namespace GraphSdk.Users.Item.Insights.Shared.Item.LastSharedMethod.WorkbookRang
         /// </summary>
         public async Task<EntireRowResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<EntireRowResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<EntireRowResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class EntireRowResponse : IParsable {

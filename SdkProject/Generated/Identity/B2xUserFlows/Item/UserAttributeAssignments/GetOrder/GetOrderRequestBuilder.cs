@@ -67,7 +67,7 @@ namespace GraphSdk.Identity.B2xUserFlows.Item.UserAttributeAssignments.GetOrder 
         /// </summary>
         public async Task<GetOrderResponse> GetAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<GetOrderResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GetOrderResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes assignmentOrder</summary>
         public class GetOrderResponse : IParsable {

@@ -9,7 +9,7 @@ namespace GraphSdk.Models.Microsoft.Graph {
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Name of reviewer.</summary>
         public string DisplayName { get; set; }
-        /// <summary>User principal name of the user.</summary>
+        /// <summary>User principal name of the reviewer.</summary>
         public string UserPrincipalName { get; set; }
         /// <summary>
         /// The deserialization information for the current model

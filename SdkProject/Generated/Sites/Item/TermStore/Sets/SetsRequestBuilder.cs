@@ -99,7 +99,7 @@ namespace GraphSdk.Sites.Item.TermStore.Sets {
         /// </summary>
         public async Task<SetsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<SetsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<SetsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// Collection of all sets available in the term store.
@@ -112,7 +112,7 @@ namespace GraphSdk.Sites.Item.TermStore.Sets {
         public async Task<GraphSdk.Models.Microsoft.Graph.TermStore.Set> PostAsync(GraphSdk.Models.Microsoft.Graph.TermStore.Set body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermStore.Set>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.TermStore.Set>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Collection of all sets available in the term store.</summary>
         public class GetQueryParameters : QueryParametersBase {

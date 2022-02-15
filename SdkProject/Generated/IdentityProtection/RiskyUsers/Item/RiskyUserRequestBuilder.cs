@@ -48,7 +48,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// Delete navigation property riskyUsers for identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -63,7 +63,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get riskyUsers from identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -84,7 +84,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property riskyUsers in identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -102,7 +102,7 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Delete navigation property riskyUsers for identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -110,10 +110,10 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Get riskyUsers from identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -122,10 +122,10 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
         /// </summary>
         public async Task<RiskyUser> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<RiskyUser>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<RiskyUser>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// Update the navigation property riskyUsers in identityProtection
+        /// Users that are flagged as at-risk by Azure AD Identity Protection.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -135,9 +135,9 @@ namespace GraphSdk.IdentityProtection.RiskyUsers.Item {
         public async Task PatchAsync(RiskyUser body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>Get riskyUsers from identityProtection</summary>
+        /// <summary>Users that are flagged as at-risk by Azure AD Identity Protection.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

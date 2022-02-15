@@ -44,7 +44,7 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -59,7 +59,7 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -80,7 +80,7 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -98,7 +98,7 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -106,10 +106,10 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -118,10 +118,10 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
         /// </summary>
         public async Task<Extension> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<Extension>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<Extension>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of open extensions defined for the contact. Nullable.
+        /// The collection of open extensions defined for the contact. Read-only. Nullable.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -131,9 +131,9 @@ namespace GraphSdk.Me.Contacts.Item.Extensions.Item {
         public async Task PatchAsync(Extension body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The collection of open extensions defined for the contact. Nullable.</summary>
+        /// <summary>The collection of open extensions defined for the contact. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -106,7 +106,7 @@ namespace GraphSdk.Print.Connectors.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of available print connectors.
@@ -118,7 +118,7 @@ namespace GraphSdk.Print.Connectors.Item {
         /// </summary>
         public async Task<PrintConnector> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<PrintConnector>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<PrintConnector>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of available print connectors.
@@ -131,7 +131,7 @@ namespace GraphSdk.Print.Connectors.Item {
         public async Task PatchAsync(PrintConnector body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of available print connectors.</summary>
         public class GetQueryParameters : QueryParametersBase {

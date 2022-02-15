@@ -99,7 +99,7 @@ namespace GraphSdk.Workbooks.Item.Versions {
         /// </summary>
         public async Task<VersionsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<VersionsResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<VersionsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.
@@ -112,7 +112,7 @@ namespace GraphSdk.Workbooks.Item.Versions {
         public async Task<DriveItemVersion> PostAsync(DriveItemVersion body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<DriveItemVersion>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<DriveItemVersion>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.</summary>
         public class GetQueryParameters : QueryParametersBase {

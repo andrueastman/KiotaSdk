@@ -67,7 +67,7 @@ namespace GraphSdk.Domains.Item.Verify {
         /// </summary>
         public async Task<VerifyResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<VerifyResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<VerifyResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes domain</summary>
         public class VerifyResponse : IParsable {

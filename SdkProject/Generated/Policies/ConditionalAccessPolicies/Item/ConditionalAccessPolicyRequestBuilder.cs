@@ -106,7 +106,7 @@ namespace GraphSdk.Policies.ConditionalAccessPolicies.Item {
         /// </summary>
         public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The custom rules that define an access scenario.
@@ -118,7 +118,7 @@ namespace GraphSdk.Policies.ConditionalAccessPolicies.Item {
         /// </summary>
         public async Task<ConditionalAccessPolicy> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
-            return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConditionalAccessPolicy>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
         /// The custom rules that define an access scenario.
@@ -131,7 +131,7 @@ namespace GraphSdk.Policies.ConditionalAccessPolicies.Item {
         public async Task PatchAsync(ConditionalAccessPolicy body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, cancellationToken);
+            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The custom rules that define an access scenario.</summary>
         public class GetQueryParameters : QueryParametersBase {

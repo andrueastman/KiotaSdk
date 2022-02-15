@@ -67,7 +67,7 @@ namespace GraphSdk.Workbooks.Item.Workbook.Tables.Item.ConvertToRange {
         /// </summary>
         public async Task<ConvertToRangeResponse> PostAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreatePostRequestInformation(h, o);
-            return await RequestAdapter.SendAsync<ConvertToRangeResponse>(requestInfo, responseHandler, cancellationToken);
+            return await RequestAdapter.SendAsync<ConvertToRangeResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Union type wrapper for classes workbookRange</summary>
         public class ConvertToRangeResponse : IParsable {
