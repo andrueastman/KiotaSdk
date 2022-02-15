@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Models.Microsoft.Graph.ExternalConnectors;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace GraphSdk.Connections.Item.Groups.Item.Members {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         public string NextLink { get; set; }
-        public List<GraphSdk.Models.Microsoft.Graph.Identity> Value { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity> Value { get; set; }
         /// <summary>
         /// Instantiates a new membersResponse and sets the default values.
         /// </summary>
@@ -22,7 +22,7 @@ namespace GraphSdk.Connections.Item.Groups.Item.Members {
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
                 {"@odata.nextLink", (o,n) => { (o as MembersResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as MembersResponse).Value = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Identity>().ToList(); } },
+                {"value", (o,n) => { (o as MembersResponse).Value = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity>().ToList(); } },
             };
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace GraphSdk.Connections.Item.Groups.Item.Members {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Identity>("value", Value);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -1,19 +1,18 @@
-using GraphSdk.Models.Microsoft.Graph.TermStore;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace GraphSdk.Sites.Item.TermStore.Groups {
-    public class GroupsResponse : IParsable {
+namespace GraphSdk.Models.Microsoft.Graph.CallRecords {
+    public class Endpoint : IParsable {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        public string NextLink { get; set; }
-        public List<GraphSdk.Models.Microsoft.Graph.TermStore.Group> Value { get; set; }
+        /// <summary>User-agent reported by this endpoint.</summary>
+        public UserAgent UserAgent { get; set; }
         /// <summary>
-        /// Instantiates a new groupsResponse and sets the default values.
+        /// Instantiates a new endpoint and sets the default values.
         /// </summary>
-        public GroupsResponse() {
+        public Endpoint() {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
@@ -21,8 +20,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups {
         /// </summary>
         public IDictionary<string, Action<T, IParseNode>> GetFieldDeserializers<T>() {
             return new Dictionary<string, Action<T, IParseNode>> {
-                {"@odata.nextLink", (o,n) => { (o as GroupsResponse).NextLink = n.GetStringValue(); } },
-                {"value", (o,n) => { (o as GroupsResponse).Value = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.TermStore.Group>().ToList(); } },
+                {"userAgent", (o,n) => { (o as Endpoint).UserAgent = n.GetObjectValue<UserAgent>(); } },
             };
         }
         /// <summary>
@@ -31,8 +29,7 @@ namespace GraphSdk.Sites.Item.TermStore.Groups {
         /// </summary>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("@odata.nextLink", NextLink);
-            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.TermStore.Group>("value", Value);
+            writer.WriteObjectValue<UserAgent>("userAgent", UserAgent);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
