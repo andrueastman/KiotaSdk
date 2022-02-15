@@ -1,5 +1,4 @@
 using GraphSdk.Contracts.GetAvailableExtensionProperties;
-using GraphSdk.Contracts.GetByIds;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

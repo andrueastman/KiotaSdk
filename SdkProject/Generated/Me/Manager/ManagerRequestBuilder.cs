@@ -1,5 +1,5 @@
 using GraphSdk.Me.Manager.Ref;
-using GraphSdk.Users.GetByIds;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

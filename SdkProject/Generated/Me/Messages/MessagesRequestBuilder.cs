@@ -1,6 +1,6 @@
 using GraphSdk.Me.Messages.Delta;
 using GraphSdk.Me.Messages.Item;
-using GraphSdk.Users.Item.MailFolders.Item.Messages.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

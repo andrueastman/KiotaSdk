@@ -1,8 +1,8 @@
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.Extensions;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.MultiValueExtendedProperties;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.Photo;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.SingleValueExtendedProperties;
-using GraphSdk.Users.Item.Contacts.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

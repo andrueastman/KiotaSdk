@@ -1,5 +1,4 @@
 using GraphSdk.Models.Microsoft.Graph;
-using GraphSdk.Users.Item.Messages.Delta;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

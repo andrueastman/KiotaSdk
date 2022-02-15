@@ -77,7 +77,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace GraphSdk {
     /// <summary>The main entry point of the SDK, exposes the configuration and the fluent API.</summary>
-    public class GraphClient {
+    public partial class GraphClient {
         public AdminRequestBuilder Admin { get =>
             new AdminRequestBuilder(PathParameters, RequestAdapter);
         }
@@ -237,7 +237,7 @@ namespace GraphSdk {
             new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
-        private override IRequestAdapter RequestAdapter { get; set; }
+        private IRequestAdapter RequestAdapter { get; set; }
         public RoleManagementRequestBuilder RoleManagement { get =>
             new RoleManagementRequestBuilder(PathParameters, RequestAdapter);
         }

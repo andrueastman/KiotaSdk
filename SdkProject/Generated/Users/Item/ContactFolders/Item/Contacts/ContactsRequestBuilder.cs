@@ -1,6 +1,6 @@
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Delta;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item;
-using GraphSdk.Users.Item.Contacts.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

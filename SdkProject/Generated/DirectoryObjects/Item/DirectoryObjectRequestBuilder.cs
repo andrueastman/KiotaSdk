@@ -1,9 +1,9 @@
-using GraphSdk.Contracts.GetByIds;
 using GraphSdk.DirectoryObjects.Item.CheckMemberGroups;
 using GraphSdk.DirectoryObjects.Item.CheckMemberObjects;
 using GraphSdk.DirectoryObjects.Item.GetMemberGroups;
 using GraphSdk.DirectoryObjects.Item.GetMemberObjects;
 using GraphSdk.DirectoryObjects.Item.Restore;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

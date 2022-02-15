@@ -1,3 +1,4 @@
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Accept;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Attachments;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar;
@@ -11,7 +12,6 @@ using GraphSdk.Users.Item.Calendar.CalendarView.Item.MultiValueExtendedPropertie
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.SingleValueExtendedProperties;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.SnoozeReminder;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.TentativelyAccept;
-using GraphSdk.Users.Item.CalendarView.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
