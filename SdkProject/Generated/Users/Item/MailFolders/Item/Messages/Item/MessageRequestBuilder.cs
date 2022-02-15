@@ -1,4 +1,4 @@
-using GraphSdk.Me.MailFolders.Item.Messages.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.MailFolders.Item.Messages.Item.Attachments;
 using GraphSdk.Users.Item.MailFolders.Item.Messages.Item.CalendarSharingMessage;
 using GraphSdk.Users.Item.MailFolders.Item.Messages.Item.Copy;

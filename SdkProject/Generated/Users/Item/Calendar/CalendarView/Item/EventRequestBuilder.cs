@@ -1,4 +1,4 @@
-using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Accept;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Attachments;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar;

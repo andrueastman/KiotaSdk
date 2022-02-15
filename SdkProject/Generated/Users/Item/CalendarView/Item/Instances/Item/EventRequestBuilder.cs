@@ -1,4 +1,4 @@
-using GraphSdk.Groups.Item.CalendarView.Item.Instances.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.CalendarView.Item.Instances.Item.Accept;
 using GraphSdk.Users.Item.CalendarView.Item.Instances.Item.Cancel;
 using GraphSdk.Users.Item.CalendarView.Item.Instances.Item.Decline;

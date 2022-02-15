@@ -1,4 +1,3 @@
-using GraphSdk.Groups.Item.Calendar.CalendarView.Item.Instances.Delta;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Delta;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.CalendarView.Item;
 using GraphSdk.Models.Microsoft.Graph;

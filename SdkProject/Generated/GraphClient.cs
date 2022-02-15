@@ -237,7 +237,7 @@ namespace GraphSdk {
             new ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The request adapter to use to execute the requests.</summary>
-        private IRequestAdapter RequestAdapter { get; set; }
+        private override IRequestAdapter RequestAdapter { get; set; }
         public RoleManagementRequestBuilder RoleManagement { get =>
             new RoleManagementRequestBuilder(PathParameters, RequestAdapter);
         }

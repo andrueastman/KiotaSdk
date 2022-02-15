@@ -1,4 +1,4 @@
-using GraphSdk.Me.MailFolders.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Copy;
 using GraphSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Move;
 using Microsoft.Kiota.Abstractions;

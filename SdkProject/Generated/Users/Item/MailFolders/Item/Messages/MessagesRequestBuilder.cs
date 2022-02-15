@@ -1,4 +1,4 @@
-using GraphSdk.Me.MailFolders.Item.Messages.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.MailFolders.Item.Messages.Delta;
 using GraphSdk.Users.Item.MailFolders.Item.Messages.Item;
 using Microsoft.Kiota.Abstractions;

@@ -1,3 +1,4 @@
+using GraphSdk.Users.Item.GetMailTips;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

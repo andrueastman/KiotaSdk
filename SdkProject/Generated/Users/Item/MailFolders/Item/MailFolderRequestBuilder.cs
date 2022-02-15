@@ -1,4 +1,4 @@
-using GraphSdk.Me.MailFolders.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.MailFolders.Item.ChildFolders;
 using GraphSdk.Users.Item.MailFolders.Item.Copy;
 using GraphSdk.Users.Item.MailFolders.Item.MessageRules;

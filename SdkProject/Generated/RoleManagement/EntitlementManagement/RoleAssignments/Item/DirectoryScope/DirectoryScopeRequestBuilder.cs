@@ -1,4 +1,4 @@
-using GraphSdk.Devices.GetByIds;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.DirectoryScope.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

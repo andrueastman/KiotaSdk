@@ -1,4 +1,3 @@
-using GraphSdk.Me.ContactFolders.Delta;
 using GraphSdk.Me.ContactFolders.Item.ChildFolders.Delta;
 using GraphSdk.Me.ContactFolders.Item.ChildFolders.Item;
 using GraphSdk.Models.Microsoft.Graph;

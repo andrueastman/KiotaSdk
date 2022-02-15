@@ -1,4 +1,3 @@
-using GraphSdk.Groups.Item.Calendar.CalendarView.Item.Instances.Delta;
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Accept;
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Cancel;
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Decline;
@@ -6,6 +5,7 @@ using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.DismissR
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.Forward;
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.SnoozeReminder;
 using GraphSdk.Groups.Item.CalendarView.Item.Calendar.CalendarView.Item.TentativelyAccept;
+using GraphSdk.Models.Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

@@ -1,4 +1,4 @@
-using GraphSdk.Me.ContactFolders.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.ContactFolders.Delta;
 using GraphSdk.Users.Item.ContactFolders.Item;
 using Microsoft.Kiota.Abstractions;

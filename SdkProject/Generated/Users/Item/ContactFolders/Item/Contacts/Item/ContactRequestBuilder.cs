@@ -1,4 +1,4 @@
-using GraphSdk.Me.Contacts.Delta;
+using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.Extensions;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.MultiValueExtendedProperties;
 using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Item.Photo;

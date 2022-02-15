@@ -1,3 +1,4 @@
+using GraphSdk.Users.Item.Outlook.SupportedTimeZones;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
