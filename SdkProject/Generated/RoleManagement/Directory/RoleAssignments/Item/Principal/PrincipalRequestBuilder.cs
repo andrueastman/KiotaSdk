@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Contacts.GetByIds;
 using GraphSdk.RoleManagement.Directory.RoleAssignments.Item.Principal.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;

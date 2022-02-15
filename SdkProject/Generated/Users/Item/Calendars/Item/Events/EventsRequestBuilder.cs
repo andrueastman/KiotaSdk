@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Groups.Item.Calendar.Events.Delta;
 using GraphSdk.Users.Item.Calendars.Item.Events.Delta;
 using GraphSdk.Users.Item.Calendars.Item.Events.Item;
 using Microsoft.Kiota.Abstractions;

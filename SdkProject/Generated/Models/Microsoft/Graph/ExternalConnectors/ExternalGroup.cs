@@ -10,7 +10,7 @@ namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
         /// <summary>The friendly name of the external group. Optional.</summary>
         public string DisplayName { get; set; }
         /// <summary>A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.</summary>
-        public List<GraphSdk.Models.Microsoft.Graph.Identity> Members { get; set; }
+        public List<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity> Members { get; set; }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
@@ -18,7 +18,7 @@ namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
             return new Dictionary<string, Action<T, IParseNode>>(base.GetFieldDeserializers<T>()) {
                 {"description", (o,n) => { (o as ExternalGroup).Description = n.GetStringValue(); } },
                 {"displayName", (o,n) => { (o as ExternalGroup).DisplayName = n.GetStringValue(); } },
-                {"members", (o,n) => { (o as ExternalGroup).Members = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Identity>().ToList(); } },
+                {"members", (o,n) => { (o as ExternalGroup).Members = n.GetCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity>().ToList(); } },
             };
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace GraphSdk.Models.Microsoft.Graph.ExternalConnectors {
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.Identity>("members", Members);
+            writer.WriteCollectionOfObjectValues<GraphSdk.Models.Microsoft.Graph.ExternalConnectors.Identity>("members", Members);
         }
     }
 }

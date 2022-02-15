@@ -1,5 +1,6 @@
 using GraphSdk.Applications.Item.ExtensionProperties.Item;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Contacts.GetAvailableExtensionProperties;
+using GraphSdk.Devices.GetAvailableExtensionProperties;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

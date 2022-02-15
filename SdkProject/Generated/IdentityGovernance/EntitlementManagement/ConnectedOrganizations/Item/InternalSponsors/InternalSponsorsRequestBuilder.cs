@@ -1,5 +1,5 @@
 using GraphSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.Item.InternalSponsors.Item;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.GetByIds;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

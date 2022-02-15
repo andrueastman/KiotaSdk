@@ -72,7 +72,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// </summary>
@@ -87,7 +87,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -108,7 +108,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -126,7 +126,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -137,7 +137,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -149,7 +149,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             return await RequestAdapter.SendAsync<Channel>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -161,7 +161,7 @@ namespace GraphSdk.Teams.Item.Channels.Item {
             var requestInfo = CreatePatchRequestInformation(body, h, o);
             await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The collection of channels & messages associated with the team.</summary>
+        /// <summary>The collection of channels and messages associated with the team.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Expand related entities</summary>
             public string[] Expand { get; set; }

@@ -1,5 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
-using GraphSdk.Sites.Item.Items.Item;
+using GraphSdk.Sites.Item.Items.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -13,16 +12,13 @@ namespace GraphSdk.Sites.Item.Items {
     public class ItemsRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the GraphSdk.sites.item.items.item collection</summary>
-        public BaseItemRequestBuilder this[string position] { get {
-            var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("baseItem_id", position);
-            return new BaseItemRequestBuilder(urlTplParams, RequestAdapter);
-        } }
         /// <summary>
         /// Instantiates a new ItemsRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -73,24 +69,6 @@ namespace GraphSdk.Sites.Item.Items {
         }
         /// <summary>
         /// Used to address any item contained in this site. This collection can't be enumerated.
-        /// <param name="body"></param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreatePostRequestInformation(BaseItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -100,19 +78,6 @@ namespace GraphSdk.Sites.Item.Items {
         public async Task<ItemsResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<ItemsResponse>(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// Used to address any item contained in this site. This collection can't be enumerated.
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task<BaseItem> PostAsync(BaseItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<BaseItem>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Used to address any item contained in this site. This collection can't be enumerated.</summary>
         public class GetQueryParameters : QueryParametersBase {

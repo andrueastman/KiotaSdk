@@ -1,6 +1,6 @@
 using GraphSdk.Groups.Item.Events.Item.Instances.Delta;
 using GraphSdk.Groups.Item.Events.Item.Instances.Item;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Calendar.CalendarView.Item.Instances.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

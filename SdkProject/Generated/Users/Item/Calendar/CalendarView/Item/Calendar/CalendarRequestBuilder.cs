@@ -1,6 +1,7 @@
 using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar.AllowedCalendarSharingRolesWithUser;
 using GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar.GetSchedule;
+using GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -17,6 +18,9 @@ namespace GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar {
         }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
@@ -60,21 +64,6 @@ namespace GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar {
         /// The calendar that contains the event. Navigation property. Read-only.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.DELETE,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// The calendar that contains the event. Navigation property. Read-only.
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
@@ -94,35 +83,6 @@ namespace GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar {
         }
         /// <summary>
         /// The calendar that contains the event. Navigation property. Read-only.
-        /// <param name="body"></param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// The calendar that contains the event. Navigation property. Read-only.
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// The calendar that contains the event. Navigation property. Read-only.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -132,19 +92,6 @@ namespace GraphSdk.Users.Item.Calendar.CalendarView.Item.Calendar {
         public async Task<GraphSdk.Models.Microsoft.Graph.Calendar> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Calendar>(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// The calendar that contains the event. Navigation property. Read-only.
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.Calendar body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The calendar that contains the event. Navigation property. Read-only.</summary>
         public class GetQueryParameters : QueryParametersBase {

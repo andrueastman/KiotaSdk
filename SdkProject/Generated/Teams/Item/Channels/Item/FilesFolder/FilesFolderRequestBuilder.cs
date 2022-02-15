@@ -1,5 +1,5 @@
 using GraphSdk.Models.Microsoft.Graph;
-using GraphSdk.Teams.Item.Channels.Item.FilesFolder.Content;
+using GraphSdk.Teams.Item.Channels.Item.FilesFolder.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 namespace GraphSdk.Teams.Item.Channels.Item.FilesFolder {
     /// <summary>Builds and executes requests for operations under \teams\{team-id}\channels\{channel-id}\filesFolder</summary>
     public class FilesFolderRequestBuilder {
-        public ContentRequestBuilder Content { get =>
-            new ContentRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
@@ -51,21 +51,6 @@ namespace GraphSdk.Teams.Item.Channels.Item.FilesFolder {
         /// Metadata for the location where the channel's files are stored.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreateDeleteRequestInformation(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.DELETE,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// Metadata for the location where the channel's files are stored.
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
         /// </summary>
         public RequestInformation CreateGetRequestInformation(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
@@ -85,35 +70,6 @@ namespace GraphSdk.Teams.Item.Channels.Item.FilesFolder {
         }
         /// <summary>
         /// Metadata for the location where the channel's files are stored.
-        /// <param name="body"></param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreatePatchRequestInformation(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.PATCH,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// Metadata for the location where the channel's files are stored.
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task DeleteAsync(Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            var requestInfo = CreateDeleteRequestInformation(h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// Metadata for the location where the channel's files are stored.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -123,19 +79,6 @@ namespace GraphSdk.Teams.Item.Channels.Item.FilesFolder {
         public async Task<GraphSdk.Models.Microsoft.Graph.DriveItem> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.DriveItem>(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// Metadata for the location where the channel's files are stored.
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task PatchAsync(GraphSdk.Models.Microsoft.Graph.DriveItem body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePatchRequestInformation(body, h, o);
-            await RequestAdapter.SendNoContentAsync(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>Metadata for the location where the channel's files are stored.</summary>
         public class GetQueryParameters : QueryParametersBase {

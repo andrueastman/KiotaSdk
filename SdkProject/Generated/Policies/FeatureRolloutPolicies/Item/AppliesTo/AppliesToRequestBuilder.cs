@@ -1,5 +1,5 @@
-using GraphSdk.Models.Microsoft.Graph;
 using GraphSdk.Policies.FeatureRolloutPolicies.Item.AppliesTo.Item;
+using GraphSdk.Users.GetByIds;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

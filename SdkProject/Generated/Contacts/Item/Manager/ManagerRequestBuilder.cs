@@ -1,5 +1,5 @@
 using GraphSdk.Contacts.Item.Manager.Ref;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Contracts.GetByIds;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

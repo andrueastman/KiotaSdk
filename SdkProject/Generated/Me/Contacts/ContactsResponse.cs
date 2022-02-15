@@ -1,4 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.ContactFolders.Item.Contacts.Delta;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

@@ -1,3 +1,4 @@
+using GraphSdk.Contacts.GetByIds;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
 using System.Collections.Generic;

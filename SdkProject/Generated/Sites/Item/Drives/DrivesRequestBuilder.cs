@@ -1,5 +1,4 @@
-using GraphSdk.Models.Microsoft.Graph;
-using GraphSdk.Sites.Item.Drives.Item;
+using GraphSdk.Sites.Item.Drives.Ref;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
@@ -13,16 +12,13 @@ namespace GraphSdk.Sites.Item.Drives {
     public class DrivesRequestBuilder {
         /// <summary>Path parameters for the request</summary>
         private Dictionary<string, object> PathParameters { get; set; }
+        public RefRequestBuilder Ref { get =>
+            new RefRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The request adapter to use to execute the requests.</summary>
         private IRequestAdapter RequestAdapter { get; set; }
         /// <summary>Url template to use to build the URL for the current request builder</summary>
         private string UrlTemplate { get; set; }
-        /// <summary>Gets an item from the GraphSdk.sites.item.drives.item collection</summary>
-        public DriveRequestBuilder this[string position] { get {
-            var urlTplParams = new Dictionary<string, object>(PathParameters);
-            urlTplParams.Add("drive_id", position);
-            return new DriveRequestBuilder(urlTplParams, RequestAdapter);
-        } }
         /// <summary>
         /// Instantiates a new DrivesRequestBuilder and sets the default values.
         /// <param name="pathParameters">Path parameters for the request</param>
@@ -73,24 +69,6 @@ namespace GraphSdk.Sites.Item.Drives {
         }
         /// <summary>
         /// The collection of drives (document libraries) under this site.
-        /// <param name="body"></param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// </summary>
-        public RequestInformation CreatePostRequestInformation(GraphSdk.Models.Microsoft.Graph.Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation {
-                HttpMethod = Method.POST,
-                UrlTemplate = UrlTemplate,
-                PathParameters = PathParameters,
-            };
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            h?.Invoke(requestInfo.Headers);
-            requestInfo.AddRequestOptions(o?.ToArray());
-            return requestInfo;
-        }
-        /// <summary>
-        /// The collection of drives (document libraries) under this site.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -100,19 +78,6 @@ namespace GraphSdk.Sites.Item.Drives {
         public async Task<DrivesResponse> GetAsync(Action<GetQueryParameters> q = default, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
             var requestInfo = CreateGetRequestInformation(q, h, o);
             return await RequestAdapter.SendAsync<DrivesResponse>(requestInfo, responseHandler, default, cancellationToken);
-        }
-        /// <summary>
-        /// The collection of drives (document libraries) under this site.
-        /// <param name="body"></param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="h">Request headers</param>
-        /// <param name="o">Request options</param>
-        /// <param name="responseHandler">Response handler to use in place of the default response handling provided by the core service</param>
-        /// </summary>
-        public async Task<GraphSdk.Models.Microsoft.Graph.Drive> PostAsync(GraphSdk.Models.Microsoft.Graph.Drive body, Action<IDictionary<string, string>> h = default, IEnumerable<IRequestOption> o = default, IResponseHandler responseHandler = default, CancellationToken cancellationToken = default) {
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = CreatePostRequestInformation(body, h, o);
-            return await RequestAdapter.SendAsync<GraphSdk.Models.Microsoft.Graph.Drive>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>The collection of drives (document libraries) under this site.</summary>
         public class GetQueryParameters : QueryParametersBase {

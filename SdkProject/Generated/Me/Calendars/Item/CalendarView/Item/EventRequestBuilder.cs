@@ -11,7 +11,7 @@ using GraphSdk.Me.Calendars.Item.CalendarView.Item.MultiValueExtendedProperties;
 using GraphSdk.Me.Calendars.Item.CalendarView.Item.SingleValueExtendedProperties;
 using GraphSdk.Me.Calendars.Item.CalendarView.Item.SnoozeReminder;
 using GraphSdk.Me.Calendars.Item.CalendarView.Item.TentativelyAccept;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Calendar.CalendarView.Item.Instances.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

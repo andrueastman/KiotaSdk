@@ -13,7 +13,7 @@ using GraphSdk.Me.MailFolders.Item.Messages.Item.ReplyAll;
 using GraphSdk.Me.MailFolders.Item.Messages.Item.Send;
 using GraphSdk.Me.MailFolders.Item.Messages.Item.SingleValueExtendedProperties;
 using GraphSdk.Me.MailFolders.Item.Messages.Item.Value;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.MailFolders.Item.Messages.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;

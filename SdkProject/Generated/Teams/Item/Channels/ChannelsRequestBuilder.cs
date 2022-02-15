@@ -52,7 +52,7 @@ namespace GraphSdk.Teams.Item.Channels {
             RequestAdapter = requestAdapter;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
         /// <param name="q">Request query parameters</param>
@@ -73,7 +73,7 @@ namespace GraphSdk.Teams.Item.Channels {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="body"></param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -97,7 +97,7 @@ namespace GraphSdk.Teams.Item.Channels {
             return new GetAllMessagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
         /// <param name="o">Request options</param>
@@ -109,7 +109,7 @@ namespace GraphSdk.Teams.Item.Channels {
             return await RequestAdapter.SendAsync<ChannelsResponse>(requestInfo, responseHandler, default, cancellationToken);
         }
         /// <summary>
-        /// The collection of channels & messages associated with the team.
+        /// The collection of channels and messages associated with the team.
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="h">Request headers</param>
@@ -121,7 +121,7 @@ namespace GraphSdk.Teams.Item.Channels {
             var requestInfo = CreatePostRequestInformation(body, h, o);
             return await RequestAdapter.SendAsync<Channel>(requestInfo, responseHandler, default, cancellationToken);
         }
-        /// <summary>The collection of channels & messages associated with the team.</summary>
+        /// <summary>The collection of channels and messages associated with the team.</summary>
         public class GetQueryParameters : QueryParametersBase {
             /// <summary>Include count of items</summary>
             public bool? Count { get; set; }

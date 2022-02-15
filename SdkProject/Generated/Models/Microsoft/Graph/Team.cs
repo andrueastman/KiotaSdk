@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace GraphSdk.Models.Microsoft.Graph {
     public class Team : Entity, IParsable {
-        /// <summary>The collection of channels & messages associated with the team.</summary>
+        /// <summary>The collection of channels and messages associated with the team.</summary>
         public List<Channel> Channels { get; set; }
         /// <summary>An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.</summary>
         public string Classification { get; set; }

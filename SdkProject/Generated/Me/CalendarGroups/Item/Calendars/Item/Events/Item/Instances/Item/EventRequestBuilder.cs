@@ -5,7 +5,7 @@ using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.Forward;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.SnoozeReminder;
 using GraphSdk.Me.CalendarGroups.Item.Calendars.Item.Events.Item.Instances.Item.TentativelyAccept;
-using GraphSdk.Models.Microsoft.Graph;
+using GraphSdk.Users.Item.Calendar.CalendarView.Item.Instances.Delta;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using System;
